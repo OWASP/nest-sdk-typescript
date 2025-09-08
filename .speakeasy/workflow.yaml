@@ -1,0 +1,19 @@
+workflowVersion: 1.0.0
+speakeasyVersion: latest
+sources:
+    nest-openapi:
+        inputs:
+            - location: https://nest.owasp.org/api/v1/openapi.json
+        transformations:
+            - removeUnused: true
+        registry:
+            location: registry.speakeasyapi.dev/owasp/nest/typescript-sdk
+targets:
+    nest-sdk-typescript:
+        target: typescript
+        source: nest-openapi
+        output: .
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/owasp/nest/typescript-code-samples
+            blocking: false
