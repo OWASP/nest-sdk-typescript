@@ -5,10 +5,11 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.613.0
   generationVersion: 2.696.0
-  releaseVersion: 0.0.2
-  configChecksum: 30756459dfc41397614d8612d49508e4
+  releaseVersion: 0.0.3
+  configChecksum: 5448cc4392a8c4c47cdeba77367db5af
   repoURL: https://github.com/OWASP/nest-sdk-typescript.git
   installationURL: https://github.com/OWASP/nest-sdk-typescript
+  published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
