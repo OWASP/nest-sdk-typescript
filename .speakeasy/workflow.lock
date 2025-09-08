@@ -1,0 +1,38 @@
+speakeasyVersion: 1.613.0
+sources:
+    nest-openapi:
+        sourceNamespace: typescript-sdk
+        sourceRevisionDigest: sha256:1b934a74d9d9e15c6aa606b153c0481afcb554e668c2815b60a7e4c063e32b71
+        sourceBlobDigest: sha256:6779161ad0f111ce135b6291c9f84e90d80a31fd80a98a576e4aa71151989144
+        tags:
+            - latest
+            - speakeasy-sdk-regen-1757372266
+            - 1.0.0
+targets:
+    nest-sdk-typescript:
+        source: nest-openapi
+        sourceNamespace: typescript-sdk
+        sourceRevisionDigest: sha256:1b934a74d9d9e15c6aa606b153c0481afcb554e668c2815b60a7e4c063e32b71
+        sourceBlobDigest: sha256:6779161ad0f111ce135b6291c9f84e90d80a31fd80a98a576e4aa71151989144
+        codeSamplesNamespace: typescript-code-samples
+        codeSamplesRevisionDigest: sha256:4e556604cbb7cdef93b291bd1c07f6bba8e5de2fa56620d44c9f555787c2bf3f
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        nest-openapi:
+            inputs:
+                - location: https://nest.owasp.org/api/v1/openapi.json
+            transformations:
+                - removeUnused: true
+            registry:
+                location: registry.speakeasyapi.dev/owasp/nest/typescript-sdk
+    targets:
+        nest-sdk-typescript:
+            target: typescript
+            source: nest-openapi
+            output: .
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/owasp/nest/typescript-code-samples
+                blocking: false
