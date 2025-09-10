@@ -13,12 +13,12 @@ Retrieve a paginated list of OWASP events.
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="list_events" method="get" path="/api/v1/events/" -->
+<!-- UsageSnippet language="typescript" operationID="list_events" method="get" path="/api/v0/events/" -->
 ```typescript
 import { Nest } from "owasp-nest";
 
 const nest = new Nest({
-  apiKeyAuth: process.env["NEST_API_KEY_AUTH"] ?? "",
+  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
 });
 
 async function run() {
@@ -41,7 +41,7 @@ import { eventsListEvents } from "owasp-nest/funcs/eventsListEvents.js";
 // Use `NestCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const nest = new NestCore({
-  apiKeyAuth: process.env["NEST_API_KEY_AUTH"] ?? "",
+  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
 });
 
 async function run() {

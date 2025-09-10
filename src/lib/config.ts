@@ -12,13 +12,13 @@ import { Params, pathToFunc } from "./url.js";
  */
 export const ServerList = [
   /**
-   * Production
+   * Staging
    */
-  "https://nest.owasp.org",
+  "https://nest.owasp.dev",
 ] as const;
 
 export type SDKOptions = {
-  apiKeyAuth?: string | (() => Promise<string>) | undefined;
+  apiKeyHeader?: string | (() => Promise<string>) | undefined;
 
   httpClient?: HTTPClient;
   /**
@@ -60,8 +60,8 @@ export function serverURLFromOptions(options: SDKOptions): URL | null {
 
 export const SDK_METADATA = {
   language: "typescript",
-  openapiDocVersion: "1.0.0",
-  sdkVersion: "0.0.3",
-  genVersion: "2.696.0",
-  userAgent: "speakeasy-sdk/typescript 0.0.3 2.696.0 1.0.0 owasp-nest",
+  openapiDocVersion: "0.2.0",
+  sdkVersion: "0.2.0",
+  genVersion: "2.698.0",
+  userAgent: "speakeasy-sdk/typescript 0.2.0 2.698.0 0.2.0 owasp-nest",
 } as const;

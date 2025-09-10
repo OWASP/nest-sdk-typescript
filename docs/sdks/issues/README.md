@@ -13,12 +13,12 @@ Retrieve a paginated list of GitHub issues.
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="list_issues" method="get" path="/api/v1/issues/" -->
+<!-- UsageSnippet language="typescript" operationID="list_issues" method="get" path="/api/v0/issues/" -->
 ```typescript
 import { Nest } from "owasp-nest";
 
 const nest = new Nest({
-  apiKeyAuth: process.env["NEST_API_KEY_AUTH"] ?? "",
+  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
 });
 
 async function run() {
@@ -41,7 +41,7 @@ import { issuesListIssues } from "owasp-nest/funcs/issuesListIssues.js";
 // Use `NestCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const nest = new NestCore({
-  apiKeyAuth: process.env["NEST_API_KEY_AUTH"] ?? "",
+  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
 });
 
 async function run() {
