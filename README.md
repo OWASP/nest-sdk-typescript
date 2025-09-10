@@ -87,7 +87,7 @@ For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
 import { Nest } from "owasp-nest";
 
 const nest = new Nest({
-  apiKeyAuth: process.env["NEST_API_KEY_AUTH"] ?? "",
+  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
 });
 
 async function run() {
@@ -111,17 +111,16 @@ run();
 
 This SDK supports the following security scheme globally:
 
-| Name         | Type   | Scheme  | Environment Variable |
-| ------------ | ------ | ------- | -------------------- |
-| `apiKeyAuth` | apiKey | API key | `NEST_API_KEY_AUTH`  |
+| Name           | Type   | Scheme  | Environment Variable  |
+| -------------- | ------ | ------- | --------------------- |
+| `apiKeyHeader` | apiKey | API key | `NEST_API_KEY_HEADER` |
 
-To authenticate with the API the `apiKeyAuth` parameter must be set when initializing the SDK client instance. For example:
-
+To authenticate with the API the `apiKeyHeader` parameter must be set when initializing the SDK client instance. For example:
 ```typescript
 import { Nest } from "owasp-nest";
 
 const nest = new Nest({
-  apiKeyAuth: process.env["NEST_API_KEY_AUTH"] ?? "",
+  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
 });
 
 async function run() {
@@ -167,6 +166,7 @@ run();
 
 * [listIssues](docs/sdks/issues/README.md#listissues) - List issues
 
+
 ### [projects](docs/sdks/projects/README.md)
 
 * [listProjects](docs/sdks/projects/README.md#listprojects) - List projects
@@ -197,17 +197,17 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 <summary>Available standalone functions</summary>
 
-* [`chaptersGetChapter`](docs/sdks/chapters/README.md#getchapter) - Get chapter
-* [`chaptersListChapters`](docs/sdks/chapters/README.md#listchapters) - List chapters
-* [`committeesListCommittees`](docs/sdks/committees/README.md#listcommittees) - List committees
-* [`communityGetMember`](docs/sdks/community/README.md#getmember) - Get member by login
-* [`communityListMembers`](docs/sdks/community/README.md#listmembers) - List members
-* [`communityListOrganizations`](docs/sdks/community/README.md#listorganizations) - List organizations
-* [`eventsListEvents`](docs/sdks/events/README.md#listevents) - List events
-* [`issuesListIssues`](docs/sdks/issues/README.md#listissues) - List issues
-* [`projectsListProjects`](docs/sdks/projects/README.md#listprojects) - List projects
-* [`releasesListReleases`](docs/sdks/releases/README.md#listreleases) - List releases
-* [`repositoriesListRepositories`](docs/sdks/repositories/README.md#listrepositories) - List repositories
+- [`chaptersGetChapter`](docs/sdks/chapters/README.md#getchapter) - Get chapter
+- [`chaptersListChapters`](docs/sdks/chapters/README.md#listchapters) - List chapters
+- [`committeesListCommittees`](docs/sdks/committees/README.md#listcommittees) - List committees
+- [`communityGetMember`](docs/sdks/community/README.md#getmember) - Get member by login
+- [`communityListMembers`](docs/sdks/community/README.md#listmembers) - List members
+- [`communityListOrganizations`](docs/sdks/community/README.md#listorganizations) - List organizations
+- [`eventsListEvents`](docs/sdks/events/README.md#listevents) - List events
+- [`issuesListIssues`](docs/sdks/issues/README.md#listissues) - List issues
+- [`projectsListProjects`](docs/sdks/projects/README.md#listprojects) - List projects
+- [`releasesListReleases`](docs/sdks/releases/README.md#listreleases) - List releases
+- [`repositoriesListRepositories`](docs/sdks/repositories/README.md#listrepositories) - List repositories
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
@@ -218,12 +218,11 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 Some of the endpoints in this SDK support retries.  If you use the SDK without any configuration, it will fall back to the default retry strategy provided by the API.  However, the default retry strategy can be overridden on a per-operation basis, or across the entire SDK.
 
 To change the default retry strategy for a single API call, simply provide a retryConfig object to the call:
-
 ```typescript
 import { Nest } from "owasp-nest";
 
 const nest = new Nest({
-  apiKeyAuth: process.env["NEST_API_KEY_AUTH"] ?? "",
+  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
 });
 
 async function run() {
@@ -251,7 +250,6 @@ run();
 ```
 
 If you'd like to override the default retry strategy for all operations that support retries, you can provide a retryConfig at SDK initialization:
-
 ```typescript
 import { Nest } from "owasp-nest";
 
@@ -266,7 +264,7 @@ const nest = new Nest({
     },
     retryConnectionErrors: false,
   },
-  apiKeyAuth: process.env["NEST_API_KEY_AUTH"] ?? "",
+  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
 });
 
 async function run() {
@@ -298,13 +296,12 @@ run();
 | `error.data$`       |            | Optional. Some errors may contain structured data. [See Error Classes](#error-classes). |
 
 ### Example
-
 ```typescript
 import { Nest } from "owasp-nest";
 import * as errors from "owasp-nest/models/errors";
 
 const nest = new Nest({
-  apiKeyAuth: process.env["NEST_API_KEY_AUTH"] ?? "",
+  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
 });
 
 async function run() {
@@ -335,9 +332,7 @@ run();
 ```
 
 ### Error Classes
-
 **Primary error:**
-
 * [`NestError`](./src/models/errors/nesterror.ts): The base class for HTTP error responses.
 
 <details><summary>Less common errors (8)</summary>
@@ -345,15 +340,14 @@ run();
 <br />
 
 **Network errors:**
-
 * [`ConnectionError`](./src/models/errors/httpclienterrors.ts): HTTP client was unable to make a request to a server.
 * [`RequestTimeoutError`](./src/models/errors/httpclienterrors.ts): HTTP request timed out due to an AbortSignal signal.
 * [`RequestAbortedError`](./src/models/errors/httpclienterrors.ts): HTTP request was aborted by the client.
 * [`InvalidRequestError`](./src/models/errors/httpclienterrors.ts): Any input used to create a request is invalid.
 * [`UnexpectedClientError`](./src/models/errors/httpclienterrors.ts): Unrecognised or unexpected error.
 
-**Inherit from [`NestError`](./src/models/errors/nesterror.ts)**:
 
+**Inherit from [`NestError`](./src/models/errors/nesterror.ts)**:
 * [`ChapterErrorResponse`](./src/models/errors/chaptererrorresponse.ts): Chapter error response schema. Status code `404`. Applicable to 1 of 11 methods.*
 * [`MemberErrorResponse`](./src/models/errors/membererrorresponse.ts): Member error response schema. Status code `404`. Applicable to 1 of 11 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
@@ -369,13 +363,12 @@ run();
 ### Override Server URL Per-Client
 
 The default server can be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
-
 ```typescript
 import { Nest } from "owasp-nest";
 
 const nest = new Nest({
-  serverURL: "https://nest.owasp.org",
-  apiKeyAuth: process.env["NEST_API_KEY_AUTH"] ?? "",
+  serverURL: "https://nest.owasp.dev",
+  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
 });
 
 async function run() {

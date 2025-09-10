@@ -15,12 +15,12 @@ Retrieve a paginated list of OWASP community members.
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="list_members" method="get" path="/api/v1/members/" -->
+<!-- UsageSnippet language="typescript" operationID="list_members" method="get" path="/api/v0/members/" -->
 ```typescript
 import { Nest } from "owasp-nest";
 
 const nest = new Nest({
-  apiKeyAuth: process.env["NEST_API_KEY_AUTH"] ?? "",
+  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
 });
 
 async function run() {
@@ -45,7 +45,7 @@ import { communityListMembers } from "owasp-nest/funcs/communityListMembers.js";
 // Use `NestCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const nest = new NestCore({
-  apiKeyAuth: process.env["NEST_API_KEY_AUTH"] ?? "",
+  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
 });
 
 async function run() {
@@ -88,12 +88,12 @@ Retrieve a member by login.
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="get_member" method="get" path="/api/v1/members/{login}" -->
+<!-- UsageSnippet language="typescript" operationID="get_member" method="get" path="/api/v0/members/{login}" -->
 ```typescript
 import { Nest } from "owasp-nest";
 
 const nest = new Nest({
-  apiKeyAuth: process.env["NEST_API_KEY_AUTH"] ?? "",
+  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
 });
 
 async function run() {
@@ -118,7 +118,7 @@ import { communityGetMember } from "owasp-nest/funcs/communityGetMember.js";
 // Use `NestCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const nest = new NestCore({
-  apiKeyAuth: process.env["NEST_API_KEY_AUTH"] ?? "",
+  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
 });
 
 async function run() {
@@ -162,12 +162,12 @@ Retrieve a paginated list of GitHub organizations.
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="list_organizations" method="get" path="/api/v1/organizations/" -->
+<!-- UsageSnippet language="typescript" operationID="list_organizations" method="get" path="/api/v0/organizations/" -->
 ```typescript
 import { Nest } from "owasp-nest";
 
 const nest = new Nest({
-  apiKeyAuth: process.env["NEST_API_KEY_AUTH"] ?? "",
+  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
 });
 
 async function run() {
@@ -192,7 +192,7 @@ import { communityListOrganizations } from "owasp-nest/funcs/communityListOrgani
 // Use `NestCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const nest = new NestCore({
-  apiKeyAuth: process.env["NEST_API_KEY_AUTH"] ?? "",
+  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
 });
 
 async function run() {

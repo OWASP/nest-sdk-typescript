@@ -247,7 +247,7 @@ export function resolveGlobalSecurity(
       {
         fieldName: "X-API-Key",
         type: "apiKey:header",
-        value: security?.apiKeyAuth ?? env().NEST_API_KEY_AUTH,
+        value: security?.apiKeyHeader ?? env().NEST_API_KEY_HEADER,
       },
     ],
   );

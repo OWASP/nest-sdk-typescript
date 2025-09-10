@@ -13,12 +13,12 @@ Retrieve a paginated list of OWASP projects.
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="list_projects" method="get" path="/api/v1/projects/" -->
+<!-- UsageSnippet language="typescript" operationID="list_projects" method="get" path="/api/v0/projects/" -->
 ```typescript
 import { Nest } from "owasp-nest";
 
 const nest = new Nest({
-  apiKeyAuth: process.env["NEST_API_KEY_AUTH"] ?? "",
+  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
 });
 
 async function run() {
@@ -41,7 +41,7 @@ import { projectsListProjects } from "owasp-nest/funcs/projectsListProjects.js";
 // Use `NestCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const nest = new NestCore({
-  apiKeyAuth: process.env["NEST_API_KEY_AUTH"] ?? "",
+  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
 });
 
 async function run() {

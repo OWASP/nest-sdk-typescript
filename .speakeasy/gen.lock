@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 89dd6fea-30bf-42cc-8446-2c3015a2c4ba
 management:
-  docChecksum: dec60afacf47f0e4f8f08103ec1723c3
-  docVersion: 1.0.0
-  speakeasyVersion: 1.613.0
-  generationVersion: 2.696.0
-  releaseVersion: 0.0.3
-  configChecksum: 5448cc4392a8c4c47cdeba77367db5af
+  docChecksum: 81544a2a004932e72bd88dd847dd4c7c
+  docVersion: 0.2.0
+  speakeasyVersion: 1.615.0
+  generationVersion: 2.698.0
+  releaseVersion: 0.2.0
+  configChecksum: 516e30bedb03fce7002fc332332606e1
   repoURL: https://github.com/OWASP/nest-sdk-typescript.git
   installationURL: https://github.com/OWASP/nest-sdk-typescript
   published: true

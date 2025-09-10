@@ -3,7 +3,7 @@
 import { Nest } from "owasp-nest";
 
 const nest = new Nest({
-  apiKeyAuth: process.env["NEST_API_KEY_AUTH"] ?? "",
+  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
 });
 
 async function run() {

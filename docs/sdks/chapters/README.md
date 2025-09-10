@@ -14,12 +14,12 @@ Retrieve a paginated list of OWASP chapters.
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="list_chapters" method="get" path="/api/v1/chapters/" -->
+<!-- UsageSnippet language="typescript" operationID="list_chapters" method="get" path="/api/v0/chapters/" -->
 ```typescript
 import { Nest } from "owasp-nest";
 
 const nest = new Nest({
-  apiKeyAuth: process.env["NEST_API_KEY_AUTH"] ?? "",
+  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
 });
 
 async function run() {
@@ -45,7 +45,7 @@ import { chaptersListChapters } from "owasp-nest/funcs/chaptersListChapters.js";
 // Use `NestCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const nest = new NestCore({
-  apiKeyAuth: process.env["NEST_API_KEY_AUTH"] ?? "",
+  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
 });
 
 async function run() {
@@ -89,12 +89,12 @@ Retrieve chapter details.
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="get_chapter" method="get" path="/api/v1/chapters/{key}" -->
+<!-- UsageSnippet language="typescript" operationID="get_chapter" method="get" path="/api/v0/chapters/{key}" -->
 ```typescript
 import { Nest } from "owasp-nest";
 
 const nest = new Nest({
-  apiKeyAuth: process.env["NEST_API_KEY_AUTH"] ?? "",
+  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
 });
 
 async function run() {
@@ -119,7 +119,7 @@ import { chaptersGetChapter } from "owasp-nest/funcs/chaptersGetChapter.js";
 // Use `NestCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const nest = new NestCore({
-  apiKeyAuth: process.env["NEST_API_KEY_AUTH"] ?? "",
+  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
 });
 
 async function run() {

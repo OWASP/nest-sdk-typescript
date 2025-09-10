@@ -7,13 +7,13 @@ import { dlv } from "./dlv.js";
 import * as z from "zod";
 
 export interface Env {
-  NEST_API_KEY_AUTH?: string | undefined;
+  NEST_API_KEY_HEADER?: string | undefined;
 
   NEST_DEBUG?: boolean | undefined;
 }
 
 export const envSchema: z.ZodType<Env, z.ZodTypeDef, unknown> = z.object({
-  NEST_API_KEY_AUTH: z.string().optional(),
+  NEST_API_KEY_HEADER: z.string().optional(),
 
   NEST_DEBUG: z.coerce.boolean().optional(),
 });
