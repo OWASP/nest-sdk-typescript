@@ -27,19 +27,19 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Get chapter
+ * Get committee
  *
  * @remarks
- * Retrieve chapter details.
+ * Retrieve committee details.
  */
-export function chaptersGetChapter(
+export function committeesAppsApiRestV0CommitteeGetChapter(
   client: NestCore,
-  request: operations.GetChapterRequest,
+  request: operations.AppsApiRestV0CommitteeGetChapterRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.ChapterSchema,
-    | errors.ChapterErrorResponse
+    models.CommitteeSchema,
+    | errors.CommitteeErrorResponse
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -59,13 +59,13 @@ export function chaptersGetChapter(
 
 async function $do(
   client: NestCore,
-  request: operations.GetChapterRequest,
+  request: operations.AppsApiRestV0CommitteeGetChapterRequest,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      models.ChapterSchema,
-      | errors.ChapterErrorResponse
+      models.CommitteeSchema,
+      | errors.CommitteeErrorResponse
       | NestError
       | ResponseValidationError
       | ConnectionError
@@ -80,7 +80,10 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => operations.GetChapterRequest$outboundSchema.parse(value),
+    (value) =>
+      operations.AppsApiRestV0CommitteeGetChapterRequest$outboundSchema.parse(
+        value,
+      ),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -90,13 +93,13 @@ async function $do(
   const body = null;
 
   const pathParams = {
-    key: encodeSimple("key", payload.key, {
+    committee_id: encodeSimple("committee_id", payload.committee_id, {
       explode: false,
       charEncoding: "percent",
     }),
   };
 
-  const path = pathToFunc("/api/v0/chapters/{key}")(pathParams);
+  const path = pathToFunc("/api/v0/committees/{committee_id}")(pathParams);
 
   const headers = new Headers(compactMap({
     Accept: "application/json",
@@ -109,7 +112,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "get_chapter",
+    operationID: "apps_api_rest_v0_committee_get_chapter",
     oAuth2Scopes: [],
 
     resolvedSecurity: requestSecurity,
@@ -152,8 +155,8 @@ async function $do(
   };
 
   const [result] = await M.match<
-    models.ChapterSchema,
-    | errors.ChapterErrorResponse
+    models.CommitteeSchema,
+    | errors.CommitteeErrorResponse
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -163,8 +166,8 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.ChapterSchema$inboundSchema),
-    M.jsonErr(404, errors.ChapterErrorResponse$inboundSchema),
+    M.json(200, models.CommitteeSchema$inboundSchema),
+    M.jsonErr(404, errors.CommitteeErrorResponse$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });

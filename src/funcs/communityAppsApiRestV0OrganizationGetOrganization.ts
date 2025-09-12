@@ -3,7 +3,7 @@
  */
 
 import { NestCore } from "../core.js";
-import { encodeFormQuery } from "../lib/encodings.js";
+import { encodeSimple } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
@@ -17,6 +17,7 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
+import * as errors from "../models/errors/index.js";
 import { NestError } from "../models/errors/nesterror.js";
 import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
@@ -26,18 +27,19 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * List events
+ * Get organization
  *
  * @remarks
- * Retrieve a paginated list of OWASP events.
+ * Retrieve project details.
  */
-export function eventsListEvents(
+export function communityAppsApiRestV0OrganizationGetOrganization(
   client: NestCore,
-  request?: operations.ListEventsRequest | undefined,
+  request: operations.AppsApiRestV0OrganizationGetOrganizationRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.PagedEventSchema,
+    models.OrganizationSchema,
+    | errors.OrganizationErrorResponse
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -57,12 +59,13 @@ export function eventsListEvents(
 
 async function $do(
   client: NestCore,
-  request?: operations.ListEventsRequest | undefined,
+  request: operations.AppsApiRestV0OrganizationGetOrganizationRequest,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      models.PagedEventSchema,
+      models.OrganizationSchema,
+      | errors.OrganizationErrorResponse
       | NestError
       | ResponseValidationError
       | ConnectionError
@@ -78,7 +81,8 @@ async function $do(
   const parsed = safeParse(
     request,
     (value) =>
-      operations.ListEventsRequest$outboundSchema.optional().parse(value),
+      operations.AppsApiRestV0OrganizationGetOrganizationRequest$outboundSchema
+        .parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -87,13 +91,16 @@ async function $do(
   const payload = parsed.value;
   const body = null;
 
-  const path = pathToFunc("/api/v0/events/")();
+  const pathParams = {
+    organization_id: encodeSimple("organization_id", payload.organization_id, {
+      explode: false,
+      charEncoding: "percent",
+    }),
+  };
 
-  const query = encodeFormQuery({
-    "ordering": payload?.ordering,
-    "page": payload?.page,
-    "page_size": payload?.page_size,
-  });
+  const path = pathToFunc("/api/v0/organizations/{organization_id}")(
+    pathParams,
+  );
 
   const headers = new Headers(compactMap({
     Accept: "application/json",
@@ -106,7 +113,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "list_events",
+    operationID: "apps_api_rest_v0_organization_get_organization",
     oAuth2Scopes: [],
 
     resolvedSecurity: requestSecurity,
@@ -124,7 +131,6 @@ async function $do(
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
-    query: query,
     body: body,
     userAgent: client._options.userAgent,
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
@@ -136,7 +142,7 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["4XX", "5XX"],
+    errorCodes: ["404", "4XX", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -145,8 +151,13 @@ async function $do(
   }
   const response = doResult.value;
 
+  const responseFields = {
+    HttpMeta: { Response: response, Request: req },
+  };
+
   const [result] = await M.match<
-    models.PagedEventSchema,
+    models.OrganizationSchema,
+    | errors.OrganizationErrorResponse
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -156,10 +167,11 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.PagedEventSchema$inboundSchema),
+    M.json(200, models.OrganizationSchema$inboundSchema),
+    M.jsonErr(404, errors.OrganizationErrorResponse$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
-  )(response, req);
+  )(response, req, { extraFields: responseFields });
   if (!result.ok) {
     return [result, { status: "complete", request: req, response }];
   }

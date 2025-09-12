@@ -31,9 +31,11 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Retrieve a paginated list of GitHub organizations.
  */
-export function communityListOrganizations(
+export function communityAppsApiRestV0OrganizationListOrganization(
   client: NestCore,
-  request?: operations.ListOrganizationsRequest | undefined,
+  request?:
+    | operations.AppsApiRestV0OrganizationListOrganizationRequest
+    | undefined,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -57,7 +59,9 @@ export function communityListOrganizations(
 
 async function $do(
   client: NestCore,
-  request?: operations.ListOrganizationsRequest | undefined,
+  request?:
+    | operations.AppsApiRestV0OrganizationListOrganizationRequest
+    | undefined,
   options?: RequestOptions,
 ): Promise<
   [
@@ -78,9 +82,8 @@ async function $do(
   const parsed = safeParse(
     request,
     (value) =>
-      operations.ListOrganizationsRequest$outboundSchema.optional().parse(
-        value,
-      ),
+      operations.AppsApiRestV0OrganizationListOrganizationRequest$outboundSchema
+        .optional().parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -109,7 +112,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "list_organizations",
+    operationID: "apps_api_rest_v0_organization_list_organization",
     oAuth2Scopes: [],
 
     resolvedSecurity: requestSecurity,

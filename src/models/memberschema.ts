@@ -16,7 +16,6 @@ export type MemberSchema = {
   bio: string;
   company: string;
   createdAt: Date;
-  email: string;
   followersCount: number;
   followingCount: number;
   location: string;
@@ -39,7 +38,6 @@ export const MemberSchema$inboundSchema: z.ZodType<
   bio: z.string(),
   company: z.string(),
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  email: z.string(),
   followers_count: z.number().int(),
   following_count: z.number().int(),
   location: z.string(),
@@ -68,7 +66,6 @@ export type MemberSchema$Outbound = {
   bio: string;
   company: string;
   created_at: string;
-  email: string;
   followers_count: number;
   following_count: number;
   location: string;
@@ -91,7 +88,6 @@ export const MemberSchema$outboundSchema: z.ZodType<
   bio: z.string(),
   company: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
-  email: z.string(),
   followersCount: z.number().int(),
   followingCount: z.number().int(),
   location: z.string(),

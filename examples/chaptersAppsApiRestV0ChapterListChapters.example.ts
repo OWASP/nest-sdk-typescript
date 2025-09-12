@@ -8,7 +8,7 @@ dotenv.config();
  * Example usage of the owasp-nest SDK
  *
  * To run this example from the examples directory:
- * npm run build && npx tsx chaptersListChapters.example.ts
+ * npm run build && npx tsx chaptersAppsApiRestV0ChapterListChapters.example.ts
  */
 
 import { Nest } from "owasp-nest";
@@ -18,10 +18,7 @@ const nest = new Nest({
 });
 
 async function main() {
-  const result = await nest.chapters.listChapters({
-    country: "India",
-    region: "Asia",
-  });
+  const result = await nest.chapters.appsApiRestV0ChapterListChapters({});
 
   console.log(result);
 }
