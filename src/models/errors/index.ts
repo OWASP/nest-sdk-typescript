@@ -3,8 +3,11 @@
  */
 
 export * from "./chaptererrorresponse.js";
+export * from "./committeeerrorresponse.js";
 export * from "./httpclienterrors.js";
 export * from "./membererrorresponse.js";
 export * from "./nestapierror.js";
+export * from "./organizationerrorresponse.js";
+export * from "./projecterrorresponse.js";
 export * from "./responsevalidationerror.js";
 export * from "./sdkvalidationerror.js";

@@ -12,17 +12,16 @@ let value: MemberSchema = {
   bio: "<value>",
   company: "Johnson, Fahey and Cormier",
   createdAt: new Date("2024-09-27T09:05:33.337Z"),
-  email: "Cecelia.Turcotte@yahoo.com",
-  followersCount: 941032,
-  followingCount: 690225,
+  followersCount: 586019,
+  followingCount: 169983,
   location: "<value>",
-  login: "Raquel_Ruecker",
+  login: "Henri47",
   name: "<value>",
-  publicRepositoriesCount: 485006,
+  publicRepositoriesCount: 690225,
   title: "<value>",
   twitterUsername: "<value>",
-  updatedAt: new Date("2023-09-05T06:02:12.359Z"),
-  url: "https://known-section.net/",
+  updatedAt: new Date("2025-06-11T01:30:27.518Z"),
+  url: "https://snappy-loaf.biz/",
 };
 ```
 
@@ -34,7 +33,6 @@ let value: MemberSchema = {
 | `bio`                                                                                         | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `company`                                                                                     | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `createdAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `email`                                                                                       | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `followersCount`                                                                              | *number*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `followingCount`                                                                              | *number*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `location`                                                                                    | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |

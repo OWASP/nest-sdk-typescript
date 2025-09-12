@@ -3,7 +3,7 @@
  */
 
 import { NestCore } from "../core.js";
-import { encodeSimple } from "../lib/encodings.js";
+import { encodeFormQuery } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
@@ -17,7 +17,6 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
-import * as errors from "../models/errors/index.js";
 import { NestError } from "../models/errors/nesterror.js";
 import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
@@ -27,19 +26,18 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Get member by login
+ * List projects
  *
  * @remarks
- * Retrieve a member by login.
+ * Retrieve a paginated list of OWASP projects.
  */
-export function communityGetMember(
+export function projectsAppsApiRestV0ProjectListProjects(
   client: NestCore,
-  request: operations.GetMemberRequest,
+  request?: operations.AppsApiRestV0ProjectListProjectsRequest | undefined,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.MemberSchema,
-    | errors.MemberErrorResponse
+    models.PagedProjectSchema,
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -59,13 +57,12 @@ export function communityGetMember(
 
 async function $do(
   client: NestCore,
-  request: operations.GetMemberRequest,
+  request?: operations.AppsApiRestV0ProjectListProjectsRequest | undefined,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      models.MemberSchema,
-      | errors.MemberErrorResponse
+      models.PagedProjectSchema,
       | NestError
       | ResponseValidationError
       | ConnectionError
@@ -80,7 +77,9 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => operations.GetMemberRequest$outboundSchema.parse(value),
+    (value) =>
+      operations.AppsApiRestV0ProjectListProjectsRequest$outboundSchema
+        .optional().parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -89,14 +88,14 @@ async function $do(
   const payload = parsed.value;
   const body = null;
 
-  const pathParams = {
-    login: encodeSimple("login", payload.login, {
-      explode: false,
-      charEncoding: "percent",
-    }),
-  };
+  const path = pathToFunc("/api/v0/projects/")();
 
-  const path = pathToFunc("/api/v0/members/{login}")(pathParams);
+  const query = encodeFormQuery({
+    "level": payload?.level,
+    "ordering": payload?.ordering,
+    "page": payload?.page,
+    "page_size": payload?.page_size,
+  });
 
   const headers = new Headers(compactMap({
     Accept: "application/json",
@@ -109,7 +108,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "get_member",
+    operationID: "apps_api_rest_v0_project_list_projects",
     oAuth2Scopes: [],
 
     resolvedSecurity: requestSecurity,
@@ -127,6 +126,7 @@ async function $do(
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
+    query: query,
     body: body,
     userAgent: client._options.userAgent,
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
@@ -138,7 +138,7 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["404", "4XX", "5XX"],
+    errorCodes: ["4XX", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -147,13 +147,8 @@ async function $do(
   }
   const response = doResult.value;
 
-  const responseFields = {
-    HttpMeta: { Response: response, Request: req },
-  };
-
   const [result] = await M.match<
-    models.MemberSchema,
-    | errors.MemberErrorResponse
+    models.PagedProjectSchema,
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -163,11 +158,10 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.MemberSchema$inboundSchema),
-    M.jsonErr(404, errors.MemberErrorResponse$inboundSchema),
+    M.json(200, models.PagedProjectSchema$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
-  )(response, req, { extraFields: responseFields });
+  )(response, req);
   if (!result.ok) {
     return [result, { status: "complete", request: req, response }];
   }

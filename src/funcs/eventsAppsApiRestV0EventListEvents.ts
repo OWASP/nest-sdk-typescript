@@ -26,18 +26,18 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * List projects
+ * List events
  *
  * @remarks
- * Retrieve a paginated list of OWASP projects.
+ * Retrieve a paginated list of OWASP events.
  */
-export function projectsListProjects(
+export function eventsAppsApiRestV0EventListEvents(
   client: NestCore,
-  request?: operations.ListProjectsRequest | undefined,
+  request?: operations.AppsApiRestV0EventListEventsRequest | undefined,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.PagedProjectSchema,
+    models.PagedEventSchema,
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -57,12 +57,12 @@ export function projectsListProjects(
 
 async function $do(
   client: NestCore,
-  request?: operations.ListProjectsRequest | undefined,
+  request?: operations.AppsApiRestV0EventListEventsRequest | undefined,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      models.PagedProjectSchema,
+      models.PagedEventSchema,
       | NestError
       | ResponseValidationError
       | ConnectionError
@@ -78,7 +78,8 @@ async function $do(
   const parsed = safeParse(
     request,
     (value) =>
-      operations.ListProjectsRequest$outboundSchema.optional().parse(value),
+      operations.AppsApiRestV0EventListEventsRequest$outboundSchema.optional()
+        .parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -87,10 +88,9 @@ async function $do(
   const payload = parsed.value;
   const body = null;
 
-  const path = pathToFunc("/api/v0/projects/")();
+  const path = pathToFunc("/api/v0/events/")();
 
   const query = encodeFormQuery({
-    "level": payload?.level,
     "ordering": payload?.ordering,
     "page": payload?.page,
     "page_size": payload?.page_size,
@@ -107,7 +107,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "list_projects",
+    operationID: "apps_api_rest_v0_event_list_events",
     oAuth2Scopes: [],
 
     resolvedSecurity: requestSecurity,
@@ -147,7 +147,7 @@ async function $do(
   const response = doResult.value;
 
   const [result] = await M.match<
-    models.PagedProjectSchema,
+    models.PagedEventSchema,
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -157,7 +157,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.PagedProjectSchema$inboundSchema),
+    M.json(200, models.PagedEventSchema$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req);

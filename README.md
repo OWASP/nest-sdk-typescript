@@ -91,10 +91,7 @@ const nest = new Nest({
 });
 
 async function run() {
-  const result = await nest.chapters.listChapters({
-    country: "India",
-    region: "Asia",
-  });
+  const result = await nest.chapters.appsApiRestV0ChapterListChapters({});
 
   console.log(result);
 }
@@ -124,10 +121,7 @@ const nest = new Nest({
 });
 
 async function run() {
-  const result = await nest.chapters.listChapters({
-    country: "India",
-    region: "Asia",
-  });
+  const result = await nest.chapters.appsApiRestV0ChapterListChapters({});
 
   console.log(result);
 }
@@ -145,22 +139,24 @@ run();
 
 ### [chapters](docs/sdks/chapters/README.md)
 
-* [listChapters](docs/sdks/chapters/README.md#listchapters) - List chapters
-* [getChapter](docs/sdks/chapters/README.md#getchapter) - Get chapter
+* [appsApiRestV0ChapterListChapters](docs/sdks/chapters/README.md#appsapirestv0chapterlistchapters) - List chapters
+* [appsApiRestV0ChapterGetChapter](docs/sdks/chapters/README.md#appsapirestv0chaptergetchapter) - Get chapter
 
 ### [committees](docs/sdks/committees/README.md)
 
 * [listCommittees](docs/sdks/committees/README.md#listcommittees) - List committees
+* [appsApiRestV0CommitteeGetChapter](docs/sdks/committees/README.md#appsapirestv0committeegetchapter) - Get committee
 
 ### [community](docs/sdks/community/README.md)
 
 * [listMembers](docs/sdks/community/README.md#listmembers) - List members
-* [getMember](docs/sdks/community/README.md#getmember) - Get member by login
-* [listOrganizations](docs/sdks/community/README.md#listorganizations) - List organizations
+* [appsApiRestV0MemberGetMember](docs/sdks/community/README.md#appsapirestv0membergetmember) - Get member
+* [appsApiRestV0OrganizationListOrganization](docs/sdks/community/README.md#appsapirestv0organizationlistorganization) - List organizations
+* [appsApiRestV0OrganizationGetOrganization](docs/sdks/community/README.md#appsapirestv0organizationgetorganization) - Get organization
 
 ### [events](docs/sdks/events/README.md)
 
-* [listEvents](docs/sdks/events/README.md#listevents) - List events
+* [appsApiRestV0EventListEvents](docs/sdks/events/README.md#appsapirestv0eventlistevents) - List events
 
 ### [issues](docs/sdks/issues/README.md)
 
@@ -169,7 +165,8 @@ run();
 
 ### [projects](docs/sdks/projects/README.md)
 
-* [listProjects](docs/sdks/projects/README.md#listprojects) - List projects
+* [appsApiRestV0ProjectListProjects](docs/sdks/projects/README.md#appsapirestv0projectlistprojects) - List projects
+* [appsApiRestV0ProjectGetProject](docs/sdks/projects/README.md#appsapirestv0projectgetproject) - Get project
 
 ### [releases](docs/sdks/releases/README.md)
 
@@ -197,15 +194,18 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 <summary>Available standalone functions</summary>
 
-- [`chaptersGetChapter`](docs/sdks/chapters/README.md#getchapter) - Get chapter
-- [`chaptersListChapters`](docs/sdks/chapters/README.md#listchapters) - List chapters
+- [`chaptersAppsApiRestV0ChapterGetChapter`](docs/sdks/chapters/README.md#appsapirestv0chaptergetchapter) - Get chapter
+- [`chaptersAppsApiRestV0ChapterListChapters`](docs/sdks/chapters/README.md#appsapirestv0chapterlistchapters) - List chapters
+- [`committeesAppsApiRestV0CommitteeGetChapter`](docs/sdks/committees/README.md#appsapirestv0committeegetchapter) - Get committee
 - [`committeesListCommittees`](docs/sdks/committees/README.md#listcommittees) - List committees
-- [`communityGetMember`](docs/sdks/community/README.md#getmember) - Get member by login
+- [`communityAppsApiRestV0MemberGetMember`](docs/sdks/community/README.md#appsapirestv0membergetmember) - Get member
+- [`communityAppsApiRestV0OrganizationGetOrganization`](docs/sdks/community/README.md#appsapirestv0organizationgetorganization) - Get organization
+- [`communityAppsApiRestV0OrganizationListOrganization`](docs/sdks/community/README.md#appsapirestv0organizationlistorganization) - List organizations
 - [`communityListMembers`](docs/sdks/community/README.md#listmembers) - List members
-- [`communityListOrganizations`](docs/sdks/community/README.md#listorganizations) - List organizations
-- [`eventsListEvents`](docs/sdks/events/README.md#listevents) - List events
+- [`eventsAppsApiRestV0EventListEvents`](docs/sdks/events/README.md#appsapirestv0eventlistevents) - List events
 - [`issuesListIssues`](docs/sdks/issues/README.md#listissues) - List issues
-- [`projectsListProjects`](docs/sdks/projects/README.md#listprojects) - List projects
+- [`projectsAppsApiRestV0ProjectGetProject`](docs/sdks/projects/README.md#appsapirestv0projectgetproject) - Get project
+- [`projectsAppsApiRestV0ProjectListProjects`](docs/sdks/projects/README.md#appsapirestv0projectlistprojects) - List projects
 - [`releasesListReleases`](docs/sdks/releases/README.md#listreleases) - List releases
 - [`repositoriesListRepositories`](docs/sdks/repositories/README.md#listrepositories) - List repositories
 
@@ -226,10 +226,7 @@ const nest = new Nest({
 });
 
 async function run() {
-  const result = await nest.chapters.listChapters({
-    country: "India",
-    region: "Asia",
-  }, {
+  const result = await nest.chapters.appsApiRestV0ChapterListChapters({}, {
     retries: {
       strategy: "backoff",
       backoff: {
@@ -268,10 +265,7 @@ const nest = new Nest({
 });
 
 async function run() {
-  const result = await nest.chapters.listChapters({
-    country: "India",
-    region: "Asia",
-  });
+  const result = await nest.chapters.appsApiRestV0ChapterListChapters({});
 
   console.log(result);
 }
@@ -306,8 +300,8 @@ const nest = new Nest({
 
 async function run() {
   try {
-    const result = await nest.chapters.getChapter({
-      key: "<key>",
+    const result = await nest.chapters.appsApiRestV0ChapterGetChapter({
+      chapterId: "London",
     });
 
     console.log(result);
@@ -335,7 +329,7 @@ run();
 **Primary error:**
 * [`NestError`](./src/models/errors/nesterror.ts): The base class for HTTP error responses.
 
-<details><summary>Less common errors (8)</summary>
+<details><summary>Less common errors (11)</summary>
 
 <br />
 
@@ -348,8 +342,11 @@ run();
 
 
 **Inherit from [`NestError`](./src/models/errors/nesterror.ts)**:
-* [`ChapterErrorResponse`](./src/models/errors/chaptererrorresponse.ts): Chapter error response schema. Status code `404`. Applicable to 1 of 11 methods.*
-* [`MemberErrorResponse`](./src/models/errors/membererrorresponse.ts): Member error response schema. Status code `404`. Applicable to 1 of 11 methods.*
+* [`ChapterErrorResponse`](./src/models/errors/chaptererrorresponse.ts): Chapter error response schema. Status code `404`. Applicable to 1 of 14 methods.*
+* [`CommitteeErrorResponse`](./src/models/errors/committeeerrorresponse.ts): Committee error response schema. Status code `404`. Applicable to 1 of 14 methods.*
+* [`MemberErrorResponse`](./src/models/errors/membererrorresponse.ts): Member error response schema. Status code `404`. Applicable to 1 of 14 methods.*
+* [`OrganizationErrorResponse`](./src/models/errors/organizationerrorresponse.ts): Organization error response schema. Status code `404`. Applicable to 1 of 14 methods.*
+* [`ProjectErrorResponse`](./src/models/errors/projecterrorresponse.ts): Project error response schema. Status code `404`. Applicable to 1 of 14 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>
@@ -372,10 +369,7 @@ const nest = new Nest({
 });
 
 async function run() {
-  const result = await nest.chapters.listChapters({
-    country: "India",
-    region: "Asia",
-  });
+  const result = await nest.chapters.appsApiRestV0ChapterListChapters({});
 
   console.log(result);
 }

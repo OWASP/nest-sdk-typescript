@@ -20,7 +20,7 @@ specific category of applications.
 
 ```typescript
 import { NestCore } from "owasp-nest/core.js";
-import { chaptersListChapters } from "owasp-nest/funcs/chaptersListChapters.js";
+import { chaptersAppsApiRestV0ChapterListChapters } from "owasp-nest/funcs/chaptersAppsApiRestV0ChapterListChapters.js";
 
 // Use `NestCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -29,15 +29,12 @@ const nest = new NestCore({
 });
 
 async function run() {
-  const res = await chaptersListChapters(nest, {
-    country: "India",
-    region: "Asia",
-  });
+  const res = await chaptersAppsApiRestV0ChapterListChapters(nest, {});
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("chaptersListChapters failed:", res.error);
+    console.log("chaptersAppsApiRestV0ChapterListChapters failed:", res.error);
   }
 }
 
