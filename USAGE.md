@@ -3,11 +3,14 @@
 import { Nest } from "owasp-nest";
 
 const nest = new Nest({
-  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
+  apiKey: process.env["NEST_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await nest.chapters.appsApiRestV0ChapterListChapters({});
+  const result = await nest.chapters.listChapters({
+    country: "India",
+    region: "Asia",
+  });
 
   console.log(result);
 }

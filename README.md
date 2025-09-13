@@ -87,11 +87,14 @@ For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
 import { Nest } from "owasp-nest";
 
 const nest = new Nest({
-  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
+  apiKey: process.env["NEST_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await nest.chapters.appsApiRestV0ChapterListChapters({});
+  const result = await nest.chapters.listChapters({
+    country: "India",
+    region: "Asia",
+  });
 
   console.log(result);
 }
@@ -108,20 +111,23 @@ run();
 
 This SDK supports the following security scheme globally:
 
-| Name           | Type   | Scheme  | Environment Variable  |
-| -------------- | ------ | ------- | --------------------- |
-| `apiKeyHeader` | apiKey | API key | `NEST_API_KEY_HEADER` |
+| Name     | Type   | Scheme  | Environment Variable |
+| -------- | ------ | ------- | -------------------- |
+| `apiKey` | apiKey | API key | `NEST_API_KEY`       |
 
-To authenticate with the API the `apiKeyHeader` parameter must be set when initializing the SDK client instance. For example:
+To authenticate with the API the `apiKey` parameter must be set when initializing the SDK client instance. For example:
 ```typescript
 import { Nest } from "owasp-nest";
 
 const nest = new Nest({
-  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
+  apiKey: process.env["NEST_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await nest.chapters.appsApiRestV0ChapterListChapters({});
+  const result = await nest.chapters.listChapters({
+    country: "India",
+    region: "Asia",
+  });
 
   console.log(result);
 }
@@ -139,24 +145,24 @@ run();
 
 ### [chapters](docs/sdks/chapters/README.md)
 
-* [appsApiRestV0ChapterListChapters](docs/sdks/chapters/README.md#appsapirestv0chapterlistchapters) - List chapters
-* [appsApiRestV0ChapterGetChapter](docs/sdks/chapters/README.md#appsapirestv0chaptergetchapter) - Get chapter
+* [listChapters](docs/sdks/chapters/README.md#listchapters) - List chapters
+* [getChapter](docs/sdks/chapters/README.md#getchapter) - Get chapter
 
 ### [committees](docs/sdks/committees/README.md)
 
 * [listCommittees](docs/sdks/committees/README.md#listcommittees) - List committees
-* [appsApiRestV0CommitteeGetChapter](docs/sdks/committees/README.md#appsapirestv0committeegetchapter) - Get committee
+* [getCommittee](docs/sdks/committees/README.md#getcommittee) - Get committee
 
 ### [community](docs/sdks/community/README.md)
 
 * [listMembers](docs/sdks/community/README.md#listmembers) - List members
-* [appsApiRestV0MemberGetMember](docs/sdks/community/README.md#appsapirestv0membergetmember) - Get member
-* [appsApiRestV0OrganizationListOrganization](docs/sdks/community/README.md#appsapirestv0organizationlistorganization) - List organizations
-* [appsApiRestV0OrganizationGetOrganization](docs/sdks/community/README.md#appsapirestv0organizationgetorganization) - Get organization
+* [getMember](docs/sdks/community/README.md#getmember) - Get member
+* [listOrganizations](docs/sdks/community/README.md#listorganizations) - List organizations
+* [getOrganization](docs/sdks/community/README.md#getorganization) - Get organization
 
 ### [events](docs/sdks/events/README.md)
 
-* [appsApiRestV0EventListEvents](docs/sdks/events/README.md#appsapirestv0eventlistevents) - List events
+* [listEvents](docs/sdks/events/README.md#listevents) - List events
 
 ### [issues](docs/sdks/issues/README.md)
 
@@ -165,8 +171,8 @@ run();
 
 ### [projects](docs/sdks/projects/README.md)
 
-* [appsApiRestV0ProjectListProjects](docs/sdks/projects/README.md#appsapirestv0projectlistprojects) - List projects
-* [appsApiRestV0ProjectGetProject](docs/sdks/projects/README.md#appsapirestv0projectgetproject) - Get project
+* [listProjects](docs/sdks/projects/README.md#listprojects) - List projects
+* [getProject](docs/sdks/projects/README.md#getproject) - Get project
 
 ### [releases](docs/sdks/releases/README.md)
 
@@ -194,18 +200,18 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 <summary>Available standalone functions</summary>
 
-- [`chaptersAppsApiRestV0ChapterGetChapter`](docs/sdks/chapters/README.md#appsapirestv0chaptergetchapter) - Get chapter
-- [`chaptersAppsApiRestV0ChapterListChapters`](docs/sdks/chapters/README.md#appsapirestv0chapterlistchapters) - List chapters
-- [`committeesAppsApiRestV0CommitteeGetChapter`](docs/sdks/committees/README.md#appsapirestv0committeegetchapter) - Get committee
+- [`chaptersGetChapter`](docs/sdks/chapters/README.md#getchapter) - Get chapter
+- [`chaptersListChapters`](docs/sdks/chapters/README.md#listchapters) - List chapters
+- [`committeesGetCommittee`](docs/sdks/committees/README.md#getcommittee) - Get committee
 - [`committeesListCommittees`](docs/sdks/committees/README.md#listcommittees) - List committees
-- [`communityAppsApiRestV0MemberGetMember`](docs/sdks/community/README.md#appsapirestv0membergetmember) - Get member
-- [`communityAppsApiRestV0OrganizationGetOrganization`](docs/sdks/community/README.md#appsapirestv0organizationgetorganization) - Get organization
-- [`communityAppsApiRestV0OrganizationListOrganization`](docs/sdks/community/README.md#appsapirestv0organizationlistorganization) - List organizations
+- [`communityGetMember`](docs/sdks/community/README.md#getmember) - Get member
+- [`communityGetOrganization`](docs/sdks/community/README.md#getorganization) - Get organization
 - [`communityListMembers`](docs/sdks/community/README.md#listmembers) - List members
-- [`eventsAppsApiRestV0EventListEvents`](docs/sdks/events/README.md#appsapirestv0eventlistevents) - List events
+- [`communityListOrganizations`](docs/sdks/community/README.md#listorganizations) - List organizations
+- [`eventsListEvents`](docs/sdks/events/README.md#listevents) - List events
 - [`issuesListIssues`](docs/sdks/issues/README.md#listissues) - List issues
-- [`projectsAppsApiRestV0ProjectGetProject`](docs/sdks/projects/README.md#appsapirestv0projectgetproject) - Get project
-- [`projectsAppsApiRestV0ProjectListProjects`](docs/sdks/projects/README.md#appsapirestv0projectlistprojects) - List projects
+- [`projectsGetProject`](docs/sdks/projects/README.md#getproject) - Get project
+- [`projectsListProjects`](docs/sdks/projects/README.md#listprojects) - List projects
 - [`releasesListReleases`](docs/sdks/releases/README.md#listreleases) - List releases
 - [`repositoriesListRepositories`](docs/sdks/repositories/README.md#listrepositories) - List repositories
 
@@ -222,11 +228,14 @@ To change the default retry strategy for a single API call, simply provide a ret
 import { Nest } from "owasp-nest";
 
 const nest = new Nest({
-  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
+  apiKey: process.env["NEST_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await nest.chapters.appsApiRestV0ChapterListChapters({}, {
+  const result = await nest.chapters.listChapters({
+    country: "India",
+    region: "Asia",
+  }, {
     retries: {
       strategy: "backoff",
       backoff: {
@@ -261,11 +270,14 @@ const nest = new Nest({
     },
     retryConnectionErrors: false,
   },
-  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
+  apiKey: process.env["NEST_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await nest.chapters.appsApiRestV0ChapterListChapters({});
+  const result = await nest.chapters.listChapters({
+    country: "India",
+    region: "Asia",
+  });
 
   console.log(result);
 }
@@ -295,12 +307,12 @@ import { Nest } from "owasp-nest";
 import * as errors from "owasp-nest/models/errors";
 
 const nest = new Nest({
-  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
+  apiKey: process.env["NEST_API_KEY"] ?? "",
 });
 
 async function run() {
   try {
-    const result = await nest.chapters.appsApiRestV0ChapterGetChapter({
+    const result = await nest.chapters.getChapter({
       chapterId: "London",
     });
 
@@ -365,11 +377,14 @@ import { Nest } from "owasp-nest";
 
 const nest = new Nest({
   serverURL: "https://nest.owasp.dev",
-  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
+  apiKey: process.env["NEST_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await nest.chapters.appsApiRestV0ChapterListChapters({});
+  const result = await nest.chapters.listChapters({
+    country: "India",
+    region: "Asia",
+  });
 
   console.log(result);
 }

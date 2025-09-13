@@ -18,7 +18,7 @@ Retrieve a paginated list of GitHub repositories.
 import { Nest } from "owasp-nest";
 
 const nest = new Nest({
-  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
+  apiKey: process.env["NEST_API_KEY"] ?? "",
 });
 
 async function run() {
@@ -41,7 +41,7 @@ import { repositoriesListRepositories } from "owasp-nest/funcs/repositoriesListR
 // Use `NestCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const nest = new NestCore({
-  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
+  apiKey: process.env["NEST_API_KEY"] ?? "",
 });
 
 async function run() {

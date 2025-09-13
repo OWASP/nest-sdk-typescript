@@ -20,21 +20,24 @@ specific category of applications.
 
 ```typescript
 import { NestCore } from "owasp-nest/core.js";
-import { chaptersAppsApiRestV0ChapterListChapters } from "owasp-nest/funcs/chaptersAppsApiRestV0ChapterListChapters.js";
+import { chaptersListChapters } from "owasp-nest/funcs/chaptersListChapters.js";
 
 // Use `NestCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const nest = new NestCore({
-  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
+  apiKey: process.env["NEST_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await chaptersAppsApiRestV0ChapterListChapters(nest, {});
+  const res = await chaptersListChapters(nest, {
+    country: "India",
+    region: "Asia",
+  });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("chaptersAppsApiRestV0ChapterListChapters failed:", res.error);
+    console.log("chaptersListChapters failed:", res.error);
   }
 }
 

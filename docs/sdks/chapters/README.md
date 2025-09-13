@@ -5,25 +5,28 @@
 
 ### Available Operations
 
-* [appsApiRestV0ChapterListChapters](#appsapirestv0chapterlistchapters) - List chapters
-* [appsApiRestV0ChapterGetChapter](#appsapirestv0chaptergetchapter) - Get chapter
+* [listChapters](#listchapters) - List chapters
+* [getChapter](#getchapter) - Get chapter
 
-## appsApiRestV0ChapterListChapters
+## listChapters
 
 Retrieve a paginated list of OWASP chapters.
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="apps_api_rest_v0_chapter_list_chapters" method="get" path="/api/v0/chapters/" -->
+<!-- UsageSnippet language="typescript" operationID="list_chapters" method="get" path="/api/v0/chapters/" -->
 ```typescript
 import { Nest } from "owasp-nest";
 
 const nest = new Nest({
-  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
+  apiKey: process.env["NEST_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await nest.chapters.appsApiRestV0ChapterListChapters({});
+  const result = await nest.chapters.listChapters({
+    country: "India",
+    region: "Asia",
+  });
 
   console.log(result);
 }
@@ -37,21 +40,24 @@ The standalone function version of this method:
 
 ```typescript
 import { NestCore } from "owasp-nest/core.js";
-import { chaptersAppsApiRestV0ChapterListChapters } from "owasp-nest/funcs/chaptersAppsApiRestV0ChapterListChapters.js";
+import { chaptersListChapters } from "owasp-nest/funcs/chaptersListChapters.js";
 
 // Use `NestCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const nest = new NestCore({
-  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
+  apiKey: process.env["NEST_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await chaptersAppsApiRestV0ChapterListChapters(nest, {});
+  const res = await chaptersListChapters(nest, {
+    country: "India",
+    region: "Asia",
+  });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("chaptersAppsApiRestV0ChapterListChapters failed:", res.error);
+    console.log("chaptersListChapters failed:", res.error);
   }
 }
 
@@ -62,7 +68,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.AppsApiRestV0ChapterListChaptersRequest](../../models/operations/appsapirestv0chapterlistchaptersrequest.md)                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.ListChaptersRequest](../../models/operations/listchaptersrequest.md)                                                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -77,22 +83,22 @@ run();
 | ------------------- | ------------------- | ------------------- |
 | errors.NestApiError | 4XX, 5XX            | \*/\*               |
 
-## appsApiRestV0ChapterGetChapter
+## getChapter
 
 Retrieve chapter details.
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="apps_api_rest_v0_chapter_get_chapter" method="get" path="/api/v0/chapters/{chapter_id}" -->
+<!-- UsageSnippet language="typescript" operationID="get_chapter" method="get" path="/api/v0/chapters/{chapter_id}" -->
 ```typescript
 import { Nest } from "owasp-nest";
 
 const nest = new Nest({
-  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
+  apiKey: process.env["NEST_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await nest.chapters.appsApiRestV0ChapterGetChapter({
+  const result = await nest.chapters.getChapter({
     chapterId: "London",
   });
 
@@ -108,23 +114,23 @@ The standalone function version of this method:
 
 ```typescript
 import { NestCore } from "owasp-nest/core.js";
-import { chaptersAppsApiRestV0ChapterGetChapter } from "owasp-nest/funcs/chaptersAppsApiRestV0ChapterGetChapter.js";
+import { chaptersGetChapter } from "owasp-nest/funcs/chaptersGetChapter.js";
 
 // Use `NestCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const nest = new NestCore({
-  apiKeyHeader: process.env["NEST_API_KEY_HEADER"] ?? "",
+  apiKey: process.env["NEST_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await chaptersAppsApiRestV0ChapterGetChapter(nest, {
+  const res = await chaptersGetChapter(nest, {
     chapterId: "London",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("chaptersAppsApiRestV0ChapterGetChapter failed:", res.error);
+    console.log("chaptersGetChapter failed:", res.error);
   }
 }
 
@@ -135,7 +141,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.AppsApiRestV0ChapterGetChapterRequest](../../models/operations/appsapirestv0chaptergetchapterrequest.md)                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.GetChapterRequest](../../models/operations/getchapterrequest.md)                                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
