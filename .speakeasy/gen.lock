@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 89dd6fea-30bf-42cc-8446-2c3015a2c4ba
 management:
-  docChecksum: 4846c5d20bdbc8f586bcb4e13e03a1f5
+  docChecksum: 20c4e164cc76274c3efeec8c258eafc0
   docVersion: 0.2.1
   speakeasyVersion: 1.615.2
   generationVersion: 2.698.4
-  releaseVersion: 0.2.1
-  configChecksum: 0bec82bc3a2503134ce3831fcaef1b6f
+  releaseVersion: 0.2.2
+  configChecksum: ea0a8e0097a4894c3942a4e4aa5e5403
   repoURL: https://github.com/OWASP/nest-sdk-typescript.git
   installationURL: https://github.com/OWASP/nest-sdk-typescript
   published: true
@@ -44,25 +44,25 @@ generatedFiles:
   - docs/models/eventschema.md
   - docs/models/issueschema.md
   - docs/models/memberschema.md
-  - docs/models/operations/appsapirestv0chaptergetchapterrequest.md
-  - docs/models/operations/appsapirestv0chapterlistchaptersordering.md
-  - docs/models/operations/appsapirestv0chapterlistchaptersrequest.md
-  - docs/models/operations/appsapirestv0committeegetchapterrequest.md
-  - docs/models/operations/appsapirestv0eventlisteventsordering.md
-  - docs/models/operations/appsapirestv0eventlisteventsrequest.md
-  - docs/models/operations/appsapirestv0membergetmemberrequest.md
-  - docs/models/operations/appsapirestv0organizationgetorganizationrequest.md
-  - docs/models/operations/appsapirestv0organizationlistorganizationordering.md
-  - docs/models/operations/appsapirestv0organizationlistorganizationrequest.md
-  - docs/models/operations/appsapirestv0projectgetprojectrequest.md
-  - docs/models/operations/appsapirestv0projectlistprojectsordering.md
-  - docs/models/operations/appsapirestv0projectlistprojectsrequest.md
+  - docs/models/operations/getchapterrequest.md
+  - docs/models/operations/getcommitteerequest.md
+  - docs/models/operations/getmemberrequest.md
+  - docs/models/operations/getorganizationrequest.md
+  - docs/models/operations/getprojectrequest.md
+  - docs/models/operations/listchaptersordering.md
+  - docs/models/operations/listchaptersrequest.md
   - docs/models/operations/listcommitteesordering.md
   - docs/models/operations/listcommitteesrequest.md
+  - docs/models/operations/listeventsordering.md
+  - docs/models/operations/listeventsrequest.md
   - docs/models/operations/listissuesordering.md
   - docs/models/operations/listissuesrequest.md
   - docs/models/operations/listmembersordering.md
   - docs/models/operations/listmembersrequest.md
+  - docs/models/operations/listorganizationsordering.md
+  - docs/models/operations/listorganizationsrequest.md
+  - docs/models/operations/listprojectsordering.md
+  - docs/models/operations/listprojectsrequest.md
   - docs/models/operations/listreleasesordering.md
   - docs/models/operations/listreleasesrequest.md
   - docs/models/operations/listrepositoriesordering.md
@@ -95,23 +95,23 @@ generatedFiles:
   - eslint.config.mjs
   - examples/.env.template
   - examples/README.md
-  - examples/chaptersAppsApiRestV0ChapterListChapters.example.ts
+  - examples/chaptersListChapters.example.ts
   - examples/package.json
   - jsr.json
   - package.json
   - src/core.ts
-  - src/funcs/chaptersAppsApiRestV0ChapterGetChapter.ts
-  - src/funcs/chaptersAppsApiRestV0ChapterListChapters.ts
-  - src/funcs/committeesAppsApiRestV0CommitteeGetChapter.ts
+  - src/funcs/chaptersGetChapter.ts
+  - src/funcs/chaptersListChapters.ts
+  - src/funcs/committeesGetCommittee.ts
   - src/funcs/committeesListCommittees.ts
-  - src/funcs/communityAppsApiRestV0MemberGetMember.ts
-  - src/funcs/communityAppsApiRestV0OrganizationGetOrganization.ts
-  - src/funcs/communityAppsApiRestV0OrganizationListOrganization.ts
+  - src/funcs/communityGetMember.ts
+  - src/funcs/communityGetOrganization.ts
   - src/funcs/communityListMembers.ts
-  - src/funcs/eventsAppsApiRestV0EventListEvents.ts
+  - src/funcs/communityListOrganizations.ts
+  - src/funcs/eventsListEvents.ts
   - src/funcs/issuesListIssues.ts
-  - src/funcs/projectsAppsApiRestV0ProjectGetProject.ts
-  - src/funcs/projectsAppsApiRestV0ProjectListProjects.ts
+  - src/funcs/projectsGetProject.ts
+  - src/funcs/projectsListProjects.ts
   - src/funcs/releasesListReleases.ts
   - src/funcs/repositoriesListRepositories.ts
   - src/hooks/hooks.ts
@@ -151,19 +151,19 @@ generatedFiles:
   - src/models/index.ts
   - src/models/issueschema.ts
   - src/models/memberschema.ts
-  - src/models/operations/appsapirestv0chaptergetchapter.ts
-  - src/models/operations/appsapirestv0chapterlistchapters.ts
-  - src/models/operations/appsapirestv0committeegetchapter.ts
-  - src/models/operations/appsapirestv0eventlistevents.ts
-  - src/models/operations/appsapirestv0membergetmember.ts
-  - src/models/operations/appsapirestv0organizationgetorganization.ts
-  - src/models/operations/appsapirestv0organizationlistorganization.ts
-  - src/models/operations/appsapirestv0projectgetproject.ts
-  - src/models/operations/appsapirestv0projectlistprojects.ts
+  - src/models/operations/getchapter.ts
+  - src/models/operations/getcommittee.ts
+  - src/models/operations/getmember.ts
+  - src/models/operations/getorganization.ts
+  - src/models/operations/getproject.ts
   - src/models/operations/index.ts
+  - src/models/operations/listchapters.ts
   - src/models/operations/listcommittees.ts
+  - src/models/operations/listevents.ts
   - src/models/operations/listissues.ts
   - src/models/operations/listmembers.ts
+  - src/models/operations/listorganizations.ts
+  - src/models/operations/listprojects.ts
   - src/models/operations/listreleases.ts
   - src/models/operations/listrepositories.ts
   - src/models/organizationschema.ts
@@ -218,6 +218,7 @@ examples:
       parameters:
         path:
           key: "<key>"
+          chapter_id: "London"
       responses:
         "200":
           application/json: {"country": "Hungary", "created_at": "2024-10-15T07:48:29.830Z", "name": "<value>", "region": "<value>", "updated_at": "2023-12-24T21:08:33.483Z"}
@@ -245,9 +246,10 @@ examples:
       parameters:
         path:
           login: "Stanton97"
+          member_id: "OWASP"
       responses:
         "200":
-          application/json: {"avatar_url": "https://winged-help.net", "bio": "<value>", "company": "Jacobson and Sons", "created_at": "2024-03-25T14:53:31.200Z", "email": "Viva91@hotmail.com", "followers_count": 877273, "following_count": 836968, "location": "<value>", "login": "Rodolfo.Lindgren", "name": "<value>", "public_repositories_count": 289203, "title": "<value>", "twitter_username": "<value>", "updated_at": "2023-12-31T23:08:06.768Z", "url": "https://yummy-colon.org"}
+          application/json: {"avatar_url": "https://winged-help.net", "bio": "<value>", "company": "Jacobson and Sons", "created_at": "2024-03-25T14:53:31.200Z", "followers_count": 877273, "following_count": 836968, "location": "<value>", "login": "Rodolfo.Lindgren", "name": "<value>", "public_repositories_count": 289203, "title": "<value>", "twitter_username": "<value>", "updated_at": "2023-12-31T23:08:06.768Z", "url": "https://yummy-colon.org"}
         "404":
           application/json: {"message": "<value>"}
   list_organizations:
@@ -280,6 +282,7 @@ examples:
       parameters:
         query:
           page: 1
+          ordering: "-created_at"
       responses:
         "200":
           application/json: {"items": [], "count": 820243}
@@ -384,22 +387,54 @@ examples:
           application/json: {"created_at": "2025-02-01T21:38:47.314Z", "description": "astride hence easily", "level": "other", "name": "<value>", "updated_at": "2023-10-02T12:16:09.505Z"}
         "404":
           application/json: {"message": "<value>"}
+  get_committee:
+    speakeasy-default-get-committee:
+      parameters:
+        path:
+          committee_id: "project"
+      responses:
+        "200":
+          application/json: {"name": "<value>", "description": "phew regal hoarse what tedious pharmacopoeia stealthily disadvantage emergent at", "created_at": "2024-10-26T15:58:22.888Z", "updated_at": "2024-10-23T09:23:37.658Z"}
+        "404":
+          application/json: {"message": "<value>"}
+  get_organization:
+    speakeasy-default-get-organization:
+      parameters:
+        path:
+          organization_id: "OWASP"
+      responses:
+        "200":
+          application/json: {"company": "Padberg - Hettinger", "created_at": "2025-12-12T04:28:03.547Z", "location": "<value>", "login": "Alessandra_Beer", "name": "<value>", "updated_at": "2023-07-11T13:29:35.567Z"}
+        "404":
+          application/json: {"message": "<value>"}
+  get_project:
+    speakeasy-default-get-project:
+      parameters:
+        path:
+          project_id: "Nest"
+      responses:
+        "200":
+          application/json: {"created_at": "2023-03-06T09:23:19.829Z", "description": "since limply gah consequently ugh petticoat wholly possible", "level": "lab", "name": "<value>", "updated_at": "2023-12-06T04:15:58.999Z"}
+        "404":
+          application/json: {"message": "<value>"}
 examplesVersion: 1.0.2
 releaseNotes: |
   ## Typescript SDK Changes Detected:
-  * `nest.community.listMembers()`:  `response.items.[].email` **Removed** **Breaking** :warning:
-  * `nest.projects.appsApiRestV0ProjectGetProject()`: **Added**
-  * `nest.community.getMember()`: **Deleted** **Breaking** :warning:
-  * `nest.community.appsApiRestV0MemberGetMember()`: **Added**
-  * `nest.community.appsApiRestV0OrganizationListOrganization()`: **Added**
-  * `nest.community.appsApiRestV0OrganizationGetOrganization()`: **Added**
-  * `nest.events.appsApiRestV0EventListEvents()`: **Added**
-  * `nest.committees.appsApiRestV0CommitteeGetChapter()`: **Added**
-  * `nest.chapters.listChapters()`: **Deleted** **Breaking** :warning:
-  * `nest.projects.appsApiRestV0ProjectListProjects()`: **Added**
-  * `nest.chapters.getChapter()`: **Deleted** **Breaking** :warning:
-  * `nest.chapters.appsApiRestV0ChapterListChapters()`: **Added**
-  * `nest.community.listOrganizations()`: **Deleted** **Breaking** :warning:
-  * `nest.events.listEvents()`: **Deleted** **Breaking** :warning:
-  * `nest.projects.listProjects()`: **Deleted** **Breaking** :warning:
-  * `nest.chapters.appsApiRestV0ChapterGetChapter()`: **Added**
+  * `nest.chapters.listChapters()`: **Added**
+  * `nest.chapters.getChapter()`: **Added**
+  * `nest.committees.getCommittee()`: **Added**
+  * `nest.community.getMember()`: **Added**
+  * `nest.community.listOrganizations()`: **Added**
+  * `nest.community.getOrganization()`: **Added**
+  * `nest.events.listEvents()`: **Added**
+  * `nest.projects.listProjects()`: **Added**
+  * `nest.projects.getProject()`: **Added**
+  * `nest.chapters.appsApiRestV0ChapterListChapters()`: **Deleted** **Breaking** :warning:
+  * `nest.chapters.appsApiRestV0ChapterGetChapter()`: **Deleted** **Breaking** :warning:
+  * `nest.committees.appsApiRestV0CommitteeGetChapter()`: **Deleted** **Breaking** :warning:
+  * `nest.community.appsApiRestV0MemberGetMember()`: **Deleted** **Breaking** :warning:
+  * `nest.community.appsApiRestV0OrganizationListOrganization()`: **Deleted** **Breaking** :warning:
+  * `nest.community.appsApiRestV0OrganizationGetOrganization()`: **Deleted** **Breaking** :warning:
+  * `nest.events.appsApiRestV0EventListEvents()`: **Deleted** **Breaking** :warning:
+  * `nest.projects.appsApiRestV0ProjectListProjects()`: **Deleted** **Breaking** :warning:
+  * `nest.projects.appsApiRestV0ProjectGetProject()`: **Deleted** **Breaking** :warning:
