@@ -11,6 +11,7 @@ import { Issues } from "./issues.js";
 import { Projects } from "./projects.js";
 import { Releases } from "./releases.js";
 import { Repositories } from "./repositories.js";
+import { Sponsors } from "./sponsors.js";
 
 export class Nest extends ClientSDK {
   private _chapters?: Chapters;
@@ -51,5 +52,10 @@ export class Nest extends ClientSDK {
   private _repositories?: Repositories;
   get repositories(): Repositories {
     return (this._repositories ??= new Repositories(this._options));
+  }
+
+  private _sponsors?: Sponsors;
+  get sponsors(): Sponsors {
+    return (this._sponsors ??= new Sponsors(this._options));
   }
 }

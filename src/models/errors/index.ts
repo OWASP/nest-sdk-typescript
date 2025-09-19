@@ -11,3 +11,4 @@ export * from "./organizationerrorresponse.js";
 export * from "./projecterrorresponse.js";
 export * from "./responsevalidationerror.js";
 export * from "./sdkvalidationerror.js";
+export * from "./sponsorerrorresponse.js";
