@@ -182,6 +182,11 @@ run();
 
 * [listRepositories](docs/sdks/repositories/README.md#listrepositories) - List repositories
 
+### [sponsors](docs/sdks/sponsors/README.md)
+
+* [listSponsors](docs/sdks/sponsors/README.md#listsponsors) - List sponsors
+* [getSponsor](docs/sdks/sponsors/README.md#getsponsor) - Get sponsor
+
 </details>
 <!-- End Available Resources and Operations [operations] -->
 
@@ -214,6 +219,8 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`projectsListProjects`](docs/sdks/projects/README.md#listprojects) - List projects
 - [`releasesListReleases`](docs/sdks/releases/README.md#listreleases) - List releases
 - [`repositoriesListRepositories`](docs/sdks/repositories/README.md#listrepositories) - List repositories
+- [`sponsorsGetSponsor`](docs/sdks/sponsors/README.md#getsponsor) - Get sponsor
+- [`sponsorsListSponsors`](docs/sdks/sponsors/README.md#listsponsors) - List sponsors
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
@@ -341,7 +348,7 @@ run();
 **Primary error:**
 * [`NestError`](./src/models/errors/nesterror.ts): The base class for HTTP error responses.
 
-<details><summary>Less common errors (11)</summary>
+<details><summary>Less common errors (12)</summary>
 
 <br />
 
@@ -354,11 +361,12 @@ run();
 
 
 **Inherit from [`NestError`](./src/models/errors/nesterror.ts)**:
-* [`ChapterErrorResponse`](./src/models/errors/chaptererrorresponse.ts): Chapter error response schema. Status code `404`. Applicable to 1 of 14 methods.*
-* [`CommitteeErrorResponse`](./src/models/errors/committeeerrorresponse.ts): Committee error response schema. Status code `404`. Applicable to 1 of 14 methods.*
-* [`MemberErrorResponse`](./src/models/errors/membererrorresponse.ts): Member error response schema. Status code `404`. Applicable to 1 of 14 methods.*
-* [`OrganizationErrorResponse`](./src/models/errors/organizationerrorresponse.ts): Organization error response schema. Status code `404`. Applicable to 1 of 14 methods.*
-* [`ProjectErrorResponse`](./src/models/errors/projecterrorresponse.ts): Project error response schema. Status code `404`. Applicable to 1 of 14 methods.*
+* [`ChapterErrorResponse`](./src/models/errors/chaptererrorresponse.ts): Chapter error response schema. Status code `404`. Applicable to 1 of 16 methods.*
+* [`CommitteeErrorResponse`](./src/models/errors/committeeerrorresponse.ts): Committee error response schema. Status code `404`. Applicable to 1 of 16 methods.*
+* [`MemberErrorResponse`](./src/models/errors/membererrorresponse.ts): Member error response schema. Status code `404`. Applicable to 1 of 16 methods.*
+* [`OrganizationErrorResponse`](./src/models/errors/organizationerrorresponse.ts): Organization error response schema. Status code `404`. Applicable to 1 of 16 methods.*
+* [`ProjectErrorResponse`](./src/models/errors/projecterrorresponse.ts): Project error response schema. Status code `404`. Applicable to 1 of 16 methods.*
+* [`SponsorErrorResponse`](./src/models/errors/sponsorerrorresponse.ts): Sponsor error response schema. Status code `404`. Applicable to 1 of 16 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

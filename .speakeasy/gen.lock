@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 89dd6fea-30bf-42cc-8446-2c3015a2c4ba
 management:
-  docChecksum: 20c4e164cc76274c3efeec8c258eafc0
-  docVersion: 0.2.1
-  speakeasyVersion: 1.615.2
-  generationVersion: 2.698.4
-  releaseVersion: 0.2.2
-  configChecksum: ea0a8e0097a4894c3942a4e4aa5e5403
+  docChecksum: 4b41e03970ed2b5ffc483d860fa4d410
+  docVersion: 0.2.3
+  speakeasyVersion: 1.621.0
+  generationVersion: 2.707.0
+  releaseVersion: 0.2.3
+  configChecksum: 09251236963b19d9203c40aa6644951b
   repoURL: https://github.com/OWASP/nest-sdk-typescript.git
   installationURL: https://github.com/OWASP/nest-sdk-typescript
   published: true
@@ -41,14 +41,17 @@ generatedFiles:
   - docs/models/errors/membererrorresponse.md
   - docs/models/errors/organizationerrorresponse.md
   - docs/models/errors/projecterrorresponse.md
+  - docs/models/errors/sponsorerrorresponse.md
   - docs/models/eventschema.md
   - docs/models/issueschema.md
   - docs/models/memberschema.md
+  - docs/models/membertype.md
   - docs/models/operations/getchapterrequest.md
   - docs/models/operations/getcommitteerequest.md
   - docs/models/operations/getmemberrequest.md
   - docs/models/operations/getorganizationrequest.md
   - docs/models/operations/getprojectrequest.md
+  - docs/models/operations/getsponsorrequest.md
   - docs/models/operations/listchaptersordering.md
   - docs/models/operations/listchaptersrequest.md
   - docs/models/operations/listcommitteesordering.md
@@ -67,6 +70,8 @@ generatedFiles:
   - docs/models/operations/listreleasesrequest.md
   - docs/models/operations/listrepositoriesordering.md
   - docs/models/operations/listrepositoriesrequest.md
+  - docs/models/operations/listsponsorsordering.md
+  - docs/models/operations/listsponsorsrequest.md
   - docs/models/organizationschema.md
   - docs/models/pagedchapterschema.md
   - docs/models/pagedcommitteeschema.md
@@ -77,11 +82,13 @@ generatedFiles:
   - docs/models/pagedprojectschema.md
   - docs/models/pagedreleaseschema.md
   - docs/models/pagedrepositoryschema.md
+  - docs/models/pagedsponsorschema.md
   - docs/models/projectlevel.md
   - docs/models/projectschema.md
   - docs/models/releaseschema.md
   - docs/models/repositoryschema.md
   - docs/models/security.md
+  - docs/models/sponsorschema.md
   - docs/models/state.md
   - docs/sdks/chapters/README.md
   - docs/sdks/committees/README.md
@@ -92,6 +99,7 @@ generatedFiles:
   - docs/sdks/projects/README.md
   - docs/sdks/releases/README.md
   - docs/sdks/repositories/README.md
+  - docs/sdks/sponsors/README.md
   - eslint.config.mjs
   - examples/.env.template
   - examples/README.md
@@ -114,6 +122,8 @@ generatedFiles:
   - src/funcs/projectsListProjects.ts
   - src/funcs/releasesListReleases.ts
   - src/funcs/repositoriesListRepositories.ts
+  - src/funcs/sponsorsGetSponsor.ts
+  - src/funcs/sponsorsListSponsors.ts
   - src/hooks/hooks.ts
   - src/hooks/index.ts
   - src/hooks/types.ts
@@ -147,15 +157,18 @@ generatedFiles:
   - src/models/errors/projecterrorresponse.ts
   - src/models/errors/responsevalidationerror.ts
   - src/models/errors/sdkvalidationerror.ts
+  - src/models/errors/sponsorerrorresponse.ts
   - src/models/eventschema.ts
   - src/models/index.ts
   - src/models/issueschema.ts
   - src/models/memberschema.ts
+  - src/models/membertype.ts
   - src/models/operations/getchapter.ts
   - src/models/operations/getcommittee.ts
   - src/models/operations/getmember.ts
   - src/models/operations/getorganization.ts
   - src/models/operations/getproject.ts
+  - src/models/operations/getsponsor.ts
   - src/models/operations/index.ts
   - src/models/operations/listchapters.ts
   - src/models/operations/listcommittees.ts
@@ -166,6 +179,7 @@ generatedFiles:
   - src/models/operations/listprojects.ts
   - src/models/operations/listreleases.ts
   - src/models/operations/listrepositories.ts
+  - src/models/operations/listsponsors.ts
   - src/models/organizationschema.ts
   - src/models/pagedchapterschema.ts
   - src/models/pagedcommitteeschema.ts
@@ -176,11 +190,13 @@ generatedFiles:
   - src/models/pagedprojectschema.ts
   - src/models/pagedreleaseschema.ts
   - src/models/pagedrepositoryschema.ts
+  - src/models/pagedsponsorschema.ts
   - src/models/projectlevel.ts
   - src/models/projectschema.ts
   - src/models/releaseschema.ts
   - src/models/repositoryschema.ts
   - src/models/security.ts
+  - src/models/sponsorschema.ts
   - src/models/state.ts
   - src/sdk/chapters.ts
   - src/sdk/committees.ts
@@ -192,6 +208,7 @@ generatedFiles:
   - src/sdk/releases.ts
   - src/sdk/repositories.ts
   - src/sdk/sdk.ts
+  - src/sdk/sponsors.ts
   - src/types/async.ts
   - src/types/blobs.ts
   - src/types/constdatetime.ts
@@ -417,24 +434,27 @@ examples:
           application/json: {"created_at": "2023-03-06T09:23:19.829Z", "description": "since limply gah consequently ugh petticoat wholly possible", "level": "lab", "name": "<value>", "updated_at": "2023-12-06T04:15:58.999Z"}
         "404":
           application/json: {"message": "<value>"}
+  list_sponsors:
+    speakeasy-default-list-sponsors:
+      parameters:
+        query:
+          sponsor_type: "Silver"
+          page: 1
+      responses:
+        "200":
+          application/json: {"items": [{"description": "malfunction accomplished preheat", "image_url": "https://discrete-intervention.org/", "is_member": false, "job_url": "https://immediate-clamp.biz", "key": "<key>", "member_type": "<value>", "name": "<value>", "sponsor_type": "<value>", "url": "https://crafty-settler.biz"}], "count": 49757}
+  get_sponsor:
+    speakeasy-default-get-sponsor:
+      parameters:
+        path:
+          sponsor_key: "adobe"
+      responses:
+        "200":
+          application/json: {"description": "freely blissfully ultimate huzzah instead along sometimes whale asset", "image_url": "https://enlightened-hunger.info", "is_member": false, "job_url": "https://every-horde.com", "key": "<key>", "member_type": "<value>", "name": "<value>", "sponsor_type": "<value>", "url": "https://red-horde.net"}
+        "404":
+          application/json: {"message": "<value>"}
 examplesVersion: 1.0.2
 releaseNotes: |
   ## Typescript SDK Changes Detected:
-  * `nest.chapters.listChapters()`: **Added**
-  * `nest.chapters.getChapter()`: **Added**
-  * `nest.committees.getCommittee()`: **Added**
-  * `nest.community.getMember()`: **Added**
-  * `nest.community.listOrganizations()`: **Added**
-  * `nest.community.getOrganization()`: **Added**
-  * `nest.events.listEvents()`: **Added**
-  * `nest.projects.listProjects()`: **Added**
-  * `nest.projects.getProject()`: **Added**
-  * `nest.chapters.appsApiRestV0ChapterListChapters()`: **Deleted** **Breaking** :warning:
-  * `nest.chapters.appsApiRestV0ChapterGetChapter()`: **Deleted** **Breaking** :warning:
-  * `nest.committees.appsApiRestV0CommitteeGetChapter()`: **Deleted** **Breaking** :warning:
-  * `nest.community.appsApiRestV0MemberGetMember()`: **Deleted** **Breaking** :warning:
-  * `nest.community.appsApiRestV0OrganizationListOrganization()`: **Deleted** **Breaking** :warning:
-  * `nest.community.appsApiRestV0OrganizationGetOrganization()`: **Deleted** **Breaking** :warning:
-  * `nest.events.appsApiRestV0EventListEvents()`: **Deleted** **Breaking** :warning:
-  * `nest.projects.appsApiRestV0ProjectListProjects()`: **Deleted** **Breaking** :warning:
-  * `nest.projects.appsApiRestV0ProjectGetProject()`: **Deleted** **Breaking** :warning:
+  * `nest.sponsors.listSponsors()`: **Added**
+  * `nest.sponsors.getSponsor()`: **Added**
