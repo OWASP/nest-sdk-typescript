@@ -25,6 +25,14 @@ export type ListReleasesOrdering = ClosedEnum<typeof ListReleasesOrdering>;
 
 export type ListReleasesRequest = {
   /**
+   * Organization that releases belong to (filtered by repository owner)
+   */
+  organization?: string | null | undefined;
+  /**
+   * Repository that releases belong to
+   */
+  repository?: string | null | undefined;
+  /**
    * Tag name of the release
    */
   tagName?: string | null | undefined;
@@ -32,8 +40,14 @@ export type ListReleasesRequest = {
    * Ordering field
    */
   ordering?: ListReleasesOrdering | null | undefined;
+  /**
+   * Page number
+   */
   page?: number | undefined;
-  pageSize?: number | null | undefined;
+  /**
+   * Number of items per page
+   */
+  pageSize?: number | undefined;
 };
 
 /** @internal */
@@ -63,10 +77,12 @@ export const ListReleasesRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  organization: z.nullable(z.string()).optional(),
+  repository: z.nullable(z.string()).optional(),
   tag_name: z.nullable(z.string()).optional(),
   ordering: z.nullable(ListReleasesOrdering$inboundSchema).optional(),
   page: z.number().int().default(1),
-  page_size: z.nullable(z.number().int()).optional(),
+  page_size: z.number().int().default(100),
 }).transform((v) => {
   return remap$(v, {
     "tag_name": "tagName",
@@ -76,10 +92,12 @@ export const ListReleasesRequest$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ListReleasesRequest$Outbound = {
+  organization?: string | null | undefined;
+  repository?: string | null | undefined;
   tag_name?: string | null | undefined;
   ordering?: string | null | undefined;
   page: number;
-  page_size?: number | null | undefined;
+  page_size: number;
 };
 
 /** @internal */
@@ -88,10 +106,12 @@ export const ListReleasesRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListReleasesRequest
 > = z.object({
+  organization: z.nullable(z.string()).optional(),
+  repository: z.nullable(z.string()).optional(),
   tagName: z.nullable(z.string()).optional(),
   ordering: z.nullable(ListReleasesOrdering$outboundSchema).optional(),
   page: z.number().int().default(1),
-  pageSize: z.nullable(z.number().int()).optional(),
+  pageSize: z.number().int().default(100),
 }).transform((v) => {
   return remap$(v, {
     tagName: "tag_name",

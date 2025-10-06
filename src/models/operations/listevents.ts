@@ -28,8 +28,14 @@ export type ListEventsRequest = {
    * Ordering field
    */
   ordering?: ListEventsOrdering | null | undefined;
+  /**
+   * Page number
+   */
   page?: number | undefined;
-  pageSize?: number | null | undefined;
+  /**
+   * Number of items per page
+   */
+  pageSize?: number | undefined;
 };
 
 /** @internal */
@@ -61,7 +67,7 @@ export const ListEventsRequest$inboundSchema: z.ZodType<
 > = z.object({
   ordering: z.nullable(ListEventsOrdering$inboundSchema).optional(),
   page: z.number().int().default(1),
-  page_size: z.nullable(z.number().int()).optional(),
+  page_size: z.number().int().default(100),
 }).transform((v) => {
   return remap$(v, {
     "page_size": "pageSize",
@@ -72,7 +78,7 @@ export const ListEventsRequest$inboundSchema: z.ZodType<
 export type ListEventsRequest$Outbound = {
   ordering?: string | null | undefined;
   page: number;
-  page_size?: number | null | undefined;
+  page_size: number;
 };
 
 /** @internal */
@@ -83,7 +89,7 @@ export const ListEventsRequest$outboundSchema: z.ZodType<
 > = z.object({
   ordering: z.nullable(ListEventsOrdering$outboundSchema).optional(),
   page: z.number().int().default(1),
-  pageSize: z.nullable(z.number().int()).optional(),
+  pageSize: z.number().int().default(100),
 }).transform((v) => {
   return remap$(v, {
     pageSize: "page_size",

@@ -62,10 +62,7 @@ bun add owasp-nest
 ### Yarn
 
 ```bash
-yarn add owasp-nest zod
-
-# Note that Yarn does not install peer dependencies automatically. You will need
-# to install zod as shown above.
+yarn add owasp-nest
 ```
 
 > [!NOTE]
@@ -93,7 +90,6 @@ const nest = new Nest({
 async function run() {
   const result = await nest.chapters.listChapters({
     country: "India",
-    region: "Asia",
   });
 
   console.log(result);
@@ -126,7 +122,6 @@ const nest = new Nest({
 async function run() {
   const result = await nest.chapters.listChapters({
     country: "India",
-    region: "Asia",
   });
 
   console.log(result);
@@ -163,10 +158,12 @@ run();
 ### [events](docs/sdks/events/README.md)
 
 * [listEvents](docs/sdks/events/README.md#listevents) - List events
+* [getEvent](docs/sdks/events/README.md#getevent) - Get event
 
 ### [issues](docs/sdks/issues/README.md)
 
 * [listIssues](docs/sdks/issues/README.md#listissues) - List issues
+* [getIssue](docs/sdks/issues/README.md#getissue) - Get issue
 
 
 ### [projects](docs/sdks/projects/README.md)
@@ -177,10 +174,12 @@ run();
 ### [releases](docs/sdks/releases/README.md)
 
 * [listReleases](docs/sdks/releases/README.md#listreleases) - List releases
+* [getRelease](docs/sdks/releases/README.md#getrelease) - Get release
 
 ### [repositories](docs/sdks/repositories/README.md)
 
 * [listRepositories](docs/sdks/repositories/README.md#listrepositories) - List repositories
+* [getRepository](docs/sdks/repositories/README.md#getrepository) - Get repository
 
 ### [sponsors](docs/sdks/sponsors/README.md)
 
@@ -213,11 +212,15 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`communityGetOrganization`](docs/sdks/community/README.md#getorganization) - Get organization
 - [`communityListMembers`](docs/sdks/community/README.md#listmembers) - List members
 - [`communityListOrganizations`](docs/sdks/community/README.md#listorganizations) - List organizations
+- [`eventsGetEvent`](docs/sdks/events/README.md#getevent) - Get event
 - [`eventsListEvents`](docs/sdks/events/README.md#listevents) - List events
+- [`issuesGetIssue`](docs/sdks/issues/README.md#getissue) - Get issue
 - [`issuesListIssues`](docs/sdks/issues/README.md#listissues) - List issues
 - [`projectsGetProject`](docs/sdks/projects/README.md#getproject) - Get project
 - [`projectsListProjects`](docs/sdks/projects/README.md#listprojects) - List projects
+- [`releasesGetRelease`](docs/sdks/releases/README.md#getrelease) - Get release
 - [`releasesListReleases`](docs/sdks/releases/README.md#listreleases) - List releases
+- [`repositoriesGetRepository`](docs/sdks/repositories/README.md#getrepository) - Get repository
 - [`repositoriesListRepositories`](docs/sdks/repositories/README.md#listrepositories) - List repositories
 - [`sponsorsGetSponsor`](docs/sdks/sponsors/README.md#getsponsor) - Get sponsor
 - [`sponsorsListSponsors`](docs/sdks/sponsors/README.md#listsponsors) - List sponsors
@@ -241,7 +244,6 @@ const nest = new Nest({
 async function run() {
   const result = await nest.chapters.listChapters({
     country: "India",
-    region: "Asia",
   }, {
     retries: {
       strategy: "backoff",
@@ -283,7 +285,6 @@ const nest = new Nest({
 async function run() {
   const result = await nest.chapters.listChapters({
     country: "India",
-    region: "Asia",
   });
 
   console.log(result);
@@ -333,7 +334,7 @@ async function run() {
       console.log(error.headers);
 
       // Depending on the method different errors may be thrown
-      if (error instanceof errors.ChapterErrorResponse) {
+      if (error instanceof errors.ChapterError) {
         console.log(error.data$.message); // string
       }
     }
@@ -348,7 +349,7 @@ run();
 **Primary error:**
 * [`NestError`](./src/models/errors/nesterror.ts): The base class for HTTP error responses.
 
-<details><summary>Less common errors (12)</summary>
+<details><summary>Less common errors (16)</summary>
 
 <br />
 
@@ -361,12 +362,16 @@ run();
 
 
 **Inherit from [`NestError`](./src/models/errors/nesterror.ts)**:
-* [`ChapterErrorResponse`](./src/models/errors/chaptererrorresponse.ts): Chapter error response schema. Status code `404`. Applicable to 1 of 16 methods.*
-* [`CommitteeErrorResponse`](./src/models/errors/committeeerrorresponse.ts): Committee error response schema. Status code `404`. Applicable to 1 of 16 methods.*
-* [`MemberErrorResponse`](./src/models/errors/membererrorresponse.ts): Member error response schema. Status code `404`. Applicable to 1 of 16 methods.*
-* [`OrganizationErrorResponse`](./src/models/errors/organizationerrorresponse.ts): Organization error response schema. Status code `404`. Applicable to 1 of 16 methods.*
-* [`ProjectErrorResponse`](./src/models/errors/projecterrorresponse.ts): Project error response schema. Status code `404`. Applicable to 1 of 16 methods.*
-* [`SponsorErrorResponse`](./src/models/errors/sponsorerrorresponse.ts): Sponsor error response schema. Status code `404`. Applicable to 1 of 16 methods.*
+* [`ChapterError`](./src/models/errors/chaptererror.ts): Chapter error schema. Status code `404`. Applicable to 1 of 20 methods.*
+* [`CommitteeError`](./src/models/errors/committeeerror.ts): Committee error schema. Status code `404`. Applicable to 1 of 20 methods.*
+* [`MemberError`](./src/models/errors/membererror.ts): Member error schema. Status code `404`. Applicable to 1 of 20 methods.*
+* [`OrganizationError`](./src/models/errors/organizationerror.ts): Organization error schema. Status code `404`. Applicable to 1 of 20 methods.*
+* [`EventError`](./src/models/errors/eventerror.ts): Event error schema. Status code `404`. Applicable to 1 of 20 methods.*
+* [`IssueError`](./src/models/errors/issueerror.ts): Issue error schema. Status code `404`. Applicable to 1 of 20 methods.*
+* [`ProjectError`](./src/models/errors/projecterror.ts): Project error schema. Status code `404`. Applicable to 1 of 20 methods.*
+* [`ReleaseError`](./src/models/errors/releaseerror.ts): Release error schema. Status code `404`. Applicable to 1 of 20 methods.*
+* [`RepositoryError`](./src/models/errors/repositoryerror.ts): Repository error schema. Status code `404`. Applicable to 1 of 20 methods.*
+* [`SponsorError`](./src/models/errors/sponsorerror.ts): Sponsor error schema. Status code `404`. Applicable to 1 of 20 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>
@@ -391,7 +396,6 @@ const nest = new Nest({
 async function run() {
   const result = await nest.chapters.listChapters({
     country: "India",
-    region: "Asia",
   });
 
   console.log(result);
@@ -447,7 +451,7 @@ httpClient.addHook("requestError", (error, request) => {
   console.groupEnd();
 });
 
-const sdk = new Nest({ httpClient });
+const sdk = new Nest({ httpClient: httpClient });
 ```
 <!-- End Custom HTTP Client [http-client] -->
 

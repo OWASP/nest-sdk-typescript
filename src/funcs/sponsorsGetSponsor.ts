@@ -38,8 +38,8 @@ export function sponsorsGetSponsor(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.SponsorSchema,
-    | errors.SponsorErrorResponse
+    models.SponsorDetail,
+    | errors.SponsorError
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -64,8 +64,8 @@ async function $do(
 ): Promise<
   [
     Result<
-      models.SponsorSchema,
-      | errors.SponsorErrorResponse
+      models.SponsorDetail,
+      | errors.SponsorError
       | NestError
       | ResponseValidationError
       | ConnectionError
@@ -90,13 +90,13 @@ async function $do(
   const body = null;
 
   const pathParams = {
-    sponsor_key: encodeSimple("sponsor_key", payload.sponsor_key, {
+    sponsor_id: encodeSimple("sponsor_id", payload.sponsor_id, {
       explode: false,
       charEncoding: "percent",
     }),
   };
 
-  const path = pathToFunc("/api/v0/sponsors/{sponsor_key}")(pathParams);
+  const path = pathToFunc("/api/v0/sponsors/{sponsor_id}")(pathParams);
 
   const headers = new Headers(compactMap({
     Accept: "application/json",
@@ -152,8 +152,8 @@ async function $do(
   };
 
   const [result] = await M.match<
-    models.SponsorSchema,
-    | errors.SponsorErrorResponse
+    models.SponsorDetail,
+    | errors.SponsorError
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -163,8 +163,8 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.SponsorSchema$inboundSchema),
-    M.jsonErr(404, errors.SponsorErrorResponse$inboundSchema),
+    M.json(200, models.SponsorDetail$inboundSchema),
+    M.jsonErr(404, errors.SponsorError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });

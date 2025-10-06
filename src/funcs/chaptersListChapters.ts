@@ -37,7 +37,7 @@ export function chaptersListChapters(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.PagedChapterSchema,
+    models.PagedChapter,
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -62,7 +62,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      models.PagedChapterSchema,
+      models.PagedChapter,
       | NestError
       | ResponseValidationError
       | ConnectionError
@@ -94,7 +94,6 @@ async function $do(
     "ordering": payload?.ordering,
     "page": payload?.page,
     "page_size": payload?.page_size,
-    "region": payload?.region,
   });
 
   const headers = new Headers(compactMap({
@@ -148,7 +147,7 @@ async function $do(
   const response = doResult.value;
 
   const [result] = await M.match<
-    models.PagedChapterSchema,
+    models.PagedChapter,
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -158,7 +157,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.PagedChapterSchema$inboundSchema),
+    M.json(200, models.PagedChapter$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req);

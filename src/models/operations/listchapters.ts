@@ -29,15 +29,17 @@ export type ListChaptersRequest = {
    */
   country?: string | null | undefined;
   /**
-   * Region of the chapter
-   */
-  region?: string | null | undefined;
-  /**
    * Ordering field
    */
   ordering?: ListChaptersOrdering | null | undefined;
+  /**
+   * Page number
+   */
   page?: number | undefined;
-  pageSize?: number | null | undefined;
+  /**
+   * Number of items per page
+   */
+  pageSize?: number | undefined;
 };
 
 /** @internal */
@@ -68,10 +70,9 @@ export const ListChaptersRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   country: z.nullable(z.string()).optional(),
-  region: z.nullable(z.string()).optional(),
   ordering: z.nullable(ListChaptersOrdering$inboundSchema).optional(),
   page: z.number().int().default(1),
-  page_size: z.nullable(z.number().int()).optional(),
+  page_size: z.number().int().default(100),
 }).transform((v) => {
   return remap$(v, {
     "page_size": "pageSize",
@@ -81,10 +82,9 @@ export const ListChaptersRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type ListChaptersRequest$Outbound = {
   country?: string | null | undefined;
-  region?: string | null | undefined;
   ordering?: string | null | undefined;
   page: number;
-  page_size?: number | null | undefined;
+  page_size: number;
 };
 
 /** @internal */
@@ -94,10 +94,9 @@ export const ListChaptersRequest$outboundSchema: z.ZodType<
   ListChaptersRequest
 > = z.object({
   country: z.nullable(z.string()).optional(),
-  region: z.nullable(z.string()).optional(),
   ordering: z.nullable(ListChaptersOrdering$outboundSchema).optional(),
   page: z.number().int().default(1),
-  pageSize: z.nullable(z.number().int()).optional(),
+  pageSize: z.number().int().default(100),
 }).transform((v) => {
   return remap$(v, {
     pageSize: "page_size",

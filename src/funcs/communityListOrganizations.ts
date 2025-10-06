@@ -37,7 +37,7 @@ export function communityListOrganizations(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.PagedOrganizationSchema,
+    models.PagedOrganization,
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -62,7 +62,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      models.PagedOrganizationSchema,
+      models.PagedOrganization,
       | NestError
       | ResponseValidationError
       | ConnectionError
@@ -149,7 +149,7 @@ async function $do(
   const response = doResult.value;
 
   const [result] = await M.match<
-    models.PagedOrganizationSchema,
+    models.PagedOrganization,
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -159,7 +159,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.PagedOrganizationSchema$inboundSchema),
+    M.json(200, models.PagedOrganization$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req);

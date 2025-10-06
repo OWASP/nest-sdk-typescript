@@ -25,7 +25,6 @@ const nest = new Nest({
 async function run() {
   const result = await nest.chapters.listChapters({
     country: "India",
-    region: "Asia",
   });
 
   console.log(result);
@@ -51,7 +50,6 @@ const nest = new NestCore({
 async function run() {
   const res = await chaptersListChapters(nest, {
     country: "India",
-    region: "Asia",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -75,7 +73,7 @@ run();
 
 ### Response
 
-**Promise\<[models.PagedChapterSchema](../../models/pagedchapterschema.md)\>**
+**Promise\<[models.PagedChapter](../../models/pagedchapter.md)\>**
 
 ### Errors
 
@@ -148,11 +146,11 @@ run();
 
 ### Response
 
-**Promise\<[models.ChapterSchema](../../models/chapterschema.md)\>**
+**Promise\<[models.ChapterDetail](../../models/chapterdetail.md)\>**
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| errors.ChapterErrorResponse | 404                         | application/json            |
-| errors.NestApiError         | 4XX, 5XX                    | \*/\*                       |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| errors.ChapterError | 404                 | application/json    |
+| errors.NestApiError | 4XX, 5XX            | \*/\*               |

@@ -73,7 +73,7 @@ run();
 
 ### Response
 
-**Promise\<[models.PagedProjectSchema](../../models/pagedprojectschema.md)\>**
+**Promise\<[models.PagedProject](../../models/pagedproject.md)\>**
 
 ### Errors
 
@@ -146,11 +146,11 @@ run();
 
 ### Response
 
-**Promise\<[models.ProjectSchema](../../models/projectschema.md)\>**
+**Promise\<[models.ProjectDetail](../../models/projectdetail.md)\>**
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| errors.ProjectErrorResponse | 404                         | application/json            |
-| errors.NestApiError         | 4XX, 5XX                    | \*/\*                       |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| errors.ProjectError | 404                 | application/json    |
+| errors.NestApiError | 4XX, 5XX            | \*/\*               |
