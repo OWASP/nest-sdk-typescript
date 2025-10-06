@@ -38,8 +38,8 @@ export function communityGetMember(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.MemberSchema,
-    | errors.MemberErrorResponse
+    models.MemberDetail,
+    | errors.MemberError
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -64,8 +64,8 @@ async function $do(
 ): Promise<
   [
     Result<
-      models.MemberSchema,
-      | errors.MemberErrorResponse
+      models.MemberDetail,
+      | errors.MemberError
       | NestError
       | ResponseValidationError
       | ConnectionError
@@ -152,8 +152,8 @@ async function $do(
   };
 
   const [result] = await M.match<
-    models.MemberSchema,
-    | errors.MemberErrorResponse
+    models.MemberDetail,
+    | errors.MemberError
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -163,8 +163,8 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.MemberSchema$inboundSchema),
-    M.jsonErr(404, errors.MemberErrorResponse$inboundSchema),
+    M.json(200, models.MemberDetail$inboundSchema),
+    M.jsonErr(404, errors.MemberError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });

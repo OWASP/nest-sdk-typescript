@@ -1,21 +1,21 @@
-speakeasyVersion: 1.621.0
+speakeasyVersion: 1.634.2
 sources:
     nest-openapi:
         sourceNamespace: typescript-sdk
-        sourceRevisionDigest: sha256:4a7f20e5fdc4f4cae587c6fde80b3bdaefeb6d61b20f76c67358c27eb23dc622
-        sourceBlobDigest: sha256:72fcdf944cc4573564e93a8c3702cbe4d47bdcd0d501f62e4d4c780eb02cf2e3
+        sourceRevisionDigest: sha256:8aec2e3352b1f5b008e43c4a6d67fabeb3ac9a038c1a8cad59fc07037afbf7b5
+        sourceBlobDigest: sha256:193d8295421cd1d49852ef1d1e0f790b13f7085d44066dac69b47e728f7a4768
         tags:
             - latest
-            - speakeasy-sdk-regen-1758242060
-            - 0.2.3
+            - speakeasy-sdk-regen-1759713243
+            - 0.2.4
 targets:
     nest-sdk-typescript:
         source: nest-openapi
         sourceNamespace: typescript-sdk
-        sourceRevisionDigest: sha256:4a7f20e5fdc4f4cae587c6fde80b3bdaefeb6d61b20f76c67358c27eb23dc622
-        sourceBlobDigest: sha256:72fcdf944cc4573564e93a8c3702cbe4d47bdcd0d501f62e4d4c780eb02cf2e3
+        sourceRevisionDigest: sha256:8aec2e3352b1f5b008e43c4a6d67fabeb3ac9a038c1a8cad59fc07037afbf7b5
+        sourceBlobDigest: sha256:193d8295421cd1d49852ef1d1e0f790b13f7085d44066dac69b47e728f7a4768
         codeSamplesNamespace: typescript-code-samples
-        codeSamplesRevisionDigest: sha256:3c3944f6d5462c7859282732887146cf4d71e82f1b66f0b6f1e6e2c6d332a3de
+        codeSamplesRevisionDigest: sha256:40db401b5d4325f308780b646801e90648ab8c4bb49bd166746fd2171bf5d977
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

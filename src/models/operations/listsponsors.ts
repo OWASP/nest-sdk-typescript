@@ -39,8 +39,14 @@ export type ListSponsorsRequest = {
    * Ordering field
    */
   ordering?: ListSponsorsOrdering | null | undefined;
+  /**
+   * Page number
+   */
   page?: number | undefined;
-  pageSize?: number | null | undefined;
+  /**
+   * Number of items per page
+   */
+  pageSize?: number | undefined;
 };
 
 /** @internal */
@@ -75,7 +81,7 @@ export const ListSponsorsRequest$inboundSchema: z.ZodType<
   sponsor_type: z.nullable(z.string()).optional(),
   ordering: z.nullable(ListSponsorsOrdering$inboundSchema).optional(),
   page: z.number().int().default(1),
-  page_size: z.nullable(z.number().int()).optional(),
+  page_size: z.number().int().default(100),
 }).transform((v) => {
   return remap$(v, {
     "is_member": "isMember",
@@ -92,7 +98,7 @@ export type ListSponsorsRequest$Outbound = {
   sponsor_type?: string | null | undefined;
   ordering?: string | null | undefined;
   page: number;
-  page_size?: number | null | undefined;
+  page_size: number;
 };
 
 /** @internal */
@@ -106,7 +112,7 @@ export const ListSponsorsRequest$outboundSchema: z.ZodType<
   sponsorType: z.nullable(z.string()).optional(),
   ordering: z.nullable(ListSponsorsOrdering$outboundSchema).optional(),
   page: z.number().int().default(1),
-  pageSize: z.nullable(z.number().int()).optional(),
+  pageSize: z.number().int().default(100),
 }).transform((v) => {
   return remap$(v, {
     isMember: "is_member",

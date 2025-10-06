@@ -27,11 +27,21 @@ export type ListRepositoriesOrdering = ClosedEnum<
 
 export type ListRepositoriesRequest = {
   /**
+   * Organization that repositories belong to
+   */
+  organizationId?: string | null | undefined;
+  /**
    * Ordering field
    */
   ordering?: ListRepositoriesOrdering | null | undefined;
+  /**
+   * Page number
+   */
   page?: number | undefined;
-  pageSize?: number | null | undefined;
+  /**
+   * Number of items per page
+   */
+  pageSize?: number | undefined;
 };
 
 /** @internal */
@@ -61,20 +71,23 @@ export const ListRepositoriesRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  organization_id: z.nullable(z.string()).optional(),
   ordering: z.nullable(ListRepositoriesOrdering$inboundSchema).optional(),
   page: z.number().int().default(1),
-  page_size: z.nullable(z.number().int()).optional(),
+  page_size: z.number().int().default(100),
 }).transform((v) => {
   return remap$(v, {
+    "organization_id": "organizationId",
     "page_size": "pageSize",
   });
 });
 
 /** @internal */
 export type ListRepositoriesRequest$Outbound = {
+  organization_id?: string | null | undefined;
   ordering?: string | null | undefined;
   page: number;
-  page_size?: number | null | undefined;
+  page_size: number;
 };
 
 /** @internal */
@@ -83,11 +96,13 @@ export const ListRepositoriesRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListRepositoriesRequest
 > = z.object({
+  organizationId: z.nullable(z.string()).optional(),
   ordering: z.nullable(ListRepositoriesOrdering$outboundSchema).optional(),
   page: z.number().int().default(1),
-  pageSize: z.nullable(z.number().int()).optional(),
+  pageSize: z.number().int().default(100),
 }).transform((v) => {
   return remap$(v, {
+    organizationId: "organization_id",
     pageSize: "page_size",
   });
 });

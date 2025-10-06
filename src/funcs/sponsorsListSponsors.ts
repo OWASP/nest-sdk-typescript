@@ -37,7 +37,7 @@ export function sponsorsListSponsors(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.PagedSponsorSchema,
+    models.PagedSponsor,
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -62,7 +62,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      models.PagedSponsorSchema,
+      models.PagedSponsor,
       | NestError
       | ResponseValidationError
       | ConnectionError
@@ -149,7 +149,7 @@ async function $do(
   const response = doResult.value;
 
   const [result] = await M.match<
-    models.PagedSponsorSchema,
+    models.PagedSponsor,
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -159,7 +159,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.PagedSponsorSchema$inboundSchema),
+    M.json(200, models.PagedSponsor$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req);

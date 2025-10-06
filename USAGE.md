@@ -9,7 +9,6 @@ const nest = new Nest({
 async function run() {
   const result = await nest.chapters.listChapters({
     country: "India",
-    region: "Asia",
   });
 
   console.log(result);

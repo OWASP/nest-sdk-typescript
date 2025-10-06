@@ -65,3 +65,13 @@ Based on:
 - [typescript v0.2.3] .
 ### Releases
 - [NPM v0.2.3] https://www.npmjs.com/package/owasp-nest/v/0.2.3 - .
+
+## 2025-10-06 01:13:45
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.634.2 (2.721.3) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.2.4] .
+### Releases
+- [NPM v0.2.4] https://www.npmjs.com/package/owasp-nest/v/0.2.4 - .

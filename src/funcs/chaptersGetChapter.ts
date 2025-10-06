@@ -38,8 +38,8 @@ export function chaptersGetChapter(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.ChapterSchema,
-    | errors.ChapterErrorResponse
+    models.ChapterDetail,
+    | errors.ChapterError
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -64,8 +64,8 @@ async function $do(
 ): Promise<
   [
     Result<
-      models.ChapterSchema,
-      | errors.ChapterErrorResponse
+      models.ChapterDetail,
+      | errors.ChapterError
       | NestError
       | ResponseValidationError
       | ConnectionError
@@ -152,8 +152,8 @@ async function $do(
   };
 
   const [result] = await M.match<
-    models.ChapterSchema,
-    | errors.ChapterErrorResponse
+    models.ChapterDetail,
+    | errors.ChapterError
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -163,8 +163,8 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.ChapterSchema$inboundSchema),
-    M.jsonErr(404, errors.ChapterErrorResponse$inboundSchema),
+    M.json(200, models.ChapterDetail$inboundSchema),
+    M.jsonErr(404, errors.ChapterError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });

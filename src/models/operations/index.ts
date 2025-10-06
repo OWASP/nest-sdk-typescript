@@ -4,9 +4,13 @@
 
 export * from "./getchapter.js";
 export * from "./getcommittee.js";
+export * from "./getevent.js";
+export * from "./getissue.js";
 export * from "./getmember.js";
 export * from "./getorganization.js";
 export * from "./getproject.js";
+export * from "./getrelease.js";
+export * from "./getrepository.js";
 export * from "./getsponsor.js";
 export * from "./listchapters.js";
 export * from "./listcommittees.js";

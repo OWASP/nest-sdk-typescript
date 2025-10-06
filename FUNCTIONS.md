@@ -31,7 +31,6 @@ const nest = new NestCore({
 async function run() {
   const res = await chaptersListChapters(nest, {
     country: "India",
-    region: "Asia",
   });
   if (res.ok) {
     const { value: result } = res;

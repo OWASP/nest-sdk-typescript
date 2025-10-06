@@ -33,8 +33,14 @@ export type ListProjectsRequest = {
    * Ordering field
    */
   ordering?: ListProjectsOrdering | null | undefined;
+  /**
+   * Page number
+   */
   page?: number | undefined;
-  pageSize?: number | null | undefined;
+  /**
+   * Number of items per page
+   */
+  pageSize?: number | undefined;
 };
 
 /** @internal */
@@ -67,7 +73,7 @@ export const ListProjectsRequest$inboundSchema: z.ZodType<
   level: z.nullable(models.ProjectLevel$inboundSchema).optional(),
   ordering: z.nullable(ListProjectsOrdering$inboundSchema).optional(),
   page: z.number().int().default(1),
-  page_size: z.nullable(z.number().int()).optional(),
+  page_size: z.number().int().default(100),
 }).transform((v) => {
   return remap$(v, {
     "page_size": "pageSize",
@@ -79,7 +85,7 @@ export type ListProjectsRequest$Outbound = {
   level?: string | null | undefined;
   ordering?: string | null | undefined;
   page: number;
-  page_size?: number | null | undefined;
+  page_size: number;
 };
 
 /** @internal */
@@ -91,7 +97,7 @@ export const ListProjectsRequest$outboundSchema: z.ZodType<
   level: z.nullable(models.ProjectLevel$outboundSchema).optional(),
   ordering: z.nullable(ListProjectsOrdering$outboundSchema).optional(),
   page: z.number().int().default(1),
-  pageSize: z.nullable(z.number().int()).optional(),
+  pageSize: z.number().int().default(100),
 }).transform((v) => {
   return remap$(v, {
     pageSize: "page_size",

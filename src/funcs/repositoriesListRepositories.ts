@@ -37,7 +37,7 @@ export function repositoriesListRepositories(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.PagedRepositorySchema,
+    models.PagedRepository,
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -62,7 +62,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      models.PagedRepositorySchema,
+      models.PagedRepository,
       | NestError
       | ResponseValidationError
       | ConnectionError
@@ -91,6 +91,7 @@ async function $do(
 
   const query = encodeFormQuery({
     "ordering": payload?.ordering,
+    "organization_id": payload?.organization_id,
     "page": payload?.page,
     "page_size": payload?.page_size,
   });
@@ -146,7 +147,7 @@ async function $do(
   const response = doResult.value;
 
   const [result] = await M.match<
-    models.PagedRepositorySchema,
+    models.PagedRepository,
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -156,7 +157,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.PagedRepositorySchema$inboundSchema),
+    M.json(200, models.PagedRepository$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req);
