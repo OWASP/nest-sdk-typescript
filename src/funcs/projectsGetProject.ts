@@ -38,8 +38,8 @@ export function projectsGetProject(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.ProjectSchema,
-    | errors.ProjectErrorResponse
+    models.ProjectDetail,
+    | errors.ProjectError
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -64,8 +64,8 @@ async function $do(
 ): Promise<
   [
     Result<
-      models.ProjectSchema,
-      | errors.ProjectErrorResponse
+      models.ProjectDetail,
+      | errors.ProjectError
       | NestError
       | ResponseValidationError
       | ConnectionError
@@ -152,8 +152,8 @@ async function $do(
   };
 
   const [result] = await M.match<
-    models.ProjectSchema,
-    | errors.ProjectErrorResponse
+    models.ProjectDetail,
+    | errors.ProjectError
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -163,8 +163,8 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.ProjectSchema$inboundSchema),
-    M.jsonErr(404, errors.ProjectErrorResponse$inboundSchema),
+    M.json(200, models.ProjectDetail$inboundSchema),
+    M.jsonErr(404, errors.ProjectError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });

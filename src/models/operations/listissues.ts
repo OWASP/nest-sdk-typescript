@@ -26,15 +26,29 @@ export type ListIssuesOrdering = ClosedEnum<typeof ListIssuesOrdering>;
 
 export type ListIssuesRequest = {
   /**
-   * State of the issue
+   * Organization that issues belong to (filtered by repository owner)
+   */
+  organization?: string | null | undefined;
+  /**
+   * Repository that issues belong to
+   */
+  repository?: string | null | undefined;
+  /**
+   * Issue state
    */
   state?: models.State | null | undefined;
   /**
    * Ordering field
    */
   ordering?: ListIssuesOrdering | null | undefined;
+  /**
+   * Page number
+   */
   page?: number | undefined;
-  pageSize?: number | null | undefined;
+  /**
+   * Number of items per page
+   */
+  pageSize?: number | undefined;
 };
 
 /** @internal */
@@ -64,10 +78,12 @@ export const ListIssuesRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  organization: z.nullable(z.string()).optional(),
+  repository: z.nullable(z.string()).optional(),
   state: z.nullable(models.State$inboundSchema).optional(),
   ordering: z.nullable(ListIssuesOrdering$inboundSchema).optional(),
   page: z.number().int().default(1),
-  page_size: z.nullable(z.number().int()).optional(),
+  page_size: z.number().int().default(100),
 }).transform((v) => {
   return remap$(v, {
     "page_size": "pageSize",
@@ -76,10 +92,12 @@ export const ListIssuesRequest$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ListIssuesRequest$Outbound = {
+  organization?: string | null | undefined;
+  repository?: string | null | undefined;
   state?: string | null | undefined;
   ordering?: string | null | undefined;
   page: number;
-  page_size?: number | null | undefined;
+  page_size: number;
 };
 
 /** @internal */
@@ -88,10 +106,12 @@ export const ListIssuesRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListIssuesRequest
 > = z.object({
+  organization: z.nullable(z.string()).optional(),
+  repository: z.nullable(z.string()).optional(),
   state: z.nullable(models.State$outboundSchema).optional(),
   ordering: z.nullable(ListIssuesOrdering$outboundSchema).optional(),
   page: z.number().int().default(1),
-  pageSize: z.nullable(z.number().int()).optional(),
+  pageSize: z.number().int().default(100),
 }).transform((v) => {
   return remap$(v, {
     pageSize: "page_size",

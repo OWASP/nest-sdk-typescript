@@ -37,7 +37,7 @@ export function releasesListReleases(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.PagedReleaseSchema,
+    models.PagedRelease,
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -62,7 +62,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      models.PagedReleaseSchema,
+      models.PagedRelease,
       | NestError
       | ResponseValidationError
       | ConnectionError
@@ -91,8 +91,10 @@ async function $do(
 
   const query = encodeFormQuery({
     "ordering": payload?.ordering,
+    "organization": payload?.organization,
     "page": payload?.page,
     "page_size": payload?.page_size,
+    "repository": payload?.repository,
     "tag_name": payload?.tag_name,
   });
 
@@ -147,7 +149,7 @@ async function $do(
   const response = doResult.value;
 
   const [result] = await M.match<
-    models.PagedReleaseSchema,
+    models.PagedRelease,
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -157,7 +159,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.PagedReleaseSchema$inboundSchema),
+    M.json(200, models.PagedRelease$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req);

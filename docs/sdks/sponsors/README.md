@@ -73,7 +73,7 @@ run();
 
 ### Response
 
-**Promise\<[models.PagedSponsorSchema](../../models/pagedsponsorschema.md)\>**
+**Promise\<[models.PagedSponsor](../../models/pagedsponsor.md)\>**
 
 ### Errors
 
@@ -87,7 +87,7 @@ Retrieve a sponsor details.
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="get_sponsor" method="get" path="/api/v0/sponsors/{sponsor_key}" -->
+<!-- UsageSnippet language="typescript" operationID="get_sponsor" method="get" path="/api/v0/sponsors/{sponsor_id}" -->
 ```typescript
 import { Nest } from "owasp-nest";
 
@@ -97,7 +97,7 @@ const nest = new Nest({
 
 async function run() {
   const result = await nest.sponsors.getSponsor({
-    sponsorKey: "adobe",
+    sponsorId: "adobe",
   });
 
   console.log(result);
@@ -122,7 +122,7 @@ const nest = new NestCore({
 
 async function run() {
   const res = await sponsorsGetSponsor(nest, {
-    sponsorKey: "adobe",
+    sponsorId: "adobe",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -146,11 +146,11 @@ run();
 
 ### Response
 
-**Promise\<[models.SponsorSchema](../../models/sponsorschema.md)\>**
+**Promise\<[models.SponsorDetail](../../models/sponsordetail.md)\>**
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| errors.SponsorErrorResponse | 404                         | application/json            |
-| errors.NestApiError         | 4XX, 5XX                    | \*/\*                       |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| errors.SponsorError | 404                 | application/json    |
+| errors.NestApiError | 4XX, 5XX            | \*/\*               |

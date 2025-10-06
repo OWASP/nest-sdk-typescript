@@ -21,7 +21,7 @@ export class Community extends ClientSDK {
   async listMembers(
     request?: operations.ListMembersRequest | undefined,
     options?: RequestOptions,
-  ): Promise<models.PagedMemberSchema> {
+  ): Promise<models.PagedMember> {
     return unwrapAsync(communityListMembers(
       this,
       request,
@@ -38,7 +38,7 @@ export class Community extends ClientSDK {
   async getMember(
     request: operations.GetMemberRequest,
     options?: RequestOptions,
-  ): Promise<models.MemberSchema> {
+  ): Promise<models.MemberDetail> {
     return unwrapAsync(communityGetMember(
       this,
       request,
@@ -55,7 +55,7 @@ export class Community extends ClientSDK {
   async listOrganizations(
     request?: operations.ListOrganizationsRequest | undefined,
     options?: RequestOptions,
-  ): Promise<models.PagedOrganizationSchema> {
+  ): Promise<models.PagedOrganization> {
     return unwrapAsync(communityListOrganizations(
       this,
       request,
@@ -72,7 +72,7 @@ export class Community extends ClientSDK {
   async getOrganization(
     request: operations.GetOrganizationRequest,
     options?: RequestOptions,
-  ): Promise<models.OrganizationSchema> {
+  ): Promise<models.OrganizationDetail> {
     return unwrapAsync(communityGetOrganization(
       this,
       request,

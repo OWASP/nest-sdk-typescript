@@ -38,8 +38,8 @@ export function committeesGetCommittee(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.CommitteeSchema,
-    | errors.CommitteeErrorResponse
+    models.CommitteeDetail,
+    | errors.CommitteeError
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -64,8 +64,8 @@ async function $do(
 ): Promise<
   [
     Result<
-      models.CommitteeSchema,
-      | errors.CommitteeErrorResponse
+      models.CommitteeDetail,
+      | errors.CommitteeError
       | NestError
       | ResponseValidationError
       | ConnectionError
@@ -152,8 +152,8 @@ async function $do(
   };
 
   const [result] = await M.match<
-    models.CommitteeSchema,
-    | errors.CommitteeErrorResponse
+    models.CommitteeDetail,
+    | errors.CommitteeError
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -163,8 +163,8 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.CommitteeSchema$inboundSchema),
-    M.jsonErr(404, errors.CommitteeErrorResponse$inboundSchema),
+    M.json(200, models.CommitteeDetail$inboundSchema),
+    M.jsonErr(404, errors.CommitteeError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });

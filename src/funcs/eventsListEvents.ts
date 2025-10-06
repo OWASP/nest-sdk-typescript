@@ -37,7 +37,7 @@ export function eventsListEvents(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.PagedEventSchema,
+    models.PagedEvent,
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -62,7 +62,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      models.PagedEventSchema,
+      models.PagedEvent,
       | NestError
       | ResponseValidationError
       | ConnectionError
@@ -146,7 +146,7 @@ async function $do(
   const response = doResult.value;
 
   const [result] = await M.match<
-    models.PagedEventSchema,
+    models.PagedEvent,
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -156,7 +156,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.PagedEventSchema$inboundSchema),
+    M.json(200, models.PagedEvent$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req);

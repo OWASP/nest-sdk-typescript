@@ -19,7 +19,7 @@ export class Projects extends ClientSDK {
   async listProjects(
     request?: operations.ListProjectsRequest | undefined,
     options?: RequestOptions,
-  ): Promise<models.PagedProjectSchema> {
+  ): Promise<models.PagedProject> {
     return unwrapAsync(projectsListProjects(
       this,
       request,
@@ -36,7 +36,7 @@ export class Projects extends ClientSDK {
   async getProject(
     request: operations.GetProjectRequest,
     options?: RequestOptions,
-  ): Promise<models.ProjectSchema> {
+  ): Promise<models.ProjectDetail> {
     return unwrapAsync(projectsGetProject(
       this,
       request,

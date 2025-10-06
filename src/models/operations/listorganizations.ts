@@ -34,8 +34,14 @@ export type ListOrganizationsRequest = {
    * Ordering field
    */
   ordering?: ListOrganizationsOrdering | null | undefined;
+  /**
+   * Page number
+   */
   page?: number | undefined;
-  pageSize?: number | null | undefined;
+  /**
+   * Number of items per page
+   */
+  pageSize?: number | undefined;
 };
 
 /** @internal */
@@ -68,7 +74,7 @@ export const ListOrganizationsRequest$inboundSchema: z.ZodType<
   location: z.nullable(z.string()).optional(),
   ordering: z.nullable(ListOrganizationsOrdering$inboundSchema).optional(),
   page: z.number().int().default(1),
-  page_size: z.nullable(z.number().int()).optional(),
+  page_size: z.number().int().default(100),
 }).transform((v) => {
   return remap$(v, {
     "page_size": "pageSize",
@@ -80,7 +86,7 @@ export type ListOrganizationsRequest$Outbound = {
   location?: string | null | undefined;
   ordering?: string | null | undefined;
   page: number;
-  page_size?: number | null | undefined;
+  page_size: number;
 };
 
 /** @internal */
@@ -92,7 +98,7 @@ export const ListOrganizationsRequest$outboundSchema: z.ZodType<
   location: z.nullable(z.string()).optional(),
   ordering: z.nullable(ListOrganizationsOrdering$outboundSchema).optional(),
   page: z.number().int().default(1),
-  pageSize: z.nullable(z.number().int()).optional(),
+  pageSize: z.number().int().default(100),
 }).transform((v) => {
   return remap$(v, {
     pageSize: "page_size",

@@ -38,8 +38,8 @@ export function communityGetOrganization(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.OrganizationSchema,
-    | errors.OrganizationErrorResponse
+    models.OrganizationDetail,
+    | errors.OrganizationError
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -64,8 +64,8 @@ async function $do(
 ): Promise<
   [
     Result<
-      models.OrganizationSchema,
-      | errors.OrganizationErrorResponse
+      models.OrganizationDetail,
+      | errors.OrganizationError
       | NestError
       | ResponseValidationError
       | ConnectionError
@@ -154,8 +154,8 @@ async function $do(
   };
 
   const [result] = await M.match<
-    models.OrganizationSchema,
-    | errors.OrganizationErrorResponse
+    models.OrganizationDetail,
+    | errors.OrganizationError
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -165,8 +165,8 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.OrganizationSchema$inboundSchema),
-    M.jsonErr(404, errors.OrganizationErrorResponse$inboundSchema),
+    M.json(200, models.OrganizationDetail$inboundSchema),
+    M.jsonErr(404, errors.OrganizationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });

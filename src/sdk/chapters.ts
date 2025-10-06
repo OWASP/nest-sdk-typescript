@@ -19,7 +19,7 @@ export class Chapters extends ClientSDK {
   async listChapters(
     request?: operations.ListChaptersRequest | undefined,
     options?: RequestOptions,
-  ): Promise<models.PagedChapterSchema> {
+  ): Promise<models.PagedChapter> {
     return unwrapAsync(chaptersListChapters(
       this,
       request,
@@ -36,7 +36,7 @@ export class Chapters extends ClientSDK {
   async getChapter(
     request: operations.GetChapterRequest,
     options?: RequestOptions,
-  ): Promise<models.ChapterSchema> {
+  ): Promise<models.ChapterDetail> {
     return unwrapAsync(chaptersGetChapter(
       this,
       request,

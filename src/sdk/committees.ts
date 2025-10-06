@@ -19,7 +19,7 @@ export class Committees extends ClientSDK {
   async listCommittees(
     request?: operations.ListCommitteesRequest | undefined,
     options?: RequestOptions,
-  ): Promise<models.PagedCommitteeSchema> {
+  ): Promise<models.PagedCommittee> {
     return unwrapAsync(committeesListCommittees(
       this,
       request,
@@ -36,7 +36,7 @@ export class Committees extends ClientSDK {
   async getCommittee(
     request: operations.GetCommitteeRequest,
     options?: RequestOptions,
-  ): Promise<models.CommitteeSchema> {
+  ): Promise<models.CommitteeDetail> {
     return unwrapAsync(committeesGetCommittee(
       this,
       request,

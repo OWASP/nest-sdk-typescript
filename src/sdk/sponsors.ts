@@ -19,7 +19,7 @@ export class Sponsors extends ClientSDK {
   async listSponsors(
     request?: operations.ListSponsorsRequest | undefined,
     options?: RequestOptions,
-  ): Promise<models.PagedSponsorSchema> {
+  ): Promise<models.PagedSponsor> {
     return unwrapAsync(sponsorsListSponsors(
       this,
       request,
@@ -36,7 +36,7 @@ export class Sponsors extends ClientSDK {
   async getSponsor(
     request: operations.GetSponsorRequest,
     options?: RequestOptions,
-  ): Promise<models.SponsorSchema> {
+  ): Promise<models.SponsorDetail> {
     return unwrapAsync(sponsorsGetSponsor(
       this,
       request,

@@ -37,7 +37,7 @@ export function committeesListCommittees(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.PagedCommitteeSchema,
+    models.PagedCommittee,
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -62,7 +62,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      models.PagedCommitteeSchema,
+      models.PagedCommittee,
       | NestError
       | ResponseValidationError
       | ConnectionError
@@ -146,7 +146,7 @@ async function $do(
   const response = doResult.value;
 
   const [result] = await M.match<
-    models.PagedCommitteeSchema,
+    models.PagedCommittee,
     | NestError
     | ResponseValidationError
     | ConnectionError
@@ -156,7 +156,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.PagedCommitteeSchema$inboundSchema),
+    M.json(200, models.PagedCommittee$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req);

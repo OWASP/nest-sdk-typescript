@@ -75,7 +75,7 @@ run();
 
 ### Response
 
-**Promise\<[models.PagedMemberSchema](../../models/pagedmemberschema.md)\>**
+**Promise\<[models.PagedMember](../../models/pagedmember.md)\>**
 
 ### Errors
 
@@ -148,14 +148,14 @@ run();
 
 ### Response
 
-**Promise\<[models.MemberSchema](../../models/memberschema.md)\>**
+**Promise\<[models.MemberDetail](../../models/memberdetail.md)\>**
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.MemberErrorResponse | 404                        | application/json           |
-| errors.NestApiError        | 4XX, 5XX                   | \*/\*                      |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| errors.MemberError  | 404                 | application/json    |
+| errors.NestApiError | 4XX, 5XX            | \*/\*               |
 
 ## listOrganizations
 
@@ -222,7 +222,7 @@ run();
 
 ### Response
 
-**Promise\<[models.PagedOrganizationSchema](../../models/pagedorganizationschema.md)\>**
+**Promise\<[models.PagedOrganization](../../models/pagedorganization.md)\>**
 
 ### Errors
 
@@ -295,11 +295,11 @@ run();
 
 ### Response
 
-**Promise\<[models.OrganizationSchema](../../models/organizationschema.md)\>**
+**Promise\<[models.OrganizationDetail](../../models/organizationdetail.md)\>**
 
 ### Errors
 
-| Error Type                       | Status Code                      | Content Type                     |
-| -------------------------------- | -------------------------------- | -------------------------------- |
-| errors.OrganizationErrorResponse | 404                              | application/json                 |
-| errors.NestApiError              | 4XX, 5XX                         | \*/\*                            |
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.OrganizationError | 404                      | application/json         |
+| errors.NestApiError      | 4XX, 5XX                 | \*/\*                    |

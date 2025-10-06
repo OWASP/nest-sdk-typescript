@@ -9,7 +9,7 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetSponsorRequest = {
-  sponsorKey: string;
+  sponsorId: string;
 };
 
 /** @internal */
@@ -18,16 +18,16 @@ export const GetSponsorRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  sponsor_key: z.string(),
+  sponsor_id: z.string(),
 }).transform((v) => {
   return remap$(v, {
-    "sponsor_key": "sponsorKey",
+    "sponsor_id": "sponsorId",
   });
 });
 
 /** @internal */
 export type GetSponsorRequest$Outbound = {
-  sponsor_key: string;
+  sponsor_id: string;
 };
 
 /** @internal */
@@ -36,10 +36,10 @@ export const GetSponsorRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   GetSponsorRequest
 > = z.object({
-  sponsorKey: z.string(),
+  sponsorId: z.string(),
 }).transform((v) => {
   return remap$(v, {
-    sponsorKey: "sponsor_key",
+    sponsorId: "sponsor_id",
   });
 });
 

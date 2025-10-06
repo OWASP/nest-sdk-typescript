@@ -6,7 +6,7 @@
 import { GetSponsorRequest } from "owasp-nest/models/operations";
 
 let value: GetSponsorRequest = {
-  sponsorKey: "adobe",
+  sponsorId: "adobe",
 };
 ```
 
@@ -14,4 +14,4 @@ let value: GetSponsorRequest = {
 
 | Field              | Type               | Required           | Description        | Example            |
 | ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
-| `sponsorKey`       | *string*           | :heavy_check_mark: | N/A                | adobe              |
+| `sponsorId`        | *string*           | :heavy_check_mark: | N/A                | adobe              |
