@@ -24,11 +24,6 @@ export class Nest extends ClientSDK {
     return (this._committees ??= new Committees(this._options));
   }
 
-  private _community?: Community;
-  get community(): Community {
-    return (this._community ??= new Community(this._options));
-  }
-
   private _events?: Events;
   get events(): Events {
     return (this._events ??= new Events(this._options));
@@ -37,6 +32,11 @@ export class Nest extends ClientSDK {
   private _issues?: Issues;
   get issues(): Issues {
     return (this._issues ??= new Issues(this._options));
+  }
+
+  private _community?: Community;
+  get community(): Community {
+    return (this._community ??= new Community(this._options));
   }
 
   private _projects?: Projects;

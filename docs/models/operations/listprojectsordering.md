@@ -7,7 +7,7 @@ Ordering field
 ```typescript
 import { ListProjectsOrdering } from "owasp-nest/models/operations";
 
-let value: ListProjectsOrdering = "-created_at";
+let value: ListProjectsOrdering = "created_at";
 ```
 
 ## Values
