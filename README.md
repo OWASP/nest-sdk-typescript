@@ -165,7 +165,6 @@ run();
 * [listIssues](docs/sdks/issues/README.md#listissues) - List issues
 * [getIssue](docs/sdks/issues/README.md#getissue) - Get issue
 
-
 ### [projects](docs/sdks/projects/README.md)
 
 * [listProjects](docs/sdks/projects/README.md#listprojects) - List projects
@@ -364,10 +363,10 @@ run();
 **Inherit from [`NestError`](./src/models/errors/nesterror.ts)**:
 * [`ChapterError`](./src/models/errors/chaptererror.ts): Chapter error schema. Status code `404`. Applicable to 1 of 20 methods.*
 * [`CommitteeError`](./src/models/errors/committeeerror.ts): Committee error schema. Status code `404`. Applicable to 1 of 20 methods.*
-* [`MemberError`](./src/models/errors/membererror.ts): Member error schema. Status code `404`. Applicable to 1 of 20 methods.*
-* [`OrganizationError`](./src/models/errors/organizationerror.ts): Organization error schema. Status code `404`. Applicable to 1 of 20 methods.*
 * [`EventError`](./src/models/errors/eventerror.ts): Event error schema. Status code `404`. Applicable to 1 of 20 methods.*
 * [`IssueError`](./src/models/errors/issueerror.ts): Issue error schema. Status code `404`. Applicable to 1 of 20 methods.*
+* [`MemberError`](./src/models/errors/membererror.ts): Member error schema. Status code `404`. Applicable to 1 of 20 methods.*
+* [`OrganizationError`](./src/models/errors/organizationerror.ts): Organization error schema. Status code `404`. Applicable to 1 of 20 methods.*
 * [`ProjectError`](./src/models/errors/projecterror.ts): Project error schema. Status code `404`. Applicable to 1 of 20 methods.*
 * [`ReleaseError`](./src/models/errors/releaseerror.ts): Release error schema. Status code `404`. Applicable to 1 of 20 methods.*
 * [`RepositoryError`](./src/models/errors/repositoryerror.ts): Repository error schema. Status code `404`. Applicable to 1 of 20 methods.*

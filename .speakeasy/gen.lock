@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 89dd6fea-30bf-42cc-8446-2c3015a2c4ba
 management:
-  docChecksum: 2db157ddb12d3123bb9aebbcacea1200
-  docVersion: 0.2.4
-  speakeasyVersion: 1.634.2
-  generationVersion: 2.721.3
-  releaseVersion: 0.2.4
-  configChecksum: 5be2f334142575274c906e7c88f64207
+  docChecksum: 6f456eaf13d39fb6a18ce0c5695231bc
+  docVersion: 0.2.5
+  speakeasyVersion: 1.637.0
+  generationVersion: 2.727.4
+  releaseVersion: 0.2.5
+  configChecksum: 1cb4de0e35b1c746ef402400f5f590dd
   repoURL: https://github.com/OWASP/nest-sdk-typescript.git
   installationURL: https://github.com/OWASP/nest-sdk-typescript
   published: true
@@ -14,7 +14,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.21.26
+    core: 3.22.0
     defaultEnabledRetries: 0.1.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.2
@@ -113,7 +113,6 @@ generatedFiles:
   - docs/sdks/community/README.md
   - docs/sdks/events/README.md
   - docs/sdks/issues/README.md
-  - docs/sdks/nest/README.md
   - docs/sdks/projects/README.md
   - docs/sdks/releases/README.md
   - docs/sdks/repositories/README.md
@@ -555,4 +554,3 @@ examples:
         "404":
           application/json: {"message": "<value>"}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes Detected:\n* `nest.community.listMembers()`: \n  *  `request.pageSize` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `nest.issues.listIssues()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `nest.sponsors.getSponsor()`:  `request` **Changed** **Breaking** :warning:\n* `nest.sponsors.listSponsors()`: \n  *  `request.pageSize` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `nest.chapters.listChapters()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `nest.repositories.listRepositories()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `nest.committees.listCommittees()`: \n  *  `request.pageSize` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `nest.releases.listReleases()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `nest.projects.listProjects()`: \n  *  `request.pageSize` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `nest.events.listEvents()`: \n  *  `request.pageSize` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `nest.community.listOrganizations()`: \n  *  `request.pageSize` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `nest.chapters.getChapter()`:  `response.key` **Added**\n* `nest.issues.getIssue()`: **Added**\n* `nest.projects.getProject()`:  `response.key` **Added**\n* `nest.committees.getCommittee()`:  `response.key` **Added**\n* `nest.events.getEvent()`: **Added**\n* `nest.repositories.getRepository()`: **Added**\n* `nest.releases.getRelease()`: **Added**\n"
