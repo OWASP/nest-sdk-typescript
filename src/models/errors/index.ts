@@ -8,6 +8,7 @@ export * from "./eventerror.js";
 export * from "./httpclienterrors.js";
 export * from "./issueerror.js";
 export * from "./membererror.js";
+export * from "./milestoneerror.js";
 export * from "./nestapierror.js";
 export * from "./nesterror.js";
 export * from "./organizationerror.js";

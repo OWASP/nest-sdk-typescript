@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 89dd6fea-30bf-42cc-8446-2c3015a2c4ba
 management:
-  docChecksum: 6f456eaf13d39fb6a18ce0c5695231bc
+  docChecksum: 916b73430d8fd9147bc94f84e8f2eba7
   docVersion: 0.2.5
-  speakeasyVersion: 1.637.0
-  generationVersion: 2.727.4
-  releaseVersion: 0.2.5
-  configChecksum: 1cb4de0e35b1c746ef402400f5f590dd
+  speakeasyVersion: 1.639.1
+  generationVersion: 2.730.0
+  releaseVersion: 0.3.0
+  configChecksum: 8e0fc927d5f5848dfd90fe7b6d950aec
   repoURL: https://github.com/OWASP/nest-sdk-typescript.git
   installationURL: https://github.com/OWASP/nest-sdk-typescript
   published: true
@@ -14,7 +14,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.22.0
+    core: 3.24.0
     defaultEnabledRetries: 0.1.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.2
@@ -43,6 +43,7 @@ generatedFiles:
   - docs/models/errors/eventerror.md
   - docs/models/errors/issueerror.md
   - docs/models/errors/membererror.md
+  - docs/models/errors/milestoneerror.md
   - docs/models/errors/organizationerror.md
   - docs/models/errors/projecterror.md
   - docs/models/errors/releaseerror.md
@@ -55,11 +56,14 @@ generatedFiles:
   - docs/models/member.md
   - docs/models/memberdetail.md
   - docs/models/membertype.md
+  - docs/models/milestone.md
+  - docs/models/milestonedetail.md
   - docs/models/operations/getchapterrequest.md
   - docs/models/operations/getcommitteerequest.md
   - docs/models/operations/geteventrequest.md
   - docs/models/operations/getissuerequest.md
   - docs/models/operations/getmemberrequest.md
+  - docs/models/operations/getmilestonerequest.md
   - docs/models/operations/getorganizationrequest.md
   - docs/models/operations/getprojectrequest.md
   - docs/models/operations/getreleaserequest.md
@@ -75,6 +79,8 @@ generatedFiles:
   - docs/models/operations/listissuesrequest.md
   - docs/models/operations/listmembersordering.md
   - docs/models/operations/listmembersrequest.md
+  - docs/models/operations/listmilestonesordering.md
+  - docs/models/operations/listmilestonesrequest.md
   - docs/models/operations/listorganizationsordering.md
   - docs/models/operations/listorganizationsrequest.md
   - docs/models/operations/listprojectsordering.md
@@ -92,6 +98,7 @@ generatedFiles:
   - docs/models/pagedevent.md
   - docs/models/pagedissue.md
   - docs/models/pagedmember.md
+  - docs/models/pagedmilestone.md
   - docs/models/pagedorganization.md
   - docs/models/pagedproject.md
   - docs/models/pagedrelease.md
@@ -113,6 +120,7 @@ generatedFiles:
   - docs/sdks/community/README.md
   - docs/sdks/events/README.md
   - docs/sdks/issues/README.md
+  - docs/sdks/milestones/README.md
   - docs/sdks/projects/README.md
   - docs/sdks/releases/README.md
   - docs/sdks/repositories/README.md
@@ -137,6 +145,8 @@ generatedFiles:
   - src/funcs/eventsListEvents.ts
   - src/funcs/issuesGetIssue.ts
   - src/funcs/issuesListIssues.ts
+  - src/funcs/milestonesGetMilestone.ts
+  - src/funcs/milestonesListMilestones.ts
   - src/funcs/projectsGetProject.ts
   - src/funcs/projectsListProjects.ts
   - src/funcs/releasesGetRelease.ts
@@ -176,6 +186,7 @@ generatedFiles:
   - src/models/errors/index.ts
   - src/models/errors/issueerror.ts
   - src/models/errors/membererror.ts
+  - src/models/errors/milestoneerror.ts
   - src/models/errors/nestapierror.ts
   - src/models/errors/nesterror.ts
   - src/models/errors/organizationerror.ts
@@ -193,11 +204,14 @@ generatedFiles:
   - src/models/member.ts
   - src/models/memberdetail.ts
   - src/models/membertype.ts
+  - src/models/milestone.ts
+  - src/models/milestonedetail.ts
   - src/models/operations/getchapter.ts
   - src/models/operations/getcommittee.ts
   - src/models/operations/getevent.ts
   - src/models/operations/getissue.ts
   - src/models/operations/getmember.ts
+  - src/models/operations/getmilestone.ts
   - src/models/operations/getorganization.ts
   - src/models/operations/getproject.ts
   - src/models/operations/getrelease.ts
@@ -209,6 +223,7 @@ generatedFiles:
   - src/models/operations/listevents.ts
   - src/models/operations/listissues.ts
   - src/models/operations/listmembers.ts
+  - src/models/operations/listmilestones.ts
   - src/models/operations/listorganizations.ts
   - src/models/operations/listprojects.ts
   - src/models/operations/listreleases.ts
@@ -221,6 +236,7 @@ generatedFiles:
   - src/models/pagedevent.ts
   - src/models/pagedissue.ts
   - src/models/pagedmember.ts
+  - src/models/pagedmilestone.ts
   - src/models/pagedorganization.ts
   - src/models/pagedproject.ts
   - src/models/pagedrelease.ts
@@ -243,6 +259,7 @@ generatedFiles:
   - src/sdk/events.ts
   - src/sdk/index.ts
   - src/sdk/issues.ts
+  - src/sdk/milestones.ts
   - src/sdk/projects.ts
   - src/sdk/releases.ts
   - src/sdk/repositories.ts
@@ -553,4 +570,31 @@ examples:
           application/json: {"created_at": "2023-06-15T20:38:08.250Z", "name": "<value>", "updated_at": "2024-06-04T00:23:47.329Z"}
         "404":
           application/json: {"message": "<value>"}
+  list_milestones:
+    speakeasy-default-list-milestones:
+      parameters:
+        query:
+          organization: "OWASP"
+          repository: "Nest"
+          page: 1
+          page_size: 100
+      responses:
+        "200":
+          application/json: {"current_page": 165375, "has_next": false, "has_previous": true, "items": [{"created_at": "2025-11-21T22:20:41.813Z", "number": 193241, "state": "closed", "title": "<value>", "updated_at": "2024-11-14T03:23:51.091Z", "url": "https://familiar-commodity.name"}], "total_count": 453892, "total_pages": 994947}
+  get_milestone:
+    speakeasy-default-get-milestone:
+      parameters:
+        path:
+          organization_id: "OWASP"
+          repository_id: "Nest"
+          milestone_id: 1
+      responses:
+        "200":
+          application/json: {"created_at": "2023-09-01T23:58:56.084Z", "number": 88227, "state": "open", "title": "<value>", "updated_at": "2023-09-20T07:01:10.505Z", "url": "https://impressive-configuration.name/", "body": "<value>", "closed_issues_count": 545798, "due_on": "2024-01-25T11:51:50.047Z", "open_issues_count": 564718}
+        "404":
+          application/json: {"message": "<value>"}
 examplesVersion: 1.0.2
+releaseNotes: |
+  ## Typescript SDK Changes Detected:
+  * `nest.milestones.listMilestones()`: **Added**
+  * `nest.milestones.getMilestone()`: **Added**

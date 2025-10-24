@@ -8,6 +8,7 @@ import { Committees } from "./committees.js";
 import { Community } from "./community.js";
 import { Events } from "./events.js";
 import { Issues } from "./issues.js";
+import { Milestones } from "./milestones.js";
 import { Projects } from "./projects.js";
 import { Releases } from "./releases.js";
 import { Repositories } from "./repositories.js";
@@ -37,6 +38,11 @@ export class Nest extends ClientSDK {
   private _community?: Community;
   get community(): Community {
     return (this._community ??= new Community(this._options));
+  }
+
+  private _milestones?: Milestones;
+  get milestones(): Milestones {
+    return (this._milestones ??= new Milestones(this._options));
   }
 
   private _projects?: Projects;
