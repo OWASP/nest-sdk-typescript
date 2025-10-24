@@ -165,6 +165,11 @@ run();
 * [listIssues](docs/sdks/issues/README.md#listissues) - List issues
 * [getIssue](docs/sdks/issues/README.md#getissue) - Get issue
 
+### [milestones](docs/sdks/milestones/README.md)
+
+* [listMilestones](docs/sdks/milestones/README.md#listmilestones) - List milestones
+* [getMilestone](docs/sdks/milestones/README.md#getmilestone) - Get milestone
+
 ### [projects](docs/sdks/projects/README.md)
 
 * [listProjects](docs/sdks/projects/README.md#listprojects) - List projects
@@ -215,6 +220,8 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`eventsListEvents`](docs/sdks/events/README.md#listevents) - List events
 - [`issuesGetIssue`](docs/sdks/issues/README.md#getissue) - Get issue
 - [`issuesListIssues`](docs/sdks/issues/README.md#listissues) - List issues
+- [`milestonesGetMilestone`](docs/sdks/milestones/README.md#getmilestone) - Get milestone
+- [`milestonesListMilestones`](docs/sdks/milestones/README.md#listmilestones) - List milestones
 - [`projectsGetProject`](docs/sdks/projects/README.md#getproject) - Get project
 - [`projectsListProjects`](docs/sdks/projects/README.md#listprojects) - List projects
 - [`releasesGetRelease`](docs/sdks/releases/README.md#getrelease) - Get release
@@ -348,7 +355,7 @@ run();
 **Primary error:**
 * [`NestError`](./src/models/errors/nesterror.ts): The base class for HTTP error responses.
 
-<details><summary>Less common errors (16)</summary>
+<details><summary>Less common errors (17)</summary>
 
 <br />
 
@@ -361,16 +368,17 @@ run();
 
 
 **Inherit from [`NestError`](./src/models/errors/nesterror.ts)**:
-* [`ChapterError`](./src/models/errors/chaptererror.ts): Chapter error schema. Status code `404`. Applicable to 1 of 20 methods.*
-* [`CommitteeError`](./src/models/errors/committeeerror.ts): Committee error schema. Status code `404`. Applicable to 1 of 20 methods.*
-* [`EventError`](./src/models/errors/eventerror.ts): Event error schema. Status code `404`. Applicable to 1 of 20 methods.*
-* [`IssueError`](./src/models/errors/issueerror.ts): Issue error schema. Status code `404`. Applicable to 1 of 20 methods.*
-* [`MemberError`](./src/models/errors/membererror.ts): Member error schema. Status code `404`. Applicable to 1 of 20 methods.*
-* [`OrganizationError`](./src/models/errors/organizationerror.ts): Organization error schema. Status code `404`. Applicable to 1 of 20 methods.*
-* [`ProjectError`](./src/models/errors/projecterror.ts): Project error schema. Status code `404`. Applicable to 1 of 20 methods.*
-* [`ReleaseError`](./src/models/errors/releaseerror.ts): Release error schema. Status code `404`. Applicable to 1 of 20 methods.*
-* [`RepositoryError`](./src/models/errors/repositoryerror.ts): Repository error schema. Status code `404`. Applicable to 1 of 20 methods.*
-* [`SponsorError`](./src/models/errors/sponsorerror.ts): Sponsor error schema. Status code `404`. Applicable to 1 of 20 methods.*
+* [`ChapterError`](./src/models/errors/chaptererror.ts): Chapter error schema. Status code `404`. Applicable to 1 of 22 methods.*
+* [`CommitteeError`](./src/models/errors/committeeerror.ts): Committee error schema. Status code `404`. Applicable to 1 of 22 methods.*
+* [`EventError`](./src/models/errors/eventerror.ts): Event error schema. Status code `404`. Applicable to 1 of 22 methods.*
+* [`IssueError`](./src/models/errors/issueerror.ts): Issue error schema. Status code `404`. Applicable to 1 of 22 methods.*
+* [`MemberError`](./src/models/errors/membererror.ts): Member error schema. Status code `404`. Applicable to 1 of 22 methods.*
+* [`OrganizationError`](./src/models/errors/organizationerror.ts): Organization error schema. Status code `404`. Applicable to 1 of 22 methods.*
+* [`MilestoneError`](./src/models/errors/milestoneerror.ts): Milestone error schema. Status code `404`. Applicable to 1 of 22 methods.*
+* [`ProjectError`](./src/models/errors/projecterror.ts): Project error schema. Status code `404`. Applicable to 1 of 22 methods.*
+* [`ReleaseError`](./src/models/errors/releaseerror.ts): Release error schema. Status code `404`. Applicable to 1 of 22 methods.*
+* [`RepositoryError`](./src/models/errors/repositoryerror.ts): Repository error schema. Status code `404`. Applicable to 1 of 22 methods.*
+* [`SponsorError`](./src/models/errors/sponsorerror.ts): Sponsor error schema. Status code `404`. Applicable to 1 of 22 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

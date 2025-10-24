@@ -1,6 +1,6 @@
 {
   "name": "owasp-nest",
-  "version": "0.2.5",
+  "version": "0.3.0",
   "author": "Arkadii Yakovets",
   "type": "module",
   "tshy": {
@@ -38,7 +38,7 @@
     "typescript-eslint": "^8.26.0"
   },
   "dependencies": {
-    "zod": "^3.20.0"
+    "zod": "^3.25.0 || ^4.0.0"
   },
   "exports": {
     ".": {
