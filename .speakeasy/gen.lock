@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 89dd6fea-30bf-42cc-8446-2c3015a2c4ba
 management:
-  docChecksum: 916b73430d8fd9147bc94f84e8f2eba7
+  docChecksum: 66b78c48a679d176cb3e654f8eedec70
   docVersion: 0.2.5
-  speakeasyVersion: 1.639.1
-  generationVersion: 2.730.0
-  releaseVersion: 0.3.0
-  configChecksum: 8e0fc927d5f5848dfd90fe7b6d950aec
+  speakeasyVersion: 1.658.1
+  generationVersion: 2.755.6
+  releaseVersion: 0.4.0
+  configChecksum: d19a6e6551975fe28266c07e24b95a0d
   repoURL: https://github.com/OWASP/nest-sdk-typescript.git
   installationURL: https://github.com/OWASP/nest-sdk-typescript
   published: true
@@ -14,14 +14,14 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.24.0
+    core: 3.26.7
     defaultEnabledRetries: 0.1.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.2
     globalSecurity: 2.82.14
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0
-    globalServerURLs: 2.82.5
+    globalServerURLs: 2.83.0
     methodArguments: 0.1.2
     nullables: 0.1.1
     responseFormat: 0.2.3
@@ -48,6 +48,7 @@ generatedFiles:
   - docs/models/errors/projecterror.md
   - docs/models/errors/releaseerror.md
   - docs/models/errors/repositoryerror.md
+  - docs/models/errors/snapshoterror.md
   - docs/models/errors/sponsorerror.md
   - docs/models/event.md
   - docs/models/eventdetail.md
@@ -68,6 +69,7 @@ generatedFiles:
   - docs/models/operations/getprojectrequest.md
   - docs/models/operations/getreleaserequest.md
   - docs/models/operations/getrepositoryrequest.md
+  - docs/models/operations/getsnapshotrequest.md
   - docs/models/operations/getsponsorrequest.md
   - docs/models/operations/listchaptersordering.md
   - docs/models/operations/listchaptersrequest.md
@@ -89,6 +91,18 @@ generatedFiles:
   - docs/models/operations/listreleasesrequest.md
   - docs/models/operations/listrepositoriesordering.md
   - docs/models/operations/listrepositoriesrequest.md
+  - docs/models/operations/listsnapshotchaptersordering.md
+  - docs/models/operations/listsnapshotchaptersrequest.md
+  - docs/models/operations/listsnapshotissuesordering.md
+  - docs/models/operations/listsnapshotissuesrequest.md
+  - docs/models/operations/listsnapshotmembersordering.md
+  - docs/models/operations/listsnapshotmembersrequest.md
+  - docs/models/operations/listsnapshotprojectsordering.md
+  - docs/models/operations/listsnapshotprojectsrequest.md
+  - docs/models/operations/listsnapshotreleasesordering.md
+  - docs/models/operations/listsnapshotreleasesrequest.md
+  - docs/models/operations/listsnapshotsordering.md
+  - docs/models/operations/listsnapshotsrequest.md
   - docs/models/operations/listsponsorsordering.md
   - docs/models/operations/listsponsorsrequest.md
   - docs/models/organization.md
@@ -103,6 +117,9 @@ generatedFiles:
   - docs/models/pagedproject.md
   - docs/models/pagedrelease.md
   - docs/models/pagedrepository.md
+  - docs/models/pagedsnapshot.md
+  - docs/models/pagedsnapshotissue.md
+  - docs/models/pagedsnapshotrelease.md
   - docs/models/pagedsponsor.md
   - docs/models/project.md
   - docs/models/projectdetail.md
@@ -112,6 +129,10 @@ generatedFiles:
   - docs/models/repository.md
   - docs/models/repositorydetail.md
   - docs/models/security.md
+  - docs/models/snapshot.md
+  - docs/models/snapshotdetail.md
+  - docs/models/snapshotissue.md
+  - docs/models/snapshotrelease.md
   - docs/models/sponsor.md
   - docs/models/sponsordetail.md
   - docs/models/state.md
@@ -139,8 +160,15 @@ generatedFiles:
   - src/funcs/committeesListCommittees.ts
   - src/funcs/communityGetMember.ts
   - src/funcs/communityGetOrganization.ts
+  - src/funcs/communityGetSnapshot.ts
   - src/funcs/communityListMembers.ts
   - src/funcs/communityListOrganizations.ts
+  - src/funcs/communityListSnapshotChapters.ts
+  - src/funcs/communityListSnapshotIssues.ts
+  - src/funcs/communityListSnapshotMembers.ts
+  - src/funcs/communityListSnapshotProjects.ts
+  - src/funcs/communityListSnapshotReleases.ts
+  - src/funcs/communityListSnapshots.ts
   - src/funcs/eventsGetEvent.ts
   - src/funcs/eventsListEvents.ts
   - src/funcs/issuesGetIssue.ts
@@ -195,6 +223,7 @@ generatedFiles:
   - src/models/errors/repositoryerror.ts
   - src/models/errors/responsevalidationerror.ts
   - src/models/errors/sdkvalidationerror.ts
+  - src/models/errors/snapshoterror.ts
   - src/models/errors/sponsorerror.ts
   - src/models/event.ts
   - src/models/eventdetail.ts
@@ -216,6 +245,7 @@ generatedFiles:
   - src/models/operations/getproject.ts
   - src/models/operations/getrelease.ts
   - src/models/operations/getrepository.ts
+  - src/models/operations/getsnapshot.ts
   - src/models/operations/getsponsor.ts
   - src/models/operations/index.ts
   - src/models/operations/listchapters.ts
@@ -228,6 +258,12 @@ generatedFiles:
   - src/models/operations/listprojects.ts
   - src/models/operations/listreleases.ts
   - src/models/operations/listrepositories.ts
+  - src/models/operations/listsnapshotchapters.ts
+  - src/models/operations/listsnapshotissues.ts
+  - src/models/operations/listsnapshotmembers.ts
+  - src/models/operations/listsnapshotprojects.ts
+  - src/models/operations/listsnapshotreleases.ts
+  - src/models/operations/listsnapshots.ts
   - src/models/operations/listsponsors.ts
   - src/models/organization.ts
   - src/models/organizationdetail.ts
@@ -241,6 +277,9 @@ generatedFiles:
   - src/models/pagedproject.ts
   - src/models/pagedrelease.ts
   - src/models/pagedrepository.ts
+  - src/models/pagedsnapshot.ts
+  - src/models/pagedsnapshotissue.ts
+  - src/models/pagedsnapshotrelease.ts
   - src/models/pagedsponsor.ts
   - src/models/project.ts
   - src/models/projectdetail.ts
@@ -250,6 +289,10 @@ generatedFiles:
   - src/models/repository.ts
   - src/models/repositorydetail.ts
   - src/models/security.ts
+  - src/models/snapshot.ts
+  - src/models/snapshotdetail.ts
+  - src/models/snapshotissue.ts
+  - src/models/snapshotrelease.ts
   - src/models/sponsor.ts
   - src/models/sponsordetail.ts
   - src/models/state.ts
@@ -567,7 +610,7 @@ examples:
           repository_id: "Nest"
       responses:
         "200":
-          application/json: {"created_at": "2023-06-15T20:38:08.250Z", "name": "<value>", "updated_at": "2024-06-04T00:23:47.329Z"}
+          application/json: {"created_at": "2023-06-15T20:38:08.250Z", "name": "<value>", "updated_at": "2024-06-04T00:23:47.329Z", "commits_count": 151332, "contributors_count": 474468, "forks_count": 777327, "open_issues_count": 454143, "stars_count": 733383}
         "404":
           application/json: {"message": "<value>"}
   list_milestones:
@@ -593,8 +636,88 @@ examples:
           application/json: {"created_at": "2023-09-01T23:58:56.084Z", "number": 88227, "state": "open", "title": "<value>", "updated_at": "2023-09-20T07:01:10.505Z", "url": "https://impressive-configuration.name/", "body": "<value>", "closed_issues_count": 545798, "due_on": "2024-01-25T11:51:50.047Z", "open_issues_count": 564718}
         "404":
           application/json: {"message": "<value>"}
+  list_snapshots:
+    speakeasy-default-list-snapshots:
+      parameters:
+        query:
+          page: 1
+          page_size: 100
+      responses:
+        "200":
+          application/json: {"current_page": 10683, "has_next": true, "has_previous": true, "items": [{"created_at": "2024-12-24T15:18:41.658Z", "end_at": "2023-03-26T12:40:48.423Z", "key": "<key>", "start_at": "2023-03-09T11:57:01.632Z", "title": "<value>", "updated_at": "2025-02-17T11:31:18.257Z"}], "total_count": 784067, "total_pages": 118187}
+  get_snapshot:
+    speakeasy-default-get-snapshot:
+      parameters:
+        path:
+          snapshot_id: "2025-02"
+      responses:
+        "200":
+          application/json: {"created_at": "2024-04-06T05:40:07.635Z", "end_at": "2025-03-11T07:21:35.938Z", "key": "<key>", "start_at": "2025-08-24T22:14:42.145Z", "title": "<value>", "updated_at": "2025-02-23T14:51:34.958Z", "new_chapters_count": 496225, "new_issues_count": 881483, "new_projects_count": 374148, "new_releases_count": 709291, "new_users_count": 456156}
+        "404":
+          application/json: {"message": "<value>"}
+  list_snapshot_chapters:
+    speakeasy-default-list-snapshot-chapters:
+      parameters:
+        path:
+          snapshot_id: "2025-02"
+        query:
+          page: 1
+          page_size: 100
+      responses:
+        "200":
+          application/json: {"current_page": 892683, "has_next": true, "has_previous": true, "items": [{"created_at": "2025-09-06T22:48:36.824Z", "key": "<key>", "name": "<value>", "updated_at": "2023-08-11T16:47:23.418Z"}], "total_count": 844258, "total_pages": 42840}
+  list_snapshot_issues:
+    speakeasy-default-list-snapshot-issues:
+      parameters:
+        path:
+          snapshot_id: "2025-02"
+        query:
+          page: 1
+          page_size: 100
+      responses:
+        "200":
+          application/json: {"current_page": 385459, "has_next": true, "has_previous": true, "items": [], "total_count": 4709, "total_pages": 701917}
+  list_snapshot_members:
+    speakeasy-default-list-snapshot-members:
+      parameters:
+        path:
+          snapshot_id: "2025-02"
+        query:
+          page: 1
+          page_size: 100
+      responses:
+        "200":
+          application/json: {"current_page": 140918, "has_next": false, "has_previous": false, "items": [{"avatar_url": "https://distorted-parade.org", "created_at": "2023-03-24T15:57:12.273Z", "login": "Reynold.Howell-Murazik63", "name": "<value>", "updated_at": "2023-07-22T05:31:50.748Z", "url": "https://sparse-gift.biz"}], "total_count": 867382, "total_pages": 578518}
+  list_snapshot_projects:
+    speakeasy-default-list-snapshot-projects:
+      parameters:
+        path:
+          snapshot_id: "2025-02"
+        query:
+          page: 1
+          page_size: 100
+      responses:
+        "200":
+          application/json: {"current_page": 75898, "has_next": false, "has_previous": false, "items": [{"created_at": "2024-04-02T12:32:29.027Z", "key": "<key>", "level": "incubator", "name": "<value>", "updated_at": "2024-11-14T17:43:52.606Z"}], "total_count": 736300, "total_pages": 929862}
+  list_snapshot_releases:
+    speakeasy-default-list-snapshot-releases:
+      parameters:
+        path:
+          snapshot_id: "2025-02"
+        query:
+          page: 1
+          page_size: 100
+      responses:
+        "200":
+          application/json: {"current_page": 719171, "has_next": true, "has_previous": false, "items": [], "total_count": 715591, "total_pages": 776129}
 examplesVersion: 1.0.2
 releaseNotes: |
   ## Typescript SDK Changes Detected:
-  * `nest.milestones.listMilestones()`: **Added**
-  * `nest.milestones.getMilestone()`: **Added**
+  * `nest.community.listSnapshots()`: **Added**
+  * `nest.community.getSnapshot()`: **Added**
+  * `nest.community.listSnapshotChapters()`: **Added**
+  * `nest.community.listSnapshotIssues()`: **Added**
+  * `nest.community.listSnapshotMembers()`: **Added**
+  * `nest.community.listSnapshotProjects()`: **Added**
+  * `nest.community.listSnapshotReleases()`: **Added**
+  * `nest.repositories.getRepository()`:  `response` **Changed**

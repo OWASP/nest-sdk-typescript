@@ -7,12 +7,7 @@ import { remap as remap$ } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
-import {
-  Member,
-  Member$inboundSchema,
-  Member$Outbound,
-  Member$outboundSchema,
-} from "./member.js";
+import { Member, Member$inboundSchema } from "./member.js";
 
 export type PagedMember = {
   /**
@@ -59,55 +54,6 @@ export const PagedMember$inboundSchema: z.ZodType<
     "total_pages": "totalPages",
   });
 });
-
-/** @internal */
-export type PagedMember$Outbound = {
-  current_page: number;
-  has_next: boolean;
-  has_previous: boolean;
-  items: Array<Member$Outbound>;
-  total_count: number;
-  total_pages: number;
-};
-
-/** @internal */
-export const PagedMember$outboundSchema: z.ZodType<
-  PagedMember$Outbound,
-  z.ZodTypeDef,
-  PagedMember
-> = z.object({
-  currentPage: z.number().int(),
-  hasNext: z.boolean(),
-  hasPrevious: z.boolean(),
-  items: z.array(Member$outboundSchema),
-  totalCount: z.number().int(),
-  totalPages: z.number().int(),
-}).transform((v) => {
-  return remap$(v, {
-    currentPage: "current_page",
-    hasNext: "has_next",
-    hasPrevious: "has_previous",
-    totalCount: "total_count",
-    totalPages: "total_pages",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PagedMember$ {
-  /** @deprecated use `PagedMember$inboundSchema` instead. */
-  export const inboundSchema = PagedMember$inboundSchema;
-  /** @deprecated use `PagedMember$outboundSchema` instead. */
-  export const outboundSchema = PagedMember$outboundSchema;
-  /** @deprecated use `PagedMember$Outbound` instead. */
-  export type Outbound = PagedMember$Outbound;
-}
-
-export function pagedMemberToJSON(pagedMember: PagedMember): string {
-  return JSON.stringify(PagedMember$outboundSchema.parse(pagedMember));
-}
 
 export function pagedMemberFromJSON(
   jsonString: string,

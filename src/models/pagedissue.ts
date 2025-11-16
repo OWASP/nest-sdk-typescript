@@ -7,12 +7,7 @@ import { remap as remap$ } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
-import {
-  Issue,
-  Issue$inboundSchema,
-  Issue$Outbound,
-  Issue$outboundSchema,
-} from "./issue.js";
+import { Issue, Issue$inboundSchema } from "./issue.js";
 
 export type PagedIssue = {
   /**
@@ -59,55 +54,6 @@ export const PagedIssue$inboundSchema: z.ZodType<
     "total_pages": "totalPages",
   });
 });
-
-/** @internal */
-export type PagedIssue$Outbound = {
-  current_page: number;
-  has_next: boolean;
-  has_previous: boolean;
-  items: Array<Issue$Outbound>;
-  total_count: number;
-  total_pages: number;
-};
-
-/** @internal */
-export const PagedIssue$outboundSchema: z.ZodType<
-  PagedIssue$Outbound,
-  z.ZodTypeDef,
-  PagedIssue
-> = z.object({
-  currentPage: z.number().int(),
-  hasNext: z.boolean(),
-  hasPrevious: z.boolean(),
-  items: z.array(Issue$outboundSchema),
-  totalCount: z.number().int(),
-  totalPages: z.number().int(),
-}).transform((v) => {
-  return remap$(v, {
-    currentPage: "current_page",
-    hasNext: "has_next",
-    hasPrevious: "has_previous",
-    totalCount: "total_count",
-    totalPages: "total_pages",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PagedIssue$ {
-  /** @deprecated use `PagedIssue$inboundSchema` instead. */
-  export const inboundSchema = PagedIssue$inboundSchema;
-  /** @deprecated use `PagedIssue$outboundSchema` instead. */
-  export const outboundSchema = PagedIssue$outboundSchema;
-  /** @deprecated use `PagedIssue$Outbound` instead. */
-  export type Outbound = PagedIssue$Outbound;
-}
-
-export function pagedIssueToJSON(pagedIssue: PagedIssue): string {
-  return JSON.stringify(PagedIssue$outboundSchema.parse(pagedIssue));
-}
 
 export function pagedIssueFromJSON(
   jsonString: string,

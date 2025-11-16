@@ -7,11 +7,7 @@ import { remap as remap$ } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
-import {
-  ProjectLevel,
-  ProjectLevel$inboundSchema,
-  ProjectLevel$outboundSchema,
-} from "./projectlevel.js";
+import { ProjectLevel, ProjectLevel$inboundSchema } from "./projectlevel.js";
 
 /**
  * Schema for Project (minimal fields for list display).
@@ -45,50 +41,6 @@ export const Project$inboundSchema: z.ZodType<Project, z.ZodTypeDef, unknown> =
       "updated_at": "updatedAt",
     });
   });
-
-/** @internal */
-export type Project$Outbound = {
-  created_at: string;
-  key: string;
-  level: string;
-  name: string;
-  updated_at: string;
-};
-
-/** @internal */
-export const Project$outboundSchema: z.ZodType<
-  Project$Outbound,
-  z.ZodTypeDef,
-  Project
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  key: z.string(),
-  level: ProjectLevel$outboundSchema,
-  name: z.string(),
-  updatedAt: z.date().transform(v => v.toISOString()),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    updatedAt: "updated_at",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Project$ {
-  /** @deprecated use `Project$inboundSchema` instead. */
-  export const inboundSchema = Project$inboundSchema;
-  /** @deprecated use `Project$outboundSchema` instead. */
-  export const outboundSchema = Project$outboundSchema;
-  /** @deprecated use `Project$Outbound` instead. */
-  export type Outbound = Project$Outbound;
-}
-
-export function projectToJSON(project: Project): string {
-  return JSON.stringify(Project$outboundSchema.parse(project));
-}
 
 export function projectFromJSON(
   jsonString: string,

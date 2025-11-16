@@ -7,7 +7,7 @@ import { remap as remap$ } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
-import { State, State$inboundSchema, State$outboundSchema } from "./state.js";
+import { State, State$inboundSchema } from "./state.js";
 
 /**
  * Schema for Issue (minimal fields for list display).
@@ -38,50 +38,6 @@ export const Issue$inboundSchema: z.ZodType<Issue, z.ZodTypeDef, unknown> = z
       "updated_at": "updatedAt",
     });
   });
-
-/** @internal */
-export type Issue$Outbound = {
-  created_at: string;
-  state: string;
-  title: string;
-  updated_at: string;
-  url: string;
-};
-
-/** @internal */
-export const Issue$outboundSchema: z.ZodType<
-  Issue$Outbound,
-  z.ZodTypeDef,
-  Issue
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  state: State$outboundSchema,
-  title: z.string(),
-  updatedAt: z.date().transform(v => v.toISOString()),
-  url: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    updatedAt: "updated_at",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Issue$ {
-  /** @deprecated use `Issue$inboundSchema` instead. */
-  export const inboundSchema = Issue$inboundSchema;
-  /** @deprecated use `Issue$outboundSchema` instead. */
-  export const outboundSchema = Issue$outboundSchema;
-  /** @deprecated use `Issue$Outbound` instead. */
-  export type Outbound = Issue$Outbound;
-}
-
-export function issueToJSON(issue: Issue): string {
-  return JSON.stringify(Issue$outboundSchema.parse(issue));
-}
 
 export function issueFromJSON(
   jsonString: string,

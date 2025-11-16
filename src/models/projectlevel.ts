@@ -23,18 +23,6 @@ export type ProjectLevel = ClosedEnum<typeof ProjectLevel>;
 /** @internal */
 export const ProjectLevel$inboundSchema: z.ZodNativeEnum<typeof ProjectLevel> =
   z.nativeEnum(ProjectLevel);
-
 /** @internal */
 export const ProjectLevel$outboundSchema: z.ZodNativeEnum<typeof ProjectLevel> =
   ProjectLevel$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProjectLevel$ {
-  /** @deprecated use `ProjectLevel$inboundSchema` instead. */
-  export const inboundSchema = ProjectLevel$inboundSchema;
-  /** @deprecated use `ProjectLevel$outboundSchema` instead. */
-  export const outboundSchema = ProjectLevel$outboundSchema;
-}

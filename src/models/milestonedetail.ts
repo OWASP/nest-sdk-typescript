@@ -7,7 +7,7 @@ import { remap as remap$ } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
-import { State, State$inboundSchema, State$outboundSchema } from "./state.js";
+import { State, State$inboundSchema } from "./state.js";
 
 /**
  * Detail schema for Milestone (used in single item endpoints).
@@ -52,65 +52,6 @@ export const MilestoneDetail$inboundSchema: z.ZodType<
     "open_issues_count": "openIssuesCount",
   });
 });
-
-/** @internal */
-export type MilestoneDetail$Outbound = {
-  created_at: string;
-  number: number;
-  state: string;
-  title: string;
-  updated_at: string;
-  url: string;
-  body: string;
-  closed_issues_count: number;
-  due_on: string | null;
-  open_issues_count: number;
-};
-
-/** @internal */
-export const MilestoneDetail$outboundSchema: z.ZodType<
-  MilestoneDetail$Outbound,
-  z.ZodTypeDef,
-  MilestoneDetail
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  number: z.number().int(),
-  state: State$outboundSchema,
-  title: z.string(),
-  updatedAt: z.date().transform(v => v.toISOString()),
-  url: z.string(),
-  body: z.string(),
-  closedIssuesCount: z.number().int(),
-  dueOn: z.nullable(z.date().transform(v => v.toISOString())),
-  openIssuesCount: z.number().int(),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    updatedAt: "updated_at",
-    closedIssuesCount: "closed_issues_count",
-    dueOn: "due_on",
-    openIssuesCount: "open_issues_count",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MilestoneDetail$ {
-  /** @deprecated use `MilestoneDetail$inboundSchema` instead. */
-  export const inboundSchema = MilestoneDetail$inboundSchema;
-  /** @deprecated use `MilestoneDetail$outboundSchema` instead. */
-  export const outboundSchema = MilestoneDetail$outboundSchema;
-  /** @deprecated use `MilestoneDetail$Outbound` instead. */
-  export type Outbound = MilestoneDetail$Outbound;
-}
-
-export function milestoneDetailToJSON(
-  milestoneDetail: MilestoneDetail,
-): string {
-  return JSON.stringify(MilestoneDetail$outboundSchema.parse(milestoneDetail));
-}
 
 export function milestoneDetailFromJSON(
   jsonString: string,

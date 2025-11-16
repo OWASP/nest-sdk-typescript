@@ -4,10 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Ordering field
@@ -39,40 +36,9 @@ export type ListCommitteesRequest = {
 };
 
 /** @internal */
-export const ListCommitteesOrdering$inboundSchema: z.ZodNativeEnum<
-  typeof ListCommitteesOrdering
-> = z.nativeEnum(ListCommitteesOrdering);
-
-/** @internal */
 export const ListCommitteesOrdering$outboundSchema: z.ZodNativeEnum<
   typeof ListCommitteesOrdering
-> = ListCommitteesOrdering$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListCommitteesOrdering$ {
-  /** @deprecated use `ListCommitteesOrdering$inboundSchema` instead. */
-  export const inboundSchema = ListCommitteesOrdering$inboundSchema;
-  /** @deprecated use `ListCommitteesOrdering$outboundSchema` instead. */
-  export const outboundSchema = ListCommitteesOrdering$outboundSchema;
-}
-
-/** @internal */
-export const ListCommitteesRequest$inboundSchema: z.ZodType<
-  ListCommitteesRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  ordering: z.nullable(ListCommitteesOrdering$inboundSchema).optional(),
-  page: z.number().int().default(1),
-  page_size: z.number().int().default(100),
-}).transform((v) => {
-  return remap$(v, {
-    "page_size": "pageSize",
-  });
-});
+> = z.nativeEnum(ListCommitteesOrdering);
 
 /** @internal */
 export type ListCommitteesRequest$Outbound = {
@@ -96,33 +62,10 @@ export const ListCommitteesRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListCommitteesRequest$ {
-  /** @deprecated use `ListCommitteesRequest$inboundSchema` instead. */
-  export const inboundSchema = ListCommitteesRequest$inboundSchema;
-  /** @deprecated use `ListCommitteesRequest$outboundSchema` instead. */
-  export const outboundSchema = ListCommitteesRequest$outboundSchema;
-  /** @deprecated use `ListCommitteesRequest$Outbound` instead. */
-  export type Outbound = ListCommitteesRequest$Outbound;
-}
-
 export function listCommitteesRequestToJSON(
   listCommitteesRequest: ListCommitteesRequest,
 ): string {
   return JSON.stringify(
     ListCommitteesRequest$outboundSchema.parse(listCommitteesRequest),
-  );
-}
-
-export function listCommitteesRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ListCommitteesRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ListCommitteesRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ListCommitteesRequest' from JSON`,
   );
 }

@@ -7,12 +7,7 @@ import { remap as remap$ } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
-import {
-  Organization,
-  Organization$inboundSchema,
-  Organization$Outbound,
-  Organization$outboundSchema,
-} from "./organization.js";
+import { Organization, Organization$inboundSchema } from "./organization.js";
 
 export type PagedOrganization = {
   /**
@@ -59,59 +54,6 @@ export const PagedOrganization$inboundSchema: z.ZodType<
     "total_pages": "totalPages",
   });
 });
-
-/** @internal */
-export type PagedOrganization$Outbound = {
-  current_page: number;
-  has_next: boolean;
-  has_previous: boolean;
-  items: Array<Organization$Outbound>;
-  total_count: number;
-  total_pages: number;
-};
-
-/** @internal */
-export const PagedOrganization$outboundSchema: z.ZodType<
-  PagedOrganization$Outbound,
-  z.ZodTypeDef,
-  PagedOrganization
-> = z.object({
-  currentPage: z.number().int(),
-  hasNext: z.boolean(),
-  hasPrevious: z.boolean(),
-  items: z.array(Organization$outboundSchema),
-  totalCount: z.number().int(),
-  totalPages: z.number().int(),
-}).transform((v) => {
-  return remap$(v, {
-    currentPage: "current_page",
-    hasNext: "has_next",
-    hasPrevious: "has_previous",
-    totalCount: "total_count",
-    totalPages: "total_pages",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PagedOrganization$ {
-  /** @deprecated use `PagedOrganization$inboundSchema` instead. */
-  export const inboundSchema = PagedOrganization$inboundSchema;
-  /** @deprecated use `PagedOrganization$outboundSchema` instead. */
-  export const outboundSchema = PagedOrganization$outboundSchema;
-  /** @deprecated use `PagedOrganization$Outbound` instead. */
-  export type Outbound = PagedOrganization$Outbound;
-}
-
-export function pagedOrganizationToJSON(
-  pagedOrganization: PagedOrganization,
-): string {
-  return JSON.stringify(
-    PagedOrganization$outboundSchema.parse(pagedOrganization),
-  );
-}
 
 export function pagedOrganizationFromJSON(
   jsonString: string,

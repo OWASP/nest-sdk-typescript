@@ -17,4 +17,5 @@ export * from "./releaseerror.js";
 export * from "./repositoryerror.js";
 export * from "./responsevalidationerror.js";
 export * from "./sdkvalidationerror.js";
+export * from "./snapshoterror.js";
 export * from "./sponsorerror.js";

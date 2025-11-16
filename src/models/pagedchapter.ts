@@ -6,12 +6,7 @@ import * as z from "zod/v3";
 import { remap as remap$ } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
-import {
-  Chapter,
-  Chapter$inboundSchema,
-  Chapter$Outbound,
-  Chapter$outboundSchema,
-} from "./chapter.js";
+import { Chapter, Chapter$inboundSchema } from "./chapter.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
 export type PagedChapter = {
@@ -59,55 +54,6 @@ export const PagedChapter$inboundSchema: z.ZodType<
     "total_pages": "totalPages",
   });
 });
-
-/** @internal */
-export type PagedChapter$Outbound = {
-  current_page: number;
-  has_next: boolean;
-  has_previous: boolean;
-  items: Array<Chapter$Outbound>;
-  total_count: number;
-  total_pages: number;
-};
-
-/** @internal */
-export const PagedChapter$outboundSchema: z.ZodType<
-  PagedChapter$Outbound,
-  z.ZodTypeDef,
-  PagedChapter
-> = z.object({
-  currentPage: z.number().int(),
-  hasNext: z.boolean(),
-  hasPrevious: z.boolean(),
-  items: z.array(Chapter$outboundSchema),
-  totalCount: z.number().int(),
-  totalPages: z.number().int(),
-}).transform((v) => {
-  return remap$(v, {
-    currentPage: "current_page",
-    hasNext: "has_next",
-    hasPrevious: "has_previous",
-    totalCount: "total_count",
-    totalPages: "total_pages",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PagedChapter$ {
-  /** @deprecated use `PagedChapter$inboundSchema` instead. */
-  export const inboundSchema = PagedChapter$inboundSchema;
-  /** @deprecated use `PagedChapter$outboundSchema` instead. */
-  export const outboundSchema = PagedChapter$outboundSchema;
-  /** @deprecated use `PagedChapter$Outbound` instead. */
-  export type Outbound = PagedChapter$Outbound;
-}
-
-export function pagedChapterToJSON(pagedChapter: PagedChapter): string {
-  return JSON.stringify(PagedChapter$outboundSchema.parse(pagedChapter));
-}
 
 export function pagedChapterFromJSON(
   jsonString: string,

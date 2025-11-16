@@ -4,26 +4,10 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetSponsorRequest = {
   sponsorId: string;
 };
-
-/** @internal */
-export const GetSponsorRequest$inboundSchema: z.ZodType<
-  GetSponsorRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  sponsor_id: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "sponsor_id": "sponsorId",
-  });
-});
 
 /** @internal */
 export type GetSponsorRequest$Outbound = {
@@ -43,33 +27,10 @@ export const GetSponsorRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetSponsorRequest$ {
-  /** @deprecated use `GetSponsorRequest$inboundSchema` instead. */
-  export const inboundSchema = GetSponsorRequest$inboundSchema;
-  /** @deprecated use `GetSponsorRequest$outboundSchema` instead. */
-  export const outboundSchema = GetSponsorRequest$outboundSchema;
-  /** @deprecated use `GetSponsorRequest$Outbound` instead. */
-  export type Outbound = GetSponsorRequest$Outbound;
-}
-
 export function getSponsorRequestToJSON(
   getSponsorRequest: GetSponsorRequest,
 ): string {
   return JSON.stringify(
     GetSponsorRequest$outboundSchema.parse(getSponsorRequest),
-  );
-}
-
-export function getSponsorRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<GetSponsorRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => GetSponsorRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetSponsorRequest' from JSON`,
   );
 }

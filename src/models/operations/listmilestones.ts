@@ -4,10 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as models from "../index.js";
 
 export const ListMilestonesOrdering = {
@@ -43,43 +40,9 @@ export type ListMilestonesRequest = {
 };
 
 /** @internal */
-export const ListMilestonesOrdering$inboundSchema: z.ZodNativeEnum<
-  typeof ListMilestonesOrdering
-> = z.nativeEnum(ListMilestonesOrdering);
-
-/** @internal */
 export const ListMilestonesOrdering$outboundSchema: z.ZodNativeEnum<
   typeof ListMilestonesOrdering
-> = ListMilestonesOrdering$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListMilestonesOrdering$ {
-  /** @deprecated use `ListMilestonesOrdering$inboundSchema` instead. */
-  export const inboundSchema = ListMilestonesOrdering$inboundSchema;
-  /** @deprecated use `ListMilestonesOrdering$outboundSchema` instead. */
-  export const outboundSchema = ListMilestonesOrdering$outboundSchema;
-}
-
-/** @internal */
-export const ListMilestonesRequest$inboundSchema: z.ZodType<
-  ListMilestonesRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  organization: z.nullable(z.string()).optional(),
-  repository: z.nullable(z.string()).optional(),
-  state: z.nullable(models.State$inboundSchema).optional(),
-  ordering: z.nullable(ListMilestonesOrdering$inboundSchema).optional(),
-  page: z.number().int().default(1),
-  page_size: z.number().int().default(100),
-}).transform((v) => {
-  return remap$(v, {
-    "page_size": "pageSize",
-  });
-});
+> = z.nativeEnum(ListMilestonesOrdering);
 
 /** @internal */
 export type ListMilestonesRequest$Outbound = {
@@ -109,33 +72,10 @@ export const ListMilestonesRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListMilestonesRequest$ {
-  /** @deprecated use `ListMilestonesRequest$inboundSchema` instead. */
-  export const inboundSchema = ListMilestonesRequest$inboundSchema;
-  /** @deprecated use `ListMilestonesRequest$outboundSchema` instead. */
-  export const outboundSchema = ListMilestonesRequest$outboundSchema;
-  /** @deprecated use `ListMilestonesRequest$Outbound` instead. */
-  export type Outbound = ListMilestonesRequest$Outbound;
-}
-
 export function listMilestonesRequestToJSON(
   listMilestonesRequest: ListMilestonesRequest,
 ): string {
   return JSON.stringify(
     ListMilestonesRequest$outboundSchema.parse(listMilestonesRequest),
-  );
-}
-
-export function listMilestonesRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ListMilestonesRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ListMilestonesRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ListMilestonesRequest' from JSON`,
   );
 }
