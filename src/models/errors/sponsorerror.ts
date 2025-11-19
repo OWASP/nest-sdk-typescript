@@ -49,32 +49,3 @@ export const SponsorError$inboundSchema: z.ZodType<
       body: v.body$,
     });
   });
-
-/** @internal */
-export type SponsorError$Outbound = {
-  message: string;
-};
-
-/** @internal */
-export const SponsorError$outboundSchema: z.ZodType<
-  SponsorError$Outbound,
-  z.ZodTypeDef,
-  SponsorError
-> = z.instanceof(SponsorError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-  }));
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SponsorError$ {
-  /** @deprecated use `SponsorError$inboundSchema` instead. */
-  export const inboundSchema = SponsorError$inboundSchema;
-  /** @deprecated use `SponsorError$outboundSchema` instead. */
-  export const outboundSchema = SponsorError$outboundSchema;
-  /** @deprecated use `SponsorError$Outbound` instead. */
-  export type Outbound = SponsorError$Outbound;
-}

@@ -49,32 +49,3 @@ export const MilestoneError$inboundSchema: z.ZodType<
       body: v.body$,
     });
   });
-
-/** @internal */
-export type MilestoneError$Outbound = {
-  message: string;
-};
-
-/** @internal */
-export const MilestoneError$outboundSchema: z.ZodType<
-  MilestoneError$Outbound,
-  z.ZodTypeDef,
-  MilestoneError
-> = z.instanceof(MilestoneError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-  }));
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MilestoneError$ {
-  /** @deprecated use `MilestoneError$inboundSchema` instead. */
-  export const inboundSchema = MilestoneError$inboundSchema;
-  /** @deprecated use `MilestoneError$outboundSchema` instead. */
-  export const outboundSchema = MilestoneError$outboundSchema;
-  /** @deprecated use `MilestoneError$Outbound` instead. */
-  export type Outbound = MilestoneError$Outbound;
-}

@@ -37,49 +37,6 @@ export const Release$inboundSchema: z.ZodType<Release, z.ZodTypeDef, unknown> =
     });
   });
 
-/** @internal */
-export type Release$Outbound = {
-  created_at: string;
-  name: string;
-  published_at?: string | null | undefined;
-  tag_name: string;
-};
-
-/** @internal */
-export const Release$outboundSchema: z.ZodType<
-  Release$Outbound,
-  z.ZodTypeDef,
-  Release
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  name: z.string(),
-  publishedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
-  tagName: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    publishedAt: "published_at",
-    tagName: "tag_name",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Release$ {
-  /** @deprecated use `Release$inboundSchema` instead. */
-  export const inboundSchema = Release$inboundSchema;
-  /** @deprecated use `Release$outboundSchema` instead. */
-  export const outboundSchema = Release$outboundSchema;
-  /** @deprecated use `Release$Outbound` instead. */
-  export type Outbound = Release$Outbound;
-}
-
-export function releaseToJSON(release: Release): string {
-  return JSON.stringify(Release$outboundSchema.parse(release));
-}
-
 export function releaseFromJSON(
   jsonString: string,
 ): SafeParseResult<Release, SDKValidationError> {

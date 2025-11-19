@@ -4,10 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Ordering field
@@ -17,6 +14,10 @@ export const ListChaptersOrdering = {
   MinusCreatedAt: "-created_at",
   UpdatedAt: "updated_at",
   MinusUpdatedAt: "-updated_at",
+  Latitude: "latitude",
+  MinusLatitude: "-latitude",
+  Longitude: "longitude",
+  MinusLongitude: "-longitude",
 } as const;
 /**
  * Ordering field
@@ -24,6 +25,22 @@ export const ListChaptersOrdering = {
 export type ListChaptersOrdering = ClosedEnum<typeof ListChaptersOrdering>;
 
 export type ListChaptersRequest = {
+  /**
+   * Latitude greater than or equal to
+   */
+  latitudeGte?: number | null | undefined;
+  /**
+   * Latitude less than or equal to
+   */
+  latitudeLte?: number | null | undefined;
+  /**
+   * Longitude greater than or equal to
+   */
+  longitudeGte?: number | null | undefined;
+  /**
+   * Longitude less than or equal to
+   */
+  longitudeLte?: number | null | undefined;
   /**
    * Country of the chapter
    */
@@ -43,44 +60,16 @@ export type ListChaptersRequest = {
 };
 
 /** @internal */
-export const ListChaptersOrdering$inboundSchema: z.ZodNativeEnum<
+export const ListChaptersOrdering$outboundSchema: z.ZodNativeEnum<
   typeof ListChaptersOrdering
 > = z.nativeEnum(ListChaptersOrdering);
 
 /** @internal */
-export const ListChaptersOrdering$outboundSchema: z.ZodNativeEnum<
-  typeof ListChaptersOrdering
-> = ListChaptersOrdering$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListChaptersOrdering$ {
-  /** @deprecated use `ListChaptersOrdering$inboundSchema` instead. */
-  export const inboundSchema = ListChaptersOrdering$inboundSchema;
-  /** @deprecated use `ListChaptersOrdering$outboundSchema` instead. */
-  export const outboundSchema = ListChaptersOrdering$outboundSchema;
-}
-
-/** @internal */
-export const ListChaptersRequest$inboundSchema: z.ZodType<
-  ListChaptersRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  country: z.nullable(z.string()).optional(),
-  ordering: z.nullable(ListChaptersOrdering$inboundSchema).optional(),
-  page: z.number().int().default(1),
-  page_size: z.number().int().default(100),
-}).transform((v) => {
-  return remap$(v, {
-    "page_size": "pageSize",
-  });
-});
-
-/** @internal */
 export type ListChaptersRequest$Outbound = {
+  latitude_gte?: number | null | undefined;
+  latitude_lte?: number | null | undefined;
+  longitude_gte?: number | null | undefined;
+  longitude_lte?: number | null | undefined;
   country?: string | null | undefined;
   ordering?: string | null | undefined;
   page: number;
@@ -93,43 +82,28 @@ export const ListChaptersRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListChaptersRequest
 > = z.object({
+  latitudeGte: z.nullable(z.number()).optional(),
+  latitudeLte: z.nullable(z.number()).optional(),
+  longitudeGte: z.nullable(z.number()).optional(),
+  longitudeLte: z.nullable(z.number()).optional(),
   country: z.nullable(z.string()).optional(),
   ordering: z.nullable(ListChaptersOrdering$outboundSchema).optional(),
   page: z.number().int().default(1),
   pageSize: z.number().int().default(100),
 }).transform((v) => {
   return remap$(v, {
+    latitudeGte: "latitude_gte",
+    latitudeLte: "latitude_lte",
+    longitudeGte: "longitude_gte",
+    longitudeLte: "longitude_lte",
     pageSize: "page_size",
   });
 });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListChaptersRequest$ {
-  /** @deprecated use `ListChaptersRequest$inboundSchema` instead. */
-  export const inboundSchema = ListChaptersRequest$inboundSchema;
-  /** @deprecated use `ListChaptersRequest$outboundSchema` instead. */
-  export const outboundSchema = ListChaptersRequest$outboundSchema;
-  /** @deprecated use `ListChaptersRequest$Outbound` instead. */
-  export type Outbound = ListChaptersRequest$Outbound;
-}
 
 export function listChaptersRequestToJSON(
   listChaptersRequest: ListChaptersRequest,
 ): string {
   return JSON.stringify(
     ListChaptersRequest$outboundSchema.parse(listChaptersRequest),
-  );
-}
-
-export function listChaptersRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ListChaptersRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ListChaptersRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ListChaptersRequest' from JSON`,
   );
 }

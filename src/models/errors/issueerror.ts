@@ -49,32 +49,3 @@ export const IssueError$inboundSchema: z.ZodType<
       body: v.body$,
     });
   });
-
-/** @internal */
-export type IssueError$Outbound = {
-  message: string;
-};
-
-/** @internal */
-export const IssueError$outboundSchema: z.ZodType<
-  IssueError$Outbound,
-  z.ZodTypeDef,
-  IssueError
-> = z.instanceof(IssueError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-  }));
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IssueError$ {
-  /** @deprecated use `IssueError$inboundSchema` instead. */
-  export const inboundSchema = IssueError$inboundSchema;
-  /** @deprecated use `IssueError$outboundSchema` instead. */
-  export const outboundSchema = IssueError$outboundSchema;
-  /** @deprecated use `IssueError$Outbound` instead. */
-  export type Outbound = IssueError$Outbound;
-}

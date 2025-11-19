@@ -13,20 +13,5 @@ export const MemberType = {
 export type MemberType = ClosedEnum<typeof MemberType>;
 
 /** @internal */
-export const MemberType$inboundSchema: z.ZodNativeEnum<typeof MemberType> = z
+export const MemberType$outboundSchema: z.ZodNativeEnum<typeof MemberType> = z
   .nativeEnum(MemberType);
-
-/** @internal */
-export const MemberType$outboundSchema: z.ZodNativeEnum<typeof MemberType> =
-  MemberType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MemberType$ {
-  /** @deprecated use `MemberType$inboundSchema` instead. */
-  export const inboundSchema = MemberType$inboundSchema;
-  /** @deprecated use `MemberType$outboundSchema` instead. */
-  export const outboundSchema = MemberType$outboundSchema;
-}

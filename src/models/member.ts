@@ -41,53 +41,6 @@ export const Member$inboundSchema: z.ZodType<Member, z.ZodTypeDef, unknown> = z
     });
   });
 
-/** @internal */
-export type Member$Outbound = {
-  avatar_url: string;
-  created_at: string;
-  login: string;
-  name: string;
-  updated_at: string;
-  url: string;
-};
-
-/** @internal */
-export const Member$outboundSchema: z.ZodType<
-  Member$Outbound,
-  z.ZodTypeDef,
-  Member
-> = z.object({
-  avatarUrl: z.string(),
-  createdAt: z.date().transform(v => v.toISOString()),
-  login: z.string(),
-  name: z.string(),
-  updatedAt: z.date().transform(v => v.toISOString()),
-  url: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    avatarUrl: "avatar_url",
-    createdAt: "created_at",
-    updatedAt: "updated_at",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Member$ {
-  /** @deprecated use `Member$inboundSchema` instead. */
-  export const inboundSchema = Member$inboundSchema;
-  /** @deprecated use `Member$outboundSchema` instead. */
-  export const outboundSchema = Member$outboundSchema;
-  /** @deprecated use `Member$Outbound` instead. */
-  export type Outbound = Member$Outbound;
-}
-
-export function memberToJSON(member: Member): string {
-  return JSON.stringify(Member$outboundSchema.parse(member));
-}
-
 export function memberFromJSON(
   jsonString: string,
 ): SafeParseResult<Member, SDKValidationError> {

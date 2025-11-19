@@ -40,51 +40,6 @@ export const ReleaseDetail$inboundSchema: z.ZodType<
   });
 });
 
-/** @internal */
-export type ReleaseDetail$Outbound = {
-  created_at: string;
-  name: string;
-  published_at?: string | null | undefined;
-  tag_name: string;
-  description: string;
-};
-
-/** @internal */
-export const ReleaseDetail$outboundSchema: z.ZodType<
-  ReleaseDetail$Outbound,
-  z.ZodTypeDef,
-  ReleaseDetail
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  name: z.string(),
-  publishedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
-  tagName: z.string(),
-  description: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    publishedAt: "published_at",
-    tagName: "tag_name",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ReleaseDetail$ {
-  /** @deprecated use `ReleaseDetail$inboundSchema` instead. */
-  export const inboundSchema = ReleaseDetail$inboundSchema;
-  /** @deprecated use `ReleaseDetail$outboundSchema` instead. */
-  export const outboundSchema = ReleaseDetail$outboundSchema;
-  /** @deprecated use `ReleaseDetail$Outbound` instead. */
-  export type Outbound = ReleaseDetail$Outbound;
-}
-
-export function releaseDetailToJSON(releaseDetail: ReleaseDetail): string {
-  return JSON.stringify(ReleaseDetail$outboundSchema.parse(releaseDetail));
-}
-
 export function releaseDetailFromJSON(
   jsonString: string,
 ): SafeParseResult<ReleaseDetail, SDKValidationError> {

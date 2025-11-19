@@ -91,6 +91,10 @@ async function $do(
 
   const query = encodeFormQuery({
     "country": payload?.country,
+    "latitude_gte": payload?.latitude_gte,
+    "latitude_lte": payload?.latitude_lte,
+    "longitude_gte": payload?.longitude_gte,
+    "longitude_lte": payload?.longitude_lte,
     "ordering": payload?.ordering,
     "page": payload?.page,
     "page_size": payload?.page_size,

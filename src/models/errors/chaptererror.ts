@@ -49,32 +49,3 @@ export const ChapterError$inboundSchema: z.ZodType<
       body: v.body$,
     });
   });
-
-/** @internal */
-export type ChapterError$Outbound = {
-  message: string;
-};
-
-/** @internal */
-export const ChapterError$outboundSchema: z.ZodType<
-  ChapterError$Outbound,
-  z.ZodTypeDef,
-  ChapterError
-> = z.instanceof(ChapterError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-  }));
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ChapterError$ {
-  /** @deprecated use `ChapterError$inboundSchema` instead. */
-  export const inboundSchema = ChapterError$inboundSchema;
-  /** @deprecated use `ChapterError$outboundSchema` instead. */
-  export const outboundSchema = ChapterError$outboundSchema;
-  /** @deprecated use `ChapterError$Outbound` instead. */
-  export type Outbound = ChapterError$Outbound;
-}

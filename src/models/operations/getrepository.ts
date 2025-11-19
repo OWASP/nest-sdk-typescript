@@ -4,29 +4,11 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetRepositoryRequest = {
   organizationId: string;
   repositoryId: string;
 };
-
-/** @internal */
-export const GetRepositoryRequest$inboundSchema: z.ZodType<
-  GetRepositoryRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  organization_id: z.string(),
-  repository_id: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "organization_id": "organizationId",
-    "repository_id": "repositoryId",
-  });
-});
 
 /** @internal */
 export type GetRepositoryRequest$Outbound = {
@@ -49,33 +31,10 @@ export const GetRepositoryRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetRepositoryRequest$ {
-  /** @deprecated use `GetRepositoryRequest$inboundSchema` instead. */
-  export const inboundSchema = GetRepositoryRequest$inboundSchema;
-  /** @deprecated use `GetRepositoryRequest$outboundSchema` instead. */
-  export const outboundSchema = GetRepositoryRequest$outboundSchema;
-  /** @deprecated use `GetRepositoryRequest$Outbound` instead. */
-  export type Outbound = GetRepositoryRequest$Outbound;
-}
-
 export function getRepositoryRequestToJSON(
   getRepositoryRequest: GetRepositoryRequest,
 ): string {
   return JSON.stringify(
     GetRepositoryRequest$outboundSchema.parse(getRepositoryRequest),
-  );
-}
-
-export function getRepositoryRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<GetRepositoryRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => GetRepositoryRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetRepositoryRequest' from JSON`,
   );
 }

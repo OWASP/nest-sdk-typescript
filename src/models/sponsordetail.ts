@@ -48,61 +48,6 @@ export const SponsorDetail$inboundSchema: z.ZodType<
   });
 });
 
-/** @internal */
-export type SponsorDetail$Outbound = {
-  image_url: string;
-  key: string;
-  name: string;
-  sponsor_type: string;
-  url: string;
-  description: string;
-  is_member: boolean;
-  job_url: string;
-  member_type: string;
-};
-
-/** @internal */
-export const SponsorDetail$outboundSchema: z.ZodType<
-  SponsorDetail$Outbound,
-  z.ZodTypeDef,
-  SponsorDetail
-> = z.object({
-  imageUrl: z.string(),
-  key: z.string(),
-  name: z.string(),
-  sponsorType: z.string(),
-  url: z.string(),
-  description: z.string(),
-  isMember: z.boolean(),
-  jobUrl: z.string(),
-  memberType: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    imageUrl: "image_url",
-    sponsorType: "sponsor_type",
-    isMember: "is_member",
-    jobUrl: "job_url",
-    memberType: "member_type",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SponsorDetail$ {
-  /** @deprecated use `SponsorDetail$inboundSchema` instead. */
-  export const inboundSchema = SponsorDetail$inboundSchema;
-  /** @deprecated use `SponsorDetail$outboundSchema` instead. */
-  export const outboundSchema = SponsorDetail$outboundSchema;
-  /** @deprecated use `SponsorDetail$Outbound` instead. */
-  export type Outbound = SponsorDetail$Outbound;
-}
-
-export function sponsorDetailToJSON(sponsorDetail: SponsorDetail): string {
-  return JSON.stringify(SponsorDetail$outboundSchema.parse(sponsorDetail));
-}
-
 export function sponsorDetailFromJSON(
   jsonString: string,
 ): SafeParseResult<SponsorDetail, SDKValidationError> {

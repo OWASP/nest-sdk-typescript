@@ -37,52 +37,6 @@ export const CommitteeDetail$inboundSchema: z.ZodType<
   });
 });
 
-/** @internal */
-export type CommitteeDetail$Outbound = {
-  created_at: string;
-  key: string;
-  name: string;
-  updated_at: string;
-  description: string;
-};
-
-/** @internal */
-export const CommitteeDetail$outboundSchema: z.ZodType<
-  CommitteeDetail$Outbound,
-  z.ZodTypeDef,
-  CommitteeDetail
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  key: z.string(),
-  name: z.string(),
-  updatedAt: z.date().transform(v => v.toISOString()),
-  description: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    updatedAt: "updated_at",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CommitteeDetail$ {
-  /** @deprecated use `CommitteeDetail$inboundSchema` instead. */
-  export const inboundSchema = CommitteeDetail$inboundSchema;
-  /** @deprecated use `CommitteeDetail$outboundSchema` instead. */
-  export const outboundSchema = CommitteeDetail$outboundSchema;
-  /** @deprecated use `CommitteeDetail$Outbound` instead. */
-  export type Outbound = CommitteeDetail$Outbound;
-}
-
-export function committeeDetailToJSON(
-  committeeDetail: CommitteeDetail,
-): string {
-  return JSON.stringify(CommitteeDetail$outboundSchema.parse(committeeDetail));
-}
-
 export function committeeDetailFromJSON(
   jsonString: string,
 ): SafeParseResult<CommitteeDetail, SDKValidationError> {

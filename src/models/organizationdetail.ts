@@ -39,56 +39,6 @@ export const OrganizationDetail$inboundSchema: z.ZodType<
   });
 });
 
-/** @internal */
-export type OrganizationDetail$Outbound = {
-  created_at: string;
-  login: string;
-  name: string;
-  updated_at: string;
-  company: string;
-  location: string;
-};
-
-/** @internal */
-export const OrganizationDetail$outboundSchema: z.ZodType<
-  OrganizationDetail$Outbound,
-  z.ZodTypeDef,
-  OrganizationDetail
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  login: z.string(),
-  name: z.string(),
-  updatedAt: z.date().transform(v => v.toISOString()),
-  company: z.string(),
-  location: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    updatedAt: "updated_at",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrganizationDetail$ {
-  /** @deprecated use `OrganizationDetail$inboundSchema` instead. */
-  export const inboundSchema = OrganizationDetail$inboundSchema;
-  /** @deprecated use `OrganizationDetail$outboundSchema` instead. */
-  export const outboundSchema = OrganizationDetail$outboundSchema;
-  /** @deprecated use `OrganizationDetail$Outbound` instead. */
-  export type Outbound = OrganizationDetail$Outbound;
-}
-
-export function organizationDetailToJSON(
-  organizationDetail: OrganizationDetail,
-): string {
-  return JSON.stringify(
-    OrganizationDetail$outboundSchema.parse(organizationDetail),
-  );
-}
-
 export function organizationDetailFromJSON(
   jsonString: string,
 ): SafeParseResult<OrganizationDetail, SDKValidationError> {

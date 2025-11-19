@@ -4,10 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Ordering field
@@ -17,6 +14,10 @@ export const ListEventsOrdering = {
   MinusStartDate: "-start_date",
   EndDate: "end_date",
   MinusEndDate: "-end_date",
+  Latitude: "latitude",
+  MinusLatitude: "-latitude",
+  Longitude: "longitude",
+  MinusLongitude: "-longitude",
 } as const;
 /**
  * Ordering field
@@ -25,9 +26,29 @@ export type ListEventsOrdering = ClosedEnum<typeof ListEventsOrdering>;
 
 export type ListEventsRequest = {
   /**
+   * Latitude greater than or equal to
+   */
+  latitudeGte?: number | null | undefined;
+  /**
+   * Latitude less than or equal to
+   */
+  latitudeLte?: number | null | undefined;
+  /**
+   * Longitude greater than or equal to
+   */
+  longitudeGte?: number | null | undefined;
+  /**
+   * Longitude less than or equal to
+   */
+  longitudeLte?: number | null | undefined;
+  /**
    * Ordering field
    */
   ordering?: ListEventsOrdering | null | undefined;
+  /**
+   * Filter for upcoming events
+   */
+  isUpcoming?: boolean | null | undefined;
   /**
    * Page number
    */
@@ -39,44 +60,18 @@ export type ListEventsRequest = {
 };
 
 /** @internal */
-export const ListEventsOrdering$inboundSchema: z.ZodNativeEnum<
+export const ListEventsOrdering$outboundSchema: z.ZodNativeEnum<
   typeof ListEventsOrdering
 > = z.nativeEnum(ListEventsOrdering);
 
 /** @internal */
-export const ListEventsOrdering$outboundSchema: z.ZodNativeEnum<
-  typeof ListEventsOrdering
-> = ListEventsOrdering$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListEventsOrdering$ {
-  /** @deprecated use `ListEventsOrdering$inboundSchema` instead. */
-  export const inboundSchema = ListEventsOrdering$inboundSchema;
-  /** @deprecated use `ListEventsOrdering$outboundSchema` instead. */
-  export const outboundSchema = ListEventsOrdering$outboundSchema;
-}
-
-/** @internal */
-export const ListEventsRequest$inboundSchema: z.ZodType<
-  ListEventsRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  ordering: z.nullable(ListEventsOrdering$inboundSchema).optional(),
-  page: z.number().int().default(1),
-  page_size: z.number().int().default(100),
-}).transform((v) => {
-  return remap$(v, {
-    "page_size": "pageSize",
-  });
-});
-
-/** @internal */
 export type ListEventsRequest$Outbound = {
+  latitude_gte?: number | null | undefined;
+  latitude_lte?: number | null | undefined;
+  longitude_gte?: number | null | undefined;
+  longitude_lte?: number | null | undefined;
   ordering?: string | null | undefined;
+  is_upcoming?: boolean | null | undefined;
   page: number;
   page_size: number;
 };
@@ -87,42 +82,29 @@ export const ListEventsRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListEventsRequest
 > = z.object({
+  latitudeGte: z.nullable(z.number()).optional(),
+  latitudeLte: z.nullable(z.number()).optional(),
+  longitudeGte: z.nullable(z.number()).optional(),
+  longitudeLte: z.nullable(z.number()).optional(),
   ordering: z.nullable(ListEventsOrdering$outboundSchema).optional(),
+  isUpcoming: z.nullable(z.boolean()).optional(),
   page: z.number().int().default(1),
   pageSize: z.number().int().default(100),
 }).transform((v) => {
   return remap$(v, {
+    latitudeGte: "latitude_gte",
+    latitudeLte: "latitude_lte",
+    longitudeGte: "longitude_gte",
+    longitudeLte: "longitude_lte",
+    isUpcoming: "is_upcoming",
     pageSize: "page_size",
   });
 });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListEventsRequest$ {
-  /** @deprecated use `ListEventsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListEventsRequest$inboundSchema;
-  /** @deprecated use `ListEventsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListEventsRequest$outboundSchema;
-  /** @deprecated use `ListEventsRequest$Outbound` instead. */
-  export type Outbound = ListEventsRequest$Outbound;
-}
 
 export function listEventsRequestToJSON(
   listEventsRequest: ListEventsRequest,
 ): string {
   return JSON.stringify(
     ListEventsRequest$outboundSchema.parse(listEventsRequest),
-  );
-}
-
-export function listEventsRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ListEventsRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ListEventsRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ListEventsRequest' from JSON`,
   );
 }

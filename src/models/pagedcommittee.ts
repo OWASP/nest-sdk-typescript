@@ -6,12 +6,7 @@ import * as z from "zod/v3";
 import { remap as remap$ } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
-import {
-  Committee,
-  Committee$inboundSchema,
-  Committee$Outbound,
-  Committee$outboundSchema,
-} from "./committee.js";
+import { Committee, Committee$inboundSchema } from "./committee.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
 export type PagedCommittee = {
@@ -59,55 +54,6 @@ export const PagedCommittee$inboundSchema: z.ZodType<
     "total_pages": "totalPages",
   });
 });
-
-/** @internal */
-export type PagedCommittee$Outbound = {
-  current_page: number;
-  has_next: boolean;
-  has_previous: boolean;
-  items: Array<Committee$Outbound>;
-  total_count: number;
-  total_pages: number;
-};
-
-/** @internal */
-export const PagedCommittee$outboundSchema: z.ZodType<
-  PagedCommittee$Outbound,
-  z.ZodTypeDef,
-  PagedCommittee
-> = z.object({
-  currentPage: z.number().int(),
-  hasNext: z.boolean(),
-  hasPrevious: z.boolean(),
-  items: z.array(Committee$outboundSchema),
-  totalCount: z.number().int(),
-  totalPages: z.number().int(),
-}).transform((v) => {
-  return remap$(v, {
-    currentPage: "current_page",
-    hasNext: "has_next",
-    hasPrevious: "has_previous",
-    totalCount: "total_count",
-    totalPages: "total_pages",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PagedCommittee$ {
-  /** @deprecated use `PagedCommittee$inboundSchema` instead. */
-  export const inboundSchema = PagedCommittee$inboundSchema;
-  /** @deprecated use `PagedCommittee$outboundSchema` instead. */
-  export const outboundSchema = PagedCommittee$outboundSchema;
-  /** @deprecated use `PagedCommittee$Outbound` instead. */
-  export type Outbound = PagedCommittee$Outbound;
-}
-
-export function pagedCommitteeToJSON(pagedCommittee: PagedCommittee): string {
-  return JSON.stringify(PagedCommittee$outboundSchema.parse(pagedCommittee));
-}
 
 export function pagedCommitteeFromJSON(
   jsonString: string,

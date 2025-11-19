@@ -14,6 +14,8 @@ import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 export type Chapter = {
   createdAt: Date;
   key: string;
+  latitude?: number | null | undefined;
+  longitude?: number | null | undefined;
   name: string;
   updatedAt: Date;
 };
@@ -25,6 +27,8 @@ export const Chapter$inboundSchema: z.ZodType<Chapter, z.ZodTypeDef, unknown> =
       new Date(v)
     ),
     key: z.string(),
+    latitude: z.nullable(z.number()).optional(),
+    longitude: z.nullable(z.number()).optional(),
     name: z.string(),
     updated_at: z.string().datetime({ offset: true }).transform(v =>
       new Date(v)
@@ -35,48 +39,6 @@ export const Chapter$inboundSchema: z.ZodType<Chapter, z.ZodTypeDef, unknown> =
       "updated_at": "updatedAt",
     });
   });
-
-/** @internal */
-export type Chapter$Outbound = {
-  created_at: string;
-  key: string;
-  name: string;
-  updated_at: string;
-};
-
-/** @internal */
-export const Chapter$outboundSchema: z.ZodType<
-  Chapter$Outbound,
-  z.ZodTypeDef,
-  Chapter
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  key: z.string(),
-  name: z.string(),
-  updatedAt: z.date().transform(v => v.toISOString()),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    updatedAt: "updated_at",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Chapter$ {
-  /** @deprecated use `Chapter$inboundSchema` instead. */
-  export const inboundSchema = Chapter$inboundSchema;
-  /** @deprecated use `Chapter$outboundSchema` instead. */
-  export const outboundSchema = Chapter$outboundSchema;
-  /** @deprecated use `Chapter$Outbound` instead. */
-  export type Outbound = Chapter$Outbound;
-}
-
-export function chapterToJSON(chapter: Chapter): string {
-  return JSON.stringify(Chapter$outboundSchema.parse(chapter));
-}
 
 export function chapterFromJSON(
   jsonString: string,

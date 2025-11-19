@@ -49,32 +49,3 @@ export const EventError$inboundSchema: z.ZodType<
       body: v.body$,
     });
   });
-
-/** @internal */
-export type EventError$Outbound = {
-  message: string;
-};
-
-/** @internal */
-export const EventError$outboundSchema: z.ZodType<
-  EventError$Outbound,
-  z.ZodTypeDef,
-  EventError
-> = z.instanceof(EventError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-  }));
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace EventError$ {
-  /** @deprecated use `EventError$inboundSchema` instead. */
-  export const inboundSchema = EventError$inboundSchema;
-  /** @deprecated use `EventError$outboundSchema` instead. */
-  export const outboundSchema = EventError$outboundSchema;
-  /** @deprecated use `EventError$Outbound` instead. */
-  export type Outbound = EventError$Outbound;
-}

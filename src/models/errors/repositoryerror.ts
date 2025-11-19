@@ -49,32 +49,3 @@ export const RepositoryError$inboundSchema: z.ZodType<
       body: v.body$,
     });
   });
-
-/** @internal */
-export type RepositoryError$Outbound = {
-  message: string;
-};
-
-/** @internal */
-export const RepositoryError$outboundSchema: z.ZodType<
-  RepositoryError$Outbound,
-  z.ZodTypeDef,
-  RepositoryError
-> = z.instanceof(RepositoryError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-  }));
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RepositoryError$ {
-  /** @deprecated use `RepositoryError$inboundSchema` instead. */
-  export const inboundSchema = RepositoryError$inboundSchema;
-  /** @deprecated use `RepositoryError$outboundSchema` instead. */
-  export const outboundSchema = RepositoryError$outboundSchema;
-  /** @deprecated use `RepositoryError$Outbound` instead. */
-  export type Outbound = RepositoryError$Outbound;
-}
