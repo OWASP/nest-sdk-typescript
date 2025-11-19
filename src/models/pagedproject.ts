@@ -7,12 +7,7 @@ import { remap as remap$ } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
-import {
-  Project,
-  Project$inboundSchema,
-  Project$Outbound,
-  Project$outboundSchema,
-} from "./project.js";
+import { Project, Project$inboundSchema } from "./project.js";
 
 export type PagedProject = {
   /**
@@ -59,55 +54,6 @@ export const PagedProject$inboundSchema: z.ZodType<
     "total_pages": "totalPages",
   });
 });
-
-/** @internal */
-export type PagedProject$Outbound = {
-  current_page: number;
-  has_next: boolean;
-  has_previous: boolean;
-  items: Array<Project$Outbound>;
-  total_count: number;
-  total_pages: number;
-};
-
-/** @internal */
-export const PagedProject$outboundSchema: z.ZodType<
-  PagedProject$Outbound,
-  z.ZodTypeDef,
-  PagedProject
-> = z.object({
-  currentPage: z.number().int(),
-  hasNext: z.boolean(),
-  hasPrevious: z.boolean(),
-  items: z.array(Project$outboundSchema),
-  totalCount: z.number().int(),
-  totalPages: z.number().int(),
-}).transform((v) => {
-  return remap$(v, {
-    currentPage: "current_page",
-    hasNext: "has_next",
-    hasPrevious: "has_previous",
-    totalCount: "total_count",
-    totalPages: "total_pages",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PagedProject$ {
-  /** @deprecated use `PagedProject$inboundSchema` instead. */
-  export const inboundSchema = PagedProject$inboundSchema;
-  /** @deprecated use `PagedProject$outboundSchema` instead. */
-  export const outboundSchema = PagedProject$outboundSchema;
-  /** @deprecated use `PagedProject$Outbound` instead. */
-  export type Outbound = PagedProject$Outbound;
-}
-
-export function pagedProjectToJSON(pagedProject: PagedProject): string {
-  return JSON.stringify(PagedProject$outboundSchema.parse(pagedProject));
-}
 
 export function pagedProjectFromJSON(
   jsonString: string,

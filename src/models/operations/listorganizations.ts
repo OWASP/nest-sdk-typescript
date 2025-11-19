@@ -4,10 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Ordering field
@@ -45,41 +42,9 @@ export type ListOrganizationsRequest = {
 };
 
 /** @internal */
-export const ListOrganizationsOrdering$inboundSchema: z.ZodNativeEnum<
-  typeof ListOrganizationsOrdering
-> = z.nativeEnum(ListOrganizationsOrdering);
-
-/** @internal */
 export const ListOrganizationsOrdering$outboundSchema: z.ZodNativeEnum<
   typeof ListOrganizationsOrdering
-> = ListOrganizationsOrdering$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListOrganizationsOrdering$ {
-  /** @deprecated use `ListOrganizationsOrdering$inboundSchema` instead. */
-  export const inboundSchema = ListOrganizationsOrdering$inboundSchema;
-  /** @deprecated use `ListOrganizationsOrdering$outboundSchema` instead. */
-  export const outboundSchema = ListOrganizationsOrdering$outboundSchema;
-}
-
-/** @internal */
-export const ListOrganizationsRequest$inboundSchema: z.ZodType<
-  ListOrganizationsRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  location: z.nullable(z.string()).optional(),
-  ordering: z.nullable(ListOrganizationsOrdering$inboundSchema).optional(),
-  page: z.number().int().default(1),
-  page_size: z.number().int().default(100),
-}).transform((v) => {
-  return remap$(v, {
-    "page_size": "pageSize",
-  });
-});
+> = z.nativeEnum(ListOrganizationsOrdering);
 
 /** @internal */
 export type ListOrganizationsRequest$Outbound = {
@@ -105,33 +70,10 @@ export const ListOrganizationsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListOrganizationsRequest$ {
-  /** @deprecated use `ListOrganizationsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListOrganizationsRequest$inboundSchema;
-  /** @deprecated use `ListOrganizationsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListOrganizationsRequest$outboundSchema;
-  /** @deprecated use `ListOrganizationsRequest$Outbound` instead. */
-  export type Outbound = ListOrganizationsRequest$Outbound;
-}
-
 export function listOrganizationsRequestToJSON(
   listOrganizationsRequest: ListOrganizationsRequest,
 ): string {
   return JSON.stringify(
     ListOrganizationsRequest$outboundSchema.parse(listOrganizationsRequest),
-  );
-}
-
-export function listOrganizationsRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ListOrganizationsRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ListOrganizationsRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ListOrganizationsRequest' from JSON`,
   );
 }

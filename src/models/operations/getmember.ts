@@ -4,26 +4,10 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetMemberRequest = {
   memberId: string;
 };
-
-/** @internal */
-export const GetMemberRequest$inboundSchema: z.ZodType<
-  GetMemberRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  member_id: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "member_id": "memberId",
-  });
-});
 
 /** @internal */
 export type GetMemberRequest$Outbound = {
@@ -43,33 +27,10 @@ export const GetMemberRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetMemberRequest$ {
-  /** @deprecated use `GetMemberRequest$inboundSchema` instead. */
-  export const inboundSchema = GetMemberRequest$inboundSchema;
-  /** @deprecated use `GetMemberRequest$outboundSchema` instead. */
-  export const outboundSchema = GetMemberRequest$outboundSchema;
-  /** @deprecated use `GetMemberRequest$Outbound` instead. */
-  export type Outbound = GetMemberRequest$Outbound;
-}
-
 export function getMemberRequestToJSON(
   getMemberRequest: GetMemberRequest,
 ): string {
   return JSON.stringify(
     GetMemberRequest$outboundSchema.parse(getMemberRequest),
-  );
-}
-
-export function getMemberRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<GetMemberRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => GetMemberRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetMemberRequest' from JSON`,
   );
 }

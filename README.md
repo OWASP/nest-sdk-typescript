@@ -154,6 +154,13 @@ run();
 * [getMember](docs/sdks/community/README.md#getmember) - Get member
 * [listOrganizations](docs/sdks/community/README.md#listorganizations) - List organizations
 * [getOrganization](docs/sdks/community/README.md#getorganization) - Get organization
+* [listSnapshots](docs/sdks/community/README.md#listsnapshots) - List snapshots
+* [getSnapshot](docs/sdks/community/README.md#getsnapshot) - Get snapshot
+* [listSnapshotChapters](docs/sdks/community/README.md#listsnapshotchapters) - List new chapters in snapshot
+* [listSnapshotIssues](docs/sdks/community/README.md#listsnapshotissues) - List new issues in snapshot
+* [listSnapshotMembers](docs/sdks/community/README.md#listsnapshotmembers) - List new members in snapshot
+* [listSnapshotProjects](docs/sdks/community/README.md#listsnapshotprojects) - List new projects in snapshot
+* [listSnapshotReleases](docs/sdks/community/README.md#listsnapshotreleases) - List new releases in snapshot
 
 ### [events](docs/sdks/events/README.md)
 
@@ -214,8 +221,15 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`committeesListCommittees`](docs/sdks/committees/README.md#listcommittees) - List committees
 - [`communityGetMember`](docs/sdks/community/README.md#getmember) - Get member
 - [`communityGetOrganization`](docs/sdks/community/README.md#getorganization) - Get organization
+- [`communityGetSnapshot`](docs/sdks/community/README.md#getsnapshot) - Get snapshot
 - [`communityListMembers`](docs/sdks/community/README.md#listmembers) - List members
 - [`communityListOrganizations`](docs/sdks/community/README.md#listorganizations) - List organizations
+- [`communityListSnapshotChapters`](docs/sdks/community/README.md#listsnapshotchapters) - List new chapters in snapshot
+- [`communityListSnapshotIssues`](docs/sdks/community/README.md#listsnapshotissues) - List new issues in snapshot
+- [`communityListSnapshotMembers`](docs/sdks/community/README.md#listsnapshotmembers) - List new members in snapshot
+- [`communityListSnapshotProjects`](docs/sdks/community/README.md#listsnapshotprojects) - List new projects in snapshot
+- [`communityListSnapshotReleases`](docs/sdks/community/README.md#listsnapshotreleases) - List new releases in snapshot
+- [`communityListSnapshots`](docs/sdks/community/README.md#listsnapshots) - List snapshots
 - [`eventsGetEvent`](docs/sdks/events/README.md#getevent) - Get event
 - [`eventsListEvents`](docs/sdks/events/README.md#listevents) - List events
 - [`issuesGetIssue`](docs/sdks/issues/README.md#getissue) - Get issue
@@ -355,7 +369,7 @@ run();
 **Primary error:**
 * [`NestError`](./src/models/errors/nesterror.ts): The base class for HTTP error responses.
 
-<details><summary>Less common errors (17)</summary>
+<details><summary>Less common errors (18)</summary>
 
 <br />
 
@@ -368,17 +382,18 @@ run();
 
 
 **Inherit from [`NestError`](./src/models/errors/nesterror.ts)**:
-* [`ChapterError`](./src/models/errors/chaptererror.ts): Chapter error schema. Status code `404`. Applicable to 1 of 22 methods.*
-* [`CommitteeError`](./src/models/errors/committeeerror.ts): Committee error schema. Status code `404`. Applicable to 1 of 22 methods.*
-* [`EventError`](./src/models/errors/eventerror.ts): Event error schema. Status code `404`. Applicable to 1 of 22 methods.*
-* [`IssueError`](./src/models/errors/issueerror.ts): Issue error schema. Status code `404`. Applicable to 1 of 22 methods.*
-* [`MemberError`](./src/models/errors/membererror.ts): Member error schema. Status code `404`. Applicable to 1 of 22 methods.*
-* [`OrganizationError`](./src/models/errors/organizationerror.ts): Organization error schema. Status code `404`. Applicable to 1 of 22 methods.*
-* [`MilestoneError`](./src/models/errors/milestoneerror.ts): Milestone error schema. Status code `404`. Applicable to 1 of 22 methods.*
-* [`ProjectError`](./src/models/errors/projecterror.ts): Project error schema. Status code `404`. Applicable to 1 of 22 methods.*
-* [`ReleaseError`](./src/models/errors/releaseerror.ts): Release error schema. Status code `404`. Applicable to 1 of 22 methods.*
-* [`RepositoryError`](./src/models/errors/repositoryerror.ts): Repository error schema. Status code `404`. Applicable to 1 of 22 methods.*
-* [`SponsorError`](./src/models/errors/sponsorerror.ts): Sponsor error schema. Status code `404`. Applicable to 1 of 22 methods.*
+* [`ChapterError`](./src/models/errors/chaptererror.ts): Chapter error schema. Status code `404`. Applicable to 1 of 29 methods.*
+* [`CommitteeError`](./src/models/errors/committeeerror.ts): Committee error schema. Status code `404`. Applicable to 1 of 29 methods.*
+* [`EventError`](./src/models/errors/eventerror.ts): Event error schema. Status code `404`. Applicable to 1 of 29 methods.*
+* [`IssueError`](./src/models/errors/issueerror.ts): Issue error schema. Status code `404`. Applicable to 1 of 29 methods.*
+* [`MemberError`](./src/models/errors/membererror.ts): Member error schema. Status code `404`. Applicable to 1 of 29 methods.*
+* [`OrganizationError`](./src/models/errors/organizationerror.ts): Organization error schema. Status code `404`. Applicable to 1 of 29 methods.*
+* [`SnapshotError`](./src/models/errors/snapshoterror.ts): Snapshot error schema. Status code `404`. Applicable to 1 of 29 methods.*
+* [`MilestoneError`](./src/models/errors/milestoneerror.ts): Milestone error schema. Status code `404`. Applicable to 1 of 29 methods.*
+* [`ProjectError`](./src/models/errors/projecterror.ts): Project error schema. Status code `404`. Applicable to 1 of 29 methods.*
+* [`ReleaseError`](./src/models/errors/releaseerror.ts): Release error schema. Status code `404`. Applicable to 1 of 29 methods.*
+* [`RepositoryError`](./src/models/errors/repositoryerror.ts): Repository error schema. Status code `404`. Applicable to 1 of 29 methods.*
+* [`SponsorError`](./src/models/errors/sponsorerror.ts): Sponsor error schema. Status code `404`. Applicable to 1 of 29 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

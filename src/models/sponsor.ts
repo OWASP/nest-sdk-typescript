@@ -34,50 +34,6 @@ export const Sponsor$inboundSchema: z.ZodType<Sponsor, z.ZodTypeDef, unknown> =
     });
   });
 
-/** @internal */
-export type Sponsor$Outbound = {
-  image_url: string;
-  key: string;
-  name: string;
-  sponsor_type: string;
-  url: string;
-};
-
-/** @internal */
-export const Sponsor$outboundSchema: z.ZodType<
-  Sponsor$Outbound,
-  z.ZodTypeDef,
-  Sponsor
-> = z.object({
-  imageUrl: z.string(),
-  key: z.string(),
-  name: z.string(),
-  sponsorType: z.string(),
-  url: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    imageUrl: "image_url",
-    sponsorType: "sponsor_type",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Sponsor$ {
-  /** @deprecated use `Sponsor$inboundSchema` instead. */
-  export const inboundSchema = Sponsor$inboundSchema;
-  /** @deprecated use `Sponsor$outboundSchema` instead. */
-  export const outboundSchema = Sponsor$outboundSchema;
-  /** @deprecated use `Sponsor$Outbound` instead. */
-  export type Outbound = Sponsor$Outbound;
-}
-
-export function sponsorToJSON(sponsor: Sponsor): string {
-  return JSON.stringify(Sponsor$outboundSchema.parse(sponsor));
-}
-
 export function sponsorFromJSON(
   jsonString: string,
 ): SafeParseResult<Sponsor, SDKValidationError> {

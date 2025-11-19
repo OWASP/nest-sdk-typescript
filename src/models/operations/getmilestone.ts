@@ -4,32 +4,12 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetMilestoneRequest = {
   organizationId: string;
   repositoryId: string;
   milestoneId: number;
 };
-
-/** @internal */
-export const GetMilestoneRequest$inboundSchema: z.ZodType<
-  GetMilestoneRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  organization_id: z.string(),
-  repository_id: z.string(),
-  milestone_id: z.number().int(),
-}).transform((v) => {
-  return remap$(v, {
-    "organization_id": "organizationId",
-    "repository_id": "repositoryId",
-    "milestone_id": "milestoneId",
-  });
-});
 
 /** @internal */
 export type GetMilestoneRequest$Outbound = {
@@ -55,33 +35,10 @@ export const GetMilestoneRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetMilestoneRequest$ {
-  /** @deprecated use `GetMilestoneRequest$inboundSchema` instead. */
-  export const inboundSchema = GetMilestoneRequest$inboundSchema;
-  /** @deprecated use `GetMilestoneRequest$outboundSchema` instead. */
-  export const outboundSchema = GetMilestoneRequest$outboundSchema;
-  /** @deprecated use `GetMilestoneRequest$Outbound` instead. */
-  export type Outbound = GetMilestoneRequest$Outbound;
-}
-
 export function getMilestoneRequestToJSON(
   getMilestoneRequest: GetMilestoneRequest,
 ): string {
   return JSON.stringify(
     GetMilestoneRequest$outboundSchema.parse(getMilestoneRequest),
-  );
-}
-
-export function getMilestoneRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<GetMilestoneRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => GetMilestoneRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetMilestoneRequest' from JSON`,
   );
 }

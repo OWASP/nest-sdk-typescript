@@ -4,10 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as models from "../index.js";
 
 /**
@@ -50,46 +47,9 @@ export type ListSponsorsRequest = {
 };
 
 /** @internal */
-export const ListSponsorsOrdering$inboundSchema: z.ZodNativeEnum<
-  typeof ListSponsorsOrdering
-> = z.nativeEnum(ListSponsorsOrdering);
-
-/** @internal */
 export const ListSponsorsOrdering$outboundSchema: z.ZodNativeEnum<
   typeof ListSponsorsOrdering
-> = ListSponsorsOrdering$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListSponsorsOrdering$ {
-  /** @deprecated use `ListSponsorsOrdering$inboundSchema` instead. */
-  export const inboundSchema = ListSponsorsOrdering$inboundSchema;
-  /** @deprecated use `ListSponsorsOrdering$outboundSchema` instead. */
-  export const outboundSchema = ListSponsorsOrdering$outboundSchema;
-}
-
-/** @internal */
-export const ListSponsorsRequest$inboundSchema: z.ZodType<
-  ListSponsorsRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  is_member: z.nullable(z.boolean()).optional(),
-  member_type: z.nullable(models.MemberType$inboundSchema).optional(),
-  sponsor_type: z.nullable(z.string()).optional(),
-  ordering: z.nullable(ListSponsorsOrdering$inboundSchema).optional(),
-  page: z.number().int().default(1),
-  page_size: z.number().int().default(100),
-}).transform((v) => {
-  return remap$(v, {
-    "is_member": "isMember",
-    "member_type": "memberType",
-    "sponsor_type": "sponsorType",
-    "page_size": "pageSize",
-  });
-});
+> = z.nativeEnum(ListSponsorsOrdering);
 
 /** @internal */
 export type ListSponsorsRequest$Outbound = {
@@ -122,33 +82,10 @@ export const ListSponsorsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListSponsorsRequest$ {
-  /** @deprecated use `ListSponsorsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListSponsorsRequest$inboundSchema;
-  /** @deprecated use `ListSponsorsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListSponsorsRequest$outboundSchema;
-  /** @deprecated use `ListSponsorsRequest$Outbound` instead. */
-  export type Outbound = ListSponsorsRequest$Outbound;
-}
-
 export function listSponsorsRequestToJSON(
   listSponsorsRequest: ListSponsorsRequest,
 ): string {
   return JSON.stringify(
     ListSponsorsRequest$outboundSchema.parse(listSponsorsRequest),
-  );
-}
-
-export function listSponsorsRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ListSponsorsRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ListSponsorsRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ListSponsorsRequest' from JSON`,
   );
 }

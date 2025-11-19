@@ -14,6 +14,8 @@ import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 export type ChapterDetail = {
   createdAt: Date;
   key: string;
+  latitude?: number | null | undefined;
+  longitude?: number | null | undefined;
   name: string;
   updatedAt: Date;
   country: string;
@@ -28,6 +30,8 @@ export const ChapterDetail$inboundSchema: z.ZodType<
 > = z.object({
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   key: z.string(),
+  latitude: z.nullable(z.number()).optional(),
+  longitude: z.nullable(z.number()).optional(),
   name: z.string(),
   updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   country: z.string(),
@@ -38,52 +42,6 @@ export const ChapterDetail$inboundSchema: z.ZodType<
     "updated_at": "updatedAt",
   });
 });
-
-/** @internal */
-export type ChapterDetail$Outbound = {
-  created_at: string;
-  key: string;
-  name: string;
-  updated_at: string;
-  country: string;
-  region: string;
-};
-
-/** @internal */
-export const ChapterDetail$outboundSchema: z.ZodType<
-  ChapterDetail$Outbound,
-  z.ZodTypeDef,
-  ChapterDetail
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  key: z.string(),
-  name: z.string(),
-  updatedAt: z.date().transform(v => v.toISOString()),
-  country: z.string(),
-  region: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    updatedAt: "updated_at",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ChapterDetail$ {
-  /** @deprecated use `ChapterDetail$inboundSchema` instead. */
-  export const inboundSchema = ChapterDetail$inboundSchema;
-  /** @deprecated use `ChapterDetail$outboundSchema` instead. */
-  export const outboundSchema = ChapterDetail$outboundSchema;
-  /** @deprecated use `ChapterDetail$Outbound` instead. */
-  export type Outbound = ChapterDetail$Outbound;
-}
-
-export function chapterDetailToJSON(chapterDetail: ChapterDetail): string {
-  return JSON.stringify(ChapterDetail$outboundSchema.parse(chapterDetail));
-}
 
 export function chapterDetailFromJSON(
   jsonString: string,

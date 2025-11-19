@@ -7,7 +7,7 @@ import { remap as remap$ } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
-import { State, State$inboundSchema, State$outboundSchema } from "./state.js";
+import { State, State$inboundSchema } from "./state.js";
 
 /**
  * Schema for Milestone (minimal fields for list display).
@@ -39,52 +39,6 @@ export const Milestone$inboundSchema: z.ZodType<
     "updated_at": "updatedAt",
   });
 });
-
-/** @internal */
-export type Milestone$Outbound = {
-  created_at: string;
-  number: number;
-  state: string;
-  title: string;
-  updated_at: string;
-  url: string;
-};
-
-/** @internal */
-export const Milestone$outboundSchema: z.ZodType<
-  Milestone$Outbound,
-  z.ZodTypeDef,
-  Milestone
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  number: z.number().int(),
-  state: State$outboundSchema,
-  title: z.string(),
-  updatedAt: z.date().transform(v => v.toISOString()),
-  url: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    updatedAt: "updated_at",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Milestone$ {
-  /** @deprecated use `Milestone$inboundSchema` instead. */
-  export const inboundSchema = Milestone$inboundSchema;
-  /** @deprecated use `Milestone$outboundSchema` instead. */
-  export const outboundSchema = Milestone$outboundSchema;
-  /** @deprecated use `Milestone$Outbound` instead. */
-  export type Outbound = Milestone$Outbound;
-}
-
-export function milestoneToJSON(milestone: Milestone): string {
-  return JSON.stringify(Milestone$outboundSchema.parse(milestone));
-}
 
 export function milestoneFromJSON(
   jsonString: string,

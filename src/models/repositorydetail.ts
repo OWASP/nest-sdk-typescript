@@ -15,7 +15,12 @@ export type RepositoryDetail = {
   createdAt: Date;
   name: string;
   updatedAt: Date;
+  commitsCount: number;
+  contributorsCount: number;
   description?: string | null | undefined;
+  forksCount: number;
+  openIssuesCount: number;
+  starsCount: number;
 };
 
 /** @internal */
@@ -27,59 +32,23 @@ export const RepositoryDetail$inboundSchema: z.ZodType<
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   name: z.string(),
   updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  commits_count: z.number().int(),
+  contributors_count: z.number().int(),
   description: z.nullable(z.string()).optional(),
+  forks_count: z.number().int(),
+  open_issues_count: z.number().int(),
+  stars_count: z.number().int(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
     "updated_at": "updatedAt",
+    "commits_count": "commitsCount",
+    "contributors_count": "contributorsCount",
+    "forks_count": "forksCount",
+    "open_issues_count": "openIssuesCount",
+    "stars_count": "starsCount",
   });
 });
-
-/** @internal */
-export type RepositoryDetail$Outbound = {
-  created_at: string;
-  name: string;
-  updated_at: string;
-  description?: string | null | undefined;
-};
-
-/** @internal */
-export const RepositoryDetail$outboundSchema: z.ZodType<
-  RepositoryDetail$Outbound,
-  z.ZodTypeDef,
-  RepositoryDetail
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  name: z.string(),
-  updatedAt: z.date().transform(v => v.toISOString()),
-  description: z.nullable(z.string()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    updatedAt: "updated_at",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RepositoryDetail$ {
-  /** @deprecated use `RepositoryDetail$inboundSchema` instead. */
-  export const inboundSchema = RepositoryDetail$inboundSchema;
-  /** @deprecated use `RepositoryDetail$outboundSchema` instead. */
-  export const outboundSchema = RepositoryDetail$outboundSchema;
-  /** @deprecated use `RepositoryDetail$Outbound` instead. */
-  export type Outbound = RepositoryDetail$Outbound;
-}
-
-export function repositoryDetailToJSON(
-  repositoryDetail: RepositoryDetail,
-): string {
-  return JSON.stringify(
-    RepositoryDetail$outboundSchema.parse(repositoryDetail),
-  );
-}
 
 export function repositoryDetailFromJSON(
   jsonString: string,

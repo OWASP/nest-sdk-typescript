@@ -49,32 +49,3 @@ export const CommitteeError$inboundSchema: z.ZodType<
       body: v.body$,
     });
   });
-
-/** @internal */
-export type CommitteeError$Outbound = {
-  message: string;
-};
-
-/** @internal */
-export const CommitteeError$outboundSchema: z.ZodType<
-  CommitteeError$Outbound,
-  z.ZodTypeDef,
-  CommitteeError
-> = z.instanceof(CommitteeError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-  }));
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CommitteeError$ {
-  /** @deprecated use `CommitteeError$inboundSchema` instead. */
-  export const inboundSchema = CommitteeError$inboundSchema;
-  /** @deprecated use `CommitteeError$outboundSchema` instead. */
-  export const outboundSchema = CommitteeError$outboundSchema;
-  /** @deprecated use `CommitteeError$Outbound` instead. */
-  export type Outbound = CommitteeError$Outbound;
-}

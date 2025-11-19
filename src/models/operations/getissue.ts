@@ -4,32 +4,12 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetIssueRequest = {
   organizationId: string;
   repositoryId: string;
   issueId: number;
 };
-
-/** @internal */
-export const GetIssueRequest$inboundSchema: z.ZodType<
-  GetIssueRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  organization_id: z.string(),
-  repository_id: z.string(),
-  issue_id: z.number().int(),
-}).transform((v) => {
-  return remap$(v, {
-    "organization_id": "organizationId",
-    "repository_id": "repositoryId",
-    "issue_id": "issueId",
-  });
-});
 
 /** @internal */
 export type GetIssueRequest$Outbound = {
@@ -55,31 +35,8 @@ export const GetIssueRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetIssueRequest$ {
-  /** @deprecated use `GetIssueRequest$inboundSchema` instead. */
-  export const inboundSchema = GetIssueRequest$inboundSchema;
-  /** @deprecated use `GetIssueRequest$outboundSchema` instead. */
-  export const outboundSchema = GetIssueRequest$outboundSchema;
-  /** @deprecated use `GetIssueRequest$Outbound` instead. */
-  export type Outbound = GetIssueRequest$Outbound;
-}
-
 export function getIssueRequestToJSON(
   getIssueRequest: GetIssueRequest,
 ): string {
   return JSON.stringify(GetIssueRequest$outboundSchema.parse(getIssueRequest));
-}
-
-export function getIssueRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<GetIssueRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => GetIssueRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetIssueRequest' from JSON`,
-  );
 }
