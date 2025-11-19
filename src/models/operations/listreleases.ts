@@ -4,10 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Ordering field
@@ -51,44 +48,9 @@ export type ListReleasesRequest = {
 };
 
 /** @internal */
-export const ListReleasesOrdering$inboundSchema: z.ZodNativeEnum<
-  typeof ListReleasesOrdering
-> = z.nativeEnum(ListReleasesOrdering);
-
-/** @internal */
 export const ListReleasesOrdering$outboundSchema: z.ZodNativeEnum<
   typeof ListReleasesOrdering
-> = ListReleasesOrdering$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListReleasesOrdering$ {
-  /** @deprecated use `ListReleasesOrdering$inboundSchema` instead. */
-  export const inboundSchema = ListReleasesOrdering$inboundSchema;
-  /** @deprecated use `ListReleasesOrdering$outboundSchema` instead. */
-  export const outboundSchema = ListReleasesOrdering$outboundSchema;
-}
-
-/** @internal */
-export const ListReleasesRequest$inboundSchema: z.ZodType<
-  ListReleasesRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  organization: z.nullable(z.string()).optional(),
-  repository: z.nullable(z.string()).optional(),
-  tag_name: z.nullable(z.string()).optional(),
-  ordering: z.nullable(ListReleasesOrdering$inboundSchema).optional(),
-  page: z.number().int().default(1),
-  page_size: z.number().int().default(100),
-}).transform((v) => {
-  return remap$(v, {
-    "tag_name": "tagName",
-    "page_size": "pageSize",
-  });
-});
+> = z.nativeEnum(ListReleasesOrdering);
 
 /** @internal */
 export type ListReleasesRequest$Outbound = {
@@ -119,33 +81,10 @@ export const ListReleasesRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListReleasesRequest$ {
-  /** @deprecated use `ListReleasesRequest$inboundSchema` instead. */
-  export const inboundSchema = ListReleasesRequest$inboundSchema;
-  /** @deprecated use `ListReleasesRequest$outboundSchema` instead. */
-  export const outboundSchema = ListReleasesRequest$outboundSchema;
-  /** @deprecated use `ListReleasesRequest$Outbound` instead. */
-  export type Outbound = ListReleasesRequest$Outbound;
-}
-
 export function listReleasesRequestToJSON(
   listReleasesRequest: ListReleasesRequest,
 ): string {
   return JSON.stringify(
     ListReleasesRequest$outboundSchema.parse(listReleasesRequest),
-  );
-}
-
-export function listReleasesRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ListReleasesRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ListReleasesRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ListReleasesRequest' from JSON`,
   );
 }

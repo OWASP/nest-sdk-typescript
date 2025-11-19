@@ -7,12 +7,7 @@ import { remap as remap$ } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
-import {
-  Event,
-  Event$inboundSchema,
-  Event$Outbound,
-  Event$outboundSchema,
-} from "./event.js";
+import { Event, Event$inboundSchema } from "./event.js";
 
 export type PagedEvent = {
   /**
@@ -59,55 +54,6 @@ export const PagedEvent$inboundSchema: z.ZodType<
     "total_pages": "totalPages",
   });
 });
-
-/** @internal */
-export type PagedEvent$Outbound = {
-  current_page: number;
-  has_next: boolean;
-  has_previous: boolean;
-  items: Array<Event$Outbound>;
-  total_count: number;
-  total_pages: number;
-};
-
-/** @internal */
-export const PagedEvent$outboundSchema: z.ZodType<
-  PagedEvent$Outbound,
-  z.ZodTypeDef,
-  PagedEvent
-> = z.object({
-  currentPage: z.number().int(),
-  hasNext: z.boolean(),
-  hasPrevious: z.boolean(),
-  items: z.array(Event$outboundSchema),
-  totalCount: z.number().int(),
-  totalPages: z.number().int(),
-}).transform((v) => {
-  return remap$(v, {
-    currentPage: "current_page",
-    hasNext: "has_next",
-    hasPrevious: "has_previous",
-    totalCount: "total_count",
-    totalPages: "total_pages",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PagedEvent$ {
-  /** @deprecated use `PagedEvent$inboundSchema` instead. */
-  export const inboundSchema = PagedEvent$inboundSchema;
-  /** @deprecated use `PagedEvent$outboundSchema` instead. */
-  export const outboundSchema = PagedEvent$outboundSchema;
-  /** @deprecated use `PagedEvent$Outbound` instead. */
-  export type Outbound = PagedEvent$Outbound;
-}
-
-export function pagedEventToJSON(pagedEvent: PagedEvent): string {
-  return JSON.stringify(PagedEvent$outboundSchema.parse(pagedEvent));
-}
 
 export function pagedEventFromJSON(
   jsonString: string,

@@ -4,26 +4,10 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetChapterRequest = {
   chapterId: string;
 };
-
-/** @internal */
-export const GetChapterRequest$inboundSchema: z.ZodType<
-  GetChapterRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  chapter_id: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "chapter_id": "chapterId",
-  });
-});
 
 /** @internal */
 export type GetChapterRequest$Outbound = {
@@ -43,33 +27,10 @@ export const GetChapterRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetChapterRequest$ {
-  /** @deprecated use `GetChapterRequest$inboundSchema` instead. */
-  export const inboundSchema = GetChapterRequest$inboundSchema;
-  /** @deprecated use `GetChapterRequest$outboundSchema` instead. */
-  export const outboundSchema = GetChapterRequest$outboundSchema;
-  /** @deprecated use `GetChapterRequest$Outbound` instead. */
-  export type Outbound = GetChapterRequest$Outbound;
-}
-
 export function getChapterRequestToJSON(
   getChapterRequest: GetChapterRequest,
 ): string {
   return JSON.stringify(
     GetChapterRequest$outboundSchema.parse(getChapterRequest),
-  );
-}
-
-export function getChapterRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<GetChapterRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => GetChapterRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetChapterRequest' from JSON`,
   );
 }

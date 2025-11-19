@@ -4,8 +4,15 @@
 
 import { communityGetMember } from "../funcs/communityGetMember.js";
 import { communityGetOrganization } from "../funcs/communityGetOrganization.js";
+import { communityGetSnapshot } from "../funcs/communityGetSnapshot.js";
 import { communityListMembers } from "../funcs/communityListMembers.js";
 import { communityListOrganizations } from "../funcs/communityListOrganizations.js";
+import { communityListSnapshotChapters } from "../funcs/communityListSnapshotChapters.js";
+import { communityListSnapshotIssues } from "../funcs/communityListSnapshotIssues.js";
+import { communityListSnapshotMembers } from "../funcs/communityListSnapshotMembers.js";
+import { communityListSnapshotProjects } from "../funcs/communityListSnapshotProjects.js";
+import { communityListSnapshotReleases } from "../funcs/communityListSnapshotReleases.js";
+import { communityListSnapshots } from "../funcs/communityListSnapshots.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
@@ -74,6 +81,125 @@ export class Community extends ClientSDK {
     options?: RequestOptions,
   ): Promise<models.OrganizationDetail> {
     return unwrapAsync(communityGetOrganization(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List snapshots
+   *
+   * @remarks
+   * Retrieve a paginated list of OWASP snapshots.
+   */
+  async listSnapshots(
+    request?: operations.ListSnapshotsRequest | undefined,
+    options?: RequestOptions,
+  ): Promise<models.PagedSnapshot> {
+    return unwrapAsync(communityListSnapshots(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get snapshot
+   *
+   * @remarks
+   * Retrieve snapshot details.
+   */
+  async getSnapshot(
+    request: operations.GetSnapshotRequest,
+    options?: RequestOptions,
+  ): Promise<models.SnapshotDetail> {
+    return unwrapAsync(communityGetSnapshot(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List new chapters in snapshot
+   *
+   * @remarks
+   * Retrieve a paginated list of new chapters in a snapshot.
+   */
+  async listSnapshotChapters(
+    request: operations.ListSnapshotChaptersRequest,
+    options?: RequestOptions,
+  ): Promise<models.PagedChapter> {
+    return unwrapAsync(communityListSnapshotChapters(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List new issues in snapshot
+   *
+   * @remarks
+   * Retrieve a paginated list of new issues in a snapshot.
+   */
+  async listSnapshotIssues(
+    request: operations.ListSnapshotIssuesRequest,
+    options?: RequestOptions,
+  ): Promise<models.PagedSnapshotIssue> {
+    return unwrapAsync(communityListSnapshotIssues(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List new members in snapshot
+   *
+   * @remarks
+   * Retrieve a paginated list of new members in a snapshot.
+   */
+  async listSnapshotMembers(
+    request: operations.ListSnapshotMembersRequest,
+    options?: RequestOptions,
+  ): Promise<models.PagedMember> {
+    return unwrapAsync(communityListSnapshotMembers(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List new projects in snapshot
+   *
+   * @remarks
+   * Retrieve a paginated list of new projects in a snapshot.
+   */
+  async listSnapshotProjects(
+    request: operations.ListSnapshotProjectsRequest,
+    options?: RequestOptions,
+  ): Promise<models.PagedProject> {
+    return unwrapAsync(communityListSnapshotProjects(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List new releases in snapshot
+   *
+   * @remarks
+   * Retrieve a paginated list of new releases in a snapshot.
+   */
+  async listSnapshotReleases(
+    request: operations.ListSnapshotReleasesRequest,
+    options?: RequestOptions,
+  ): Promise<models.PagedSnapshotRelease> {
+    return unwrapAsync(communityListSnapshotReleases(
       this,
       request,
       options,

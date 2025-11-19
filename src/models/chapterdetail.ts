@@ -39,52 +39,6 @@ export const ChapterDetail$inboundSchema: z.ZodType<
   });
 });
 
-/** @internal */
-export type ChapterDetail$Outbound = {
-  created_at: string;
-  key: string;
-  name: string;
-  updated_at: string;
-  country: string;
-  region: string;
-};
-
-/** @internal */
-export const ChapterDetail$outboundSchema: z.ZodType<
-  ChapterDetail$Outbound,
-  z.ZodTypeDef,
-  ChapterDetail
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  key: z.string(),
-  name: z.string(),
-  updatedAt: z.date().transform(v => v.toISOString()),
-  country: z.string(),
-  region: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    updatedAt: "updated_at",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ChapterDetail$ {
-  /** @deprecated use `ChapterDetail$inboundSchema` instead. */
-  export const inboundSchema = ChapterDetail$inboundSchema;
-  /** @deprecated use `ChapterDetail$outboundSchema` instead. */
-  export const outboundSchema = ChapterDetail$outboundSchema;
-  /** @deprecated use `ChapterDetail$Outbound` instead. */
-  export type Outbound = ChapterDetail$Outbound;
-}
-
-export function chapterDetailToJSON(chapterDetail: ChapterDetail): string {
-  return JSON.stringify(ChapterDetail$outboundSchema.parse(chapterDetail));
-}
-
 export function chapterDetailFromJSON(
   jsonString: string,
 ): SafeParseResult<ChapterDetail, SDKValidationError> {

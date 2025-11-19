@@ -7,12 +7,7 @@ import { remap as remap$ } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
-import {
-  Milestone,
-  Milestone$inboundSchema,
-  Milestone$Outbound,
-  Milestone$outboundSchema,
-} from "./milestone.js";
+import { Milestone, Milestone$inboundSchema } from "./milestone.js";
 
 export type PagedMilestone = {
   /**
@@ -59,55 +54,6 @@ export const PagedMilestone$inboundSchema: z.ZodType<
     "total_pages": "totalPages",
   });
 });
-
-/** @internal */
-export type PagedMilestone$Outbound = {
-  current_page: number;
-  has_next: boolean;
-  has_previous: boolean;
-  items: Array<Milestone$Outbound>;
-  total_count: number;
-  total_pages: number;
-};
-
-/** @internal */
-export const PagedMilestone$outboundSchema: z.ZodType<
-  PagedMilestone$Outbound,
-  z.ZodTypeDef,
-  PagedMilestone
-> = z.object({
-  currentPage: z.number().int(),
-  hasNext: z.boolean(),
-  hasPrevious: z.boolean(),
-  items: z.array(Milestone$outboundSchema),
-  totalCount: z.number().int(),
-  totalPages: z.number().int(),
-}).transform((v) => {
-  return remap$(v, {
-    currentPage: "current_page",
-    hasNext: "has_next",
-    hasPrevious: "has_previous",
-    totalCount: "total_count",
-    totalPages: "total_pages",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PagedMilestone$ {
-  /** @deprecated use `PagedMilestone$inboundSchema` instead. */
-  export const inboundSchema = PagedMilestone$inboundSchema;
-  /** @deprecated use `PagedMilestone$outboundSchema` instead. */
-  export const outboundSchema = PagedMilestone$outboundSchema;
-  /** @deprecated use `PagedMilestone$Outbound` instead. */
-  export type Outbound = PagedMilestone$Outbound;
-}
-
-export function pagedMilestoneToJSON(pagedMilestone: PagedMilestone): string {
-  return JSON.stringify(PagedMilestone$outboundSchema.parse(pagedMilestone));
-}
 
 export function pagedMilestoneFromJSON(
   jsonString: string,

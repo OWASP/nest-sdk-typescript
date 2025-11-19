@@ -4,10 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as models from "../index.js";
 
 /**
@@ -44,41 +41,9 @@ export type ListProjectsRequest = {
 };
 
 /** @internal */
-export const ListProjectsOrdering$inboundSchema: z.ZodNativeEnum<
-  typeof ListProjectsOrdering
-> = z.nativeEnum(ListProjectsOrdering);
-
-/** @internal */
 export const ListProjectsOrdering$outboundSchema: z.ZodNativeEnum<
   typeof ListProjectsOrdering
-> = ListProjectsOrdering$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListProjectsOrdering$ {
-  /** @deprecated use `ListProjectsOrdering$inboundSchema` instead. */
-  export const inboundSchema = ListProjectsOrdering$inboundSchema;
-  /** @deprecated use `ListProjectsOrdering$outboundSchema` instead. */
-  export const outboundSchema = ListProjectsOrdering$outboundSchema;
-}
-
-/** @internal */
-export const ListProjectsRequest$inboundSchema: z.ZodType<
-  ListProjectsRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  level: z.nullable(models.ProjectLevel$inboundSchema).optional(),
-  ordering: z.nullable(ListProjectsOrdering$inboundSchema).optional(),
-  page: z.number().int().default(1),
-  page_size: z.number().int().default(100),
-}).transform((v) => {
-  return remap$(v, {
-    "page_size": "pageSize",
-  });
-});
+> = z.nativeEnum(ListProjectsOrdering);
 
 /** @internal */
 export type ListProjectsRequest$Outbound = {
@@ -104,33 +69,10 @@ export const ListProjectsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListProjectsRequest$ {
-  /** @deprecated use `ListProjectsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListProjectsRequest$inboundSchema;
-  /** @deprecated use `ListProjectsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListProjectsRequest$outboundSchema;
-  /** @deprecated use `ListProjectsRequest$Outbound` instead. */
-  export type Outbound = ListProjectsRequest$Outbound;
-}
-
 export function listProjectsRequestToJSON(
   listProjectsRequest: ListProjectsRequest,
 ): string {
   return JSON.stringify(
     ListProjectsRequest$outboundSchema.parse(listProjectsRequest),
-  );
-}
-
-export function listProjectsRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ListProjectsRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ListProjectsRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ListProjectsRequest' from JSON`,
   );
 }

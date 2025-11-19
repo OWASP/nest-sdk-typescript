@@ -7,11 +7,7 @@ import { remap as remap$ } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
-import {
-  ProjectLevel,
-  ProjectLevel$inboundSchema,
-  ProjectLevel$outboundSchema,
-} from "./projectlevel.js";
+import { ProjectLevel, ProjectLevel$inboundSchema } from "./projectlevel.js";
 
 /**
  * Detail schema for Project (used in single item endpoints).
@@ -46,52 +42,6 @@ export const ProjectDetail$inboundSchema: z.ZodType<
     "updated_at": "updatedAt",
   });
 });
-
-/** @internal */
-export type ProjectDetail$Outbound = {
-  created_at: string;
-  key: string;
-  level: string;
-  name: string;
-  updated_at: string;
-  description: string;
-};
-
-/** @internal */
-export const ProjectDetail$outboundSchema: z.ZodType<
-  ProjectDetail$Outbound,
-  z.ZodTypeDef,
-  ProjectDetail
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  key: z.string(),
-  level: ProjectLevel$outboundSchema,
-  name: z.string(),
-  updatedAt: z.date().transform(v => v.toISOString()),
-  description: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    updatedAt: "updated_at",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProjectDetail$ {
-  /** @deprecated use `ProjectDetail$inboundSchema` instead. */
-  export const inboundSchema = ProjectDetail$inboundSchema;
-  /** @deprecated use `ProjectDetail$outboundSchema` instead. */
-  export const outboundSchema = ProjectDetail$outboundSchema;
-  /** @deprecated use `ProjectDetail$Outbound` instead. */
-  export type Outbound = ProjectDetail$Outbound;
-}
-
-export function projectDetailToJSON(projectDetail: ProjectDetail): string {
-  return JSON.stringify(ProjectDetail$outboundSchema.parse(projectDetail));
-}
 
 export function projectDetailFromJSON(
   jsonString: string,

@@ -7,12 +7,7 @@ import { remap as remap$ } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
-import {
-  Sponsor,
-  Sponsor$inboundSchema,
-  Sponsor$Outbound,
-  Sponsor$outboundSchema,
-} from "./sponsor.js";
+import { Sponsor, Sponsor$inboundSchema } from "./sponsor.js";
 
 export type PagedSponsor = {
   /**
@@ -59,55 +54,6 @@ export const PagedSponsor$inboundSchema: z.ZodType<
     "total_pages": "totalPages",
   });
 });
-
-/** @internal */
-export type PagedSponsor$Outbound = {
-  current_page: number;
-  has_next: boolean;
-  has_previous: boolean;
-  items: Array<Sponsor$Outbound>;
-  total_count: number;
-  total_pages: number;
-};
-
-/** @internal */
-export const PagedSponsor$outboundSchema: z.ZodType<
-  PagedSponsor$Outbound,
-  z.ZodTypeDef,
-  PagedSponsor
-> = z.object({
-  currentPage: z.number().int(),
-  hasNext: z.boolean(),
-  hasPrevious: z.boolean(),
-  items: z.array(Sponsor$outboundSchema),
-  totalCount: z.number().int(),
-  totalPages: z.number().int(),
-}).transform((v) => {
-  return remap$(v, {
-    currentPage: "current_page",
-    hasNext: "has_next",
-    hasPrevious: "has_previous",
-    totalCount: "total_count",
-    totalPages: "total_pages",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PagedSponsor$ {
-  /** @deprecated use `PagedSponsor$inboundSchema` instead. */
-  export const inboundSchema = PagedSponsor$inboundSchema;
-  /** @deprecated use `PagedSponsor$outboundSchema` instead. */
-  export const outboundSchema = PagedSponsor$outboundSchema;
-  /** @deprecated use `PagedSponsor$Outbound` instead. */
-  export type Outbound = PagedSponsor$Outbound;
-}
-
-export function pagedSponsorToJSON(pagedSponsor: PagedSponsor): string {
-  return JSON.stringify(PagedSponsor$outboundSchema.parse(pagedSponsor));
-}
 
 export function pagedSponsorFromJSON(
   jsonString: string,

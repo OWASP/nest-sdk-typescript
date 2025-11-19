@@ -4,26 +4,10 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetProjectRequest = {
   projectId: string;
 };
-
-/** @internal */
-export const GetProjectRequest$inboundSchema: z.ZodType<
-  GetProjectRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  project_id: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "project_id": "projectId",
-  });
-});
 
 /** @internal */
 export type GetProjectRequest$Outbound = {
@@ -43,33 +27,10 @@ export const GetProjectRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetProjectRequest$ {
-  /** @deprecated use `GetProjectRequest$inboundSchema` instead. */
-  export const inboundSchema = GetProjectRequest$inboundSchema;
-  /** @deprecated use `GetProjectRequest$outboundSchema` instead. */
-  export const outboundSchema = GetProjectRequest$outboundSchema;
-  /** @deprecated use `GetProjectRequest$Outbound` instead. */
-  export type Outbound = GetProjectRequest$Outbound;
-}
-
 export function getProjectRequestToJSON(
   getProjectRequest: GetProjectRequest,
 ): string {
   return JSON.stringify(
     GetProjectRequest$outboundSchema.parse(getProjectRequest),
-  );
-}
-
-export function getProjectRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<GetProjectRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => GetProjectRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetProjectRequest' from JSON`,
   );
 }

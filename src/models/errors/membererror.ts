@@ -49,32 +49,3 @@ export const MemberError$inboundSchema: z.ZodType<
       body: v.body$,
     });
   });
-
-/** @internal */
-export type MemberError$Outbound = {
-  message: string;
-};
-
-/** @internal */
-export const MemberError$outboundSchema: z.ZodType<
-  MemberError$Outbound,
-  z.ZodTypeDef,
-  MemberError
-> = z.instanceof(MemberError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-  }));
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MemberError$ {
-  /** @deprecated use `MemberError$inboundSchema` instead. */
-  export const inboundSchema = MemberError$inboundSchema;
-  /** @deprecated use `MemberError$outboundSchema` instead. */
-  export const outboundSchema = MemberError$outboundSchema;
-  /** @deprecated use `MemberError$Outbound` instead. */
-  export type Outbound = MemberError$Outbound;
-}

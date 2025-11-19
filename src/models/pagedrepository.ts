@@ -7,12 +7,7 @@ import { remap as remap$ } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
-import {
-  Repository,
-  Repository$inboundSchema,
-  Repository$Outbound,
-  Repository$outboundSchema,
-} from "./repository.js";
+import { Repository, Repository$inboundSchema } from "./repository.js";
 
 export type PagedRepository = {
   /**
@@ -59,57 +54,6 @@ export const PagedRepository$inboundSchema: z.ZodType<
     "total_pages": "totalPages",
   });
 });
-
-/** @internal */
-export type PagedRepository$Outbound = {
-  current_page: number;
-  has_next: boolean;
-  has_previous: boolean;
-  items: Array<Repository$Outbound>;
-  total_count: number;
-  total_pages: number;
-};
-
-/** @internal */
-export const PagedRepository$outboundSchema: z.ZodType<
-  PagedRepository$Outbound,
-  z.ZodTypeDef,
-  PagedRepository
-> = z.object({
-  currentPage: z.number().int(),
-  hasNext: z.boolean(),
-  hasPrevious: z.boolean(),
-  items: z.array(Repository$outboundSchema),
-  totalCount: z.number().int(),
-  totalPages: z.number().int(),
-}).transform((v) => {
-  return remap$(v, {
-    currentPage: "current_page",
-    hasNext: "has_next",
-    hasPrevious: "has_previous",
-    totalCount: "total_count",
-    totalPages: "total_pages",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PagedRepository$ {
-  /** @deprecated use `PagedRepository$inboundSchema` instead. */
-  export const inboundSchema = PagedRepository$inboundSchema;
-  /** @deprecated use `PagedRepository$outboundSchema` instead. */
-  export const outboundSchema = PagedRepository$outboundSchema;
-  /** @deprecated use `PagedRepository$Outbound` instead. */
-  export type Outbound = PagedRepository$Outbound;
-}
-
-export function pagedRepositoryToJSON(
-  pagedRepository: PagedRepository,
-): string {
-  return JSON.stringify(PagedRepository$outboundSchema.parse(pagedRepository));
-}
 
 export function pagedRepositoryFromJSON(
   jsonString: string,

@@ -4,10 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Ordering field
@@ -47,42 +44,9 @@ export type ListMembersRequest = {
 };
 
 /** @internal */
-export const ListMembersOrdering$inboundSchema: z.ZodNativeEnum<
-  typeof ListMembersOrdering
-> = z.nativeEnum(ListMembersOrdering);
-
-/** @internal */
 export const ListMembersOrdering$outboundSchema: z.ZodNativeEnum<
   typeof ListMembersOrdering
-> = ListMembersOrdering$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListMembersOrdering$ {
-  /** @deprecated use `ListMembersOrdering$inboundSchema` instead. */
-  export const inboundSchema = ListMembersOrdering$inboundSchema;
-  /** @deprecated use `ListMembersOrdering$outboundSchema` instead. */
-  export const outboundSchema = ListMembersOrdering$outboundSchema;
-}
-
-/** @internal */
-export const ListMembersRequest$inboundSchema: z.ZodType<
-  ListMembersRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  company: z.nullable(z.string()).optional(),
-  location: z.nullable(z.string()).optional(),
-  ordering: z.nullable(ListMembersOrdering$inboundSchema).optional(),
-  page: z.number().int().default(1),
-  page_size: z.number().int().default(100),
-}).transform((v) => {
-  return remap$(v, {
-    "page_size": "pageSize",
-  });
-});
+> = z.nativeEnum(ListMembersOrdering);
 
 /** @internal */
 export type ListMembersRequest$Outbound = {
@@ -110,33 +74,10 @@ export const ListMembersRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListMembersRequest$ {
-  /** @deprecated use `ListMembersRequest$inboundSchema` instead. */
-  export const inboundSchema = ListMembersRequest$inboundSchema;
-  /** @deprecated use `ListMembersRequest$outboundSchema` instead. */
-  export const outboundSchema = ListMembersRequest$outboundSchema;
-  /** @deprecated use `ListMembersRequest$Outbound` instead. */
-  export type Outbound = ListMembersRequest$Outbound;
-}
-
 export function listMembersRequestToJSON(
   listMembersRequest: ListMembersRequest,
 ): string {
   return JSON.stringify(
     ListMembersRequest$outboundSchema.parse(listMembersRequest),
-  );
-}
-
-export function listMembersRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ListMembersRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ListMembersRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ListMembersRequest' from JSON`,
   );
 }

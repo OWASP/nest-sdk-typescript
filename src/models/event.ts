@@ -38,50 +38,6 @@ export const Event$inboundSchema: z.ZodType<Event, z.ZodTypeDef, unknown> = z
     });
   });
 
-/** @internal */
-export type Event$Outbound = {
-  end_date?: string | null | undefined;
-  key: string;
-  name: string;
-  start_date: string;
-  url?: string | null | undefined;
-};
-
-/** @internal */
-export const Event$outboundSchema: z.ZodType<
-  Event$Outbound,
-  z.ZodTypeDef,
-  Event
-> = z.object({
-  endDate: z.nullable(z.date().transform(v => v.toISOString())).optional(),
-  key: z.string(),
-  name: z.string(),
-  startDate: z.date().transform(v => v.toISOString()),
-  url: z.nullable(z.string()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    endDate: "end_date",
-    startDate: "start_date",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Event$ {
-  /** @deprecated use `Event$inboundSchema` instead. */
-  export const inboundSchema = Event$inboundSchema;
-  /** @deprecated use `Event$outboundSchema` instead. */
-  export const outboundSchema = Event$outboundSchema;
-  /** @deprecated use `Event$Outbound` instead. */
-  export type Outbound = Event$Outbound;
-}
-
-export function eventToJSON(event: Event): string {
-  return JSON.stringify(Event$outboundSchema.parse(event));
-}
-
 export function eventFromJSON(
   jsonString: string,
 ): SafeParseResult<Event, SDKValidationError> {

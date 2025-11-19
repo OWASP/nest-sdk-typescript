@@ -7,12 +7,7 @@ import { remap as remap$ } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
-import {
-  Release,
-  Release$inboundSchema,
-  Release$Outbound,
-  Release$outboundSchema,
-} from "./release.js";
+import { Release, Release$inboundSchema } from "./release.js";
 
 export type PagedRelease = {
   /**
@@ -59,55 +54,6 @@ export const PagedRelease$inboundSchema: z.ZodType<
     "total_pages": "totalPages",
   });
 });
-
-/** @internal */
-export type PagedRelease$Outbound = {
-  current_page: number;
-  has_next: boolean;
-  has_previous: boolean;
-  items: Array<Release$Outbound>;
-  total_count: number;
-  total_pages: number;
-};
-
-/** @internal */
-export const PagedRelease$outboundSchema: z.ZodType<
-  PagedRelease$Outbound,
-  z.ZodTypeDef,
-  PagedRelease
-> = z.object({
-  currentPage: z.number().int(),
-  hasNext: z.boolean(),
-  hasPrevious: z.boolean(),
-  items: z.array(Release$outboundSchema),
-  totalCount: z.number().int(),
-  totalPages: z.number().int(),
-}).transform((v) => {
-  return remap$(v, {
-    currentPage: "current_page",
-    hasNext: "has_next",
-    hasPrevious: "has_previous",
-    totalCount: "total_count",
-    totalPages: "total_pages",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PagedRelease$ {
-  /** @deprecated use `PagedRelease$inboundSchema` instead. */
-  export const inboundSchema = PagedRelease$inboundSchema;
-  /** @deprecated use `PagedRelease$outboundSchema` instead. */
-  export const outboundSchema = PagedRelease$outboundSchema;
-  /** @deprecated use `PagedRelease$Outbound` instead. */
-  export type Outbound = PagedRelease$Outbound;
-}
-
-export function pagedReleaseToJSON(pagedRelease: PagedRelease): string {
-  return JSON.stringify(PagedRelease$outboundSchema.parse(pagedRelease));
-}
 
 export function pagedReleaseFromJSON(
   jsonString: string,
