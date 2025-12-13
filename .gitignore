@@ -1,8 +1,10 @@
+.cursor/rules/snyk_rules.mdc
 .DS_Store
 .DS_Store
 .env
 .env.*.local
 .env.local
+.github/instructions/snyk_rules.instructions.md
 **/.speakeasy/logs/
 **/.speakeasy/temp/
 /__tests__
