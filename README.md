@@ -138,17 +138,17 @@ run();
 <details open>
 <summary>Available methods</summary>
 
-### [chapters](docs/sdks/chapters/README.md)
+### [Chapters](docs/sdks/chapters/README.md)
 
 * [listChapters](docs/sdks/chapters/README.md#listchapters) - List chapters
 * [getChapter](docs/sdks/chapters/README.md#getchapter) - Get chapter
 
-### [committees](docs/sdks/committees/README.md)
+### [Committees](docs/sdks/committees/README.md)
 
 * [listCommittees](docs/sdks/committees/README.md#listcommittees) - List committees
 * [getCommittee](docs/sdks/committees/README.md#getcommittee) - Get committee
 
-### [community](docs/sdks/community/README.md)
+### [Community](docs/sdks/community/README.md)
 
 * [listMembers](docs/sdks/community/README.md#listmembers) - List members
 * [getMember](docs/sdks/community/README.md#getmember) - Get member
@@ -162,37 +162,37 @@ run();
 * [listSnapshotProjects](docs/sdks/community/README.md#listsnapshotprojects) - List new projects in snapshot
 * [listSnapshotReleases](docs/sdks/community/README.md#listsnapshotreleases) - List new releases in snapshot
 
-### [events](docs/sdks/events/README.md)
+### [Events](docs/sdks/events/README.md)
 
 * [listEvents](docs/sdks/events/README.md#listevents) - List events
 * [getEvent](docs/sdks/events/README.md#getevent) - Get event
 
-### [issues](docs/sdks/issues/README.md)
+### [Issues](docs/sdks/issues/README.md)
 
 * [listIssues](docs/sdks/issues/README.md#listissues) - List issues
 * [getIssue](docs/sdks/issues/README.md#getissue) - Get issue
 
-### [milestones](docs/sdks/milestones/README.md)
+### [Milestones](docs/sdks/milestones/README.md)
 
 * [listMilestones](docs/sdks/milestones/README.md#listmilestones) - List milestones
 * [getMilestone](docs/sdks/milestones/README.md#getmilestone) - Get milestone
 
-### [projects](docs/sdks/projects/README.md)
+### [Projects](docs/sdks/projects/README.md)
 
 * [listProjects](docs/sdks/projects/README.md#listprojects) - List projects
 * [getProject](docs/sdks/projects/README.md#getproject) - Get project
 
-### [releases](docs/sdks/releases/README.md)
+### [Releases](docs/sdks/releases/README.md)
 
 * [listReleases](docs/sdks/releases/README.md#listreleases) - List releases
 * [getRelease](docs/sdks/releases/README.md#getrelease) - Get release
 
-### [repositories](docs/sdks/repositories/README.md)
+### [Repositories](docs/sdks/repositories/README.md)
 
 * [listRepositories](docs/sdks/repositories/README.md#listrepositories) - List repositories
 * [getRepository](docs/sdks/repositories/README.md#getrepository) - Get repository
 
-### [sponsors](docs/sdks/sponsors/README.md)
+### [Sponsors](docs/sdks/sponsors/README.md)
 
 * [listSponsors](docs/sdks/sponsors/README.md#listsponsors) - List sponsors
 * [getSponsor](docs/sdks/sponsors/README.md#getsponsor) - Get sponsor
@@ -411,7 +411,7 @@ The default server can be overridden globally by passing a URL to the `serverURL
 import { Nest } from "owasp-nest";
 
 const nest = new Nest({
-  serverURL: "https://nest.owasp.dev",
+  serverURL: "https://nest.owasp.org",
   apiKey: process.env["NEST_API_KEY"] ?? "",
 });
 

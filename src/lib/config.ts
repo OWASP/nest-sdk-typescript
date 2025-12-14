@@ -12,9 +12,9 @@ import { Params, pathToFunc } from "./url.js";
  */
 export const ServerList = [
   /**
-   * Staging
+   * Production
    */
-  "https://nest.owasp.dev",
+  "https://nest.owasp.org",
 ] as const;
 
 export type SDKOptions = {
@@ -60,8 +60,8 @@ export function serverURLFromOptions(options: SDKOptions): URL | null {
 
 export const SDK_METADATA = {
   language: "typescript",
-  openapiDocVersion: "0.3.1",
-  sdkVersion: "0.3.1",
-  genVersion: "2.755.9",
-  userAgent: "speakeasy-sdk/typescript 0.3.1 2.755.9 0.3.1 owasp-nest",
+  openapiDocVersion: "0.3.6",
+  sdkVersion: "0.3.6",
+  genVersion: "2.781.2",
+  userAgent: "speakeasy-sdk/typescript 0.3.6 2.781.2 0.3.6 owasp-nest",
 } as const;
