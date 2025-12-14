@@ -1,20 +1,24 @@
 lockVersion: 2.0.0
 id: 89dd6fea-30bf-42cc-8446-2c3015a2c4ba
 management:
-  docChecksum: fbed59f12e2b8e955709e3b126ad7ee5
-  docVersion: 0.3.1
-  speakeasyVersion: 1.658.2
-  generationVersion: 2.755.9
-  releaseVersion: 0.3.1
-  configChecksum: 5b8caf64aa69e3fd8ef8606564021b41
+  docChecksum: 868e4c91060d02184e91612cbdd7a2a1
+  docVersion: 0.3.6
+  speakeasyVersion: 1.676.1
+  generationVersion: 2.781.2
+  releaseVersion: 0.3.6
+  configChecksum: 20904920795330441cc6f59d35e9b2c8
   repoURL: https://github.com/OWASP/nest-sdk-typescript.git
   installationURL: https://github.com/OWASP/nest-sdk-typescript
   published: true
+persistentEdits:
+  generation_id: 23e4feba-10cf-47c4-a9b0-203d7c65681b
+  pristine_commit_hash: ab8ded6bdbc34ff50c06d4892702145439b41085
+  pristine_tree_hash: 35eebfed5e97d66f190a2338ffc393e38004277f
 features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.26.7
+    core: 3.26.15
     defaultEnabledRetries: 0.1.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.2
@@ -26,298 +30,1172 @@ features:
     nullables: 0.1.1
     responseFormat: 0.2.3
     retries: 2.83.0
-    sdkHooks: 0.3.0
-generatedFiles:
-  - .gitattributes
-  - .npmignore
-  - FUNCTIONS.md
-  - RUNTIMES.md
-  - USAGE.md
-  - docs/lib/utils/retryconfig.md
-  - docs/models/chapter.md
-  - docs/models/chapterdetail.md
-  - docs/models/committee.md
-  - docs/models/committeedetail.md
-  - docs/models/errors/chaptererror.md
-  - docs/models/errors/committeeerror.md
-  - docs/models/errors/eventerror.md
-  - docs/models/errors/issueerror.md
-  - docs/models/errors/membererror.md
-  - docs/models/errors/milestoneerror.md
-  - docs/models/errors/organizationerror.md
-  - docs/models/errors/projecterror.md
-  - docs/models/errors/releaseerror.md
-  - docs/models/errors/repositoryerror.md
-  - docs/models/errors/snapshoterror.md
-  - docs/models/errors/sponsorerror.md
-  - docs/models/event.md
-  - docs/models/eventdetail.md
-  - docs/models/issue.md
-  - docs/models/issuedetail.md
-  - docs/models/member.md
-  - docs/models/memberdetail.md
-  - docs/models/membertype.md
-  - docs/models/milestone.md
-  - docs/models/milestonedetail.md
-  - docs/models/operations/getchapterrequest.md
-  - docs/models/operations/getcommitteerequest.md
-  - docs/models/operations/geteventrequest.md
-  - docs/models/operations/getissuerequest.md
-  - docs/models/operations/getmemberrequest.md
-  - docs/models/operations/getmilestonerequest.md
-  - docs/models/operations/getorganizationrequest.md
-  - docs/models/operations/getprojectrequest.md
-  - docs/models/operations/getreleaserequest.md
-  - docs/models/operations/getrepositoryrequest.md
-  - docs/models/operations/getsnapshotrequest.md
-  - docs/models/operations/getsponsorrequest.md
-  - docs/models/operations/listchaptersordering.md
-  - docs/models/operations/listchaptersrequest.md
-  - docs/models/operations/listcommitteesordering.md
-  - docs/models/operations/listcommitteesrequest.md
-  - docs/models/operations/listeventsordering.md
-  - docs/models/operations/listeventsrequest.md
-  - docs/models/operations/listissuesordering.md
-  - docs/models/operations/listissuesrequest.md
-  - docs/models/operations/listmembersordering.md
-  - docs/models/operations/listmembersrequest.md
-  - docs/models/operations/listmilestonesordering.md
-  - docs/models/operations/listmilestonesrequest.md
-  - docs/models/operations/listorganizationsordering.md
-  - docs/models/operations/listorganizationsrequest.md
-  - docs/models/operations/listprojectsordering.md
-  - docs/models/operations/listprojectsrequest.md
-  - docs/models/operations/listreleasesordering.md
-  - docs/models/operations/listreleasesrequest.md
-  - docs/models/operations/listrepositoriesordering.md
-  - docs/models/operations/listrepositoriesrequest.md
-  - docs/models/operations/listsnapshotchaptersordering.md
-  - docs/models/operations/listsnapshotchaptersrequest.md
-  - docs/models/operations/listsnapshotissuesordering.md
-  - docs/models/operations/listsnapshotissuesrequest.md
-  - docs/models/operations/listsnapshotmembersordering.md
-  - docs/models/operations/listsnapshotmembersrequest.md
-  - docs/models/operations/listsnapshotprojectsordering.md
-  - docs/models/operations/listsnapshotprojectsrequest.md
-  - docs/models/operations/listsnapshotreleasesordering.md
-  - docs/models/operations/listsnapshotreleasesrequest.md
-  - docs/models/operations/listsnapshotsordering.md
-  - docs/models/operations/listsnapshotsrequest.md
-  - docs/models/operations/listsponsorsordering.md
-  - docs/models/operations/listsponsorsrequest.md
-  - docs/models/organization.md
-  - docs/models/organizationdetail.md
-  - docs/models/pagedchapter.md
-  - docs/models/pagedcommittee.md
-  - docs/models/pagedevent.md
-  - docs/models/pagedissue.md
-  - docs/models/pagedmember.md
-  - docs/models/pagedmilestone.md
-  - docs/models/pagedorganization.md
-  - docs/models/pagedproject.md
-  - docs/models/pagedrelease.md
-  - docs/models/pagedrepository.md
-  - docs/models/pagedsnapshot.md
-  - docs/models/pagedsnapshotissue.md
-  - docs/models/pagedsnapshotrelease.md
-  - docs/models/pagedsponsor.md
-  - docs/models/project.md
-  - docs/models/projectdetail.md
-  - docs/models/projectlevel.md
-  - docs/models/release.md
-  - docs/models/releasedetail.md
-  - docs/models/repository.md
-  - docs/models/repositorydetail.md
-  - docs/models/security.md
-  - docs/models/snapshot.md
-  - docs/models/snapshotdetail.md
-  - docs/models/snapshotissue.md
-  - docs/models/snapshotrelease.md
-  - docs/models/sponsor.md
-  - docs/models/sponsordetail.md
-  - docs/models/state.md
-  - docs/sdks/chapters/README.md
-  - docs/sdks/committees/README.md
-  - docs/sdks/community/README.md
-  - docs/sdks/events/README.md
-  - docs/sdks/issues/README.md
-  - docs/sdks/milestones/README.md
-  - docs/sdks/projects/README.md
-  - docs/sdks/releases/README.md
-  - docs/sdks/repositories/README.md
-  - docs/sdks/sponsors/README.md
-  - eslint.config.mjs
-  - examples/.env.template
-  - examples/README.md
-  - examples/chaptersListChapters.example.ts
-  - examples/package.json
-  - jsr.json
-  - package.json
-  - src/core.ts
-  - src/funcs/chaptersGetChapter.ts
-  - src/funcs/chaptersListChapters.ts
-  - src/funcs/committeesGetCommittee.ts
-  - src/funcs/committeesListCommittees.ts
-  - src/funcs/communityGetMember.ts
-  - src/funcs/communityGetOrganization.ts
-  - src/funcs/communityGetSnapshot.ts
-  - src/funcs/communityListMembers.ts
-  - src/funcs/communityListOrganizations.ts
-  - src/funcs/communityListSnapshotChapters.ts
-  - src/funcs/communityListSnapshotIssues.ts
-  - src/funcs/communityListSnapshotMembers.ts
-  - src/funcs/communityListSnapshotProjects.ts
-  - src/funcs/communityListSnapshotReleases.ts
-  - src/funcs/communityListSnapshots.ts
-  - src/funcs/eventsGetEvent.ts
-  - src/funcs/eventsListEvents.ts
-  - src/funcs/issuesGetIssue.ts
-  - src/funcs/issuesListIssues.ts
-  - src/funcs/milestonesGetMilestone.ts
-  - src/funcs/milestonesListMilestones.ts
-  - src/funcs/projectsGetProject.ts
-  - src/funcs/projectsListProjects.ts
-  - src/funcs/releasesGetRelease.ts
-  - src/funcs/releasesListReleases.ts
-  - src/funcs/repositoriesGetRepository.ts
-  - src/funcs/repositoriesListRepositories.ts
-  - src/funcs/sponsorsGetSponsor.ts
-  - src/funcs/sponsorsListSponsors.ts
-  - src/hooks/hooks.ts
-  - src/hooks/index.ts
-  - src/hooks/types.ts
-  - src/index.ts
-  - src/lib/base64.ts
-  - src/lib/config.ts
-  - src/lib/dlv.ts
-  - src/lib/encodings.ts
-  - src/lib/env.ts
-  - src/lib/files.ts
-  - src/lib/http.ts
-  - src/lib/is-plain-object.ts
-  - src/lib/logger.ts
-  - src/lib/matchers.ts
-  - src/lib/primitives.ts
-  - src/lib/retries.ts
-  - src/lib/schemas.ts
-  - src/lib/sdks.ts
-  - src/lib/security.ts
-  - src/lib/url.ts
-  - src/models/chapter.ts
-  - src/models/chapterdetail.ts
-  - src/models/committee.ts
-  - src/models/committeedetail.ts
-  - src/models/errors/chaptererror.ts
-  - src/models/errors/committeeerror.ts
-  - src/models/errors/eventerror.ts
-  - src/models/errors/httpclienterrors.ts
-  - src/models/errors/index.ts
-  - src/models/errors/issueerror.ts
-  - src/models/errors/membererror.ts
-  - src/models/errors/milestoneerror.ts
-  - src/models/errors/nestapierror.ts
-  - src/models/errors/nesterror.ts
-  - src/models/errors/organizationerror.ts
-  - src/models/errors/projecterror.ts
-  - src/models/errors/releaseerror.ts
-  - src/models/errors/repositoryerror.ts
-  - src/models/errors/responsevalidationerror.ts
-  - src/models/errors/sdkvalidationerror.ts
-  - src/models/errors/snapshoterror.ts
-  - src/models/errors/sponsorerror.ts
-  - src/models/event.ts
-  - src/models/eventdetail.ts
-  - src/models/index.ts
-  - src/models/issue.ts
-  - src/models/issuedetail.ts
-  - src/models/member.ts
-  - src/models/memberdetail.ts
-  - src/models/membertype.ts
-  - src/models/milestone.ts
-  - src/models/milestonedetail.ts
-  - src/models/operations/getchapter.ts
-  - src/models/operations/getcommittee.ts
-  - src/models/operations/getevent.ts
-  - src/models/operations/getissue.ts
-  - src/models/operations/getmember.ts
-  - src/models/operations/getmilestone.ts
-  - src/models/operations/getorganization.ts
-  - src/models/operations/getproject.ts
-  - src/models/operations/getrelease.ts
-  - src/models/operations/getrepository.ts
-  - src/models/operations/getsnapshot.ts
-  - src/models/operations/getsponsor.ts
-  - src/models/operations/index.ts
-  - src/models/operations/listchapters.ts
-  - src/models/operations/listcommittees.ts
-  - src/models/operations/listevents.ts
-  - src/models/operations/listissues.ts
-  - src/models/operations/listmembers.ts
-  - src/models/operations/listmilestones.ts
-  - src/models/operations/listorganizations.ts
-  - src/models/operations/listprojects.ts
-  - src/models/operations/listreleases.ts
-  - src/models/operations/listrepositories.ts
-  - src/models/operations/listsnapshotchapters.ts
-  - src/models/operations/listsnapshotissues.ts
-  - src/models/operations/listsnapshotmembers.ts
-  - src/models/operations/listsnapshotprojects.ts
-  - src/models/operations/listsnapshotreleases.ts
-  - src/models/operations/listsnapshots.ts
-  - src/models/operations/listsponsors.ts
-  - src/models/organization.ts
-  - src/models/organizationdetail.ts
-  - src/models/pagedchapter.ts
-  - src/models/pagedcommittee.ts
-  - src/models/pagedevent.ts
-  - src/models/pagedissue.ts
-  - src/models/pagedmember.ts
-  - src/models/pagedmilestone.ts
-  - src/models/pagedorganization.ts
-  - src/models/pagedproject.ts
-  - src/models/pagedrelease.ts
-  - src/models/pagedrepository.ts
-  - src/models/pagedsnapshot.ts
-  - src/models/pagedsnapshotissue.ts
-  - src/models/pagedsnapshotrelease.ts
-  - src/models/pagedsponsor.ts
-  - src/models/project.ts
-  - src/models/projectdetail.ts
-  - src/models/projectlevel.ts
-  - src/models/release.ts
-  - src/models/releasedetail.ts
-  - src/models/repository.ts
-  - src/models/repositorydetail.ts
-  - src/models/security.ts
-  - src/models/snapshot.ts
-  - src/models/snapshotdetail.ts
-  - src/models/snapshotissue.ts
-  - src/models/snapshotrelease.ts
-  - src/models/sponsor.ts
-  - src/models/sponsordetail.ts
-  - src/models/state.ts
-  - src/sdk/chapters.ts
-  - src/sdk/committees.ts
-  - src/sdk/community.ts
-  - src/sdk/events.ts
-  - src/sdk/index.ts
-  - src/sdk/issues.ts
-  - src/sdk/milestones.ts
-  - src/sdk/projects.ts
-  - src/sdk/releases.ts
-  - src/sdk/repositories.ts
-  - src/sdk/sdk.ts
-  - src/sdk/sponsors.ts
-  - src/types/async.ts
-  - src/types/blobs.ts
-  - src/types/constdatetime.ts
-  - src/types/enums.ts
-  - src/types/fp.ts
-  - src/types/index.ts
-  - src/types/operations.ts
-  - src/types/rfcdate.ts
-  - src/types/streams.ts
-  - tsconfig.json
+    sdkHooks: 0.4.0
+trackedFiles:
+  .gitattributes:
+    id: 24139dae6567
+    last_write_checksum: sha1:26d16d8297b104945139da8c25bd38feeaad3e25
+    pristine_git_object: 113eead5093c17d43a46159132885318f281a68a
+  .npmignore:
+    id: aa70c1f807c3
+    last_write_checksum: sha1:3d5eb92f81539175db1ff0280e0aefbdd701f200
+    pristine_git_object: cf98a6bf092538eb10ff0edc915102682ce9a6e6
+  FUNCTIONS.md:
+    id: 21b9df02aaeb
+    last_write_checksum: sha1:d4b4c527c48bf7cc6144a339d3edf63d6c981239
+    pristine_git_object: 164187e1969b1dc64c1db60bb361308f33fb139a
+  RUNTIMES.md:
+    id: 620c490847b6
+    last_write_checksum: sha1:e45b854f02c357cbcfdb8c3663000e8339e16505
+    pristine_git_object: 27731c3b5ace66bedc454ed5acbe15075aacd3dc
+  USAGE.md:
+    id: 3aed33ce6e6f
+    last_write_checksum: sha1:554677ef4bbd6b9ae03625b53a8cb4f7839f9ba8
+    pristine_git_object: e98db67dd9597613d35e33adf3f7c50374a5bee4
+  docs/lib/utils/retryconfig.md:
+    id: 0ce9707cb848
+    last_write_checksum: sha1:bc4454e196fcd219f5a78da690375a884f5ed07b
+    pristine_git_object: 08f95f4552349360b2c0b01802aa71ec3a55d2c2
+  docs/models/chapter.md:
+    id: 3ca12c9dff10
+    last_write_checksum: sha1:87f2d89610b4b9c0e8f70de46fec57dadae8a03e
+    pristine_git_object: b2f77f186b040771e11e853bf6432827cca6ba73
+  docs/models/chapterdetail.md:
+    id: c8b56e1768cd
+    last_write_checksum: sha1:b014bfe94a8572f753cd8b09f741ea0b0e6e976e
+    pristine_git_object: efb86e0b3434205a6c6439ef38c0ae9eabc81110
+  docs/models/committee.md:
+    id: 07e119c18824
+    last_write_checksum: sha1:756c56fe0dfb9b61e3fc26da3213ef62a131b9ff
+    pristine_git_object: 575a615f8bc0dbe67855c614cb45807a3e901611
+  docs/models/committeedetail.md:
+    id: 1d1e8752e034
+    last_write_checksum: sha1:2c8aae4e566deb2455b7fdd71e789c86f0325bd1
+    pristine_git_object: 8b667e868c1e845ebb033461932b6106de8ac991
+  docs/models/errors/chaptererror.md:
+    id: e5d2349ba07a
+    last_write_checksum: sha1:dd8b28dfe8e99bf092fc8ca17ab1e56d89b51655
+    pristine_git_object: 4b2fc09402516947a3467f7d515207e98e0ee6c5
+  docs/models/errors/committeeerror.md:
+    id: 40dae57b31ca
+    last_write_checksum: sha1:9becd4054909dcdb9adc6543eface6aa4bf61a8f
+    pristine_git_object: e0511223f62e80c05d8241aab9815d313061418a
+  docs/models/errors/eventerror.md:
+    id: 8bdaf2fbc5d7
+    last_write_checksum: sha1:8ee974ad0e9e9edfbb02cd544ce5ce5d84fe4896
+    pristine_git_object: 4a86d70d9d3b790c6d13766ddd97777f02417089
+  docs/models/errors/issueerror.md:
+    id: 53fc80552166
+    last_write_checksum: sha1:fc7b706e4d7b156085680a653378f7238bd40dd7
+    pristine_git_object: 63af187f4d14f2c0ac4f20c28c1271da1d9eac6f
+  docs/models/errors/membererror.md:
+    id: 7e2403ddd29a
+    last_write_checksum: sha1:d6983c97100b2b2d280272c23b76de96a13bfd83
+    pristine_git_object: 78f3251f55b9396d2f8c2f38eb3d7ef92218aecb
+  docs/models/errors/milestoneerror.md:
+    id: f78776a53338
+    last_write_checksum: sha1:8a8f1b584e3a852475af647099bc93935bf627e9
+    pristine_git_object: 01474920892a5f365de62ab6b08c6150d84e2079
+  docs/models/errors/organizationerror.md:
+    id: f3aecb62842f
+    last_write_checksum: sha1:c1fb664044820bbac5a145f43adc9ed27f9c8d6e
+    pristine_git_object: 0c507a6476f01cb28a14eb3c50b8fa5858b8ab9e
+  docs/models/errors/projecterror.md:
+    id: 533373c052c8
+    last_write_checksum: sha1:3ebf09588df8f37ecfe0f043cb6a5fc3281f0031
+    pristine_git_object: 6c880bb3bd4ce8eec6b556e0215ad10c64a5ef51
+  docs/models/errors/releaseerror.md:
+    id: a8cd4674775c
+    last_write_checksum: sha1:51dfa49a599f6bba9dad4a1d91dcfd511128a583
+    pristine_git_object: c7544d7edcddb21d922e5ef6527bb34d21c1c2e4
+  docs/models/errors/repositoryerror.md:
+    id: 9dd2ec02e24a
+    last_write_checksum: sha1:7654b7236250ae3dacdcf490da439a0ef4fff440
+    pristine_git_object: bdbbf1eb458fef613e0f4121d85eed7a4f67c53a
+  docs/models/errors/snapshoterror.md:
+    id: 508d08bc034e
+    last_write_checksum: sha1:88659d9be162843b6be0fcf492c2ef104725aad5
+    pristine_git_object: 9cb06f486a04da737098bcb4d4d094315fdbce13
+  docs/models/errors/sponsorerror.md:
+    id: e3dfa6eedc88
+    last_write_checksum: sha1:0613b3a07e307447c9a8a541804ba4cf3e3405ce
+    pristine_git_object: b4a37b24b3f44727db3e86c841f38e9b485a4fdc
+  docs/models/event.md:
+    id: 311c22a8574a
+    last_write_checksum: sha1:493bf51bacfb5e6271f8c2a016d5a5a44efce768
+    pristine_git_object: 288599e843483ee91d16d7717b646a7247c3ad50
+  docs/models/eventdetail.md:
+    id: 09b6b6b2a01e
+    last_write_checksum: sha1:72350f3e3a1cf27f758e64ff2b80e5f2a2f1d39d
+    pristine_git_object: 2239480e204daa9855847a35e9cab9c45fbf9707
+  docs/models/issue.md:
+    id: 44d611a73cb7
+    last_write_checksum: sha1:d03717e3dc277173b2addb3c3570af7033096906
+    pristine_git_object: 13fbe997994d100330a747652ad692f1da00fd6d
+  docs/models/issuedetail.md:
+    id: 86ae79c8a8a0
+    last_write_checksum: sha1:ff38c6f6d84bc739e3c4d84dd768aaaa2d2f6ef2
+    pristine_git_object: 77cd4189738dc6b23798f8c3342877c0f10c33aa
+  docs/models/member.md:
+    id: cfd87f58d779
+    last_write_checksum: sha1:4344ab6ff8ae4b11c38ad2bd73253fe9e2cbd53f
+    pristine_git_object: 38fa2d35297d998fbc6e01dd54ecb24cb133862c
+  docs/models/memberdetail.md:
+    id: 77a25ebe30a6
+    last_write_checksum: sha1:9f293423b0373fe9a58d4a5a06ee59351c9266e7
+    pristine_git_object: 926a6b4e8f7765ad96d4f58e5be011dae51929a0
+  docs/models/membertype.md:
+    id: a0d6300f9ce9
+    last_write_checksum: sha1:94f193e3ee4ad0315dd0602da1e26453d6fceead
+    pristine_git_object: 6f3ef83c91e54ebad363c32aff5ec4103a72bcaf
+  docs/models/milestone.md:
+    id: 020f00d221db
+    last_write_checksum: sha1:9489435bd934e8facefa362247467e2f3625d26c
+    pristine_git_object: 7117bbb8c71dab3864fdaf5e47f0f8bfef250416
+  docs/models/milestonedetail.md:
+    id: c198e51b3669
+    last_write_checksum: sha1:c984639c0d77dd008df3c6176dc10f9516c5ae60
+    pristine_git_object: 3d18357ddf6169117ad7a899c2c03064d78807da
+  docs/models/operations/getchapterrequest.md:
+    id: abf90a01949d
+    last_write_checksum: sha1:9e3960c2950393fbd4efac92d2aeee2bd4ef7d9a
+    pristine_git_object: de088535808ce290b5536607e85005398b5a8014
+  docs/models/operations/getcommitteerequest.md:
+    id: fdf634278cc0
+    last_write_checksum: sha1:22a256a72c6b2883bcc9eed2f62631362dfeb65f
+    pristine_git_object: 6801a9f7a1629093e5f8807d87d18b8aee0cfba5
+  docs/models/operations/geteventrequest.md:
+    id: ed4423b8e9dd
+    last_write_checksum: sha1:667eac8a162ac495105c67dedab61a5babd0dcf0
+    pristine_git_object: 498fc3151d21bff3ce0dc7e6266d3db14110540f
+  docs/models/operations/getissuerequest.md:
+    id: 9f2dda9da7b5
+    last_write_checksum: sha1:5d4906debdaf083ea0527e2494bcb8968b7aed35
+    pristine_git_object: 66ab6e932ed74ed90643c8930ec585198a4fa070
+  docs/models/operations/getmemberrequest.md:
+    id: dc42f5405d7b
+    last_write_checksum: sha1:7e9a8ce050007edbba1a1c9e56cbc154d0afd698
+    pristine_git_object: 64cab3ad0a34cb6be9a26f631285229351d3b81c
+  docs/models/operations/getmilestonerequest.md:
+    id: 58db5a515275
+    last_write_checksum: sha1:b51d166e93acb280d75c7830e14580964023fe11
+    pristine_git_object: efe1162deb38fb976d72e0ac4a7f0bad364d8475
+  docs/models/operations/getorganizationrequest.md:
+    id: c7e05be46ac1
+    last_write_checksum: sha1:e0b69ab661d4f1f37aaab74bf90351da620a1f00
+    pristine_git_object: e3bcc8ca12e1c3f2f1e1f9e32e729db596338079
+  docs/models/operations/getprojectrequest.md:
+    id: c8b582ab72a0
+    last_write_checksum: sha1:10361afe485594e24cc8a3bb0e58f3d13b33d4ca
+    pristine_git_object: a529abb11b05a7848e066b28c97e237e7627ffae
+  docs/models/operations/getreleaserequest.md:
+    id: 4f0017cc5670
+    last_write_checksum: sha1:4b5766e49e6e9ac9512e8503bdb45386dd4aede0
+    pristine_git_object: 871f81bb9819d5177647dbb4b095726cfbc3ae2b
+  docs/models/operations/getrepositoryrequest.md:
+    id: 435208b0fc9a
+    last_write_checksum: sha1:a5177dd134ca3c361dbc713b08aa00cd8d8de6d8
+    pristine_git_object: 5344752275c0073e05c68d983f5f25c8e9901c48
+  docs/models/operations/getsnapshotrequest.md:
+    id: 0244d023febc
+    last_write_checksum: sha1:e7d0840467cd839d0f87bb4ec7b41fbef978f876
+    pristine_git_object: 0304d387f05da6097842319a5fbafd00a74524cc
+  docs/models/operations/getsponsorrequest.md:
+    id: 864742cde8d6
+    last_write_checksum: sha1:2a1487b3d3053d2eaed975930f45ef4be4c35318
+    pristine_git_object: f7e3318d71bac2265a79fd9311d2c062dff55fce
+  docs/models/operations/listchaptersordering.md:
+    id: 9472cf81be5f
+    last_write_checksum: sha1:fb38b55efc33eddaf7bf1d6f90637c43060e2d8f
+    pristine_git_object: cdec86246f537b0353092122c5dfe1e1c9c260d9
+  docs/models/operations/listchaptersrequest.md:
+    id: 9d0a44bc43d7
+    last_write_checksum: sha1:6ed4d09709081a95979faa86190d4dd1599804c0
+    pristine_git_object: 9de6bbf04a825322a03f1338c33a9633922f8fb8
+  docs/models/operations/listcommitteesordering.md:
+    id: 0ebf7a184b6a
+    last_write_checksum: sha1:d91e438722674787179ab68bdbe6c836a2cc2a06
+    pristine_git_object: 878ef89a29cc5d0453d6245cc5e3a8003eb30f15
+  docs/models/operations/listcommitteesrequest.md:
+    id: eb9f39f9b7eb
+    last_write_checksum: sha1:156d9717a6ffb6a3d8e24e82de798745bde877f9
+    pristine_git_object: bd395efbbf53c7d3943e2e62ad83fc9a47f97a79
+  docs/models/operations/listeventsordering.md:
+    id: 6ad5d5bcd862
+    last_write_checksum: sha1:1d0cb89b280cf4df250f055e6c0a8fe80ca53a85
+    pristine_git_object: b303a66d70de45a34f00266471ae696458b42f59
+  docs/models/operations/listeventsrequest.md:
+    id: 4c63e4d672e2
+    last_write_checksum: sha1:3c186d507be373658f4721f93d1b5a7ed57d1876
+    pristine_git_object: 014b4ee83ac5bdf906ee64d323957b12340ebc59
+  docs/models/operations/listissuesordering.md:
+    id: c00d2b9f9f15
+    last_write_checksum: sha1:01dd2bd064f2d15d48c67c12d12602949d36a654
+    pristine_git_object: d9d983396bfb62e9f3452c46467decce161ce9a3
+  docs/models/operations/listissuesrequest.md:
+    id: f01cb78c89d0
+    last_write_checksum: sha1:7a449701b1c2340993dbe75cbb8511ba778c3d87
+    pristine_git_object: 8aabe1d963833d29ea7efb8649e506d45ec136e8
+  docs/models/operations/listmembersordering.md:
+    id: e1923d20e0ac
+    last_write_checksum: sha1:34376bc0e97df60826494689410e6f50af517b65
+    pristine_git_object: ab04628b6d1dce4f3aaa669ff0ec67237cdfbef1
+  docs/models/operations/listmembersrequest.md:
+    id: ba2671c3338c
+    last_write_checksum: sha1:e78f2102b67b49f0fabd2eedbb4ef28339e96523
+    pristine_git_object: e301d91bc6cb31aa2914e14706ae665f8d59f14b
+  docs/models/operations/listmilestonesordering.md:
+    id: 4ddb9a7b8a80
+    last_write_checksum: sha1:389a0bf2c33a3c86550e196299845f6790abbc4e
+    pristine_git_object: 09c04ac1264955e6500b46335036aaae20518679
+  docs/models/operations/listmilestonesrequest.md:
+    id: cc9285628b48
+    last_write_checksum: sha1:9543d81b238903ee28fc264cdfd692182e6f5131
+    pristine_git_object: 87bfcbd5a3b04792a71503028a24605875160cde
+  docs/models/operations/listorganizationsordering.md:
+    id: bd1e61fda8d4
+    last_write_checksum: sha1:d0880047f0993587cc5131d92bf187dd5289260a
+    pristine_git_object: 027cb1bed2a124d0ba91b7a9f54d5fa190a8f0a3
+  docs/models/operations/listorganizationsrequest.md:
+    id: 656820540c33
+    last_write_checksum: sha1:3d937e1046fcdabb8fe73c00ebaef6b7bdba2dce
+    pristine_git_object: 9bfb0e42a12129f245fc20f29506b3a3f9d60e9c
+  docs/models/operations/listprojectsordering.md:
+    id: cd034846f178
+    last_write_checksum: sha1:aa915f413a50343f83460dab18ae7ba8f70fb6c1
+    pristine_git_object: 8067fc5925fec401038892ece4042a499044a2f4
+  docs/models/operations/listprojectsrequest.md:
+    id: eed2df774116
+    last_write_checksum: sha1:271563d944d11a120ebbb3c4ed6322aa3ad4de8d
+    pristine_git_object: 6e77ceaa52f1a1510a6e8fbe43305359beb7036b
+  docs/models/operations/listreleasesordering.md:
+    id: 9d51043e25ef
+    last_write_checksum: sha1:8ba0753005a88618fca3aa5ac23b1d4d10922842
+    pristine_git_object: a8815369c95d2e608bb8c37469ca24313f49a7ce
+  docs/models/operations/listreleasesrequest.md:
+    id: 5055faa42f8c
+    last_write_checksum: sha1:02a863efa98f373afe687b6b2b4e89bdc710f268
+    pristine_git_object: 5c670c80b021a74e23bfb2bf2793892f41aedd71
+  docs/models/operations/listrepositoriesordering.md:
+    id: 5ae52f7a0cd8
+    last_write_checksum: sha1:74175c00f6b13d80854f9b290fea0a82b8c2e384
+    pristine_git_object: 6c83fbe6f4b8ed230e65dc7a68998a0033e89d05
+  docs/models/operations/listrepositoriesrequest.md:
+    id: e0f22e2362b4
+    last_write_checksum: sha1:03c9cd6ba9c7cd099d01c0fd7c62f433cebe492e
+    pristine_git_object: 2bdeb54aebb54f4e64ab8256493a785008c48be2
+  docs/models/operations/listsnapshotchaptersordering.md:
+    id: 5bc614b0fd69
+    last_write_checksum: sha1:48e0e914d2e86943ca245954dc09ee39b8e5a1f3
+    pristine_git_object: 54eb7baecfdb02f72c1f8f95110f249edca59cd3
+  docs/models/operations/listsnapshotchaptersrequest.md:
+    id: 18ae2b4e429e
+    last_write_checksum: sha1:d44a8c7da48b8ba67fb50a2867cfd1a34c7f0370
+    pristine_git_object: aae502859d7771e1d46323ec014d5148381b8a77
+  docs/models/operations/listsnapshotissuesordering.md:
+    id: c80c28e0d78c
+    last_write_checksum: sha1:4e51d6a7591e48ea6faac8ac8e782554df2dbd83
+    pristine_git_object: 44add66b7284393a2ad4349c7aded1072e93928e
+  docs/models/operations/listsnapshotissuesrequest.md:
+    id: 14414f3fb3be
+    last_write_checksum: sha1:624be3aee17e549534023aa937bccb48597abc5c
+    pristine_git_object: b10d06a4cff88fcc9174b70f1994fe03a5071b08
+  docs/models/operations/listsnapshotmembersordering.md:
+    id: 7f869840318e
+    last_write_checksum: sha1:382233c1d729e9aa7a161f74562c0762431d6e98
+    pristine_git_object: 4a159efb8db4e78cb7f9722f014c37b1e6fd89fe
+  docs/models/operations/listsnapshotmembersrequest.md:
+    id: 5ec7f96e243d
+    last_write_checksum: sha1:be87e48cf2dc702598c8d5454808973496145ce7
+    pristine_git_object: e1b1590035aa4fe24e8e8ecffccef1552e9d4d5d
+  docs/models/operations/listsnapshotprojectsordering.md:
+    id: 4a8ad9f01345
+    last_write_checksum: sha1:50ac43d1c123a5fbc4b1a9226c9de0b155867f15
+    pristine_git_object: 8e30d08ef1a00c317b1d2ef76ba56ef2c53c5282
+  docs/models/operations/listsnapshotprojectsrequest.md:
+    id: fa58e1706dbc
+    last_write_checksum: sha1:3edae467a6b341f8c885ccc9e574239a537670fa
+    pristine_git_object: 05a1beb43a7b15da553c97f0f54f6fec8679c518
+  docs/models/operations/listsnapshotreleasesordering.md:
+    id: 84d940f60e21
+    last_write_checksum: sha1:0c6bcda7fd1416046ec312116d8c6929c8a96539
+    pristine_git_object: 15f4e20eea8ac6b76c88db67d68cf3599301049f
+  docs/models/operations/listsnapshotreleasesrequest.md:
+    id: 3dcf61885c8a
+    last_write_checksum: sha1:9efaebea0132f4be46aa085f85c42cb57284f6aa
+    pristine_git_object: bd21fdcea2c676c49674a52abeb290857f7bfa7d
+  docs/models/operations/listsnapshotsordering.md:
+    id: caf44f7e7521
+    last_write_checksum: sha1:3656a0c610d08271e01641ae269f8174c19ae264
+    pristine_git_object: f72588e0e031821c09a4c9e953739ede6a2ff746
+  docs/models/operations/listsnapshotsrequest.md:
+    id: 0d5fb3d27431
+    last_write_checksum: sha1:618d1e64e933a352c04336584cb4f0e582d8cbd6
+    pristine_git_object: 024ae4707a142e96b717bc188f928f5c1861fc93
+  docs/models/operations/listsponsorsordering.md:
+    id: a33c2292ce44
+    last_write_checksum: sha1:559338a9302c8a7c6127374ded87947cd4f8f187
+    pristine_git_object: 8cccd2f0efa1516b3f8a51f1333d62b2275cd11b
+  docs/models/operations/listsponsorsrequest.md:
+    id: 3ca977874128
+    last_write_checksum: sha1:0ff006db435c3bf3daf0f6ce7ff2b86006b0dbe9
+    pristine_git_object: 5170f60b4563cb26fa9692895d0c4fd81c127d13
+  docs/models/organization.md:
+    id: ea9c215ca2eb
+    last_write_checksum: sha1:d8f86cef30916a66edda9c212e79df4a0cf4ea90
+    pristine_git_object: 3759e84ef6bacf9b75844a0ec442b95110cf005b
+  docs/models/organizationdetail.md:
+    id: ea43b5dfd2d9
+    last_write_checksum: sha1:5c623b24a833d19ded4605ebf993cbfd3228543b
+    pristine_git_object: 1c3d45256f9ef9bc24c6e4e98bb3ac5d86bc798b
+  docs/models/pagedchapter.md:
+    id: 443c32e2ddbf
+    last_write_checksum: sha1:8301482ef30f58baee4e668a4048ff57788bce4f
+    pristine_git_object: 86bbafc28e3409e7f4fdb7fa761244bf10604860
+  docs/models/pagedcommittee.md:
+    id: a4f201e37c02
+    last_write_checksum: sha1:6c10fd578dbc243b84041f1a849321b7209dd8c4
+    pristine_git_object: a150b29c656f25621a66d900ba8230bf7f208a19
+  docs/models/pagedevent.md:
+    id: bce0426f5007
+    last_write_checksum: sha1:dcc06c56c8d75e951192ba687e25c5ec887763cd
+    pristine_git_object: 0723b13a1e5cce67a43736eacf8743fe9ec0f00b
+  docs/models/pagedissue.md:
+    id: 8a215d2358b9
+    last_write_checksum: sha1:6d1b298a9ad56b8165c8d0e1a775f1e7aaaba4e8
+    pristine_git_object: 4d7901d0db4ec77f32fe264bed45aa298152d1a0
+  docs/models/pagedmember.md:
+    id: 559e0ba54f7c
+    last_write_checksum: sha1:632ac340c5e48a7253ff9b7df5a6930fde3d0bdd
+    pristine_git_object: 225d3f7efb7cc3fad3fcdf05b52e93b56c777aad
+  docs/models/pagedmilestone.md:
+    id: 6308447a1bbb
+    last_write_checksum: sha1:9865ae3c6ddc480951cbea55425acacf2dccda37
+    pristine_git_object: 01b776416140fe428c4090d8c6db0eac75d515cd
+  docs/models/pagedorganization.md:
+    id: 9600c2fcddf0
+    last_write_checksum: sha1:27e7dd1d3d47dc692861a2f5c9fe59d5a0d57105
+    pristine_git_object: db95510d0c236bf0758378f7627b9c9d8fc03f85
+  docs/models/pagedproject.md:
+    id: 32e62fd4d871
+    last_write_checksum: sha1:35a96b29462a6e670e5a7d92efe83645bf385d9d
+    pristine_git_object: a555f6ec49e3a529bbb4782d0c96ba071b4081fc
+  docs/models/pagedrelease.md:
+    id: 0a6256ac980d
+    last_write_checksum: sha1:ce73969f5cad41e501320e291df9e67a3ff1fcf9
+    pristine_git_object: 92fc84848c116629868c7116524ef0ace8804ba3
+  docs/models/pagedrepository.md:
+    id: 2068c360c5f4
+    last_write_checksum: sha1:5d9f126186d9d45174280aedd3eb01454a71dbb4
+    pristine_git_object: abe5b2fa4a6f278fdf7ce6b2c2e0f528ed3d48b3
+  docs/models/pagedsnapshot.md:
+    id: cfea3a31d949
+    last_write_checksum: sha1:287c7f76ba2a8665783729696fc40dbc307f0b45
+    pristine_git_object: 3431a010f468c303af0fe3f0171e588181c289fa
+  docs/models/pagedsnapshotissue.md:
+    id: fd2682dd7538
+    last_write_checksum: sha1:0b160d8770e13ad43b80e828137910ca0ca95685
+    pristine_git_object: c5040c3257fbca28dc90bb9709e7358d1d6a26fe
+  docs/models/pagedsnapshotrelease.md:
+    id: 0e344eb2b981
+    last_write_checksum: sha1:a2f49d7d380d8ffe9ac6c248d8668047775130b0
+    pristine_git_object: b57da355cf186fb2b78b757bdf7a8c32494ca988
+  docs/models/pagedsponsor.md:
+    id: e8a94d4cce34
+    last_write_checksum: sha1:4459bf7500619efa133e2ae3968baaaac7d4ce44
+    pristine_git_object: bec6d05fc5d733e331927155cad54f9d3ffbe8f8
+  docs/models/project.md:
+    id: 90bdd121a0a9
+    last_write_checksum: sha1:d27517fbd2c105ec5bec2b56e29854878db39389
+    pristine_git_object: 62b711cc151b20e90f3406b907bb809006d15f84
+  docs/models/projectdetail.md:
+    id: b5ff4565a1e4
+    last_write_checksum: sha1:4ac5811f4f0168ae2297f707f8766b28e27da4ea
+    pristine_git_object: cabfee03d057933f6d40b614e60a27d0604ca618
+  docs/models/projectlevel.md:
+    id: 8da42e54d1f8
+    last_write_checksum: sha1:2b6e1afbe0774cc4d680d7377dd5b0fd86ce19eb
+    pristine_git_object: 3d83c3d7ab083880562c5113c43e749cac8d4361
+  docs/models/release.md:
+    id: 704b04b89ff5
+    last_write_checksum: sha1:0aa04df8f90ec47c6a4256a5aed94dab7daef138
+    pristine_git_object: 9c4febf6a4d5554ee9c7a8bc41ba429522955030
+  docs/models/releasedetail.md:
+    id: b37c353972f0
+    last_write_checksum: sha1:b5d4f2d454036e9cd674a8f665980d07b580010d
+    pristine_git_object: 8d8dd8b01ac4b00622bb5fb03d668acfb857304d
+  docs/models/repository.md:
+    id: 609d61c82f79
+    last_write_checksum: sha1:ac5872aec7cab9d500dddcc4956dc9b1b2a6039f
+    pristine_git_object: 324e31d4ad8c57402e2342432f7ffd98c2c0616e
+  docs/models/repositorydetail.md:
+    id: b59729330ed2
+    last_write_checksum: sha1:bf42f77f82e57ac6c4179af8b98f2ff9f3d0ee43
+    pristine_git_object: 4761028abd85462a7f5e6cbd0195329c2602ee9f
+  docs/models/security.md:
+    id: 452e4d4eb67a
+    last_write_checksum: sha1:e026b15528145cc81d3e1aaa228ac743afa1ca7d
+    pristine_git_object: 29dd93a1d305cd3592821201db231e66b4edd560
+  docs/models/snapshot.md:
+    id: bf6c63d89ab0
+    last_write_checksum: sha1:d5639551798e6f6fead067e6ef7a133869c8d752
+    pristine_git_object: 4e5f9a15bb8340bc1af45e0c8df9b1175697b103
+  docs/models/snapshotdetail.md:
+    id: 7de8ff124768
+    last_write_checksum: sha1:481d6a1656811272e4e9fe10c12c0b5283e0eb4d
+    pristine_git_object: b52e67960be048227896d64009ca18e259c308b1
+  docs/models/snapshotissue.md:
+    id: 325f0520cf0b
+    last_write_checksum: sha1:1097ba94f54ed45514c115eaaa5e33e9d0cc4176
+    pristine_git_object: 35d1bd3572c8e3c932ec972f6ade9299afa3a27b
+  docs/models/snapshotrelease.md:
+    id: 193b39689ae9
+    last_write_checksum: sha1:345c93bddf4faa8c05b9350517878be2d359dcf7
+    pristine_git_object: 4e568b4a1bbf10c90c66de60e84f83c7f6d7e84a
+  docs/models/sponsor.md:
+    id: 457f38849fe5
+    last_write_checksum: sha1:61ac6beb1a11c55a65e18d50de8b0463163284c5
+    pristine_git_object: 2476385d85ef00cf46ae404055b29f172cc72cb5
+  docs/models/sponsordetail.md:
+    id: 9a48fec29986
+    last_write_checksum: sha1:05e3786a1efae3d1aa3550926f75ebf9b1176c71
+    pristine_git_object: c5ada4dbc57a96cc4dea78ea92d52208f7c914f9
+  docs/models/state.md:
+    id: e560b4e72643
+    last_write_checksum: sha1:0a99237b24551144382865d648feeabdbbd40920
+    pristine_git_object: fc24322610e69441acdbc56193ee20800e537ccb
+  docs/sdks/chapters/README.md:
+    id: b545e9645ae9
+    last_write_checksum: sha1:cb6cac0ac50c57de7e1f112ad3b531942fab8e4f
+    pristine_git_object: 27fc653326478dffab9c96210a77d79b6c6dcf3a
+  docs/sdks/committees/README.md:
+    id: 3283fa74455b
+    last_write_checksum: sha1:60c27ed54d4053ee83a0c313b58735ba3ed56da5
+    pristine_git_object: 829335d8bc25f67686f81bc10ee8726722a32733
+  docs/sdks/community/README.md:
+    id: 529704b7cfa8
+    last_write_checksum: sha1:7bb7600cfba18886e2508ddd0f6387ea74156749
+    pristine_git_object: 9b1d5d2ce0e0e2d85fa705435d2668cfbe319465
+  docs/sdks/events/README.md:
+    id: cf45a4390b9b
+    last_write_checksum: sha1:1dc9d4e45564ab9de631b8403bcdf744343091ee
+    pristine_git_object: 112990681b98e2da9b4cb3a87a64d2ec990d1d13
+  docs/sdks/issues/README.md:
+    id: cbb80cd6efef
+    last_write_checksum: sha1:5c2c57604351f8784bc9bf4f19ff03fb2829896f
+    pristine_git_object: e94a889f96f6fd1966564f737e37ef610c6b3616
+  docs/sdks/milestones/README.md:
+    id: 186be158f715
+    last_write_checksum: sha1:e0e7d43817d4b0fdf708209dc70f2fd643d5b31b
+    pristine_git_object: d499d86facac7c82c057c8490f4ff9d687473606
+  docs/sdks/projects/README.md:
+    id: 1c5f71754e17
+    last_write_checksum: sha1:f7eb454248f76ecd07cd6d869758de16ea8e8688
+    pristine_git_object: fd9275675c808dad57e1c4a4e3a861db6f34bdde
+  docs/sdks/releases/README.md:
+    id: 63d3c821dfd3
+    last_write_checksum: sha1:aa9f7f6cac6c002734203699cdaf4cb62e719aa8
+    pristine_git_object: 5950a01a4fe7b6327d096882f5a7c048fe2ebd86
+  docs/sdks/repositories/README.md:
+    id: 67c85cb3c692
+    last_write_checksum: sha1:423af57b4752f70af1ce4d29473e31f1df4b0426
+    pristine_git_object: 299997a7c8b798643f3553a5c4abef15c2b11b27
+  docs/sdks/sponsors/README.md:
+    id: c91dd0ddc795
+    last_write_checksum: sha1:a7db472880823389327163c66767c3d08a9e303e
+    pristine_git_object: c2f61f43e089550ba88a599964bce3cee9ab00f0
+  eslint.config.mjs:
+    id: 461c8d07f6da
+    last_write_checksum: sha1:9398f326377fe47f67af2df6eb6370750c0790b4
+    pristine_git_object: 67bccfec985be20a00970d90155752832dd47135
+  examples/.env.template:
+    id: 52cbe5afed92
+    last_write_checksum: sha1:eb9714f8e62380357e0c74b25bca80a2be3c944b
+    pristine_git_object: 87378eb7d9907d6e4dcf6bf30ce6e1c2c55cbdfb
+  examples/README.md:
+    id: 9d0f69d6e677
+    last_write_checksum: sha1:132484475207591ef8ae259e1992f378f87e5124
+    pristine_git_object: 6cee3ae817ac0479f06531e75f217c6a273c21b4
+  examples/chaptersListChapters.example.ts:
+    id: fed4178efbbb
+    last_write_checksum: sha1:59b0543b5abf2f86dc1cba8d51a11467a19f121e
+    pristine_git_object: ea7990baf0ee05cc75ffe8e310b73bd4d8b58d32
+  examples/package.json:
+    id: c1d7b0ec8e7e
+    last_write_checksum: sha1:91c393bec7d6310360006a3bf410d00b871bce6d
+    pristine_git_object: 14cf5c18a7ed596164b58260ee00b69f0537b7b3
+  jsr.json:
+    id: 7f6ab7767282
+    last_write_checksum: sha1:cdb1d84d0284f41ce081ea82f2b753d2798e80fd
+    pristine_git_object: bb03c78b3b68fb9f81eef36758e2cc6ca8d1b2f8
+  package.json:
+    id: 7030d0b2f71b
+    last_write_checksum: sha1:b546dd0c86fcc9d81ed584b5ba0caba21eb336b7
+    pristine_git_object: 29f7c0ec5f85a2e08d53810443465dafaf16c17d
+  src/core.ts:
+    id: f431fdbcd144
+    last_write_checksum: sha1:8a547590fe97773e91cf7a1441c593ccdc1a8064
+    pristine_git_object: 29e3cb548efb52090a2669b2c437011dbde2498b
+  src/funcs/chaptersGetChapter.ts:
+    id: a066040be408
+    last_write_checksum: sha1:33bb6784a6a9e08b562e3058f575404647506fb9
+    pristine_git_object: 82a6ca955a55e69c2ecb30cc0860bfd59f6e86e1
+  src/funcs/chaptersListChapters.ts:
+    id: 4db4d017c59f
+    last_write_checksum: sha1:ec962b2155985692ed95896746556fb8a544e5f6
+    pristine_git_object: 45db23b2cda79999823c6648e1b86c4b7a22d21f
+  src/funcs/committeesGetCommittee.ts:
+    id: 76c9505f06fc
+    last_write_checksum: sha1:b2645c7b4117c19821a81a107f5d1c4885f47814
+    pristine_git_object: 106f75b5fd9c1f53c8b69b8e4ae9ece9600bf9f9
+  src/funcs/committeesListCommittees.ts:
+    id: bcf4653384b1
+    last_write_checksum: sha1:f7edeb9232a68c16b46a9d74501c9b198160b3f6
+    pristine_git_object: 05d4b11b88018b0d652e8f34da365a281f6afce1
+  src/funcs/communityGetMember.ts:
+    id: 76d49528953b
+    last_write_checksum: sha1:c13c5b94915432dfc22556a034ae2669542f5d2d
+    pristine_git_object: b20b1a6937ae00fc96ca5dfb91a6d861a117dd2a
+  src/funcs/communityGetOrganization.ts:
+    id: 19a08f7c141b
+    last_write_checksum: sha1:f5e0db3900f006733224b5c33bf91787e3b09f02
+    pristine_git_object: 328a5a2d0a08094b225f07e019bca9ee9700694d
+  src/funcs/communityGetSnapshot.ts:
+    id: 70e10eecdc29
+    last_write_checksum: sha1:8d8a05bf8213cef50a9208719fb6edbd075d9164
+    pristine_git_object: bc6d7695e363a24718637971e4caab5b2f5d0524
+  src/funcs/communityListMembers.ts:
+    id: a95af9f27cc3
+    last_write_checksum: sha1:cdb7966caa43943b4cee160353e240038bc0ac87
+    pristine_git_object: 572627b06ec89db592f1a78173e46e693cfbfe91
+  src/funcs/communityListOrganizations.ts:
+    id: dc6ecbd9c8ce
+    last_write_checksum: sha1:73ae7c65096f800da2d4f010f486002f174e1074
+    pristine_git_object: 01a54638a25824921c425addd3e73cbebf146404
+  src/funcs/communityListSnapshotChapters.ts:
+    id: 7cdd16e296e5
+    last_write_checksum: sha1:f1858680d55fba3d943132c5ce9e9e03843a1c07
+    pristine_git_object: 4cc297986be3847bf9abbc1a04688e1c5c8c7b97
+  src/funcs/communityListSnapshotIssues.ts:
+    id: 7798bebb26cb
+    last_write_checksum: sha1:43ea03229cd95fe4670f3b7b821698e72e7c61aa
+    pristine_git_object: f69e523524ebd51822d63486857bee795c41f3de
+  src/funcs/communityListSnapshotMembers.ts:
+    id: 0826f35abc1e
+    last_write_checksum: sha1:451790c5d86a55967af7ee242a4d3b74ee73a8a9
+    pristine_git_object: c62296444b849fbcbc7d0745c1838a843550439f
+  src/funcs/communityListSnapshotProjects.ts:
+    id: b1f28ad410df
+    last_write_checksum: sha1:e86ade9dc060acbee9ea40d280e1a46a85167f50
+    pristine_git_object: c5782fbf6e5e5b675923d22632252a93f5c89766
+  src/funcs/communityListSnapshotReleases.ts:
+    id: 3ced17966f4d
+    last_write_checksum: sha1:7ce0169a912a6ccc8ee644d1b288a9c6bd985860
+    pristine_git_object: 8d9de39a333b8b6bfc1da5f38b8dd6bf5795fd6f
+  src/funcs/communityListSnapshots.ts:
+    id: 3f6b352d2052
+    last_write_checksum: sha1:05dbd3ceaf0a83cc3e7f99e35d02b58a6b4777d9
+    pristine_git_object: e81483d954c5c080f773ce3513140d26e7b018b3
+  src/funcs/eventsGetEvent.ts:
+    id: 95760dc69aef
+    last_write_checksum: sha1:95bebff8244c24da1e37e6e71d1dd89e2878b1fb
+    pristine_git_object: 8f00cdd4b6a8f1cbbf91f4d68f6c1b36ab909422
+  src/funcs/eventsListEvents.ts:
+    id: 5a7f6e0a7937
+    last_write_checksum: sha1:09497a14e13fa15118377504e723fb071e758b80
+    pristine_git_object: b648c3aa351df5357656b4546a90183bb997bd7d
+  src/funcs/issuesGetIssue.ts:
+    id: 86836ae1e2ec
+    last_write_checksum: sha1:018347b9d4da62c9c5a4fbe05cd4ba91c6332e0c
+    pristine_git_object: b4e9583eac4775df9efcbe12bbca75e59b4fc15d
+  src/funcs/issuesListIssues.ts:
+    id: d2e5cbd07065
+    last_write_checksum: sha1:684dba2a50104d37a0c347ece49991abefaba62d
+    pristine_git_object: b9a6871462ee85df65cc86ea89d442458e9aedb9
+  src/funcs/milestonesGetMilestone.ts:
+    id: ddfb89edcadf
+    last_write_checksum: sha1:7ad3aacddb3d6013d6f8362961ad695bd580d533
+    pristine_git_object: 2202e8e738149c7e5c31447ed5f20b37b3ffa534
+  src/funcs/milestonesListMilestones.ts:
+    id: c5754317d35f
+    last_write_checksum: sha1:01814d06b4b0f343af5c57d0fc14e54a20337e40
+    pristine_git_object: 284dfb01c2bd5e7216d284e7c705f79ebf117a11
+  src/funcs/projectsGetProject.ts:
+    id: 711f8c80aee3
+    last_write_checksum: sha1:5703ea41b97a28f0dbf9ccfc7b8198d613e11a7b
+    pristine_git_object: d345fb9bdd45bc3742e231441f3f1bd2ce920919
+  src/funcs/projectsListProjects.ts:
+    id: 2fba9509b545
+    last_write_checksum: sha1:e5822de02ace27734a10107427e1ed0696213257
+    pristine_git_object: db723903ddcbf4c2306bff5fc95b9e2ae37c65b0
+  src/funcs/releasesGetRelease.ts:
+    id: 09ab75e6f0ed
+    last_write_checksum: sha1:8d3c7430920bfb404fd5440cb1e770a9a9a816f2
+    pristine_git_object: a7f57dc5020c70ae9f3825538085f9aebfb6bd20
+  src/funcs/releasesListReleases.ts:
+    id: 46494694577e
+    last_write_checksum: sha1:ed067b7a7beecfa604e703b9e58f35f0619341c7
+    pristine_git_object: ea7adddb39f7da716d7cb4e40d514ca3900546ab
+  src/funcs/repositoriesGetRepository.ts:
+    id: 9fab4025ef3a
+    last_write_checksum: sha1:ccd26c9b463e57b1c961209f54a3f7caaa9d3192
+    pristine_git_object: 060ee36b90ad168750936deeb77d0566fee4a0a1
+  src/funcs/repositoriesListRepositories.ts:
+    id: 5e78b05de6c1
+    last_write_checksum: sha1:d548d498b0c5ff6a64a1fb7026fdb03221506620
+    pristine_git_object: cf817f4873228e9c648a6239a5917505862c08fc
+  src/funcs/sponsorsGetSponsor.ts:
+    id: 44308e946636
+    last_write_checksum: sha1:038fe2d0caab1000db4f4d0dc69ff812e9e340e9
+    pristine_git_object: 123be89cda26cc4ad8a0fd07161cf070ff478223
+  src/funcs/sponsorsListSponsors.ts:
+    id: e0722c72907e
+    last_write_checksum: sha1:3cc621d84d42e7224a114a0b72961624cd85a78e
+    pristine_git_object: e33d597872d5b5dcec418bb451445d0276a3f6e7
+  src/hooks/hooks.ts:
+    id: a2463fc6f69b
+    last_write_checksum: sha1:3a90d88b4c6c07247db8e5f6441a79538232394e
+    pristine_git_object: 94ad0a323123b34dc638717c5d67a3c23c54d5c6
+  src/hooks/index.ts:
+    id: 5f2dab62b520
+    last_write_checksum: sha1:1a11c073a6cd792932218e1d4ed36b8567bad8ef
+    pristine_git_object: f60ec7acd76141a71d78008c5a362eb0236d8335
+  src/hooks/types.ts:
+    id: 2a02d86ec24f
+    last_write_checksum: sha1:27a3444c4839bec58ae89820fd8c2483edafc3f4
+    pristine_git_object: 9c36bf01332084f735909a71036c3544cc4c7e3a
+  src/index.ts:
+    id: c5fb850250c7
+    last_write_checksum: sha1:35c9cde3ae14b18b3f893a1afe8b6c44f8760f24
+    pristine_git_object: dbcba164a0082e3bb8c43cf21fa7f8ffb9d35dfc
+  src/lib/base64.ts:
+    id: "598522066688"
+    last_write_checksum: sha1:b0b12ddbd8625efb47c0e955a18641aeb10c6532
+    pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
+  src/lib/config.ts:
+    id: 320761608fb3
+    last_write_checksum: sha1:6c7deae3329d3527df643dd5df5b31940a748f93
+    pristine_git_object: c14f1e4a39f6df19a81e5d524b7c96dd2cc7a579
+  src/lib/dlv.ts:
+    id: b1988214835a
+    last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
+    pristine_git_object: e81091f5e536f82739f71379b1fddc2d147c49e2
+  src/lib/encodings.ts:
+    id: 3bd8ead98afd
+    last_write_checksum: sha1:d20c131976ab8ac68b22bdde2b7ed84b5b873922
+    pristine_git_object: 31cd3733907afbee3641b9ab680ed417247a7d33
+  src/lib/env.ts:
+    id: c52972a3b198
+    last_write_checksum: sha1:3b9c60a70f5d954e20ab0b2703affb9db2d4fd6e
+    pristine_git_object: b2c57a840cdd78d08e90537f7186ee60f1a0cb99
+  src/lib/files.ts:
+    id: e5efa54fcb95
+    last_write_checksum: sha1:d0f325f445b8d22e7d73baf052c585ec2dd24841
+    pristine_git_object: 0344cd046d033f9e8a55de02f7935c5cec5dc30b
+  src/lib/http.ts:
+    id: 63a80782d37e
+    last_write_checksum: sha1:797cbf16d3c7c4d62d3ba0eedb08617524938457
+    pristine_git_object: 13cf1fd7894a89f727b8d2db2ad24313a94f68c7
+  src/lib/is-plain-object.ts:
+    id: b9862591096a
+    last_write_checksum: sha1:df687f25a9590b6fd95d39df41a652ae3fd4e517
+    pristine_git_object: 61070d3d7c7e5e95b1ed7e7ea21869eb0767db77
+  src/lib/logger.ts:
+    id: 7ee7741a02bf
+    last_write_checksum: sha1:0ec9d3a2a34c362746b767e4f9a746c055d57a7b
+    pristine_git_object: d181f2937d4128afbe9b0327e0f81d1fa9c877b7
+  src/lib/matchers.ts:
+    id: d54b2253b719
+    last_write_checksum: sha1:47ca0a9403ff8a054354061338228a2ccffd56b9
+    pristine_git_object: 98347f2b7d862834c5942815f88b73aaa78de28e
+  src/lib/primitives.ts:
+    id: 74859f750b28
+    last_write_checksum: sha1:987869fc54790b9c22e9182099103d6aa7c67016
+    pristine_git_object: d21f1dc49affa4e6d324bdd60811b470fdfa7eb6
+  src/lib/retries.ts:
+    id: b24a69d15639
+    last_write_checksum: sha1:f3da74dffcbe2756c69393f8600205aa1dc06e68
+    pristine_git_object: e3ce9aba72150fc3c18f3105d39b21aba809377b
+  src/lib/schemas.ts:
+    id: deb4b531fae1
+    last_write_checksum: sha1:209cfaabfa7fc1c1310f97453215cb0755619c6e
+    pristine_git_object: 47edb9725c2482c667e2ddc8a56b1fec4285c492
+  src/lib/sdks.ts:
+    id: 8a6d91f1218d
+    last_write_checksum: sha1:85863a839928a04400d709b614631017ffc35ef9
+    pristine_git_object: fed6ae5242e4e523fe74ccae3a79043001b7043c
+  src/lib/security.ts:
+    id: 0502afa7922e
+    last_write_checksum: sha1:5374ce57984c0d9a2e61f0e21f1aa996a64ef7bc
+    pristine_git_object: 314f17916f5ae957c8aabfec6e431a7b7a421703
+  src/lib/url.ts:
+    id: b0057e24ed76
+    last_write_checksum: sha1:d124050c7e755c0cce233b9e029afb584ff65201
+    pristine_git_object: f3a8de6c021de59c991707946cd294596cae954d
+  src/models/chapter.ts:
+    id: a15661331102
+    last_write_checksum: sha1:438034fa7b5caf6f0b6e5094c5546fe4bc6be66e
+    pristine_git_object: 4a456116c5e775c5aca091eecc9bffefc0991992
+  src/models/chapterdetail.ts:
+    id: f2e47ed5b597
+    last_write_checksum: sha1:de259c70f33d4c5ec4fe3a54ba575fbcad7f8af2
+    pristine_git_object: 781387f3a8c2de202e04714773f01161326b087c
+  src/models/committee.ts:
+    id: 4f9efbce48b3
+    last_write_checksum: sha1:c475a469f22f6310384cecda1744ef0ad1a712a8
+    pristine_git_object: c01f401a11eae6eda18640bfb9387561a513a267
+  src/models/committeedetail.ts:
+    id: cad340f3f150
+    last_write_checksum: sha1:bbf3e495a7a4583c28c75c33fb4d1658f435d23b
+    pristine_git_object: e2eca2a352a00260589cd573299f53ba0755b4ff
+  src/models/errors/chaptererror.ts:
+    id: faa78d5c1eac
+    last_write_checksum: sha1:ee3a917edc93aeddf31524623165dfe98654101d
+    pristine_git_object: cc1dda00ca69d08d93478ec5b5baf18f498a7740
+  src/models/errors/committeeerror.ts:
+    id: c066bf518c06
+    last_write_checksum: sha1:9ffe2e1a1839f5093e9c53b2e4e8bce9eb931c37
+    pristine_git_object: bc63843391e146df67ae266966cda32c23854da2
+  src/models/errors/eventerror.ts:
+    id: 4020274b33b9
+    last_write_checksum: sha1:0df037b6b14b19680c933782287a958bcb78b3d5
+    pristine_git_object: 65ba9102df7fe43e0d46a3e26766f90fc115b858
+  src/models/errors/httpclienterrors.ts:
+    id: 6948de76af99
+    last_write_checksum: sha1:994ced121c54fecd0af038ccfb7855fbfd3868ec
+    pristine_git_object: b34f612124c797c2a1106b9735708f679a90b74f
+  src/models/errors/index.ts:
+    id: c4e22507cb83
+    last_write_checksum: sha1:38b479b6cf7fb2204e15061eccc7b96dbcf92a62
+    pristine_git_object: 3dd6cb48fa69324cfa346c97e9ea5b51b138afe3
+  src/models/errors/issueerror.ts:
+    id: ccfded5072f5
+    last_write_checksum: sha1:8755d62468439a1a446cbc35db8ed4c08d310b3f
+    pristine_git_object: 6816b2842699ed466e2edcc4796bf8ebf65da52e
+  src/models/errors/membererror.ts:
+    id: 37d90aee7584
+    last_write_checksum: sha1:e5c0b51e17b93c0a10a4738cce7faf9b1f589f7f
+    pristine_git_object: e612221003093714dc71c9271d95cdf549773a3c
+  src/models/errors/milestoneerror.ts:
+    id: 02c6d1da092c
+    last_write_checksum: sha1:4cb209d4d83b7e4dae3ebb62cbd0469e4a8842d0
+    pristine_git_object: 7fc66bcb62166b1c5f872d4c6e9ea3b727161dec
+  src/models/errors/nestapierror.ts:
+    id: 8be54429d3c0
+    last_write_checksum: sha1:376383bdfc7c7af54754f1853989f0bb83c688d8
+    pristine_git_object: 4b5b575a62231a608360ce38e6077028788d5898
+  src/models/errors/nesterror.ts:
+    id: 94776ca97393
+    last_write_checksum: sha1:e91982cfa0c9c4911f64161648372888df2f903c
+    pristine_git_object: 51472ce6e930792f974ca1caab5b497c920033d2
+  src/models/errors/organizationerror.ts:
+    id: cf552b9d9fcd
+    last_write_checksum: sha1:135618fb6ec2bcf88c34681a33da316b1438dc33
+    pristine_git_object: 2d4a271aa57463ff07a2d640ba20119e408cc4a6
+  src/models/errors/projecterror.ts:
+    id: 0ebb418ba851
+    last_write_checksum: sha1:24e351405a4ccad721ddb7189d1d61854bbc7bc9
+    pristine_git_object: 8afb85c1c60d83713f3126d411edec4fa7169ce5
+  src/models/errors/releaseerror.ts:
+    id: f71495d2357c
+    last_write_checksum: sha1:c9a4b7bb720225a0f1e74a3b41d6e4a21d380a50
+    pristine_git_object: 957ce8986f24dc037d8a2c8e5592e8eedadba503
+  src/models/errors/repositoryerror.ts:
+    id: e64ac149aa3f
+    last_write_checksum: sha1:f0e2cf44356061c8c45b68ce7a8fa79a0ccae04a
+    pristine_git_object: dfbd6bc5455ef1dd12b1e7a93da33026934dad18
+  src/models/errors/responsevalidationerror.ts:
+    id: 88ff98a41be9
+    last_write_checksum: sha1:518b43fd9e05379aa54191bd7c82901fba35a226
+    pristine_git_object: eaa8f758ea6583eeaa286a8479f465f03c8a639b
+  src/models/errors/sdkvalidationerror.ts:
+    id: fb6b2b49c445
+    last_write_checksum: sha1:a69da17627bcc32b820544608f3400423ea53f26
+    pristine_git_object: 6826e1208a5d7b7d310535d18909646522bf0fbd
+  src/models/errors/snapshoterror.ts:
+    id: 429aa5ef7100
+    last_write_checksum: sha1:8c375e46b7d1cc0eba21f0f93c3c8e816ab3e773
+    pristine_git_object: 8888c302215a4f09a388a1f19cae1d8d9e06b9ce
+  src/models/errors/sponsorerror.ts:
+    id: 94711d3b2353
+    last_write_checksum: sha1:c9dff0eaedcea5b83c173f549dd66be1295dcb69
+    pristine_git_object: d2f6b7dc2e9cd68540b4f98aab0696181cf1db6e
+  src/models/event.ts:
+    id: 7d1800694a8b
+    last_write_checksum: sha1:a486daca1d742f4a5b8ac1f17c0a23018691312b
+    pristine_git_object: 1837ee852d116f770880a530f01ca8fb00a8d9ff
+  src/models/eventdetail.ts:
+    id: 26f5f1d8cdc2
+    last_write_checksum: sha1:45b30bb59a0b752be2178d171e4b76a264a329de
+    pristine_git_object: 1b3f77ced9654a14b5f6280ec14b54311c6e1d80
+  src/models/index.ts:
+    id: f93644b0f37e
+    last_write_checksum: sha1:5094e429aa5089c65b0a84345465ea4d3de6c25a
+    pristine_git_object: 6936a1d658da98dde1d20ca4a06720082afae0f7
+  src/models/issue.ts:
+    id: 139e40403150
+    last_write_checksum: sha1:1c5fdfa69a446b151361f7929ece8ced6d5ffb81
+    pristine_git_object: fd8637be6b713dbb0d6f185685fbd789f161870e
+  src/models/issuedetail.ts:
+    id: 7c900e909503
+    last_write_checksum: sha1:2086e3cdaeeb64f1787a9714b6db92e730121f66
+    pristine_git_object: bd13d39ef8aa4464fae2ae36decb37f41cfb0e64
+  src/models/member.ts:
+    id: 2fdad7aaa39a
+    last_write_checksum: sha1:47c7492693491ec2a75a5d53e5f9653f91fe53dc
+    pristine_git_object: cbf6904e3aef7f18bc38fb47038ffc5d02cef8b2
+  src/models/memberdetail.ts:
+    id: 7a989abc0cf5
+    last_write_checksum: sha1:2847be104a5a745935e74b2a66aa3e5d2df34ed6
+    pristine_git_object: 82156b125402c1ea6fa2c9378aa291744720e8c7
+  src/models/membertype.ts:
+    id: 0cd5f5d73a45
+    last_write_checksum: sha1:3f9cd16434549fe81e86dc314f6d324d9550634c
+    pristine_git_object: 91eae8e3c12633498a190f330b1b5752148c3442
+  src/models/milestone.ts:
+    id: 48244a05930e
+    last_write_checksum: sha1:aafbbf6c462dc2cdb7a2c2a556deb926107ecedb
+    pristine_git_object: 09dbae3d78bca933531a534664fc8c05f2a64af9
+  src/models/milestonedetail.ts:
+    id: 2871c228d926
+    last_write_checksum: sha1:f842ac01afa944e8e18498bc15bfab7da4c7784c
+    pristine_git_object: 435212f912df3b8f23d6f79ec1c356ccc3795460
+  src/models/operations/getchapter.ts:
+    id: 5a6eb7685eea
+    last_write_checksum: sha1:b5ed647c5eb7c80f049ea16aec43f8eaed31b9c7
+    pristine_git_object: 7ca8b92d88de6bac1ef5283cbd1ebf77017c181c
+  src/models/operations/getcommittee.ts:
+    id: b601b4ae1e01
+    last_write_checksum: sha1:2fdaf0d94d0b1b595caa9bbb12e3a1857f0a8700
+    pristine_git_object: 03e17c7f9e8403221579164ffe34f47355d6eda0
+  src/models/operations/getevent.ts:
+    id: ff5a53e430c2
+    last_write_checksum: sha1:81a9cfc5e492bee47896b9704b1047f4e152be23
+    pristine_git_object: 073b14823f91e6a87d775d2832a509b9b6de7a59
+  src/models/operations/getissue.ts:
+    id: 742ce9f5a795
+    last_write_checksum: sha1:1e64e7bbf2a659eefa50fd9139e3c5859adfc017
+    pristine_git_object: a26cecbdac79300bee4a915cb3f3c5e5b9a550d4
+  src/models/operations/getmember.ts:
+    id: e6ca792eec42
+    last_write_checksum: sha1:a5fd47ebb1f712c29caa44ed2b37f695942d2927
+    pristine_git_object: 410daac1cfd327c99d700e07eb5a99c12e105368
+  src/models/operations/getmilestone.ts:
+    id: 878ab355c108
+    last_write_checksum: sha1:63958622a656808946eae39cb88aacc5d3de70c4
+    pristine_git_object: bcc7172e79acb20b03bd8b8ec73a52cec77624ef
+  src/models/operations/getorganization.ts:
+    id: 69c6388d89bb
+    last_write_checksum: sha1:884666d37edcca2bb5b9ff3c0e6b5905282323f7
+    pristine_git_object: 2ecefa241aa7e17a22743b8293269ddf920e77fd
+  src/models/operations/getproject.ts:
+    id: 2ca3be8b6a9a
+    last_write_checksum: sha1:fdae87f06ec34f5ccf6455062520c09053f32142
+    pristine_git_object: aa6c87e7c42579af56c2956e3e4e1dc05a8b6785
+  src/models/operations/getrelease.ts:
+    id: 14cdd32ee38f
+    last_write_checksum: sha1:2abc50f170a181da65a8ac60c239518fc93351b3
+    pristine_git_object: 45b558677148b65e7efb93f921f35cb2e7a0139c
+  src/models/operations/getrepository.ts:
+    id: af621259f13e
+    last_write_checksum: sha1:fba910417ea7c54cb9fa330c4de0afbc763b7667
+    pristine_git_object: 051933d54d87aeb792f02f20cdfa0c11ee10965f
+  src/models/operations/getsnapshot.ts:
+    id: 804f2c91fb59
+    last_write_checksum: sha1:9f9cd763914bcbfca4fb75808867290c69e6b29d
+    pristine_git_object: 4a95be735b89967d661ed7b07a81a4441ee55596
+  src/models/operations/getsponsor.ts:
+    id: b31e41ed43ac
+    last_write_checksum: sha1:590ec80fc3af0f67ae8d7078b88ac9d06b4a5cd5
+    pristine_git_object: d769f512bf3276429965ec4dfb54ad672d476bf1
+  src/models/operations/index.ts:
+    id: 0d9ffaf774d2
+    last_write_checksum: sha1:6e455efe4280c337c88b81cf9197998fffa40c31
+    pristine_git_object: eeb95fd12d4d859110f5072948a37edb784d0115
+  src/models/operations/listchapters.ts:
+    id: bf62c97fdefa
+    last_write_checksum: sha1:b031b870b59728a08d832d449a46a2997a8b2705
+    pristine_git_object: bd75f831da5f52b238c292b4dd373aa5de75eede
+  src/models/operations/listcommittees.ts:
+    id: 899e4fff7e08
+    last_write_checksum: sha1:7a340aef99877d7b3ef0e19a68d7ccfe88ba528c
+    pristine_git_object: e6d2bccca6ab205b421bd82180624155ad571319
+  src/models/operations/listevents.ts:
+    id: 4324ebbf246a
+    last_write_checksum: sha1:0061f832516a657ec2ace9d9bac41202ce2db9eb
+    pristine_git_object: ecf6fc964d0cad49a91afde2c7caa824298c251d
+  src/models/operations/listissues.ts:
+    id: 470a6e590ed8
+    last_write_checksum: sha1:c2f94eaa416208f7c58ffcc078616effdb820a26
+    pristine_git_object: 9de6bccc4c9a2832fffa4de62d77609cbe994a4c
+  src/models/operations/listmembers.ts:
+    id: b46a5c60a45d
+    last_write_checksum: sha1:8a48d7947d4d0fde95e11a0846afc9eea00e1a63
+    pristine_git_object: 08e629fa8581fe331e8be0f729d46a0fae79bd4c
+  src/models/operations/listmilestones.ts:
+    id: 9cc6738682ae
+    last_write_checksum: sha1:7a1115eefd5e393829cb2e2136f29e9e38215aab
+    pristine_git_object: bbf598caf8abf394fe6748451f2d1a8102563c36
+  src/models/operations/listorganizations.ts:
+    id: 2bdfb282944e
+    last_write_checksum: sha1:9a184c94e76fc3448368881ee4a0747d4f6efa9d
+    pristine_git_object: b326fd69b05773e5313b4d260f1bfb135aed3c5a
+  src/models/operations/listprojects.ts:
+    id: c12ff1307576
+    last_write_checksum: sha1:eff7a91ef697eabb1d6b7430df698bc24e840f07
+    pristine_git_object: 389c24fd04efe48f96f070b8031744bb565d52aa
+  src/models/operations/listreleases.ts:
+    id: 4e7f3343a0fd
+    last_write_checksum: sha1:5093525888f7cbe09794cf5acd49eec5fcb37bf3
+    pristine_git_object: dbb7b271231b5387df0edb02142e92cb338bfe3c
+  src/models/operations/listrepositories.ts:
+    id: 27991da4fbe2
+    last_write_checksum: sha1:b5e4f8f53f556eeab5f3b9ccff8e611327320273
+    pristine_git_object: 057fd98b1feb39d2e1d165be24e1930a62211cc6
+  src/models/operations/listsnapshotchapters.ts:
+    id: 991073879aee
+    last_write_checksum: sha1:2628475af719ace5ef8d49bf91917266bf985dfa
+    pristine_git_object: 264b0e52bf70dc9695125223b2a20ed8dd702f69
+  src/models/operations/listsnapshotissues.ts:
+    id: 74583852191a
+    last_write_checksum: sha1:5d23e7e9a599b3848040db778737ccd17d38ff41
+    pristine_git_object: 0de062e90a4e8dea7fab5eb1f49534363a400643
+  src/models/operations/listsnapshotmembers.ts:
+    id: be92e5e99dfc
+    last_write_checksum: sha1:e28938cef6df782879d0907d416abc491d6a1864
+    pristine_git_object: 1ac69a89877acd40829303b061694f4a60ca1543
+  src/models/operations/listsnapshotprojects.ts:
+    id: af545ed4e6e5
+    last_write_checksum: sha1:7a93d599647259bc10083fabea7884583876be1a
+    pristine_git_object: 5816b35b5e32e35292f785648646074034dd69f4
+  src/models/operations/listsnapshotreleases.ts:
+    id: 5c7bcc9f41dd
+    last_write_checksum: sha1:59d12ffd648cc6a92079f8679c424484ddb130f7
+    pristine_git_object: 565e19385acce60187c5254d6d5b9ec725ad7f14
+  src/models/operations/listsnapshots.ts:
+    id: f3c4db3c27d0
+    last_write_checksum: sha1:a0321f5a772ec83f021481869ab4f4feede36aea
+    pristine_git_object: c6e074531c9c732690e4048df47062d6e00aaed7
+  src/models/operations/listsponsors.ts:
+    id: 8ed214dc4037
+    last_write_checksum: sha1:00625c7d104161d5dc2cc76c1570d5766073a4de
+    pristine_git_object: 168492193bd96008d1bc656d50db0115c76d7025
+  src/models/organization.ts:
+    id: 78b4c179a167
+    last_write_checksum: sha1:82f3308cbc2f5d1a538b2fa704a3729861030dfe
+    pristine_git_object: a3d03b59ea7c612696e959054c4ada737a659d31
+  src/models/organizationdetail.ts:
+    id: 3854f67c8101
+    last_write_checksum: sha1:ba3aa45c81a56dc51c61b9d96aee622d8c2a2f53
+    pristine_git_object: 0d2dbd3f4294103138ad964af4ffed61ddf4b92b
+  src/models/pagedchapter.ts:
+    id: 903af1a0217b
+    last_write_checksum: sha1:9dc8617e25a0a62c857becd998749336fb1292d0
+    pristine_git_object: f0d6b097260868505256ad1ac61257bf13dfcbba
+  src/models/pagedcommittee.ts:
+    id: a4d699cd2b7f
+    last_write_checksum: sha1:fa10af99805edd7741388223300f4badeb93a604
+    pristine_git_object: 211f634bd80fded3f81a9d04715ecd930c1997f6
+  src/models/pagedevent.ts:
+    id: 83be5f7e9e2d
+    last_write_checksum: sha1:afaf4523da2a0e32d642f4eff6e10bcbd68e7b74
+    pristine_git_object: dde619d1e805d6c9aa9a87d2f007c26de142eac4
+  src/models/pagedissue.ts:
+    id: c8ec0bb0d864
+    last_write_checksum: sha1:d39eeb0bc2d95dd8f4b731187632993aab9ab2b9
+    pristine_git_object: 1ebc274fd7f60e74ab0cc89c08398f880d119682
+  src/models/pagedmember.ts:
+    id: 8c6226d42cba
+    last_write_checksum: sha1:ee4461ac5da134a4eaa2d6bab8cb47f9d07b43dd
+    pristine_git_object: f7f3d96659633719bf51e0e7c936cf1a0590a364
+  src/models/pagedmilestone.ts:
+    id: a0c1af785fee
+    last_write_checksum: sha1:dd9794a52aa5e580005b5e963273605fe8eab724
+    pristine_git_object: b06c1817c64326fa77f6981c85c8d8e4ee952436
+  src/models/pagedorganization.ts:
+    id: b28ca9af87d8
+    last_write_checksum: sha1:c16bbd7cc7cf77a7316de9ea8ede33f39930e92d
+    pristine_git_object: f5ad9cadd35ff11d1b46fdf07ebeb06fc8a9c754
+  src/models/pagedproject.ts:
+    id: 93d019160040
+    last_write_checksum: sha1:b59d59c6ab0d4cfb62910cf7e53f2bb4a704b237
+    pristine_git_object: d7ca2dcdeb6dc635c7ef9d8e3deefbe5d98e5c5d
+  src/models/pagedrelease.ts:
+    id: 85cf95fe5991
+    last_write_checksum: sha1:98e6f8f5b417593f361ee96aaa728fa8d9f3b664
+    pristine_git_object: 7670751c3ec142edd5af3b83b7a2f7d2f86ec3fb
+  src/models/pagedrepository.ts:
+    id: a9a78d41c5b3
+    last_write_checksum: sha1:5a696fdf4d5ec6f4fbf0d5ba8021a4d5358e8bb8
+    pristine_git_object: ce660d7a8363394186620ea093dcb189c62ef19f
+  src/models/pagedsnapshot.ts:
+    id: 3b63353e333a
+    last_write_checksum: sha1:be700bc16b467f33bb75d82e774fc6c87b4102bd
+    pristine_git_object: e80436c6e2e08728a654a5c166a91a615da09494
+  src/models/pagedsnapshotissue.ts:
+    id: d0dcc3c3598f
+    last_write_checksum: sha1:9bffa84f7a0470ea5c2ae7a7c16f1374e11d6dde
+    pristine_git_object: 260298b83bc72df6e83f7d0b12a253294b5074e3
+  src/models/pagedsnapshotrelease.ts:
+    id: 8d0813c8cc23
+    last_write_checksum: sha1:d2b2bd083352cfc37de007e00b4d62c4e681444d
+    pristine_git_object: e910d832ce5a511a38f062b033e3d6d86abacd25
+  src/models/pagedsponsor.ts:
+    id: 3b2d8a36e159
+    last_write_checksum: sha1:16aab7ea33f4636033b97c71089d63e68ef0ceec
+    pristine_git_object: 7f789c0cc0ae504f4498ef72e0dbb4beb983e589
+  src/models/project.ts:
+    id: 6d341934d773
+    last_write_checksum: sha1:4b87e6a49633df43e28ddde032440df1ede8e5d7
+    pristine_git_object: 77a1d505163c12d6720452362e7fcf2d6c256780
+  src/models/projectdetail.ts:
+    id: 6a30f6c25872
+    last_write_checksum: sha1:4e28dc1a20d7bec0ecaefab13e3c382ddcabb2be
+    pristine_git_object: 29fef844a5840e8fc388ac6c72541edd500f202d
+  src/models/projectlevel.ts:
+    id: 67a389a30db5
+    last_write_checksum: sha1:418a4a66ad8c79351eb2027da49aa9170b961268
+    pristine_git_object: f13505e7be7fa1e18afcc35dfdcfe695139c69b0
+  src/models/release.ts:
+    id: 4cd61360fa2e
+    last_write_checksum: sha1:becc94571c615e6465c08a78283be1b9fa83cbf9
+    pristine_git_object: 9db7808fe97188a79238215db6401b005afc1c3d
+  src/models/releasedetail.ts:
+    id: 8f3fc1b0b070
+    last_write_checksum: sha1:650ea35dd9ebcb5588ee4fc15758403267a4589a
+    pristine_git_object: 30bbe9847c269a031fb0a2133f9f769efb512c0b
+  src/models/repository.ts:
+    id: 9c1824dee739
+    last_write_checksum: sha1:8b197344632c0f927203f4b26ccb46cad6c6462d
+    pristine_git_object: 15c4a265c00c7677cdac90f0b0bd4e9921967d54
+  src/models/repositorydetail.ts:
+    id: 3d318e44d5f8
+    last_write_checksum: sha1:cb133faf8233c8cb9e296a0f0c6247f6c5d32826
+    pristine_git_object: fab333055348387469daa8c691378644088f0d10
+  src/models/security.ts:
+    id: d90c6c784ca5
+    last_write_checksum: sha1:8fd37451b04c4c0f2e92571c38f6718ce3d67e46
+    pristine_git_object: 67fe5b1be97503984d251628f9d84a50484f56eb
+  src/models/snapshot.ts:
+    id: 9966645e7586
+    last_write_checksum: sha1:d745e701f2d1948198a698e995ff0030bd58ac60
+    pristine_git_object: 6eb053b620e1ea9e60c09284de47616899976ae9
+  src/models/snapshotdetail.ts:
+    id: 073cdfefe264
+    last_write_checksum: sha1:ecb89c0915389d165a1979ca64ca087ac88d40f7
+    pristine_git_object: 6c7305a26024dd820cfd3eb948cfbd5021ebf6e8
+  src/models/snapshotissue.ts:
+    id: 4384fdc4875b
+    last_write_checksum: sha1:93425fd7433409661c0524e2ca7ef97228b10703
+    pristine_git_object: 2cf299277ef4b28a7fc160a6ad5076c1258e684d
+  src/models/snapshotrelease.ts:
+    id: 06a55ed3d7e5
+    last_write_checksum: sha1:2c91e6f049381c6f996512a084596810d9f1c59e
+    pristine_git_object: a594839ac5f4cb6bae757c153bc0f5c4c6337c2e
+  src/models/sponsor.ts:
+    id: 46fe57f00825
+    last_write_checksum: sha1:57789953a5b3ff288bb2b84b93290f62664384b7
+    pristine_git_object: 6534f2234b3a8afd1157b507325d8b9ebddc99b3
+  src/models/sponsordetail.ts:
+    id: e7b3cb167ae2
+    last_write_checksum: sha1:17d961b608bf5301c368ca94f6e69872708351c5
+    pristine_git_object: 5a46eb83922f05b280ec5e8518e0e38dd85893bf
+  src/models/state.ts:
+    id: 5bb376a69643
+    last_write_checksum: sha1:a47ae07b6fb98ab599a848c19e6ae8f013b1519e
+    pristine_git_object: e0e6617be8629cda2896c9c0da247619b01d7a85
+  src/sdk/chapters.ts:
+    id: 604335b1db78
+    last_write_checksum: sha1:f709206d50c72f2dfd3dae81b70ad7142edc1020
+    pristine_git_object: 46be95c7fdc52b55e4c4294a76794640fda635f3
+  src/sdk/committees.ts:
+    id: 7d9df0505713
+    last_write_checksum: sha1:d480e65a798b9d60335d5b2d2bc0e96585c319f9
+    pristine_git_object: 55263385e98e9508f696cede68e246de5f06131e
+  src/sdk/community.ts:
+    id: e1c8e4634943
+    last_write_checksum: sha1:e7e58550e8f61e0e8408853d8b1625a279913b34
+    pristine_git_object: 6fcba2982577c27572361200a7987ae04f8d7f42
+  src/sdk/events.ts:
+    id: c7d130088b17
+    last_write_checksum: sha1:570f7bbfcf13df670bbae89e955eb53baa554ee6
+    pristine_git_object: 4f317a0bed094668f75bf248b52582217c346922
+  src/sdk/index.ts:
+    id: a857902a703f
+    last_write_checksum: sha1:ed6d64f2a6135349aa8498b8d8cff9ba85c7fb8f
+    pristine_git_object: ecac2264817bb369ff2dbf0f0e9029807e67ff77
+  src/sdk/issues.ts:
+    id: 3dfa5695cc97
+    last_write_checksum: sha1:adfd6a0a4006db1ba44338b2a5c194484e2068bb
+    pristine_git_object: b2e6535bb78121c938ed6cd714b487086f03d6a6
+  src/sdk/milestones.ts:
+    id: bca3de2e0fe9
+    last_write_checksum: sha1:0215d3bcf24a332ec153a603ef5009f71d4c100b
+    pristine_git_object: 3536724485af203bc0e5ad48c126ccfb2d2e9392
+  src/sdk/projects.ts:
+    id: 28088373a118
+    last_write_checksum: sha1:425363564997d2a51f3bcb2b7953fa88ec36cc47
+    pristine_git_object: c5ca39cc693eb4bb7b573a385b98f95640596ad9
+  src/sdk/releases.ts:
+    id: 1edfaa181e13
+    last_write_checksum: sha1:ef3449cb94b2036f8aec94f82ceebaf2c6e0aeef
+    pristine_git_object: 57a2816f53b8b4302949f3af6010dc2d13ad0a2b
+  src/sdk/repositories.ts:
+    id: 9fc4b171026a
+    last_write_checksum: sha1:e4e3746d6c9bc640876eb072ab75e27a84ccab04
+    pristine_git_object: 325c8b0bcd32a337ad0392e20f3fe498ab51838b
+  src/sdk/sdk.ts:
+    id: 784571af2f69
+    last_write_checksum: sha1:7a932b70ec61765943afd796f50613c6154faef0
+    pristine_git_object: b4fbaf85c395a1301bd46c7d2f1ec5b554cb28f5
+  src/sdk/sponsors.ts:
+    id: 136debc38b1a
+    last_write_checksum: sha1:8f8bdd0d462fe67b2bb1b09f6e63d0fbdab7d293
+    pristine_git_object: 4d96aefa819272733d3c6c307b6d7d74433c8d94
+  src/types/async.ts:
+    id: fac8da972f86
+    last_write_checksum: sha1:3ff07b3feaf390ec1aeb18ff938e139c6c4a9585
+    pristine_git_object: 689dba5de50e8769e5f3bb913e3f42a146d15bc1
+  src/types/blobs.ts:
+    id: f8ab9b326c86
+    last_write_checksum: sha1:cf45d78916671cb6345a11c97c633c64402bc27c
+    pristine_git_object: cce2892d4f573a120ef3907db90ab15f5979cfda
+  src/types/constdatetime.ts:
+    id: 0f7b6f513917
+    last_write_checksum: sha1:dfaaf9adfaf49808bd4c9dea0039f21b7088d9c0
+    pristine_git_object: fe62144eaf6a2054fc8ca9a98466e70f41b5434d
+  src/types/enums.ts:
+    id: 4d03ddfe5100
+    last_write_checksum: sha1:ee590453d2c87e33e89c633d37ee46907eca0e58
+    pristine_git_object: aba0ffd2a3308a31e516d83b52823d80aa65a8f9
+  src/types/fp.ts:
+    id: ae9f0fb8aab6
+    last_write_checksum: sha1:d24994d58f37a1ca106847fcc6d2e976c6f1c093
+    pristine_git_object: ccbe51eac69dfb0da5131f14fd753c4b47c1d527
+  src/types/index.ts:
+    id: cd7a0a5ed005
+    last_write_checksum: sha1:bf43b3dccb960ca9ae9c5ab940da4786255881cd
+    pristine_git_object: abf0b7ab8f196829df8946da40d627a46da68e3c
+  src/types/operations.ts:
+    id: 314da01dca47
+    last_write_checksum: sha1:c49e724cfb1259296381cb57bc0fcdd2eae45865
+    pristine_git_object: beb81e10f0b9eee2ed398a853fe6f737b743f818
+  src/types/rfcdate.ts:
+    id: 9eb64906dcd6
+    last_write_checksum: sha1:8e5f382e02fe21c2f2e24deb1b7bbf8cddd3dd16
+    pristine_git_object: c79b3f53a3dd922aa2ace5a4191c8652cf9a8e89
+  src/types/streams.ts:
+    id: f99be9c4bf14
+    last_write_checksum: sha1:cc9ced2dd34a76c3a1bd7784ccda1cc3b37ab9a9
+    pristine_git_object: a0163e7a99cea88f21d0ad4ce3af1c720180ee20
+  src/types/unrecognized.ts:
+    id: 476605c40716
+    last_write_checksum: sha1:d33ac686528492f4cdc0dbf81ed343b4afe020fe
+    pristine_git_object: b7a2a13f3dff50663429df24ae2f55b647ff1084
+  tsconfig.json:
+    id: 61ebb9fd6e8c
+    last_write_checksum: sha1:c3ec7996536cdb9a54319e7d1eb3b199b733d34c
+    pristine_git_object: 0ccdbe286a8780e06a469a9eb7e2fb95322fd507
 examples:
   list_chapters:
     speakeasy-default-list-chapters:
@@ -711,4 +1589,294 @@ examples:
         "200":
           application/json: {"current_page": 719171, "has_next": true, "has_previous": false, "items": [], "total_count": 715591, "total_pages": 776129}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes Detected:\n* `nest.community.listSnapshots()`: **Added**\n* `nest.community.getSnapshot()`: **Added**\n* `nest.community.listSnapshotChapters()`: **Added**\n* `nest.community.listSnapshotIssues()`: **Added**\n* `nest.community.listSnapshotMembers()`: **Added**\n* `nest.community.listSnapshotProjects()`: **Added**\n* `nest.community.listSnapshotReleases()`: **Added**\n* `nest.chapters.listChapters()`: \n  *  `request` **Changed**\n  *  `response.items.[]` **Changed**\n* `nest.chapters.getChapter()`:  `response` **Changed**\n* `nest.events.listEvents()`: \n  *  `request` **Changed**\n  *  `response.items.[]` **Changed**\n* `nest.events.getEvent()`:  `response` **Changed**\n* `nest.repositories.getRepository()`:  `response` **Changed**\n"
+generatedFiles:
+  - .gitattributes
+  - .npmignore
+  - FUNCTIONS.md
+  - RUNTIMES.md
+  - USAGE.md
+  - docs/lib/utils/retryconfig.md
+  - docs/models/chapter.md
+  - docs/models/chapterdetail.md
+  - docs/models/committee.md
+  - docs/models/committeedetail.md
+  - docs/models/errors/chaptererror.md
+  - docs/models/errors/committeeerror.md
+  - docs/models/errors/eventerror.md
+  - docs/models/errors/issueerror.md
+  - docs/models/errors/membererror.md
+  - docs/models/errors/milestoneerror.md
+  - docs/models/errors/organizationerror.md
+  - docs/models/errors/projecterror.md
+  - docs/models/errors/releaseerror.md
+  - docs/models/errors/repositoryerror.md
+  - docs/models/errors/snapshoterror.md
+  - docs/models/errors/sponsorerror.md
+  - docs/models/event.md
+  - docs/models/eventdetail.md
+  - docs/models/issue.md
+  - docs/models/issuedetail.md
+  - docs/models/member.md
+  - docs/models/memberdetail.md
+  - docs/models/membertype.md
+  - docs/models/milestone.md
+  - docs/models/milestonedetail.md
+  - docs/models/operations/getchapterrequest.md
+  - docs/models/operations/getcommitteerequest.md
+  - docs/models/operations/geteventrequest.md
+  - docs/models/operations/getissuerequest.md
+  - docs/models/operations/getmemberrequest.md
+  - docs/models/operations/getmilestonerequest.md
+  - docs/models/operations/getorganizationrequest.md
+  - docs/models/operations/getprojectrequest.md
+  - docs/models/operations/getreleaserequest.md
+  - docs/models/operations/getrepositoryrequest.md
+  - docs/models/operations/getsnapshotrequest.md
+  - docs/models/operations/getsponsorrequest.md
+  - docs/models/operations/listchaptersordering.md
+  - docs/models/operations/listchaptersrequest.md
+  - docs/models/operations/listcommitteesordering.md
+  - docs/models/operations/listcommitteesrequest.md
+  - docs/models/operations/listeventsordering.md
+  - docs/models/operations/listeventsrequest.md
+  - docs/models/operations/listissuesordering.md
+  - docs/models/operations/listissuesrequest.md
+  - docs/models/operations/listmembersordering.md
+  - docs/models/operations/listmembersrequest.md
+  - docs/models/operations/listmilestonesordering.md
+  - docs/models/operations/listmilestonesrequest.md
+  - docs/models/operations/listorganizationsordering.md
+  - docs/models/operations/listorganizationsrequest.md
+  - docs/models/operations/listprojectsordering.md
+  - docs/models/operations/listprojectsrequest.md
+  - docs/models/operations/listreleasesordering.md
+  - docs/models/operations/listreleasesrequest.md
+  - docs/models/operations/listrepositoriesordering.md
+  - docs/models/operations/listrepositoriesrequest.md
+  - docs/models/operations/listsnapshotchaptersordering.md
+  - docs/models/operations/listsnapshotchaptersrequest.md
+  - docs/models/operations/listsnapshotissuesordering.md
+  - docs/models/operations/listsnapshotissuesrequest.md
+  - docs/models/operations/listsnapshotmembersordering.md
+  - docs/models/operations/listsnapshotmembersrequest.md
+  - docs/models/operations/listsnapshotprojectsordering.md
+  - docs/models/operations/listsnapshotprojectsrequest.md
+  - docs/models/operations/listsnapshotreleasesordering.md
+  - docs/models/operations/listsnapshotreleasesrequest.md
+  - docs/models/operations/listsnapshotsordering.md
+  - docs/models/operations/listsnapshotsrequest.md
+  - docs/models/operations/listsponsorsordering.md
+  - docs/models/operations/listsponsorsrequest.md
+  - docs/models/organization.md
+  - docs/models/organizationdetail.md
+  - docs/models/pagedchapter.md
+  - docs/models/pagedcommittee.md
+  - docs/models/pagedevent.md
+  - docs/models/pagedissue.md
+  - docs/models/pagedmember.md
+  - docs/models/pagedmilestone.md
+  - docs/models/pagedorganization.md
+  - docs/models/pagedproject.md
+  - docs/models/pagedrelease.md
+  - docs/models/pagedrepository.md
+  - docs/models/pagedsnapshot.md
+  - docs/models/pagedsnapshotissue.md
+  - docs/models/pagedsnapshotrelease.md
+  - docs/models/pagedsponsor.md
+  - docs/models/project.md
+  - docs/models/projectdetail.md
+  - docs/models/projectlevel.md
+  - docs/models/release.md
+  - docs/models/releasedetail.md
+  - docs/models/repository.md
+  - docs/models/repositorydetail.md
+  - docs/models/security.md
+  - docs/models/snapshot.md
+  - docs/models/snapshotdetail.md
+  - docs/models/snapshotissue.md
+  - docs/models/snapshotrelease.md
+  - docs/models/sponsor.md
+  - docs/models/sponsordetail.md
+  - docs/models/state.md
+  - docs/sdks/chapters/README.md
+  - docs/sdks/committees/README.md
+  - docs/sdks/community/README.md
+  - docs/sdks/events/README.md
+  - docs/sdks/issues/README.md
+  - docs/sdks/milestones/README.md
+  - docs/sdks/projects/README.md
+  - docs/sdks/releases/README.md
+  - docs/sdks/repositories/README.md
+  - docs/sdks/sponsors/README.md
+  - eslint.config.mjs
+  - examples/.env.template
+  - examples/README.md
+  - examples/chaptersListChapters.example.ts
+  - examples/package.json
+  - jsr.json
+  - package.json
+  - src/core.ts
+  - src/funcs/chaptersGetChapter.ts
+  - src/funcs/chaptersListChapters.ts
+  - src/funcs/committeesGetCommittee.ts
+  - src/funcs/committeesListCommittees.ts
+  - src/funcs/communityGetMember.ts
+  - src/funcs/communityGetOrganization.ts
+  - src/funcs/communityGetSnapshot.ts
+  - src/funcs/communityListMembers.ts
+  - src/funcs/communityListOrganizations.ts
+  - src/funcs/communityListSnapshotChapters.ts
+  - src/funcs/communityListSnapshotIssues.ts
+  - src/funcs/communityListSnapshotMembers.ts
+  - src/funcs/communityListSnapshotProjects.ts
+  - src/funcs/communityListSnapshotReleases.ts
+  - src/funcs/communityListSnapshots.ts
+  - src/funcs/eventsGetEvent.ts
+  - src/funcs/eventsListEvents.ts
+  - src/funcs/issuesGetIssue.ts
+  - src/funcs/issuesListIssues.ts
+  - src/funcs/milestonesGetMilestone.ts
+  - src/funcs/milestonesListMilestones.ts
+  - src/funcs/projectsGetProject.ts
+  - src/funcs/projectsListProjects.ts
+  - src/funcs/releasesGetRelease.ts
+  - src/funcs/releasesListReleases.ts
+  - src/funcs/repositoriesGetRepository.ts
+  - src/funcs/repositoriesListRepositories.ts
+  - src/funcs/sponsorsGetSponsor.ts
+  - src/funcs/sponsorsListSponsors.ts
+  - src/hooks/hooks.ts
+  - src/hooks/index.ts
+  - src/hooks/types.ts
+  - src/index.ts
+  - src/lib/base64.ts
+  - src/lib/config.ts
+  - src/lib/dlv.ts
+  - src/lib/encodings.ts
+  - src/lib/env.ts
+  - src/lib/files.ts
+  - src/lib/http.ts
+  - src/lib/is-plain-object.ts
+  - src/lib/logger.ts
+  - src/lib/matchers.ts
+  - src/lib/primitives.ts
+  - src/lib/retries.ts
+  - src/lib/schemas.ts
+  - src/lib/sdks.ts
+  - src/lib/security.ts
+  - src/lib/url.ts
+  - src/models/chapter.ts
+  - src/models/chapterdetail.ts
+  - src/models/committee.ts
+  - src/models/committeedetail.ts
+  - src/models/errors/chaptererror.ts
+  - src/models/errors/committeeerror.ts
+  - src/models/errors/eventerror.ts
+  - src/models/errors/httpclienterrors.ts
+  - src/models/errors/index.ts
+  - src/models/errors/issueerror.ts
+  - src/models/errors/membererror.ts
+  - src/models/errors/milestoneerror.ts
+  - src/models/errors/nestapierror.ts
+  - src/models/errors/nesterror.ts
+  - src/models/errors/organizationerror.ts
+  - src/models/errors/projecterror.ts
+  - src/models/errors/releaseerror.ts
+  - src/models/errors/repositoryerror.ts
+  - src/models/errors/responsevalidationerror.ts
+  - src/models/errors/sdkvalidationerror.ts
+  - src/models/errors/snapshoterror.ts
+  - src/models/errors/sponsorerror.ts
+  - src/models/event.ts
+  - src/models/eventdetail.ts
+  - src/models/index.ts
+  - src/models/issue.ts
+  - src/models/issuedetail.ts
+  - src/models/member.ts
+  - src/models/memberdetail.ts
+  - src/models/membertype.ts
+  - src/models/milestone.ts
+  - src/models/milestonedetail.ts
+  - src/models/operations/getchapter.ts
+  - src/models/operations/getcommittee.ts
+  - src/models/operations/getevent.ts
+  - src/models/operations/getissue.ts
+  - src/models/operations/getmember.ts
+  - src/models/operations/getmilestone.ts
+  - src/models/operations/getorganization.ts
+  - src/models/operations/getproject.ts
+  - src/models/operations/getrelease.ts
+  - src/models/operations/getrepository.ts
+  - src/models/operations/getsnapshot.ts
+  - src/models/operations/getsponsor.ts
+  - src/models/operations/index.ts
+  - src/models/operations/listchapters.ts
+  - src/models/operations/listcommittees.ts
+  - src/models/operations/listevents.ts
+  - src/models/operations/listissues.ts
+  - src/models/operations/listmembers.ts
+  - src/models/operations/listmilestones.ts
+  - src/models/operations/listorganizations.ts
+  - src/models/operations/listprojects.ts
+  - src/models/operations/listreleases.ts
+  - src/models/operations/listrepositories.ts
+  - src/models/operations/listsnapshotchapters.ts
+  - src/models/operations/listsnapshotissues.ts
+  - src/models/operations/listsnapshotmembers.ts
+  - src/models/operations/listsnapshotprojects.ts
+  - src/models/operations/listsnapshotreleases.ts
+  - src/models/operations/listsnapshots.ts
+  - src/models/operations/listsponsors.ts
+  - src/models/organization.ts
+  - src/models/organizationdetail.ts
+  - src/models/pagedchapter.ts
+  - src/models/pagedcommittee.ts
+  - src/models/pagedevent.ts
+  - src/models/pagedissue.ts
+  - src/models/pagedmember.ts
+  - src/models/pagedmilestone.ts
+  - src/models/pagedorganization.ts
+  - src/models/pagedproject.ts
+  - src/models/pagedrelease.ts
+  - src/models/pagedrepository.ts
+  - src/models/pagedsnapshot.ts
+  - src/models/pagedsnapshotissue.ts
+  - src/models/pagedsnapshotrelease.ts
+  - src/models/pagedsponsor.ts
+  - src/models/project.ts
+  - src/models/projectdetail.ts
+  - src/models/projectlevel.ts
+  - src/models/release.ts
+  - src/models/releasedetail.ts
+  - src/models/repository.ts
+  - src/models/repositorydetail.ts
+  - src/models/security.ts
+  - src/models/snapshot.ts
+  - src/models/snapshotdetail.ts
+  - src/models/snapshotissue.ts
+  - src/models/snapshotrelease.ts
+  - src/models/sponsor.ts
+  - src/models/sponsordetail.ts
+  - src/models/state.ts
+  - src/sdk/chapters.ts
+  - src/sdk/committees.ts
+  - src/sdk/community.ts
+  - src/sdk/events.ts
+  - src/sdk/index.ts
+  - src/sdk/issues.ts
+  - src/sdk/milestones.ts
+  - src/sdk/projects.ts
+  - src/sdk/releases.ts
+  - src/sdk/repositories.ts
+  - src/sdk/sdk.ts
+  - src/sdk/sponsors.ts
+  - src/types/async.ts
+  - src/types/blobs.ts
+  - src/types/constdatetime.ts
+  - src/types/enums.ts
+  - src/types/fp.ts
+  - src/types/index.ts
+  - src/types/operations.ts
+  - src/types/rfcdate.ts
+  - src/types/streams.ts
+  - tsconfig.json
