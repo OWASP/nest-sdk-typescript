@@ -8,12 +8,12 @@ Detail schema for Snapshot (used in single item endpoints).
 import { SnapshotDetail } from "owasp-nest/models";
 
 let value: SnapshotDetail = {
-  createdAt: new Date("2024-07-02T07:36:59.091Z"),
-  endAt: new Date("2024-06-12T21:48:22.996Z"),
+  createdAt: new Date("2025-07-02T07:36:59.091Z"),
+  endAt: new Date("2025-06-12T21:48:22.996Z"),
   key: "<key>",
-  startAt: new Date("2023-01-06T17:37:42.508Z"),
+  startAt: new Date("2024-01-06T17:37:42.508Z"),
   title: "<value>",
-  updatedAt: new Date("2025-05-05T00:55:41.870Z"),
+  updatedAt: new Date("2026-05-05T00:55:41.870Z"),
   newChaptersCount: 74470,
   newIssuesCount: 304545,
   newProjectsCount: 117420,

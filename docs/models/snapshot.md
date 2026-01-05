@@ -8,12 +8,12 @@ Schema for Snapshot (minimal fields for list display).
 import { Snapshot } from "owasp-nest/models";
 
 let value: Snapshot = {
-  createdAt: new Date("2023-01-09T06:18:27.868Z"),
-  endAt: new Date("2025-09-02T16:15:11.480Z"),
+  createdAt: new Date("2024-01-09T06:18:27.868Z"),
+  endAt: new Date("2026-09-02T16:15:11.480Z"),
   key: "<key>",
-  startAt: new Date("2024-12-08T09:56:04.639Z"),
+  startAt: new Date("2025-12-08T09:56:04.639Z"),
   title: "<value>",
-  updatedAt: new Date("2025-06-05T21:10:13.141Z"),
+  updatedAt: new Date("2026-06-05T21:10:13.141Z"),
 };
 ```
 

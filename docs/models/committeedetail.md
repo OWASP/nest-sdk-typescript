@@ -8,10 +8,10 @@ Detail schema for Committee (used in single item endpoints).
 import { CommitteeDetail } from "owasp-nest/models";
 
 let value: CommitteeDetail = {
-  createdAt: new Date("2024-11-15T00:19:05.011Z"),
+  createdAt: new Date("2025-11-15T00:19:05.011Z"),
   key: "<key>",
   name: "<value>",
-  updatedAt: new Date("2025-02-08T09:54:07.606Z"),
+  updatedAt: new Date("2026-02-08T09:54:07.606Z"),
   description: "lumpy carelessly comb hm cosset negotiation",
 };
 ```

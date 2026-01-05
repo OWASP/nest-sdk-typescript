@@ -8,13 +8,18 @@ Detail schema for Project (used in single item endpoints).
 import { ProjectDetail } from "owasp-nest/models";
 
 let value: ProjectDetail = {
-  createdAt: new Date("2025-06-22T18:16:33.527Z"),
+  createdAt: new Date("2026-06-22T18:16:33.527Z"),
   key: "<key>",
   level: "incubator",
   name: "<value>",
-  updatedAt: new Date("2024-05-07T21:49:39.702Z"),
+  updatedAt: new Date("2025-05-07T21:49:39.702Z"),
   description:
     "present unfortunate while back furthermore calmly extent upright failing",
+  leaders: [
+    {
+      name: "<value>",
+    },
+  ],
 };
 ```
 
@@ -28,3 +33,4 @@ let value: ProjectDetail = {
 | `name`                                                                                        | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `updatedAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `description`                                                                                 | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `leaders`                                                                                     | [models.Leader](../models/leader.md)[]                                                        | :heavy_check_mark:                                                                            | N/A                                                                                           |

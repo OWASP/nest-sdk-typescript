@@ -8,11 +8,11 @@ Schema for Milestone (minimal fields for list display).
 import { Milestone } from "owasp-nest/models";
 
 let value: Milestone = {
-  createdAt: new Date("2025-02-23T17:48:45.230Z"),
+  createdAt: new Date("2026-02-23T17:48:45.230Z"),
   number: 628432,
   state: "closed",
   title: "<value>",
-  updatedAt: new Date("2025-02-11T06:49:09.650Z"),
+  updatedAt: new Date("2026-02-11T06:49:09.650Z"),
   url: "https://tinted-linseed.org/",
 };
 ```

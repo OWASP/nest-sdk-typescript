@@ -10,7 +10,7 @@ import { EventDetail } from "owasp-nest/models";
 let value: EventDetail = {
   key: "<key>",
   name: "<value>",
-  startDate: new Date("2023-04-01T11:00:19.930Z"),
+  startDate: new Date("2024-03-31T11:00:19.930Z"),
 };
 ```
 

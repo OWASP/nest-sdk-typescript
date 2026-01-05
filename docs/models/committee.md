@@ -8,10 +8,10 @@ Schema for Committee (minimal fields for list display).
 import { Committee } from "owasp-nest/models";
 
 let value: Committee = {
-  createdAt: new Date("2024-01-26T22:14:04.417Z"),
+  createdAt: new Date("2025-01-25T22:14:04.417Z"),
   key: "<key>",
   name: "<value>",
-  updatedAt: new Date("2023-04-21T09:37:28.131Z"),
+  updatedAt: new Date("2024-04-20T09:37:28.131Z"),
 };
 ```
 

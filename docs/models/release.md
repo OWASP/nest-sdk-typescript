@@ -8,7 +8,7 @@ Schema for Release (minimal fields for list display).
 import { Release } from "owasp-nest/models";
 
 let value: Release = {
-  createdAt: new Date("2023-08-29T17:04:06.701Z"),
+  createdAt: new Date("2024-08-28T17:04:06.701Z"),
   name: "<value>",
   tagName: "<value>",
 };

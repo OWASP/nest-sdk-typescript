@@ -8,10 +8,10 @@ Detail schema for Organization (used in single item endpoints).
 import { OrganizationDetail } from "owasp-nest/models";
 
 let value: OrganizationDetail = {
-  createdAt: new Date("2023-11-06T20:35:16.815Z"),
+  createdAt: new Date("2024-11-05T20:35:16.815Z"),
   login: "Grady13",
   name: "<value>",
-  updatedAt: new Date("2023-04-02T13:28:37.910Z"),
+  updatedAt: new Date("2024-04-01T13:28:37.910Z"),
   company: "Watsica LLC",
   location: "<value>",
 };

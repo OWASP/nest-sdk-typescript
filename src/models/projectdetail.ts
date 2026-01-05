@@ -7,6 +7,7 @@ import { remap as remap$ } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
+import { Leader, Leader$inboundSchema } from "./leader.js";
 import { ProjectLevel, ProjectLevel$inboundSchema } from "./projectlevel.js";
 
 /**
@@ -22,6 +23,7 @@ export type ProjectDetail = {
   name: string;
   updatedAt: Date;
   description: string;
+  leaders: Array<Leader>;
 };
 
 /** @internal */
@@ -36,6 +38,7 @@ export const ProjectDetail$inboundSchema: z.ZodType<
   name: z.string(),
   updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   description: z.string(),
+  leaders: z.array(Leader$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",

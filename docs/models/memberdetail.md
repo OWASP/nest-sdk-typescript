@@ -9,10 +9,10 @@ import { MemberDetail } from "owasp-nest/models";
 
 let value: MemberDetail = {
   avatarUrl: "https://elegant-gripper.com",
-  createdAt: new Date("2023-02-12T03:39:10.844Z"),
+  createdAt: new Date("2024-02-12T03:39:10.844Z"),
   login: "Davonte61",
   name: "<value>",
-  updatedAt: new Date("2025-11-07T19:09:05.955Z"),
+  updatedAt: new Date("2026-11-07T19:09:05.955Z"),
   url: "https://hopeful-arcade.net/",
   bio: "<value>",
   company: "Volkman Inc",

@@ -1,6 +1,6 @@
 {
   "name": "owasp-nest",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "author": "Arkadii Yakovets",
   "type": "module",
   "tshy": {

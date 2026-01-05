@@ -8,10 +8,10 @@ Schema for Issue (minimal fields for list display).
 import { Issue } from "owasp-nest/models";
 
 let value: Issue = {
-  createdAt: new Date("2024-03-03T03:31:43.760Z"),
+  createdAt: new Date("2025-03-03T03:31:43.760Z"),
   state: "open",
   title: "<value>",
-  updatedAt: new Date("2025-08-26T14:28:25.834Z"),
+  updatedAt: new Date("2026-08-26T14:28:25.834Z"),
   url: "https://digital-window.org",
 };
 ```
