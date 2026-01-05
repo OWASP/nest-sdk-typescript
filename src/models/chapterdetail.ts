@@ -7,6 +7,7 @@ import { remap as remap$ } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
+import { Leader, Leader$inboundSchema } from "./leader.js";
 
 /**
  * Detail schema for Chapter (used in single item endpoints).
@@ -19,6 +20,7 @@ export type ChapterDetail = {
   name: string;
   updatedAt: Date;
   country: string;
+  leaders: Array<Leader>;
   region: string;
 };
 
@@ -35,6 +37,7 @@ export const ChapterDetail$inboundSchema: z.ZodType<
   name: z.string(),
   updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   country: z.string(),
+  leaders: z.array(Leader$inboundSchema),
   region: z.string(),
 }).transform((v) => {
   return remap$(v, {

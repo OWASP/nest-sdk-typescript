@@ -8,10 +8,10 @@ Schema for Snapshot Issue (used in list endpoints).
 import { SnapshotIssue } from "owasp-nest/models";
 
 let value: SnapshotIssue = {
-  createdAt: new Date("2025-02-17T11:13:22.712Z"),
+  createdAt: new Date("2026-02-17T11:13:22.712Z"),
   state: "closed",
   title: "<value>",
-  updatedAt: new Date("2025-12-28T06:30:36.486Z"),
+  updatedAt: new Date("2026-12-28T06:30:36.486Z"),
   url: "https://wrathful-couch.net",
   organizationLogin: "<value>",
   repositoryName: "<value>",

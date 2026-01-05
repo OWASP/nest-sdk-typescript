@@ -8,9 +8,9 @@ Schema for Repository (minimal fields for list display).
 import { Repository } from "owasp-nest/models";
 
 let value: Repository = {
-  createdAt: new Date("2024-03-19T13:51:56.756Z"),
+  createdAt: new Date("2025-03-19T13:51:56.756Z"),
   name: "<value>",
-  updatedAt: new Date("2024-01-03T00:04:56.560Z"),
+  updatedAt: new Date("2025-01-02T00:04:56.560Z"),
 };
 ```
 

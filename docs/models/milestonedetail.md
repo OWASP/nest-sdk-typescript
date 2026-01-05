@@ -8,15 +8,15 @@ Detail schema for Milestone (used in single item endpoints).
 import { MilestoneDetail } from "owasp-nest/models";
 
 let value: MilestoneDetail = {
-  createdAt: new Date("2025-03-26T22:14:21.027Z"),
+  createdAt: new Date("2026-03-26T22:14:21.027Z"),
   number: 866324,
   state: "closed",
   title: "<value>",
-  updatedAt: new Date("2025-07-03T06:33:16.416Z"),
+  updatedAt: new Date("2026-07-03T06:33:16.416Z"),
   url: "https://similar-annual.com/",
   body: "<value>",
   closedIssuesCount: 809666,
-  dueOn: new Date("2024-12-17T17:43:12.045Z"),
+  dueOn: new Date("2025-12-17T17:43:12.045Z"),
   openIssuesCount: 433448,
 };
 ```

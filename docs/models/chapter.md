@@ -8,10 +8,10 @@ Schema for Chapter (minimal fields for list display).
 import { Chapter } from "owasp-nest/models";
 
 let value: Chapter = {
-  createdAt: new Date("2025-03-27T00:41:15.646Z"),
+  createdAt: new Date("2026-03-27T00:41:15.646Z"),
   key: "<key>",
   name: "<value>",
-  updatedAt: new Date("2023-01-10T14:09:32.417Z"),
+  updatedAt: new Date("2024-01-10T14:09:32.417Z"),
 };
 ```
 

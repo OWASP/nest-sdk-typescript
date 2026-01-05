@@ -8,9 +8,9 @@ Detail schema for Repository (used in single item endpoints).
 import { RepositoryDetail } from "owasp-nest/models";
 
 let value: RepositoryDetail = {
-  createdAt: new Date("2025-06-19T15:24:46.169Z"),
+  createdAt: new Date("2026-06-19T15:24:46.169Z"),
   name: "<value>",
-  updatedAt: new Date("2023-03-04T21:33:33.510Z"),
+  updatedAt: new Date("2024-03-03T21:33:33.510Z"),
   commitsCount: 91245,
   contributorsCount: 470659,
   forksCount: 448126,

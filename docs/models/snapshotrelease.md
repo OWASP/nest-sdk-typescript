@@ -8,7 +8,7 @@ Schema for Snapshot Release (used in list endpoints).
 import { SnapshotRelease } from "owasp-nest/models";
 
 let value: SnapshotRelease = {
-  createdAt: new Date("2025-07-29T10:25:28.786Z"),
+  createdAt: new Date("2026-07-29T10:25:28.786Z"),
   name: "<value>",
   tagName: "<value>",
   organizationLogin: "<value>",

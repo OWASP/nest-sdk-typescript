@@ -8,7 +8,7 @@ Detail schema for Release (used in single item endpoints).
 import { ReleaseDetail } from "owasp-nest/models";
 
 let value: ReleaseDetail = {
-  createdAt: new Date("2024-11-02T03:21:09.009Z"),
+  createdAt: new Date("2025-11-02T03:21:09.009Z"),
   name: "<value>",
   tagName: "<value>",
   description: "qua rarely utterly tomb hoick",

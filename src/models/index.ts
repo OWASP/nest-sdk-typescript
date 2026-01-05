@@ -10,6 +10,7 @@ export * from "./event.js";
 export * from "./eventdetail.js";
 export * from "./issue.js";
 export * from "./issuedetail.js";
+export * from "./leader.js";
 export * from "./member.js";
 export * from "./memberdetail.js";
 export * from "./membertype.js";

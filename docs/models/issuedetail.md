@@ -8,10 +8,10 @@ Detail schema for Issue (used in single item endpoints).
 import { IssueDetail } from "owasp-nest/models";
 
 let value: IssueDetail = {
-  createdAt: new Date("2025-03-17T01:51:24.196Z"),
+  createdAt: new Date("2026-03-17T01:51:24.196Z"),
   state: "open",
   title: "<value>",
-  updatedAt: new Date("2025-10-25T04:19:33.685Z"),
+  updatedAt: new Date("2026-10-25T04:19:33.685Z"),
   url: "https://trivial-smog.org",
   body: "<value>",
 };
