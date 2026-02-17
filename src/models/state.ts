@@ -5,10 +5,16 @@
 import * as z from "zod/v3";
 import { ClosedEnum } from "../types/enums.js";
 
+/**
+ * Issue state choices.
+ */
 export const State = {
   Open: "open",
   Closed: "closed",
 } as const;
+/**
+ * Issue state choices.
+ */
 export type State = ClosedEnum<typeof State>;
 
 /** @internal */

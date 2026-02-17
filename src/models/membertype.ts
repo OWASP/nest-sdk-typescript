@@ -5,11 +5,17 @@
 import * as z from "zod/v3";
 import { ClosedEnum } from "../types/enums.js";
 
+/**
+ * Member type choices.
+ */
 export const MemberType = {
   Platinum: "Platinum",
   Gold: "Gold",
   Silver: "Silver",
 } as const;
+/**
+ * Member type choices.
+ */
 export type MemberType = ClosedEnum<typeof MemberType>;
 
 /** @internal */

@@ -15,6 +15,9 @@ import { State, State$inboundSchema } from "./state.js";
 export type MilestoneDetail = {
   createdAt: Date;
   number: number;
+  /**
+   * Issue state choices.
+   */
   state: State;
   title: string;
   updatedAt: Date;

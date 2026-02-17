@@ -12,28 +12,24 @@ import { SDKValidationError } from "./errors/sdkvalidationerror.js";
  * Schema for Event (minimal fields for list display).
  */
 export type Event = {
-  endDate?: Date | null | undefined;
+  endDate?: string | null | undefined;
   key: string;
   latitude?: number | null | undefined;
   longitude?: number | null | undefined;
   name: string;
-  startDate: Date;
+  startDate: string;
   url?: string | null | undefined;
 };
 
 /** @internal */
 export const Event$inboundSchema: z.ZodType<Event, z.ZodTypeDef, unknown> = z
   .object({
-    end_date: z.nullable(
-      z.string().datetime({ offset: true }).transform(v => new Date(v)),
-    ).optional(),
+    end_date: z.nullable(z.string()).optional(),
     key: z.string(),
     latitude: z.nullable(z.number()).optional(),
     longitude: z.nullable(z.number()).optional(),
     name: z.string(),
-    start_date: z.string().datetime({ offset: true }).transform(v =>
-      new Date(v)
-    ),
+    start_date: z.string(),
     url: z.nullable(z.string()).optional(),
   }).transform((v) => {
     return remap$(v, {

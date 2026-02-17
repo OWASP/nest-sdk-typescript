@@ -1,5 +1,7 @@
 # State
 
+Issue state choices.
+
 ## Example Usage
 
 ```typescript

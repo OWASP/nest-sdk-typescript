@@ -19,3 +19,4 @@ export * from "./responsevalidationerror.js";
 export * from "./sdkvalidationerror.js";
 export * from "./snapshoterror.js";
 export * from "./sponsorerror.js";
+export * from "./validationerrorschema.js";

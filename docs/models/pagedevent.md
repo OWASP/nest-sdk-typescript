@@ -13,11 +13,11 @@ let value: PagedEvent = {
     {
       key: "<key>",
       name: "<value>",
-      startDate: new Date("2025-07-04T19:18:18.407Z"),
+      startDate: "<value>",
     },
   ],
-  totalCount: 781208,
-  totalPages: 877785,
+  totalCount: 502559,
+  totalPages: 781208,
 };
 ```
 

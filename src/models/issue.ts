@@ -14,6 +14,9 @@ import { State, State$inboundSchema } from "./state.js";
  */
 export type Issue = {
   createdAt: Date;
+  /**
+   * Issue state choices.
+   */
   state: State;
   title: string;
   updatedAt: Date;
