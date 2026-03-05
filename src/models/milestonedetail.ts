@@ -7,7 +7,7 @@ import { remap as remap$ } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
-import { State, State$inboundSchema } from "./state.js";
+import { IssueState, IssueState$inboundSchema } from "./issuestate.js";
 
 /**
  * Detail schema for Milestone (used in single item endpoints).
@@ -15,7 +15,10 @@ import { State, State$inboundSchema } from "./state.js";
 export type MilestoneDetail = {
   createdAt: Date;
   number: number;
-  state: State;
+  /**
+   * Issue state choices.
+   */
+  state: IssueState;
   title: string;
   updatedAt: Date;
   url: string;
@@ -33,7 +36,7 @@ export const MilestoneDetail$inboundSchema: z.ZodType<
 > = z.object({
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   number: z.number().int(),
-  state: State$inboundSchema,
+  state: IssueState$inboundSchema,
   title: z.string(),
   updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   url: z.string(),

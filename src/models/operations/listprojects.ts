@@ -27,6 +27,10 @@ export type ListProjectsRequest = {
    */
   level?: models.ProjectLevel | null | undefined;
   /**
+   * Structured search query (e.g. 'name:security stars:>100')
+   */
+  q?: string | null | undefined;
+  /**
    * Ordering field
    */
   ordering?: ListProjectsOrdering | null | undefined;
@@ -48,6 +52,7 @@ export const ListProjectsOrdering$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export type ListProjectsRequest$Outbound = {
   level?: string | null | undefined;
+  q?: string | null | undefined;
   ordering?: string | null | undefined;
   page: number;
   page_size: number;
@@ -60,6 +65,7 @@ export const ListProjectsRequest$outboundSchema: z.ZodType<
   ListProjectsRequest
 > = z.object({
   level: z.nullable(models.ProjectLevel$outboundSchema).optional(),
+  q: z.nullable(z.string()).optional(),
   ordering: z.nullable(ListProjectsOrdering$outboundSchema).optional(),
   page: z.number().int().default(1),
   pageSize: z.number().int().default(100),

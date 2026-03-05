@@ -33,7 +33,7 @@ export type ListIssuesRequest = {
   /**
    * Issue state
    */
-  state?: models.State | null | undefined;
+  state?: models.IssueState | null | undefined;
   /**
    * Ordering field
    */
@@ -71,7 +71,7 @@ export const ListIssuesRequest$outboundSchema: z.ZodType<
 > = z.object({
   organization: z.nullable(z.string()).optional(),
   repository: z.nullable(z.string()).optional(),
-  state: z.nullable(models.State$outboundSchema).optional(),
+  state: z.nullable(models.IssueState$outboundSchema).optional(),
   ordering: z.nullable(ListIssuesOrdering$outboundSchema).optional(),
   page: z.number().int().default(1),
   pageSize: z.number().int().default(100),

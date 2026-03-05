@@ -7,14 +7,17 @@ import { remap as remap$ } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
-import { State, State$inboundSchema } from "./state.js";
+import { IssueState, IssueState$inboundSchema } from "./issuestate.js";
 
 /**
  * Schema for Issue (minimal fields for list display).
  */
 export type Issue = {
   createdAt: Date;
-  state: State;
+  /**
+   * Issue state choices.
+   */
+  state: IssueState;
   title: string;
   updatedAt: Date;
   url: string;
@@ -26,7 +29,7 @@ export const Issue$inboundSchema: z.ZodType<Issue, z.ZodTypeDef, unknown> = z
     created_at: z.string().datetime({ offset: true }).transform(v =>
       new Date(v)
     ),
-    state: State$inboundSchema,
+    state: IssueState$inboundSchema,
     title: z.string(),
     updated_at: z.string().datetime({ offset: true }).transform(v =>
       new Date(v)

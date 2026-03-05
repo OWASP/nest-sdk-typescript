@@ -158,10 +158,11 @@ run();
 
 ### Errors
 
-| Error Type          | Status Code         | Content Type        |
-| ------------------- | ------------------- | ------------------- |
-| errors.MemberError  | 404                 | application/json    |
-| errors.NestApiError | 4XX, 5XX            | \*/\*               |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ValidationErrorSchema | 400                          | application/json             |
+| errors.MemberError           | 404                          | application/json             |
+| errors.NestApiError          | 4XX, 5XX                     | \*/\*                        |
 
 ## listOrganizations
 
@@ -305,10 +306,11 @@ run();
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| errors.OrganizationError | 404                      | application/json         |
-| errors.NestApiError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ValidationErrorSchema | 400                          | application/json             |
+| errors.OrganizationError     | 404                          | application/json             |
+| errors.NestApiError          | 4XX, 5XX                     | \*/\*                        |
 
 ## listSnapshots
 
@@ -448,10 +450,11 @@ run();
 
 ### Errors
 
-| Error Type           | Status Code          | Content Type         |
-| -------------------- | -------------------- | -------------------- |
-| errors.SnapshotError | 404                  | application/json     |
-| errors.NestApiError  | 4XX, 5XX             | \*/\*                |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ValidationErrorSchema | 400                          | application/json             |
+| errors.SnapshotError         | 404                          | application/json             |
+| errors.NestApiError          | 4XX, 5XX                     | \*/\*                        |
 
 ## listSnapshotChapters
 
