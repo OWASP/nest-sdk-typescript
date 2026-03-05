@@ -39,6 +39,7 @@ export function repositoriesGetRepository(
 ): APIPromise<
   Result<
     models.RepositoryDetail,
+    | errors.ValidationErrorSchema
     | errors.RepositoryError
     | NestError
     | ResponseValidationError
@@ -65,6 +66,7 @@ async function $do(
   [
     Result<
       models.RepositoryDetail,
+      | errors.ValidationErrorSchema
       | errors.RepositoryError
       | NestError
       | ResponseValidationError
@@ -144,7 +146,7 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["404", "4XX", "5XX"],
+    errorCodes: ["400", "404", "4XX", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -159,6 +161,7 @@ async function $do(
 
   const [result] = await M.match<
     models.RepositoryDetail,
+    | errors.ValidationErrorSchema
     | errors.RepositoryError
     | NestError
     | ResponseValidationError
@@ -170,6 +173,7 @@ async function $do(
     | SDKValidationError
   >(
     M.json(200, models.RepositoryDetail$inboundSchema),
+    M.jsonErr(400, errors.ValidationErrorSchema$inboundSchema),
     M.jsonErr(404, errors.RepositoryError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

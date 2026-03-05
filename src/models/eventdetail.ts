@@ -12,12 +12,12 @@ import { SDKValidationError } from "./errors/sdkvalidationerror.js";
  * Detail schema for Event (used in single item endpoints).
  */
 export type EventDetail = {
-  endDate?: Date | null | undefined;
+  endDate?: string | null | undefined;
   key: string;
   latitude?: number | null | undefined;
   longitude?: number | null | undefined;
   name: string;
-  startDate: Date;
+  startDate: string;
   url?: string | null | undefined;
   description?: string | null | undefined;
 };
@@ -28,14 +28,12 @@ export const EventDetail$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  end_date: z.nullable(
-    z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  ).optional(),
+  end_date: z.nullable(z.string()).optional(),
   key: z.string(),
   latitude: z.nullable(z.number()).optional(),
   longitude: z.nullable(z.number()).optional(),
   name: z.string(),
-  start_date: z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  start_date: z.string(),
   url: z.nullable(z.string()).optional(),
   description: z.nullable(z.string()).optional(),
 }).transform((v) => {

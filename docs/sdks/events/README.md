@@ -145,7 +145,8 @@ run();
 
 ### Errors
 
-| Error Type          | Status Code         | Content Type        |
-| ------------------- | ------------------- | ------------------- |
-| errors.EventError   | 404                 | application/json    |
-| errors.NestApiError | 4XX, 5XX            | \*/\*               |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ValidationErrorSchema | 400                          | application/json             |
+| errors.EventError            | 404                          | application/json             |
+| errors.NestApiError          | 4XX, 5XX                     | \*/\*                        |

@@ -27,7 +27,7 @@ export type ListMilestonesRequest = {
   /**
    * Milestone state
    */
-  state?: models.State | null | undefined;
+  state?: models.IssueState | null | undefined;
   ordering?: ListMilestonesOrdering | null | undefined;
   /**
    * Page number
@@ -62,7 +62,7 @@ export const ListMilestonesRequest$outboundSchema: z.ZodType<
 > = z.object({
   organization: z.nullable(z.string()).optional(),
   repository: z.nullable(z.string()).optional(),
-  state: z.nullable(models.State$outboundSchema).optional(),
+  state: z.nullable(models.IssueState$outboundSchema).optional(),
   ordering: z.nullable(ListMilestonesOrdering$outboundSchema).optional(),
   page: z.number().int().default(1),
   pageSize: z.number().int().default(100),
