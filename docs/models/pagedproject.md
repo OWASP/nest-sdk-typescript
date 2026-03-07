@@ -15,11 +15,12 @@ let value: PagedProject = {
       key: "<key>",
       level: "flagship",
       name: "<value>",
-      updatedAt: new Date("2026-02-01T10:06:36.962Z"),
+      type: "other",
+      updatedAt: new Date("2024-10-04T03:24:43.718Z"),
     },
   ],
-  totalCount: 252867,
-  totalPages: 805365,
+  totalCount: 805365,
+  totalPages: 938852,
 };
 ```
 

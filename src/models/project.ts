@@ -8,6 +8,7 @@ import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 import { ProjectLevel, ProjectLevel$inboundSchema } from "./projectlevel.js";
+import { ProjectType, ProjectType$inboundSchema } from "./projecttype.js";
 
 /**
  * Schema for Project (minimal fields for list display).
@@ -20,6 +21,10 @@ export type Project = {
    */
   level: ProjectLevel;
   name: string;
+  /**
+   * Enum for OWASP project types.
+   */
+  type: ProjectType;
   updatedAt: Date;
 };
 
@@ -32,6 +37,7 @@ export const Project$inboundSchema: z.ZodType<Project, z.ZodTypeDef, unknown> =
     key: z.string(),
     level: ProjectLevel$inboundSchema,
     name: z.string(),
+    type: ProjectType$inboundSchema,
     updated_at: z.string().datetime({ offset: true }).transform(v =>
       new Date(v)
     ),

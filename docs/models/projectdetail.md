@@ -12,14 +12,11 @@ let value: ProjectDetail = {
   key: "<key>",
   level: "incubator",
   name: "<value>",
-  updatedAt: new Date("2025-05-07T21:49:39.702Z"),
+  type: "documentation",
+  updatedAt: new Date("2026-07-18T20:40:33.712Z"),
   description:
-    "present unfortunate while back furthermore calmly extent upright failing",
-  leaders: [
-    {
-      name: "<value>",
-    },
-  ],
+    "ill cumbersome guest through quietly incidentally ack hunt minus",
+  leaders: [],
 };
 ```
 
@@ -31,6 +28,7 @@ let value: ProjectDetail = {
 | `key`                                                                                         | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `level`                                                                                       | [models.ProjectLevel](../models/projectlevel.md)                                              | :heavy_check_mark:                                                                            | Enum for OWASP project levels.                                                                |
 | `name`                                                                                        | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `type`                                                                                        | [models.ProjectType](../models/projecttype.md)                                                | :heavy_check_mark:                                                                            | Enum for OWASP project types.                                                                 |
 | `updatedAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `description`                                                                                 | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `leaders`                                                                                     | [models.Leader](../models/leader.md)[]                                                        | :heavy_check_mark:                                                                            | N/A                                                                                           |

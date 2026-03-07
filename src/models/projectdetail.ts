@@ -9,6 +9,7 @@ import { Result as SafeParseResult } from "../types/fp.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 import { Leader, Leader$inboundSchema } from "./leader.js";
 import { ProjectLevel, ProjectLevel$inboundSchema } from "./projectlevel.js";
+import { ProjectType, ProjectType$inboundSchema } from "./projecttype.js";
 
 /**
  * Detail schema for Project (used in single item endpoints).
@@ -21,6 +22,10 @@ export type ProjectDetail = {
    */
   level: ProjectLevel;
   name: string;
+  /**
+   * Enum for OWASP project types.
+   */
+  type: ProjectType;
   updatedAt: Date;
   description: string;
   leaders: Array<Leader>;
@@ -36,6 +41,7 @@ export const ProjectDetail$inboundSchema: z.ZodType<
   key: z.string(),
   level: ProjectLevel$inboundSchema,
   name: z.string(),
+  type: ProjectType$inboundSchema,
   updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   description: z.string(),
   leaders: z.array(Leader$inboundSchema),
