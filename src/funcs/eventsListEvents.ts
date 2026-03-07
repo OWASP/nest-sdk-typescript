@@ -90,6 +90,7 @@ async function $do(
   const path = pathToFunc("/api/v0/events/")();
 
   const query = encodeFormQuery({
+    "category": payload?.category,
     "is_upcoming": payload?.is_upcoming,
     "latitude_gte": payload?.latitude_gte,
     "latitude_lte": payload?.latitude_lte,

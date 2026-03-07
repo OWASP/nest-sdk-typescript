@@ -5,6 +5,7 @@
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { ClosedEnum } from "../../types/enums.js";
+import * as models from "../index.js";
 
 /**
  * Ordering field
@@ -42,6 +43,10 @@ export type ListEventsRequest = {
    */
   longitudeLte?: number | null | undefined;
   /**
+   * Filter events by category
+   */
+  category?: Array<models.Category> | null | undefined;
+  /**
    * Ordering field
    */
   ordering?: ListEventsOrdering | null | undefined;
@@ -70,6 +75,7 @@ export type ListEventsRequest$Outbound = {
   latitude_lte?: number | null | undefined;
   longitude_gte?: number | null | undefined;
   longitude_lte?: number | null | undefined;
+  category?: Array<string> | null | undefined;
   ordering?: string | null | undefined;
   is_upcoming?: boolean | null | undefined;
   page: number;
@@ -86,6 +92,7 @@ export const ListEventsRequest$outboundSchema: z.ZodType<
   latitudeLte: z.nullable(z.number()).optional(),
   longitudeGte: z.nullable(z.number()).optional(),
   longitudeLte: z.nullable(z.number()).optional(),
+  category: z.nullable(z.array(models.Category$outboundSchema)).optional(),
   ordering: z.nullable(ListEventsOrdering$outboundSchema).optional(),
   isUpcoming: z.nullable(z.boolean()).optional(),
   page: z.number().int().default(1),

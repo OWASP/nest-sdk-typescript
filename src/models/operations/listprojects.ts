@@ -31,6 +31,10 @@ export type ListProjectsRequest = {
    */
   q?: string | null | undefined;
   /**
+   * Type of the project
+   */
+  type?: Array<models.ProjectType> | null | undefined;
+  /**
    * Ordering field
    */
   ordering?: ListProjectsOrdering | null | undefined;
@@ -53,6 +57,7 @@ export const ListProjectsOrdering$outboundSchema: z.ZodNativeEnum<
 export type ListProjectsRequest$Outbound = {
   level?: string | null | undefined;
   q?: string | null | undefined;
+  type?: Array<string> | null | undefined;
   ordering?: string | null | undefined;
   page: number;
   page_size: number;
@@ -66,6 +71,7 @@ export const ListProjectsRequest$outboundSchema: z.ZodType<
 > = z.object({
   level: z.nullable(models.ProjectLevel$outboundSchema).optional(),
   q: z.nullable(z.string()).optional(),
+  type: z.nullable(z.array(models.ProjectType$outboundSchema)).optional(),
   ordering: z.nullable(ListProjectsOrdering$outboundSchema).optional(),
   page: z.number().int().default(1),
   pageSize: z.number().int().default(100),

@@ -95,6 +95,7 @@ async function $do(
     "page": payload?.page,
     "page_size": payload?.page_size,
     "q": payload?.q,
+    "type": payload?.type,
   });
 
   const headers = new Headers(compactMap({
