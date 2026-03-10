@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 89dd6fea-30bf-42cc-8446-2c3015a2c4ba
 management:
-  docChecksum: 545c12547e303fe6942e0edb12cf45ac
-  docVersion: 0.3.6
-  speakeasyVersion: 1.748.0
-  generationVersion: 2.852.1
-  releaseVersion: 0.4.1
-  configChecksum: aef4d6959067a8f01f56eb7ab878e4fe
+  docChecksum: ac15b37ce9b41c9103d7dd523c6c90f7
+  docVersion: 0.4.1
+  speakeasyVersion: 1.750.0
+  generationVersion: 2.856.1
+  releaseVersion: 0.5.0
+  configChecksum: d4dd7c9c7341d8c337c708a03d190a0b
   repoURL: https://github.com/OWASP/nest-sdk-typescript.git
   installationURL: https://github.com/OWASP/nest-sdk-typescript
   published: true
 persistentEdits:
-  generation_id: d0d2dfda-64b4-4beb-a60a-e51e1aa7fad9
-  pristine_commit_hash: 8eee9c5e90b67f3de4a228727ccd05759c8ba4d3
-  pristine_tree_hash: e66af8d6d433e358fceade1172a9c556b1a0572d
+  generation_id: c24eb50f-3350-4a96-9a56-9ffd97ed3a86
+  pristine_commit_hash: c0dcb1d5bd7636ed28c7dc3f5541872ca8b68931
+  pristine_tree_hash: 6532f21ce47bae5005b744a7e9ece8e1a0e1d789
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -259,8 +259,8 @@ trackedFiles:
     pristine_git_object: c6f136226eabcdcc9fa7f6b9ecd9ab44dae7988e
   docs/models/operations/listmembersordering.md:
     id: e1923d20e0ac
-    last_write_checksum: sha1:34376bc0e97df60826494689410e6f50af517b65
-    pristine_git_object: ab04628b6d1dce4f3aaa669ff0ec67237cdfbef1
+    last_write_checksum: sha1:cec01245b9a64850d3441b992134b823cfc8f8e7
+    pristine_git_object: 67fdee01ae2df2641ef5169fbf16b0932afbf38c
   docs/models/operations/listmembersrequest.md:
     id: ba2671c3338c
     last_write_checksum: sha1:e78f2102b67b49f0fabd2eedbb4ef28339e96523
@@ -547,12 +547,12 @@ trackedFiles:
     pristine_git_object: 14cf5c18a7ed596164b58260ee00b69f0537b7b3
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:103e3ad811db69104fe45d8f713e19cc427f8b57
-    pristine_git_object: f3e04080d4f09c798e390d556c1a8ac230913ff9
+    last_write_checksum: sha1:6debb6c111a86a1e9b232d7fb8e6eb9581506940
+    pristine_git_object: 7d3cefe4eb7cd63ebb966869fecd23e33272db47
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:b3db5576240845c2ae7a261a00a556f6469f5da1
-    pristine_git_object: f1173951880638d21d86de74babaa2d57b5aafbb
+    last_write_checksum: sha1:5c8fb4b122edf15de369ab003f2a463dee9a9e74
+    pristine_git_object: abaf8864651d96b1d0f0f07e727d29ac84c198b2
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:8a547590fe97773e91cf7a1441c593ccdc1a8064
@@ -695,8 +695,8 @@ trackedFiles:
     pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:d713b41eb796babe96b2fc62cfca86d9fd06ef58
-    pristine_git_object: 7f2750879c879f9a0f28260928096612af730d43
+    last_write_checksum: sha1:f72e3166de390bd352b498c7865821b1246a6476
+    pristine_git_object: 70e3e546488864ad5c090f2c96879f60b5090dc0
   src/lib/dlv.ts:
     id: b1988214835a
     last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
@@ -967,8 +967,8 @@ trackedFiles:
     pristine_git_object: 39c9469a5a3a25774ed4f8b7cf1f307afa4609d6
   src/models/operations/listmembers.ts:
     id: b46a5c60a45d
-    last_write_checksum: sha1:8a48d7947d4d0fde95e11a0846afc9eea00e1a63
-    pristine_git_object: 08e629fa8581fe331e8be0f729d46a0fae79bd4c
+    last_write_checksum: sha1:2a073e7b693d03254f8430b58580ab857f368c19
+    pristine_git_object: 5201acac29809c9983e9c239bcf42924345d2f0e
   src/models/operations/listmilestones.ts:
     id: 9cc6738682ae
     last_write_checksum: sha1:78f5a35a77cf0fe18953398018ba9266130d2294
@@ -1654,7 +1654,7 @@ examples:
         "200":
           application/json: {"current_page": 719171, "has_next": true, "has_previous": false, "items": [], "total_count": 715591, "total_pages": 776129}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `nest.events.listEvents()`: \n  *  `request.category` **Added**\n* `nest.community.listSnapshotProjects()`:  `response.items[].type` **Added**\n* `nest.projects.listProjects()`: \n  *  `request.type` **Added**\n  *  `response.items[].type` **Added**\n* `nest.projects.getProject()`:  `response.type` **Added**\n"
+releaseNotes: "## Typescript SDK Changes:\n* `nest.community.listMembers()`: \n  *  `request.ordering` **Changed**\n"
 generatedFiles:
   - .gitattributes
   - .npmignore

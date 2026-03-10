@@ -7,11 +7,11 @@ Ordering field
 ```typescript
 import { ListMembersOrdering } from "owasp-nest/models/operations";
 
-let value: ListMembersOrdering = "-updated_at";
+let value: ListMembersOrdering = "login";
 ```
 
 ## Values
 
 ```typescript
-"created_at" | "-created_at" | "updated_at" | "-updated_at"
+"created_at" | "-created_at" | "updated_at" | "-updated_at" | "name" | "-name" | "login" | "-login"
 ```
