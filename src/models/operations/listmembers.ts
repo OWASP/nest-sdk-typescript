@@ -14,6 +14,10 @@ export const ListMembersOrdering = {
   MinusCreatedAt: "-created_at",
   UpdatedAt: "updated_at",
   MinusUpdatedAt: "-updated_at",
+  Name: "name",
+  MinusName: "-name",
+  Login: "login",
+  MinusLogin: "-login",
 } as const;
 /**
  * Ordering field
